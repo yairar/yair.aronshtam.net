@@ -153,7 +153,7 @@
 	width: 100%;
 }
 .camera_caption > div {
-	padding: 50px 20px;
+	padding: 20px 20px;
 }
 .camerarelative {
 	overflow: hidden;
@@ -428,7 +428,7 @@
 }
 .camera_caption > div {
 	background: #000;
-	background: rgba(0, 0, 0, 0.8);
+	background: rgba(0, 0, 0, 0.5);
 }
 .camera_wrap .camera_pag .camera_pag_ul li {
 	background: #b7b7b7;

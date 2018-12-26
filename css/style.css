@@ -13,7 +13,9 @@ body {
 	padding: 0;
 	margin: 0;
 	background: #FFF;
-	font-family: 'Open Sans', sans-serif;
+	/*font-family: 'Open Sans', sans-serif;*/
+	font-family: 'Rubik', sans-serif;
+	font-size: 14px;
 }
 
 body a {
@@ -45,14 +47,14 @@ h1, h2, h3, h4, h5, h6 {
 	margin: 0;
 	padding: 0;
 	text-align: center;
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Rubik', sans-serif;
 }
 
 p {
 	margin: 0;
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Rubik', sans-serif;
 	font-weight: 300;
-	font-size: 14px;
+	font-size: 1.4em;
 }
 
 ul {
@@ -100,6 +102,7 @@ a:focus, a:hover {
 	/*--w3layouts--*/
 	/*--agileits--*/
 	font-size: 50px;
+	direction: rtl;
 }
 
 .camera_caption h3 a {
@@ -137,7 +140,7 @@ section.cd-section {
 
 .cd-bouncy-nav-modal {
 	position: fixed;
-	z-index: 1;
+	z-index: 100;
 	top: 0;
 	left: 0;
 	width: 100%;
@@ -338,11 +341,11 @@ section.cd-section {
 }
 
 .cd-bouncy-nav li:nth-of-type(2) a::before {
-	background-position: -80px 0;
+	background-position: -160px 0;
 }
 
 .cd-bouncy-nav li:nth-of-type(3) a::before {
-	background-position: -160px 0;
+	background-position: -80px 0;
 }
 
 .cd-bouncy-nav li:nth-of-type(4) a::before {
@@ -492,6 +495,7 @@ section.cd-section {
 
 .agileaboutaits-info {
 	padding-left: 0;
+	
 }
 
 .agileaboutaits-image-1 {
@@ -508,16 +512,18 @@ section.cd-section {
 }
 
 .agileaboutaits h1 {
-	text-align: left;
+	text-align: right;
 	color: #FFF;
 	margin-bottom: 30px;
 	font-size: 40px;
+	direction: rtl;
 }
 
 .agileaboutaits p {
 	line-height: 30px;
 	color: #CCC;
 	margin-bottom: 50px;
+	direction: rtl;
 }
 
 .agileaboutaits button.btn {
@@ -562,7 +568,8 @@ section.cd-section {
 }
 
 .w3threespecialityw3ls h2 {
-	text-align: left;
+	direction: rtl;
+	text-align: center;
 	margin-bottom: 30px;
 	font-size: 40px;
 }
@@ -687,7 +694,7 @@ section.cd-section {
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
-	padding: 100px 0;
+	padding: 180px 0;
 }
 
 #skills h3 {
@@ -780,7 +787,7 @@ section.cd-section {
 }
 
 .portfolio h3 {
-	text-align: left;
+	text-align: center;
 	margin-bottom: 30px;
 	font-size: 40px;
 	margin-left: 345px;
@@ -932,7 +939,7 @@ section.cd-section {
 		}
 
 		.tabs-style-bar nav ul li a span {
-			font-family: 'Montserrat', sans-serif;
+			font-family: 'Rubik', sans-serif;
 			letter-spacing: 1px;
 			/*--w3layouts--*/
 			/*--agileits--*/
@@ -1087,6 +1094,7 @@ section.cd-section {
 /*-- Map --*/
 .map-container {
 	width: 100%;
+	margin-top: 5em;
 }
 #map {
 	width: 100%;
@@ -1109,7 +1117,7 @@ section.cd-section {
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	color: #FFF;
-	padding: 150px 0;
+	padding: 180px 0;
 }
 
 .w3layoutsbooking h3 {
@@ -1139,8 +1147,9 @@ section.cd-section {
 
 .footer h3 {
 	color: #009688;
-	font-size: 35px;
+	font-size: 3em;
 	margin-bottom: 40px;
+	direction: rtl;
 }
 
 .footer-grids {
@@ -1150,9 +1159,11 @@ section.cd-section {
 .footer h5 {
 	width: 65%;
 	margin: 0 auto;
-	line-height: 30px;
+	line-height: 1.6em;
+	font-size: 1.4em;
 	color: #009688;
-	font-family: 'Open Sans', sans-serif;
+	text-align: right;
+	direction: rtl;
 }
 
 .footer-grid {
@@ -1160,9 +1171,10 @@ section.cd-section {
 }
 
 .footer h4 {
-	font-size: 18px;
-	text-align: left;
+	font-size: 1.4em;
+	text-align: center;
 	margin-bottom: 20px;
+	direction: ltr;
 }
 
 address {
@@ -1227,25 +1239,33 @@ address {
 	line-height: 25px;
 }
 
+.canvas-demo {
+	height: 578px;
+}
+
 .copyright {
 	padding: 50px 10px;
 	text-align: center;
-	border-top: 1px solid #CCC;
+	/*border-top: 1px solid #CCC;*/
 	color: #009688;
 }
 
 .copyright p {
 	line-height: 25px;
+	direction: rtl;
 }
 
 .copyright a {
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Rubik', sans-serif;
 	color: #009688;
-	font-weight: 600;
 }
 
 .copyright a:hover {
 	color: #009688;
+}
+
+.footer i {
+	vertical-align: middle;
 }
 
 a.to-top {
@@ -1452,6 +1472,8 @@ a.to-top {
 	}
 	.footer h5 {
 		width: 70%;
+		text-align: right;
+		direction: rtl;
 	}
 }
 
@@ -1465,6 +1487,8 @@ a.to-top {
 	.footer h5 {
 		width: 75%;
 		line-height: 28px;
+		text-align: right;
+		direction: rtl;		
 	}
 	.footer-grid {
 		width: 33.3%;
@@ -1515,9 +1539,15 @@ a.to-top {
 	.footer h5 {
 		width: 80%;
 		line-height: 26px;
+		text-align: right;
+		direction: rtl;
 	}
 	.footer h4 {
 		margin-bottom: 10px;
+		font-size: 1em;
+	}
+	.canvas-demo {
+		height: 200px;
 	}
 }
 
@@ -1539,6 +1569,8 @@ a.to-top {
 	}
 	.footer h5 {
 		width: 85%;
+		text-align: right;
+		direction: rtl;
 	}
 }
 
@@ -1616,6 +1648,8 @@ a.to-top {
 	.footer h5 {
 		width: 100%;
 		font-size: 13px;
+		text-align: right;
+		direction: rtl;
 	}
 	.agileheaderw3ls {
 		padding-bottom: 389px;
@@ -1871,6 +1905,8 @@ a.to-top {
 	.footer h5 {
 		line-height: 24px;
 		text-align: left;
+		text-align: right;
+		direction: rtl;
 	}
 	p {
 		font-size: 13px;
