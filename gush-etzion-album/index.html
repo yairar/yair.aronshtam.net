@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
+<title>אלבום גוש עציון</title>
+<meta property="og:title" content="אלבום גוש עציון" />
+<meta property="og:image" content="https://yair.aronshtam.net/gush-etzion-album/img/screen2.jpg" />
+<meta property="og:type" content="website" />
+<meta property="og:description" content="מאות תמונות שמציגות את יופיו הייחודי לאורך כל עונות השנה ואת אופיו המגוון לפי נושאים" />
+<meta property="og:url" content="https://yair.aronshtam.net/gush-etzion-album/" />
+<meta property="og:site_name" content="יאיר ארונשטם - צילומים של גוש עציון וטבע ישראלי" />
+
+<meta name="description" content="אלבום גוש עציון" />
+<meta name="keywords" content="אלבום של גוש עציון. צילומים של יאיר ארונשטם" />
+<meta name="author" content="יאיר ארונשטם" />
+<link rel="shortcut icon" href="../favicon.ico">
+<link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+<link rel="stylesheet" type="text/css" href="css/demo.css" />
+<link rel="stylesheet" type="text/css" href="css/component.css" />
+<!--[if IE]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<!--Photoswipe-->
+<link rel='stylesheet' href='css/photoswipe.css'>
+<link rel='stylesheet' href='css/default-skin.css'>
+<!--/photoswipe-->
+
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-365845-5', 'auto');
+	ga('send', 'pageview');
+</script>
+</head>
+<body>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element, as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. PhotoSwipe keeps only 3 slides in DOM to save memory. -->
+        <div class="pswp__container">
+            <!-- don't modify these 3 pswp__item elements, data is added later on -->
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+          </div>
+        </div>
+</div>
+<!-- photoswipe -->
+
+<div class="container">
+	<!-- Top Navigation -->
+	<div class="codrops-top clearfix">
+		<a class="codrops-icon codrops-icon-prev" href="https://yair.aronshtam.net/"><span>חזרה</span></a>
+	</div>
+	<header class="codrops-header">
+		<h1>אלבום גוש עציון  <span>מאות תמונות שמציגות את יופיו הייחודי לאורך כל עונות השנה ואת אופיו המגוון לפי נושאים</span></h1>	
+	</header>
+	<div class="grid">
+		<figure class="effect-honey" onclick="openPhotoSwipe('bicycle');">
+			<img src="img/bicycle.jpg"/>
+			<figcaption>
+				<h2>טיולי <span>אופניים</span> <i></i></h2>
+			</figcaption>			
+		</figure>
+		<figure class="effect-sadie" onclick="openPhotoSwipe('maayan');">
+			<img src="img/maayan.jpg"/>
+			<figcaption>
+				<h2> <span>מעיינות</span></h2>
+				<p></p>
+			</figcaption>			
+		</figure>
+		<figure class="effect-roxy" onclick="openPhotoSwipe('vineyard');">
+			<img src="img/kramim.jpg" alt="img01"/>
+			<figcaption>
+				<h2> <span>כרמים</span></h2>
+				<!--p>Enjoy a breathtaking views</p-->
+			</figcaption>			
+		</figure>
+		<figure class="effect-roxy" onclick="openPhotoSwipe('sunset');">
+			<img src="img/sunset.jpg" alt="img03"/>
+			<figcaption>
+				<h2> <span>שקיעות</span></h2>
+				<p></p>
+			</figcaption>			
+		</figure>		
+		<figure class="effect-layla" onclick="openPhotoSwipe('derehavot');">
+			<img src="img/derehavot.jpg"/>
+			<figcaption>
+				<h2><span>דרך האבות</span></h2>
+				<p></p>
+			</figcaption>			
+		</figure>
+		<figure class="effect-milo" onclick="openPhotoSwipe('nahalhapirim');">
+			<img src="img/nahalhapirim.jpg"/>
+			<figcaption>
+				<h2><span>נחל הפירים</span></h2>
+				<p></p>
+			</figcaption>			
+		</figure>			
+		<figure class="effect-marley" onclick="openPhotoSwipe('yaartkoa');">
+			<img src="img/yaartkoa.jpg"/>
+			<figcaption>
+				<h2>יער <span>תקוע</span></h2>
+				<!--p>מקום מיוחד</p-->
+			</figcaption>			
+		</figure>
+		<figure class="effect-honey" onclick="openPhotoSwipe('lookout');">
+			<img src="img/lookout.jpg"/>
+			<figcaption>
+				<h2> <span>מצפורים</span></h2>
+				<!--p>Amazing views</p-->
+			</figcaption>			
+		</figure>
+		<figure class="effect-honey" onclick="openPhotoSwipe('forest');">
+			<img src="img/forest.jpg"/>
+			<figcaption>
+				<h2> <span>יערות</span></h2>
+				<!--p>Amazing views</p-->
+			</figcaption>			
+		</figure>
+		<figure class="effect-sadie" onclick="openPhotoSwipe('emekbracha');">
+			<img src="img/emekbracha.jpg"/>
+			<figcaption>
+				<h2> <span>עמק ברכה</span></h2>
+				<p></p>
+			</figcaption>			
+		</figure>		
+		<figure class="effect-oscar" onclick="openPhotoSwipe('archeology');">
+			<img src="img/archeology.jpg"/>
+			<figcaption>
+				<h2><span>ארכאולוגיה</span></h2>
+				<p></p>
+			</figcaption>			
+		</figure>
+		<figure class="effect-honey" onclick="openPhotoSwipe('farm');">
+			<img src="img/farm.jpg"/>
+			<figcaption>
+				<h2> <span>חוות</span></h2>
+				<!--p>Amazing views</p-->
+			</figcaption>			
+		</figure>
+		<figure class="effect-sadie" onclick="openPhotoSwipe('minzarharusi');">
+			<img src="img/minzarharusi.jpg"/>
+			<figcaption>
+				<h2> <span>מנזר הרוסי</span></h2>
+				<p></p>
+			</figcaption>			
+		</figure>	
+		<figure class="effect-oscar" onclick="openPhotoSwipe('helmoniyot');">
+			<img src="img/helmoniyot.jpg"/>
+			<figcaption>
+				<h2><span>חלמוניות</span></h2>
+				<p></p>
+			</figcaption>			
+		</figure>
+		<figure class="effect-roxy" onclick="openPhotoSwipe('nahaltkoa');">
+			<img src="img/nahaltkoa.jpg"/>
+			<figcaption>
+				<h2><span>נחל תקוע</span></h2>
+				<p></p>
+			</figcaption>			
+		</figure>		
+		<figure class="effect-honey" onclick="openPhotoSwipe('herodion');">
+			<img src="img/herodion.jpg"/>
+			<figcaption>
+				<h2> <span>הרודיון</span></h2>
+			</figcaption>			
+		</figure>
+		<figure class="effect-oscar" onclick="openPhotoSwipe('nahalheletz');">
+			<img src="img/nahalheletz.jpg"/>
+			<figcaption>
+				<h2><span>נחל חלץ</span></h2>
+			</figcaption>			
+		</figure>
+		<figure class="effect-layla" onclick="openPhotoSwipe('vadi');">
+			<img src="img/vadi.jpg"/>
+			<figcaption>
+				<h2><span>ואדיות</span></h2>
+				<p></p>
+			</figcaption>			
+		</figure>
+		<figure class="effect-marley" onclick="openPhotoSwipe('ozvegaon');">
+			<img src="img/ozvegaon.jpg"/>
+			<figcaption>
+				<h2> <span>שמורת עוז וגאון</span></h2>
+			</figcaption>			
+		</figure>		
+		<figure class="effect-layla" onclick="openPhotoSwipe('nevedaniel');">
+			<img src="img/nevedaniel.jpg"/>
+			<figcaption>
+				<h2> <span>נוה דניאל</span></h2>
+			</figcaption>			
+		</figure>
+		<figure class="effect-honey" onclick="openPhotoSwipe('batayin');">
+			<img src="img/batayin.jpg"/>
+			<figcaption>
+				<h2> <span>בת עין</span></h2>
+				<!--p>Amazing views</p-->
+			</figcaption>			
+		</figure>
+		<figure class="effect-roxy" onclick="openPhotoSwipe('efrat');">
+			<img src="img/efrat.jpg"/>
+			<figcaption>
+				<h2> <span>אפרת</span></h2>
+				<!--p>Amazing views</p-->
+			</figcaption>			
+		</figure>
+		<figure class="effect-marley" onclick="openPhotoSwipe('bloom');">
+			<img src="img/bloom.jpg"/>
+			<figcaption>
+				<h2> <span>פריחה</span></h2>
+			</figcaption>			
+		</figure>			
+		<figure class="effect-oscar" onclick="openPhotoSwipe('spring');">
+			<img src="img/spring.jpg"/>
+			<figcaption>
+				<h2> <span>אביב</span></h2>
+				<p>העונה הכי יפה בשנה</p>
+			</figcaption>			
+		</figure>		
+		<figure class="effect-oscar" onclick="openPhotoSwipe('winter');">
+			<img src="img/winter.jpg"/>
+			<figcaption>
+				<h2> <span>חורף</span></h2>
+				<p>שלג כל שנה</p>
+			</figcaption>			
+		</figure>
+		<figure class="effect-oscar"  onclick="openPhotoSwipe('autumn');">
+			<img src="img/autumn.jpg"/>
+			<figcaption>
+				<h2> <span>סתיו</span></h2>
+				<p>שלכת</p>
+			</figcaption>			
+		</figure>		
+		<figure class="effect-oscar" onclick="openPhotoSwipe('summer');">
+			<img src="img/summer.jpg"/>
+			<figcaption>
+				<h2> <span>קיץ</span></h2>
+				<p>זמן של חופש</p>
+			</figcaption>			
+		</figure>
+		<figure class="effect-bubba" onclick="openPhotoSwipe('ALL');">
+			<img src="img/all.jpg"/>
+			<figcaption>
+				<h2> <span>כל התמונות</span></h2>
+				<p></p>
+			</figcaption>			
+		</figure>
+	</div>
+	<!-- Related demos -->
+	<section class="related">
+		<p><a href="https://yair.aronshtam.net/">yair.aronshtam.net</a></p>
+		<br><br>
+		<p><strong>אלבומים נוספים</strong></p>
+		<a href="../gush-etzion-mosaic/">
+			<img src="img/rel1.jpg" />
+			<h3>פסיפס של גוש עציון</h3>
+		</a>
+		<a href="../gush-etzion-spring/">
+			<img src="img/rel2.jpg" />
+			<h3>אביב בגוש עציון</h3>
+		</a-->
+	</section>
+</div><!-- /container -->
+<script>
+	// For Demo purposes only
+	[].slice.call( document.querySelectorAll('a[href="#"') ).forEach( function(el) {
+		el.addEventListener( 'click', function(ev) { ev.preventDefault(); } );
+	} );
+</script>
+
+<script src='js/photoswipe.min.js'></script>
+<script src='js/photoswipe-ui-default.min.js'></script><script  src="js/script.js"></script>
+
+</body>
+</html>
