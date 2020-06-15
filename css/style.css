@@ -791,7 +791,7 @@ section.cd-section {
 	text-align: center;
 	margin-bottom: 30px;
 	font-size: 40px;
-	margin-left: 345px;
+	/*margin-left: 345px;*/
 }
 
 	/*-- Tabs --*/
@@ -1138,7 +1138,18 @@ section.cd-section {
 
 /*-- //Booking --*/
 
-
+.paralax2 {
+	background: url("../images/album.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	color: #FFF;
+	padding: 300px 0;
+}
 
 /*-- Footer --*/
 
@@ -1340,17 +1351,11 @@ a.to-top {
 	.agileheaderw3ls {
 		padding-bottom: 832px;
 	}
-	.portfolio h3 {
-		margin-left: 225px;
-	}
 }
 
 @media screen and (max-width: 1600px) {
 	.agileheaderw3ls {
 		padding-bottom: 792px;
-	}
-	.portfolio h3 {
-		margin-left: 185px;
 	}
 }
 
@@ -1358,17 +1363,11 @@ a.to-top {
 	.agileheaderw3ls {
 		padding-bottom: 712px;
 	}
-	.portfolio h3 {
-		margin-left: 105px;
-	}
 }
 
 @media screen and (max-width: 1366px) {
 	.agileheaderw3ls {
 		padding-bottom: 675px;
-	}
-	.portfolio h3 {
-		margin-left: 65px;
 	}
 }
 
@@ -1412,7 +1411,7 @@ a.to-top {
 	.camera_caption h3 {
 		font-size: 40px;
 	}
-	.agileaboutaitsabout, .w3threespecialityw3ls, .progressive-effects, .portfolio, .w3layoutsbooking {
+	.agileaboutaitsabout, .w3threespecialityw3ls, .progressive-effects, .portfolio, .w3layoutsbooking, .paralax2 {
 		padding: 75px 0;
 	}
 	.agileaboutaits h1 {
@@ -1582,7 +1581,7 @@ a.to-top {
 	.camera_caption h3 {
 		font-size: 35px;
 	}
-	.agileaboutaitsabout, .w3threespecialityw3ls, .progressive-effects, .portfolio, .w3layoutsbooking {
+	.agileaboutaitsabout, .w3threespecialityw3ls, .progressive-effects, .portfolio, .w3layoutsbooking. .paralax2 {
 		padding: 50px 0;
 	}
 	.agileaboutaits h1, .w3threespecialityw3ls h2, #skills h3, .portfolio h3, .w3layoutsbooking h3 {
@@ -1761,7 +1760,7 @@ a.to-top {
 	.agileheaderw3ls {
 		padding-bottom: 276px;
 	}
-	.agileaboutaitsabout, .w3threespecialityw3ls, .progressive-effects, .portfolio, .w3layoutsbooking {
+	.agileaboutaitsabout, .w3threespecialityw3ls, .progressive-effects, .portfolio, .w3layoutsbooking, .paralax2 {
 		padding: 35px 0;
 	}
 	.agileaboutaits h1, .w3threespecialityw3ls h2, #skills h3, .portfolio h3, .w3layoutsbooking h3, .footer h3 {
