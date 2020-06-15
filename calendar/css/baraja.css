@@ -62,3 +62,12 @@ ul.baraja-container li {
 	font-size: 18px;
 	line-height: 20px;
 }
+
+/* Navigation Style */
+.frame__nav {
+	/*display: none;*/
+    position: absolute;
+	z-index: 100;
+	top: 1em;
+	left: 1em;
+}
