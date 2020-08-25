@@ -26,7 +26,7 @@ var items = [
 {src:'image/bloom3.jpg', w:1600, h:1067, title:'דרום אדום', tags: 'bloom daromadom spring israel best'},
 {src:'image/bloom4.jpg', w:1600, h:1002, title:'ליד שדה בועז', tags: 'bloom winter gush'},
 {src:'image/bloom5.jpg', w:785, h:1000, title:'נחל תקוע', tags: 'bloom spring gush'},
-{src:'image/bloom6.jpg', w:1600, h:1067, title:'נחל תקוע', tags: 'bloom spring gush'},
+{src:'image/bloom6.jpg', w:1600, h:1069, title:'', tags: 'bloom spring gush best'},
 {src:'image/bloom7.jpg', w:1600, h:1067, title:'שקדיות באפרת', tags: 'bloom spring gush'},
 {src:'image/bloom8.jpg', w:1600, h:1067, title:'אמת הביאר', tags: 'bloom spring gush'},
 {src:'image/bloom9.jpg', w:1600, h:1067, title:'נחל תקוע', tags: 'bloom winter gush'},
@@ -40,6 +40,7 @@ var items = [
 {src:'image/bloom17.jpg', w:1600, h:1066, title:'פארק עדולם', tags: 'bloom adulam spring israel'},
 {src:'image/bloom18.jpg', w:1600, h:1066, title:'שקדיה בנחל תקוע', tags: 'bloom nahaltkoa spring gush'},
 {src:'image/bloom19.jpg', w:1600, h:1067, title:'שקדיה בנחל תקוע', tags: 'bloom nahaltkoa spring gush'},
+{src:'image/bloom20.jpg', w:1600, h:1067, title:'נחל תקוע', tags: 'bloom spring gush'},
 
 {src:'image/bluecave1.jpg', w:1600, h:1200, title:'מערה הכחולה', tags: 'bluecave summer israel best'},
 
@@ -68,6 +69,10 @@ var items = [
 {src:'image/einitzhak7.jpg', w:1600, h:1067, title:"עין יצחק (עין סג'מה)", tags: 'maayan summer gush'},
 
 {src:'image/einlivne5.jpg', w:1600, h:1200, title:"עין ליבנה", tags: 'maayan summer gush'},
+
+{src:'image/einprat1.jpg', w:1600, h:1529, title:"עין פרת", tags: 'maayan winter israel'},
+{src:'image/einprat2.jpg', w:1600, h:1200, title:"עין פרת", tags: 'maayan winter israel best'},
+{src:'image/einprat3.jpg', w:1600, h:1200, title:"עין פרת", tags: 'maayan winter israel'},
 
 {src:'image/foresteretzayalim1.jpg', w:1600, h:1068, title:"יער ארץ האיילים", tags: 'forest spring landscape gush'},
 {src:'image/foresteretzayalim4.jpg', w:1600, h:1068, title:"יער ארץ האיילים", tags: 'forest bloom autumn gush'},
