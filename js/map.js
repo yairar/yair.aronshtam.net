@@ -72,108 +72,64 @@ var locations = [
 
 
 function initMap() {
-    var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 14,
-        center: {lat: 31.67007854996975, lng: 35.149426079718296}
-    });
-    setMarkers(map);
+	
+	var mymap = L.map('map').setView([31.67007854996975, 35.149426079718296], 15);
+	
+	L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+		maxZoom: 18,
+		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
+			'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+		id: 'mapbox/streets-v11',
+		tileSize: 512,
+		zoomOffset: -1
+	}).addTo(mymap);
+	
+	setMarkers(mymap);
 }
 
 function setMarkers(map) {
     // Adds markers to the map.
-
-    // Marker sizes are expressed as a Size of X,Y where the origin of the image
-    // (0,0) is located in the top left of the image.
-
-    // Origins, anchor positions and coordinates of the marker increase in the X
-    // direction to the right and in the Y direction down.
-    var image = {
-        /*url: 'images/icon2.png',*/
-        // This marker is 20 pixels wide by 32 pixels high.
-        size: new google.maps.Size(32, 32),
-        // The origin for this image is (0, 0).
-        origin: new google.maps.Point(0, 0),
-        // The anchor for this image is the base of the flagpole at (0, 32).
-        anchor: new google.maps.Point(0, 32)
-    };
-    // Shapes define the clickable region of the icon. The type defines an HTML
-    // <area> element 'poly' which traces out a polygon as a series of X,Y points.
-    // The final coordinate closes the poly by connecting to the first coordinate.
-    var shape = {
-        coords: [1, 1, 1, 32, 32, 32, 32, 1],
-        type: 'poly'
-    };
     
+	var img_url='';
+	var label, title_txt, popupHtml, numOfPhotos;
+	
     /* Reading locations from array */
-        locations.forEach(function(point) {
-			
-			if (point[5] != null) {
-				image.url = 'images/map/icon_'+point[5]+'.png';
-			}
-			
-            var marker = new google.maps.Marker({
-                position: {lat: parseFloat(point[1]), lng: parseFloat(point[2])},
-                map: map,
-                icon: image,
-                shape: shape,
-                title: point[4],    // Base name of file for all photos
-                zIndex: parseInt(point[3]),
-                label: point[0],    // title in Hebrew
-                animation: google.maps.Animation.DROP,
-                
-            });
-            marker.addListener('click', showInfoWindow);
-        });
+	locations.forEach(function(point) {
+		/*
+			label: point[0], // title in Hebrew
+			Latitude: point[1],
+			Longtitude: point[2],
+			Number of photos: point[3],
+			title: point[4], // Base name of file for all photos
+		*/
+		label = point[0];
+		numOfPhotos = point[3];
+		title_txt = point[4];		
+		if (point[5] != null) {
+			img_url = 'images/map/'+title_txt+'.jpg';
+		}
+		popupHtml = '<img src="'+img_url+'" width="100%"><br><div align="center">'+label+'</div>';
+		var photos = [];
+		for (var i=1; i<=numOfPhotos; i++) {
+			photos.push({href: 'images/map/big/'+title_txt+i+'.jpg', title: '('+i+' of '+numOfPhotos+') '+label});
+		}
+		
+		var popup = L.popup({minWidth: 300})
+		             .setContent(popupHtml);
+					 
+		L.marker([parseFloat(point[1]), parseFloat(point[2])], {title: label})
+		 .bindTooltip(label)
+		 .addTo(map)
+		 .bindPopup(popup)
+		 .on('click', function( e ) {
+						//e.preventDefault();
+						jQuery(function($) {
+							$.swipebox(photos);
+						});
+					  }
+         );  
+    });
 
 } /* setMarkers */
 
-function showInfoWindow() {
-    // Close previous infowindow if it was not closed by user
-    if (infowindow) {
-        infowindow.close();
-    }
-    
-    var name = this.getTitle();
-    var locationsEntryIndex = findEntryByName(name);
-    var infoWindowImageExtension = locations[locationsEntryIndex][6];
-    
-    var label = this.getLabel();
-    var numOfPhotos = this.getZIndex();
-    var photos = [];
-    for (var i=1; i<=numOfPhotos; i++) {
-        photos.push({href: 'images/map/big/'+name+i+'.jpg', title: label});
-    }
-    /*console.log(photos);*/
-    var contentHtml = '<p align="center">'+label+'<br><a href="#"><img src="images/map/'+name+'.'+infoWindowImageExtension+'" id="'+name+'"></a></p>';
-
-    infowindow = new google.maps.InfoWindow({
-            content: contentHtml,
-            maxWidth: 400
-        });
-    
-    google.maps.event.addListener(infowindow, 'domready', function() {
-        /*console.log(infowindow);*/
-        var elem = document.getElementById(name);
-        elem.onclick = function( e ) {
-                            e.preventDefault();
-                            jQuery(function($) {
-                                $.swipebox(photos);
-                            });
-                        }
-    });
-
-    infowindow.open(map, this);
-
-} /* showInfoWindow */
-
-
-/* returns index of entry in locations array */
-function findEntryByName(name) {
-    
-    for (var i=0; i<locations.length; i++)
-    {
-        if (name == locations[i][4]) {
-            return i;
-        }
-    }
-}
+initMap();
