@@ -114,7 +114,11 @@ function setMarkers(map) {
 			photos.push({href: 'images/map/big/'+title_txt+i+'.jpg', title: '('+i+' of '+numOfPhotos+') '+label});
 		}
 		
-		var popup = L.popup({minWidth: 300})
+		var min_width = 300;
+		if (window.screen.width < 1000) {
+			min_width = 100;
+		}
+		var popup = L.popup({minWidth: min_width})
 		             .setContent(popupHtml);
 					 
 		L.marker([parseFloat(point[1]), parseFloat(point[2])], {title: label})
