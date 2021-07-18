@@ -198,15 +198,18 @@ var items = [
 {src:'image/minzarharusi7.jpg', w:1600, h:1069, title:"מנזר הרוסי", tags: 'minzarharusi spring'},
 {src:'image/minzarharusi8.jpg', w:700, h:1000, title:"מערת הנזירים במנזר הרוסי", tags: 'minzarharusi spring cave'},
 
-{src:'image/mishlatnekudahamishit1.jpg', w:1400, h:1050, title:"משלט הנקודה החמישית", tags: 'mishlat5 winter'},
+{src:'image/mishlatnekudahamishit1.jpg', w:1400, h:1050, title:"משלט הנקודה החמישית", tags: 'mishlat5 winter forest'},
+{src:'image/mishlatnekudahamishit2.jpg', w:1400, h:1050, title:"משלט הנקודה החמישית בזריחה", tags: 'mishlat5 summer sunrise forest'},
+{src:'image/mishlatnekudahamishit3.jpg', w:1400, h:1050, title:"משלט הנקודה החמישית בזריחה", tags: 'mishlat5 summer sunrise forest'},
+{src:'image/mishlatnekudahamishit4.jpg', w:1400, h:1050, title:"משלט הנקודה החמישית", tags: 'mishlat5 summer forest'},
 
 {src:'image/mitzporarifuld1.jpg', w:1800, h:833, title:'מצפה על שם ארי פולד ז"ל', tags: 'mitzporarifuld lookout summer'},		
 {src:'image/mitzporarifuld2.jpg', w:1600, h:900, title:'מצפה על שם ארי פולד ז"ל', tags: 'mitzporarifuld lookout spring'},		
 {src:'image/mitzporarifuld3.jpg', w:1600, h:1200, title:'מצפה על שם ארי פולד ז"ל', tags: 'mitzporarifuld lookout summer'},
 
-{src:'image/mitzporderehavot1.jpg', w:2000, h:850, title:'מצפור על דרך האבות (אבן המיל ה-12)', tags: 'mitzporderehavot lookout summer'},
-{src:'image/mitzporderehavot2.jpg', w:1600, h:1067, title:'מצפור על דרך האבות (אבן המיל ה-12)', tags: 'mitzporderehavot lookout summer'},
-{src:'image/mitzporderehavot3.jpg', w:1600, h:1600, title:'מצפור על דרך האבות (אבן המיל ה-12)', tags: 'mitzporderehavot lookout summer'},
+{src:'image/mitzporderehavot1.jpg', w:2000, h:850, title:'מצפור על דרך האבות (אבן המיל ה-12)', tags: 'mitzporderehavot lookout spring'},
+{src:'image/mitzporderehavot2.jpg', w:1600, h:1067, title:'מצפור על דרך האבות (אבן המיל ה-12)', tags: 'mitzporderehavot lookout spring'},
+{src:'image/mitzporderehavot3.jpg', w:1600, h:1600, title:'מצפור על דרך האבות (אבן המיל ה-12)', tags: 'mitzporderehavot lookout spring'},
 		
 {src:'image/mitzporhaelef1.jpg', w:1800, h:513, title:'מצפור האלף', tags: 'mitzporhaelef lookout summer'},		
 {src:'image/mitzporhaelef2.jpg', w:1904, h:800, title:'מצפור האלף', tags: 'mitzporhaelef lookout summer'},		
@@ -262,6 +265,8 @@ var items = [
 {src:'image/nahalheletz7.jpg', w:1600, h:1200, title:'נחל חלץ', tags: 'nahalheletz autumn'},
 {src:'image/nahalheletz8.jpg', w:1400, h:1050, title:'צניר בנחל חלץ', tags: 'nahalheletz summer'},
 {src:'image/nahalheletz9.jpg', w:1600, h:625, title:'פנורמה נחל חלץ', tags: 'nahalheletz summer'},
+{src:'image/nahalheletz10.jpg', w:1400, h:1050, title:'רוכבים בנחל חלץ', tags: 'nahalheletz summer bicycle'},
+{src:'image/nahalheletz11.jpg', w:1400, h:1050, title:'רוכבים בנחל חלץ', tags: 'nahalheletz summer bicycle'},
 
 {src:'image/nahalnaamanim1.jpg', w:1400, h:1050, title:'מערה קטנה בנחל נעמנים', tags: 'nahalnaamanim summer cave'},
 
