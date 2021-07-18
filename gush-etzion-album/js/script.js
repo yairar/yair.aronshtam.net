@@ -30,8 +30,10 @@ var items = [
 {src:'image/bloom11.jpg', w:1600, h:1067, title:'ליד שדה בועז', tags: 'bloom spring'},
 {src:'image/bloom12.jpg', w:846, h:1000, title:'נחל תקוע', tags: 'bloom spring'},
 
+{src:'image/boruziyahu1.jpg', w:1400, h:1050, title:'בור עוזיהו באזור נחל דרגה', tags: 'cave summer'},
+
 {src:'image/brihatdubek1.jpg', w:1600, h:1066, title:'בריכת דובק', tags: 'brihatdubek maayan winter'},
-{src:'image/brihatdubek2.jpg', w:1600, h:1198, title:'בריכת דובק', tags: 'brihatdubek maayan summer'},
+{src:'image/brihatdubek2.jpg', w:1400, h:1050, title:'בריכת דובק', tags: 'brihatdubek maayan summer'},
 {src:'image/brihatdubek3.jpg', w:1600, h:1133, title:'בריכת דובק', tags: 'brihatdubek maayan summer'},
 {src:'image/brihatdubek4.jpg', w:1600, h:1200, title:'בריכת דובק', tags: 'brihatdubek maayan summer'},
 {src:'image/brihatdubek5.jpg', w:1600, h:1200, title:'בריכת דובק', tags: 'brihatdubek maayan winter'},
@@ -54,6 +56,8 @@ var items = [
 {src:'image/derehavot15.jpg', w:1600, h:1067, title:'סינגל דרך האבות', tags: 'derehavot bicycle summer'},
 {src:'image/derehavot16.jpg', w:1400, h:933, title:'סינגל דרך האבות', tags: 'derehavot winter'},
 {src:'image/derehavot17.jpg', w:1400, h:1050, title:'סינגל דרך האבות', tags: 'derehavot autumn'},
+{src:'image/derehavot18.jpg', w:675, h:900, title:'מקווה בדרך האבות', tags: 'derehavot winter cave'},
+{src:'image/derehavot19.jpg', w:1400, h:933, title:'מקווה בדרך האבות', tags: 'derehavot winter cave'},
 
 {src:'image/direlbanat1.jpg', w:1600, h:900, title:'דיר אל בנאת', tags: 'direlbanat archeology spring'},
 {src:'image/direlbanat2.jpg', w:1600, h:900, title:'דיר אל בנאת', tags: 'direlbanat archeology spring'},
@@ -80,7 +84,7 @@ var items = [
 	
 {src:'image/einelmeara1.jpg', w:1600, h:1200, title:'עין אל מערה', tags: 'maayan bloom spring'},
 {src:'image/einelmeara2.jpg', w:1600, h:1200, title:'עין אל מערה', tags: 'maayan winter'},
-{src:'image/einelmeara3.jpg', w:1600, h:1200, title:'עין אל מערה', tags: 'maayan winter'},
+{src:'image/einelmeara3.jpg', w:1600, h:1200, title:'עין אל מערה', tags: 'maayan winter cave'},
 {src:'image/einelmeara4.jpg', w:1400, h:1050, title:'עין אל מערה', tags: 'maayan winter'},
 
 {src:'image/einhubela1.jpg', w:1400, h:1050, title:'עין חובלה', tags: 'maayan spring'},
@@ -103,16 +107,16 @@ var items = [
 {src:'image/einlivne5.jpg', w:1600, h:1200, title:"עין ליבנה", tags: 'maayan summer'},
 
 {src:'image/eintzurim1.jpg', w:1600, h:782, title:"עין צורים", tags: 'maayan spring'},
-{src:'image/eintzurim2.jpg', w:1600, h:1066, title:"עין צורים", tags: 'maayan spring'},
-{src:'image/eintzurim3.jpg', w:1600, h:1067, title:"עין צורים", tags: 'maayan spring'},
-{src:'image/eintzurim4.jpg', w:1600, h:1067, title:"עין צורים", tags: 'maayan spring'},
+{src:'image/eintzurim2.jpg', w:1600, h:1066, title:"עין צורים", tags: 'maayan spring cave'},
+{src:'image/eintzurim3.jpg', w:1600, h:1067, title:"עין צורים", tags: 'maayan spring cave'},
+{src:'image/eintzurim4.jpg', w:1600, h:1067, title:"עין צורים", tags: 'maayan spring cave'},
 {src:'image/eintzurim5.jpg', w:1400, h:1050, title:"עין צורים", tags: 'maayan summer'},
 {src:'image/eintzurim6.jpg', w:1400, h:957, title:"עין צורים", tags: 'maayan summer'},
 
 {src:'image/eitam1.jpg', w:1800, h:882, title:"תל עיטם", tags: 'teleitam archeology spring'},
 {src:'image/eitam2.jpg', w:1600, h:900, title:"תל עיטם", tags: 'teleitam archeology spring'},
 {src:'image/eitam3.jpg', w:1600, h:900, title:"תל עיטם", tags: 'teleitam archeology spring'},
-{src:'image/eitam4.jpg', w:563, h:1000, title:"תל עיטם", tags: 'teleitam archeology spring'},
+{src:'image/eitam4.jpg', w:563, h:1000, title:"מערכת המים של תל עיטם", tags: 'teleitam archeology spring cave'},
 {src:'image/eitam5.jpg', w:1600, h:1065, title:"תל עיטם", tags: 'teleitam archeology spring'},
 
 {src:'image/emekbracha1.jpg', w:1600, h:900, title:"עמק ברכה", tags: 'emekbracha summer'},
@@ -133,6 +137,13 @@ var items = [
 {src:'image/forestzait2.jpg', w:1600, h:1157, title:"יער בזית, אפרת", tags: 'forest autumn'},
 {src:'image/forestzait3.jpg', w:1600, h:1067, title:"יער בזית, אפרת", tags: 'forest bicycle summer'},
 {src:'image/forestzait4.jpg', w:1600, h:1067, title:"יער בזית, אפרת", tags: 'forest bicycle summer'},
+
+{src:'image/givathahish1.jpg', w:1400, h:1050, title:'גבעת החי"ש', tags: 'givathahish bloom spring'},
+{src:'image/givathahish2.jpg', w:1400, h:1050, title:'מקווה עתיק בגבעת החי"ש', tags: 'givathahish spring'},
+{src:'image/givathahish3.jpg', w:1400, h:1050, title:'גבעת החי"ש', tags: 'givathahish bloom spring'},
+{src:'image/givathahish4.jpg', w:1400, h:1050, title:'גבעת החי"ש', tags: 'givathahish spring'},
+{src:'image/givathahish5.jpg', w:1400, h:1050, title:'גבעת החי"ש', tags: 'givathahish spring'},
+{src:'image/givathahish6.jpg', w:1400, h:1050, title:'מערה בגבעת החי"ש', tags: 'givathahish spring cave'},
 
 {src:'image/havateitam1.jpg', w:1600, h:1067, title:"חוות עיטם", tags: 'farm autumn'},
 {src:'image/havateitam2.jpg', w:1600, h:1200, title:"חוות עיטם", tags: 'farm autumn'},
@@ -158,6 +169,7 @@ var items = [
 {src:'image/herodion2.jpg', w:1600, h:1073, title:"הרודיון", tags: 'herodion spring'},
 {src:'image/herodion3.jpg', w:721, h:1000, title:"הרודיון", tags: 'herodion archeology spring'},
 {src:'image/herodion4.jpg', w:1400, h:933, title:"הרודיון", tags: 'herodion archeology autumn'},
+{src:'image/herodion5.jpg', w:1400, h:1050, title:"מערכת מחילות בתוך הרודיון", tags: 'herodion archeology spring cave'},
 
 {src:'image/hirbetjumjum1.jpg', w:1964, h:600, title:"חירבת ג'ומג'ום", tags: 'autumn'},
 {src:'image/hirbetjumjum2.jpg', w:1600, h:900, title:"חירבת ג'ומג'ום", tags: 'archeology autumn'},
@@ -165,17 +177,26 @@ var items = [
 {src:'image/hirbetjumjum4.jpg', w:1600, h:1068, title:"חירבת ג'ומג'ום", tags: 'archeology autumn'},
 {src:'image/hirbetjumjum5.jpg', w:1600, h:943, title:"חירבת ג'ומג'ום", tags: 'archeology summer'},
 {src:'image/hirbetjumjum6.jpg', w:1400, h:1050, title:"חירבת ג'ומג'ום", tags: 'winter'},
+{src:'image/hirbetjumjum7.jpg', w:1400, h:1050, title:"מערה בחירבת ג'ומג'ום", tags: 'cave archeology'},
+{src:'image/hirbetjumjum8.jpg', w:1400, h:933, title:"מערה בחירבת ג'ומג'ום", tags: 'cave archeology'},
 
 {src:'image/hurva1.jpg', w:1600, h:1200, title:"חורבה ליד עין אבו כלאב", tags: 'archeology spring'},
 {src:'image/hurva2.jpg', w:1600, h:1155, title:"חורבה ליד מנזר הרוסי", tags: 'archeology spring'},
 
+{src:'image/migdaloz1.jpg', w:1400, h:1050, title:"חירבת ברכות במגדל עוז", tags: 'migdaloz archeology cave spring'},
+{src:'image/migdaloz2.jpg', w:1400, h:1050, title:"חירבת ברכות במגדל עוז", tags: 'migdaloz archeology cave spring'},
+{src:'image/migdaloz3.jpg', w:1400, h:1050, title:"חירבת ברכות במגדל עוז", tags: 'migdaloz archeology cave spring'},
+{src:'image/migdaloz4.jpg', w:1400, h:1050, title:"חירבת ברכות במגדל עוז", tags: 'migdaloz archeology spring bloom'},
+{src:'image/migdaloz5.jpg', w:1400, h:1050, title:"חירבת ברכות במגדל עוז", tags: 'migdaloz archeology spring bloom'},
+
 {src:'image/minzarharusi1.jpg', w:667, h:1000, title:"מנזר הרוסי", tags: 'minzarharusi spring'},
 {src:'image/minzarharusi2.jpg', w:1600, h:1200, title:"מנזר הרוסי", tags: 'minzarharusi archeology spring'},
-{src:'image/minzarharusi3.jpg', w:750, h:1000, title:"מנזר הרוסי", tags: 'minzarharusi spring'},
-{src:'image/minzarharusi4.jpg', w:1600, h:1200, title:"מנזר הרוסי", tags: 'minzarharusi spring'},
+{src:'image/minzarharusi3.jpg', w:750, h:1000, title:"מערת הנזירים במנזר הרוסי", tags: 'minzarharusi spring cave'},
+{src:'image/minzarharusi4.jpg', w:1600, h:1200, title:"מערת הנזירים במנזר הרוסי", tags: 'minzarharusi spring cave'},
 {src:'image/minzarharusi5.jpg', w:1600, h:1600, title:"מנזר הרוסי", tags: 'minzarharusi spring'},
-{src:'image/minzarharusi6.jpg', w:1600, h:1067, title:"מנזר הרוסי", tags: 'minzarharusi spring'},
+{src:'image/minzarharusi6.jpg', w:1600, h:1067, title:"מערת הנזירים במנזר הרוסי", tags: 'minzarharusi spring cave'},
 {src:'image/minzarharusi7.jpg', w:1600, h:1069, title:"מנזר הרוסי", tags: 'minzarharusi spring'},
+{src:'image/minzarharusi8.jpg', w:700, h:1000, title:"מערת הנזירים במנזר הרוסי", tags: 'minzarharusi spring cave'},
 
 {src:'image/mishlatnekudahamishit1.jpg', w:1400, h:1050, title:"משלט הנקודה החמישית", tags: 'mishlat5 winter'},
 
@@ -228,6 +249,9 @@ var items = [
 {src:'image/nahalhapirim25.jpg', w:1600, h:900, title:'נחל הפירים', tags: 'nahalhapirim autumn'},
 {src:'image/nahalhapirim26.jpg', w:1400, h:985, title:'נחל הפירים', tags: 'nahalhapirim autumn'},
 {src:'image/nahalhapirim27.jpg', w:1400, h:933, title:'שקיעה מעל נחל הפירים (נוף משכונת זית)', tags: 'nahalhapirim summer efrat sunset lookout'},
+{src:'image/nahalhapirim28.jpg', w:1400, h:1050, title:'אחד הפירים בנחל הפירים', tags: 'nahalhapirim summer cave'},
+{src:'image/nahalhapirim29.jpg', w:1400, h:933, title:'בתוך אחד הפירים בנחל הפירים', tags: 'nahalhapirim summer cave'},
+{src:'image/nahalhapirim30.jpg', w:1400, h:1050, title:'מערה קטנה בנחל הפירים', tags: 'nahalhapirim autumn cave'},
 
 {src:'image/nahalheletz1.jpg', w:1600, h:1200, title:'נחל חלץ', tags: 'nahalheletz sunrize autumn'},
 {src:'image/nahalheletz2.jpg', w:1600, h:1069, title:'נחל חלץ', tags: 'nahalheletz autumn'},
@@ -238,6 +262,8 @@ var items = [
 {src:'image/nahalheletz7.jpg', w:1600, h:1200, title:'נחל חלץ', tags: 'nahalheletz autumn'},
 {src:'image/nahalheletz8.jpg', w:1400, h:1050, title:'צניר בנחל חלץ', tags: 'nahalheletz summer'},
 {src:'image/nahalheletz9.jpg', w:1600, h:625, title:'פנורמה נחל חלץ', tags: 'nahalheletz summer'},
+
+{src:'image/nahalnaamanim1.jpg', w:1400, h:1050, title:'מערה קטנה בנחל נעמנים', tags: 'nahalnaamanim summer cave'},
 
 {src:'image/nahaltkoa1.jpg', w:1600, h:1066, title:'נחל תקוע', tags: 'nahaltkoa spring'},
 {src:'image/nahaltkoa2.jpg', w:1600, h:900, title:'נחל תקוע', tags: 'nahaltkoa winter'},
@@ -253,6 +279,13 @@ var items = [
 {src:'image/nahaltkoa12.jpg', w:1400, h:1050, title:'נחל תקוע', tags: 'nahaltkoa spring'},
 {src:'image/nahaltkoa13.jpg', w:1400, h:1050, title:'נחל תקוע', tags: 'nahaltkoa winter'},
 {src:'image/nahaltkoa14.jpg', w:1400, h:1050, title:'נחל תקוע', tags: 'nahaltkoa winter archeology'},
+{src:'image/nahaltkoa15.jpg', w:1400, h:1050, title:'בור העמודים באזור נחל תקוע', tags: 'nahaltkoa winter archeology cave'},
+{src:'image/nahaltkoa16.jpg', w:1400, h:1050, title:'בור העמודים באזור נחל תקוע', tags: 'nahaltkoa winter archeology cave'},
+{src:'image/nahaltkoa17.jpg', w:1400, h:1050, title:'בור העמודים באזור נחל תקוע', tags: 'nahaltkoa winter archeology cave'},
+{src:'image/nahaltkoa18.jpg', w:1400, h:1050, title:'מערה בנחל תקוע', tags: 'nahaltkoa spring archeology cave'},
+{src:'image/nahaltkoa19.jpg', w:1400, h:1050, title:'מערה בנחל תקוע', tags: 'nahaltkoa spring archeology cave'},
+{src:'image/nahaltkoa20.jpg', w:1400, h:1050, title:'מערה בנחל תקוע', tags: 'nahaltkoa winter archeology cave'},
+{src:'image/nahaltkoa21.jpg', w:1400, h:1050, title:'מערה בנחל תקוע', tags: 'nahaltkoa winter archeology cave'},
 
 {src:'image/nahaltzofit1.jpg', w:1567, h:701, title:'נחל צופית', tags: 'nahaltzofit batayin vadi autumn'},
 {src:'image/nahaltzofit2.jpg', w:1600, h:1067, title:'נחל צופית', tags: 'nahaltzofit vadi spring'},
