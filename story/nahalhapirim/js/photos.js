@@ -47,9 +47,17 @@ var items = [
 {src:'images/map/big/nahalpirim52.jpg',w:675, h:900, title:'נחל הפירים', tags: 'bloom'},
 {src:'images/map/big/nahalpirim54.jpg',w:1200, h:900, title:'נחל הפירים', tags: 'bloom'},
 {src:'images/map/big/nahalpirim55.jpg',w:1200, h:900, title:'נחל הפירים', tags: 'bloom'},
-{src:'images/map/big/nahalpirim59.jpg',w:1200, h:866, title:'נחל הפירים', tags: 'bloom'},
+{src:'images/map/big/nahalpirim59.jpg',w:1200, h:800, title:'נחל הפירים', tags: 'bloom'},
 {src:'images/map/big/nahalpirim69.jpg',w:675, h:900, title:'נחל הפירים', tags: 'bloom'},
 {src:'images/map/big/nahalpirim76.jpg',w:1200, h:926, title:'נחל הפירים', tags: 'bloom'},
+
+{src:'images/map/big/nahalpirim17.jpg',w:1200, h:675, title:'נחל הפירים', tags: 'sport'},
+{src:'images/map/big/nahalpirim58.jpg',w:1200, h:900, title:'נחל הפירים', tags: 'sport'},
+{src:'images/map/big/nahalpirim67.jpg',w:1200, h:801, title:'נחל הפירים', tags: 'sport'},
+{src:'images/map/big/nahalpirim68.jpg',w:1200, h:800, title:'נחל הפירים', tags: 'sport'},
+{src:'images/map/big/nahalpirim80.jpg',w:1200, h:800, title:'נחל הפירים', tags: 'sport bloom'},
+{src:'images/map/big/nahalpirim81.jpg',w:1200, h:800, title:'נחל הפירים', tags: 'sport bloom'},
+
 ];
 
 function openPhotoSwipe(subsetTag) {

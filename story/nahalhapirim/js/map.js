@@ -6,7 +6,7 @@ var infowindow;
 var locations = [
 // [0] - Title in Hebrew, [1,2] - Position, [3]-Number of photos, [4]-Base name for all photos, [5]-Type of marker(point/...)
 
-["נחל הפירים", "31.674398300128082", "35.161425508689945",      "79", "nahalpirim", 	"point", "jpg"],
+["נחל הפירים", "31.674398300128082", "35.161425508689945",      "81", "nahalpirim", 	"point", "jpg"],
 ['עין אל מערה',"31.67050868087125", "35.15433374805457",        "10",  "einelmeara",     "point", "jpg"],
 ['אמת הביאר',  "31.66040868087125", "35.15003374805457",       	"10",  "amathabiar",	    "point", "jpg"],
 ];
