@@ -99,6 +99,29 @@ function openPhotoSwipe(subsetTag) {
     gallery.init();
 };
 
+function openPhotoSwipeVideo(id) {
+	
+	var itemsSubset =[
+	  {
+		html: '<video controls autoplay><source src="images/video/'+id+'.mp4" type="video/mp4"></video>'
+	  },
+	];
+	
+	var pswpElement = document.querySelectorAll('.pswp')[0];
+    // define options (if needed)
+    var options = {
+      	history: false,
+	
+		shareButtons: [
+			{id:'facebook', label:'Share on Facebook', url:'https://www.facebook.com/sharer/sharer.php?u={{url}}'}
+		]
+        
+    };
+
+    var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, itemsSubset, options);
+    gallery.init();	
+}
+
 //openPhotoSwipe(1);
 
 //document.getElementById('btn1').onclick = openPhotoSwipe(1);
