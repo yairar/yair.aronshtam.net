@@ -1,0 +1,28 @@
+
+.parallax1 {
+	background: url("../images/parallax1.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;
+	/*--w3layouts--*/
+	/*--agileits--*/
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	padding: 180px 0;
+}
+
+.parallax2 {
+	background: url("../images/parallax2.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;
+	/*--w3layouts--*/
+	/*--agileits--*/
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	padding: 180px 0;
+}
