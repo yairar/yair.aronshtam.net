@@ -137,16 +137,30 @@ section {
 	text-align: center;
 }
 
-@media screen and (max-width: 25em) {
+/*****************************************/
 
-	.codrops-header {
-		font-size: 50%;
-	}
+.parallax1 {
+	background: url("../images/parallax1.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	padding: 180px 0;
+}
 
-	.codrops-icon span {
-		display: none;
-	}
-
+.parallax2 {
+	background: url("../images/parallax2.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	padding: 180px 0;
 }
 
 .maintext {
@@ -159,23 +173,13 @@ section {
 	margin: 0 auto;
 	padding: 2em 1em;
 }
-.story {
-	padding: 100px 0;
-}
-
-.story h2 {
-	direction: rtl;
-	text-align: center;
-	margin-bottom: 30px;
-	font-size: 40px;
-}
 
 .map-container h4 {
-	
 	direction: rtl;
 	text-align: center;
 	
 }
+
 .yt-container {
 /*border: 1px solid white;*/
 	width: 100%;
@@ -183,9 +187,27 @@ section {
 	margin: 0 auto;
 	padding: 2em 0;
 }
+.yt-container iframe {
+	width: 560px;
+	height: 315px;
+}
 
-@media screen and (max-width: 25em) {
+@media screen and (max-width: 415px) {
+	.codrops-header {
+		font-size: 50%;
+	}
+
+	.codrops-icon span {
+		display: none;
+	}
+	
+	.parallax1, .parallax2 {
+		/*background-size: contain;*/
+		padding: 120px 0;
+	}
+	
 	.yt-container iframe {
-		width: 100%;
+		width: 360px;
+		height: 203px;
 	}
 }
