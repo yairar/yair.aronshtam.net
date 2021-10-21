@@ -176,3 +176,16 @@ section {
 	text-align: center;
 	
 }
+.yt-container {
+/*border: 1px solid white;*/
+	width: 100%;
+	text-align: center;
+	margin: 0 auto;
+	padding: 2em 0;
+}
+
+@media screen and (max-width: 25em) {
+	.yt-container iframe {
+		width: 100%;
+	}
+}
