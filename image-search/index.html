@@ -44,18 +44,20 @@
 	<input class="u-full-width" type="text" id="searchTerm" name="searchTerm">
 	<button type="submit">חיפוש</button>
 	</form>
-	<button onClick="searchFor('גוש עציון')">גוש עציון</button>
+
 	<button onClick="searchFor('קשת')">קשת</button>
 	<button onClick="searchFor('הרודיון')">הרודיון</button>
+	<button onClick="searchFor('תקוע')">תקוע</button>
 	<button onClick="searchFor('מצפה הסלע')">מצפה הסלע</button>
 	<br>
 	<button onClick="searchFor('קיץ')">קיץ</button>
 	<button onClick="searchFor('סתיו')">סתיו</button>
 	<button onClick="searchFor('חורף')">חורף</button>
 	<button onClick="searchFor('אביב')">אביב</button>
-	<br>
-	<button onClick="searchByYear('2020')">2020</button>
 	<button onClick="searchByYear('2021')">2021</button>
+	<button onClick="searchByYear('2020')">2020</button>
+	<button onClick="searchByYear('2019')">2019</button>
+	<button onClick="searchFor('גוש עציון')">גוש עציון</button>
 	<br>
 	<button onClick="searchByMonth('11')">נובמבר</button>
 	<button onClick="searchByMonth('12')">דצמבר</button>
@@ -63,6 +65,7 @@
 	<img id="loadingImage" src="spinner-1s-200px.gif">
 	
 	<section class="images">
+		<div id="total-img"></div>
 		<div id="nanogallery2">
 		</div>
 	</section>

@@ -1,16 +1,33 @@
 const all_images = [
-['img/20211201_130157-01','גוש עציון,מעלה עמוס,קשת,חורף,2021','maaleamos','2021','12'],
-['img/20211201_132016-01','גוש עציון,מעלה עמוס,קשת,חורף,2021','maaleamos','2021','12'],
-['img/20211201_132230-01','גוש עציון,מעלה עמוס,קשת,חורף,2021','maaleamos','2021','12'],
-['img/20211201_134319-01','גוש עציון,הרודיון,קשת,חורף,2021','herodion','2021','12'],
-['img/20211201_144348-01','גוש עציון,הרודיון,קשת,תקוע,חורף,2021','herodion','2021','12'],
-['img/20200914_070959-01','גוש עציון,מצפה הסלע,סתיו,2020','mitzpehasela','2020','9'],
-['img/20201220_100203-01','גוש עציון,מצפה הסלע,פריחה,נרקיס,חורף,2020','mitzpehasela','2020','12'],
-['img/20211224_133914-01','גוש עציון,חאן ערוגות,חורף,2021','hanarugot','2021','12'],
-['img/20211224_134008-01','גוש עציון,חאן ערוגות,חורף,2021','hanarugot','2021','12'],
-['img/20211224_135111-01','גוש עציון,חאן ערוגות,חורף,2021','hanarugot','2021','12'],
-['img/20211224_135233-01','גוש עציון,חאן ערוגות,חורף,2021','hanarugot','2021','12'],
-
+['img/20211201_130157-01','גוש עציון,מעלה עמוס,קשת,חורף','maaleamos','2021','12'],
+['img/20211201_132016-01','גוש עציון,מעלה עמוס,קשת,חורף','maaleamos','2021','12'],
+['img/20211201_132230-01','גוש עציון,מעלה עמוס,קשת,חורף','maaleamos','2021','12'],
+['img/20211201_134319-01','גוש עציון,הרודיון,קשת,חורף','herodion','2021','12'],
+['img/20211201_144348-01','גוש עציון,הרודיון,קשת,תקוע,חורף','herodion','2021','12'],
+['img/20200914_070959-01','גוש עציון,מצפה הסלע,סתיו','mitzpehasela','2020','9'],
+['img/20201220_100203-01','גוש עציון,מצפה הסלע,פריחה,נרקיס,חורף','mitzpehasela','2020','12'],
+['img/20211224_133914-01','גוש עציון,חאן ערוגות,חורף','hanarugot','2021','12'],
+['img/20211224_134008-01','גוש עציון,חאן ערוגות,חורף','hanarugot','2021','12'],
+['img/20211224_135111-01','גוש עציון,חאן ערוגות,חורף','hanarugot','2021','12'],
+['img/20211224_135233-01','גוש עציון,חאן ערוגות,חורף','hanarugot','2021','12'],
+['img/20211224_144146','גוש עציון,תקוע,נוף למדבר,חורף,תצפית,חורף','tkoa','2021','12'],
+['img/20211215_090640','גוש עציון,צניר,רכס טאו,חורף','rehestau','2021','11'],
+['img/20211213_091213','גוש עציון,צניר,רכס טאו,חורף','rehestau','2021','11'],
+['img/20211213_095009-01','גוש עציון,צניר,רכס טאו,חורף','rehestau','2021','11'],
+['img/20211205_134055-01','גוש עציון,נחל תקוע,חורף','tkoa','2021','11'],
+['img/20211129_164247-01','גוש עציון,מצוק אבות,ספסל,שריעה,תצפית,סתיו','matzokavot','2021','11'],
+['img/20211129_162850-01','גוש עציון,מצוק אבות,ספסל,שריעה,תצפית,סתיו','matzokavot','2021','11'],
+['img/20211129_162436-01','גוש עציון,מצוק אבות,ספסל,שריעה,תצפית,סתיו','matzokavot','2021','11'],
+['img/20211129_162237-01','גוש עציון,מצוק אבות,ספסל,שריעה,תצפית,סתיו','matzokavot','2021','11'],
+['img/20211129_161705-01','גוש עציון,מצוק אבות,ספסל,שריעה,תצפית,סתיו','matzokavot','2021','11'],
+['img/20211126_080539-01','גוש עציון,נחל תקוע,אוכף,אופניים,סתיו','nahaltkoa','2021','11'],
+['img/20211126_075529-01','גוש עציון,נחל תקוע,אוכף,פנורמה,סתיו','nahaltkoa','2021','11'],
+['img/IMG_2023','גוש עציון,נחל תקוע,אוכף,לילה,סתיו','nahaltkoa','2021','11'],
+['img/20211120_212503-01',"גוש עציון,נחל תקוע,לילה,ג'יפ,ירח,סתיו",'nahaltkoa','2021','11'],
+['img/20211120_205946-01',"גוש עציון,נחל תקוע,לילה,ג'יפ,ירח,סתיו",'nahaltkoa','2021','11'],
+['img/20211119_140506-01','גוש עציון,תקוע ה,חוות ספר המדבר,סתיו','tkoa','2021','11'],
+['img/20211119_135928-01','גוש עציון,תקוע ה,חוות ספר המדבר,סתיו','tkoa','2021','11'],
+//['img/','','','2021','11'],
 ['../images/map/big/aliyalesdeboaz1','גוש עציון,עליה לשדב בועז,פריחה,חצב','aliyalesdeboaz','2020','9'],
 ];
 	
@@ -37,7 +54,7 @@ function formSubmitted(event) {
 	if (searchTerm == '') {
 		return;
 	}
-	console.log('searchFor: '+searchTerm);
+	//console.log('searchFor: '+searchTerm);
 
 	searchFor(searchTerm);
 }
@@ -47,16 +64,18 @@ function searchFor(searchTerm) {
 	searchStart();
 
 	var searchResult = performSearch(all_images, searchTerm);
-	console.log(searchResult);
+	//console.log(searchResult);
 
 	displayImages(searchResult);
 	loadingImage.style.display = 'none';
 
 	var locationsResult = searchForLocations(all_locations, searchResult);
-	console.log(locationsResult);
+	//console.log(locationsResult);
 
-	setMarkers(locationsResult);
-	mymap.panTo(L.latLng(locationsResult[0][1], locationsResult[0][2]), {animate: true});
+	if (locationsResult[0]) {
+		setMarkers(locationsResult);
+		mymap.panTo(L.latLng(locationsResult[0][1], locationsResult[0][2]), {animate: true});
+	}
 }
 
 function searchByYear(year) {
@@ -64,13 +83,13 @@ function searchByYear(year) {
 	searchStart();
 
 	var searchResult = performSearchByYear(all_images, year);
-	console.log(searchResult);
+	//console.log(searchResult);
 
 	displayImages(searchResult);
 	loadingImage.style.display = 'none';
 
 	var locationsResult = searchForLocations(all_locations, searchResult);
-	console.log(locationsResult);
+	//console.log(locationsResult);
 
 	setMarkers(locationsResult);
 	mymap.panTo(L.latLng(locationsResult[0][1], locationsResult[0][2]), {animate: true});
@@ -81,13 +100,13 @@ function searchByMonth(month) {
 	searchStart();
 
 	var searchResult = performSearchByMonth(all_images, month);
-	console.log(searchResult);
+	//console.log(searchResult);
 
 	displayImages(searchResult);
 	loadingImage.style.display = 'none';
 
 	var locationsResult = searchForLocations(all_locations, searchResult);
-	console.log(locationsResult);
+	//console.log(locationsResult);
 
 	if (locationsResult[0]) {
 		setMarkers(locationsResult);
@@ -159,14 +178,13 @@ function displayImages(images, searchTerm) {
 		items.push(item);
 	});
 	
-	console.log('totalImages: '+totalImages);
-	
+	//console.log('totalImages: '+totalImages);
 	if (totalImages == 0) {
-		const divElement = document.createElement('div');
-		divElement.innerHTML = 'לא נמצאו תמונות';
-		imageSection.appendChild(divElement);
+		jQuery("#total-img").text('לא נמצאו תמונות');
 	}
 	else {
+		jQuery("#total-img").text('נצמאו ' + totalImages + ' תמונות');
+		
 		jQuery("#nanogallery2").nanogallery2( {
 
 			itemsBaseURL:'',
@@ -224,7 +242,7 @@ function searchForLocations(locations, searchResult) {
 
 	// for each location name
 	locationNames.forEach((value,key) => {
-		console.log(key);
+		//console.log(key);
 		// find location by name
 		for (var i = 0; i < all_locations.length; i++) {
 			if (key === all_locations[i][0]) {
