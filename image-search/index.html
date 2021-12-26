@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+	<title>יאיר ארונשטם - צילומים של גוש עציון וטבע ישראלי</title>
+	<meta property="og:title" content="Yair Aronshtam - Gush Etzion and Israeli nature photography" />
+	<meta property="og:image" content="http://yair.aronshtam.net/images/map/big/kramim1.jpg" />
+	<meta property="og:type" content="website" />
+	<meta property="og:description" content="יאיר ארונשטם - צילומים של גוש עציון וטבע ישראלי" />
+	<meta property="og:url" content="https://yair.aronshtam.net/" />
+	<meta property="og:site_name" content="יאיר ארונשטם - צילומים של גוש עציון וטבע ישראלי" />
+
+	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">          
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	
+	<!-- jQuery -->
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" type="text/javascript"></script>
+
+	<!-- nanogallery2 -->
+	<link  href="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/css/nanogallery2.min.css" rel="stylesheet" type="text/css">
+	<script  type="text/javascript" src="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/jquery.nanogallery2.min.js"></script>
+
+	<title>JS Image Search</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+
+	<!-- Map stype -->
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+	
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-365845-5', 'auto');
+		ga('send', 'pageview');
+	</script>	
+</head>
+<body>
+	<h1 align="center">חיפוש תמונות</h1>
+	<form>
+	<label for="searchTerm">מילת חיפוש</label>
+	<input class="u-full-width" type="text" id="searchTerm" name="searchTerm">
+	<button type="submit">חיפוש</button>
+	</form>
+	<button onClick="searchFor('גוש עציון')">גוש עציון</button>
+	<button onClick="searchFor('קשת')">קשת</button>
+	<button onClick="searchFor('הרודיון')">הרודיון</button>
+	<button onClick="searchFor('מצפה הסלע')">מצפה הסלע</button>
+	<br>
+	<button onClick="searchFor('קיץ')">קיץ</button>
+	<button onClick="searchFor('סתיו')">סתיו</button>
+	<button onClick="searchFor('חורף')">חורף</button>
+	<button onClick="searchFor('אביב')">אביב</button>
+	<br>
+	<button onClick="searchByYear('2020')">2020</button>
+	<button onClick="searchByYear('2021')">2021</button>
+	<br>
+	<button onClick="searchByMonth('11')">נובמבר</button>
+	<button onClick="searchByMonth('12')">דצמבר</button>
+
+	<img id="loadingImage" src="spinner-1s-200px.gif">
+	
+	<section class="images">
+		<div id="nanogallery2">
+		</div>
+	</section>
+	
+	<!-- Map -->
+	<div class="map-container" id="gush-etzion">
+		<div class="container">
+			<!--h1>מפה</h1>
+			<h4>לחצו על הסמן במפה ולאחר מכן לחצו על התמונה כדי לראות תמונות נוספות של המקום</h4-->
+		</div>
+		<div id="map"></div>
+		<br><br>
+	</div>
+	<!-- //Map -->
+
+	<!-- Map using leafletjs -->
+	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+	<script src="map.js"></script>
+	<!-- //Map -->
+
+	<script src="main.js"></script>
+</body>
+</html>

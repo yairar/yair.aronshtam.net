@@ -1,0 +1,42 @@
+body {
+  width: 80%;
+  margin: 2em auto 0 auto;
+  background-color: #111;
+}
+
+.images {
+	color: #fff;
+}
+
+img {
+  width: 100%;
+}
+
+.thumbnail:hover {
+    cursor: pointer;
+}
+
+.button, button {
+	color: #bbb;
+	border: 1px solid #bbb;
+}
+
+.button:hover, button:hover {
+	color: #fff;
+	border: 1px solid #fff;
+}
+
+h1, label {
+	color: #fff;
+}
+
+/*-- Map --*/
+.map-container {
+	width: 100%;
+	margin-top: 5em;
+}
+#map {
+	width: 100%;
+	height: 800px;
+}
+/*-- //Map --*/
