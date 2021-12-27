@@ -2,97 +2,100 @@ const all_images = [
 ["aliyalesdeboaz","../images/map/big/aliyalesdeboaz1","2020","9","גוש עציון,עליה לשדב בועז,פריחה,חצב"],
 ["aliyalesdeboaz","../images/map/big/aliyalesdeboaz2","2020","9","גוש עציון,עליה לשדב בועז"],
 ["aliyalesdeboaz","../images/map/big/aliyalesdeboaz3","2020","9","גוש עציון,עליה לשדב בועז,פריחה,חצב"],
-["batain","img/20210831_071858-01","2021","8","גוש עציון,בת עין,שביל הנוף המערבי,נוף,קיץ"],
-["brihatdubek","../images/map/big/eindubek1","2021","6","גוש עציון,בריכת דובק,מעיין,קיץ"],
+["batain","../images/map/big/batain4","2021","8","גוש עציון,בת עין,שביל הנוף המערבי,נוף,קיץ"],
+["eindubek","../images/map/big/eindubek1","2021","6","גוש עציון,בריכת דובק,מעיין,קיץ"],
 ["einelkasis","../images/map/big/einelkasis10","2021","8","גוש עציון,עין אל קסיס,מעיין,קיץ,זריחה"],
 ["einelmeara","../images/map/big/einelmeara3","2021","3","עין אל מערה,מערה,אביב,גוש עציון,"],
 ["einelmeara","../images/map/big/einelmeara1","2021","3","עין אל מערה,מערה,אביב,גוש עציון,מעיין,"],
 ["einhubela","../images/map/big/einhubela1","2021","3","עין חובלה,מעיין,אביב,גוש עציון,"],
 ["einhubela","../images/map/big/einhubela2","2021","3","עין חובלה,לילה,אביב,גוש עציון,"],
-["hanarugot","img/20211224_133914-01","2021","12","גוש עציון,חאן ערוגות,חורף"],
-["hanarugot","img/20211224_134008-01","2021","12","גוש עציון,חאן ערוגות,חורף"],
-["hanarugot","img/20211224_135111-01","2021","12","גוש עציון,חאן ערוגות,חורף"],
-["hanarugot","img/20211224_135233-01","2021","12","גוש עציון,חאן ערוגות,חורף"],
-["herodion","img/20211201_134319-01","2021","12","גוש עציון,הרודיון,קשת,חורף"],
-["herodion","img/20211201_144348-01","2021","12","גוש עציון,הרודיון,קשת,תקוע,חורף"],
-["hirbetjumjum","img/20210825_073658-01","2021","8","גוש עציון,חירבת ג'ומג'ום,שריפה,קיץ"],
-["maaleamos","img/20211201_130157-01","2021","12","גוש עציון,מעלה עמוס,קשת,חורף"],
-["maaleamos","img/20211201_132016-01","2021","12","גוש עציון,מעלה עמוס,קשת,חורף"],
-["maaleamos","img/20211201_132230-01","2021","12","גוש עציון,מעלה עמוס,קשת,חורף"],
-["matzokavot","img/20211129_164247-01","2021","11","גוש עציון,מצוק האבות,ספסל,שקיעה,תצפית,סתיו"],
-["matzokavot","img/20211129_162850-01","2021","11","גוש עציון,מצוק האבות,ספסל,שקיעה,תצפית,סתיו"],
-["matzokavot","img/20211129_162436-01","2021","11","גוש עציון,מצוק האבות,ספסל,שקיעה,תצפית,סתיו"],
-["matzokavot","img/20211129_162237-01","2021","11","גוש עציון,מצוק האבות,ספסל,שקיעה,תצפית,סתיו"],
-["matzokavot","img/20211129_161705-01","2021","11","גוש עציון,מצוק האבות,ספסל,שקיעה,תצפית,סתיו"],
+["hanarugot","../images/map/big/hanarugot4","2021","12","גוש עציון,חאן ערוגות,חורף"],
+["hanarugot","../images/map/big/hanarugot3","2021","12","גוש עציון,חאן ערוגות,חורף"],
+["hanarugot","../images/map/big/hanarugot2","2021","12","גוש עציון,חאן ערוגות,חורף"],
+["hanarugot","../images/map/big/hanarugot1","2021","12","גוש עציון,חאן ערוגות,חורף"],
+["haukaf","../images/map/big/haukaf3","2021","11","גוש עציון,נחל תקוע,אוכף,אופניים,סתיו"],
+["haukaf","../images/map/big/haukaf4","2021","11","גוש עציון,נחל תקוע,אוכף,פנורמה,סתיו"],
+["haukaf","../images/map/big/haukaf5","2021","11","גוש עציון,נחל תקוע,אוכף,לילה,סתיו"],
+["havatsfarhamidbar","../images/map/big/havatsfarhamidbar5","2021","11","גוש עציון,תקוע ה,חוות ספר המדבר,סתיו"],
+["havatsfarhamidbar","../images/map/big/havatsfarhamidbar6","2021","11","גוש עציון,תקוע ה,חוות ספר המדבר,סתיו"],
+["herodion","../images/map/big/herodion6","2021","12","גוש עציון,הרודיון,קשת,חורף"],
+["herodion","../images/map/big/herodion7","2021","12","גוש עציון,הרודיון,קשת,תקוע,חורף"],
+["hirbetjumjum","../images/map/big/hirbetjumjum7","2021","8","גוש עציון,חירבת ג'ומג'ום,שריפה,קיץ"],
+["maaleamos","../images/map/big/maaleamos2","2021","12","גוש עציון,מעלה עמוס,קשת,חורף"],
+["maaleamos","../images/map/big/maaleamos1","2021","12","גוש עציון,מעלה עמוס,קשת,חורף"],
+["maaleamos","../images/map/big/maaleamos3","2021","12","גוש עציון,מעלה עמוס,קשת,חורף"],
+["matzokavot","../images/map/big/matzokavot7","2021","11","גוש עציון,מצוק האבות,ספסל,שקיעה,תצפית,סתיו"],
+["matzokavot","../images/map/big/matzokavot8","2021","11","גוש עציון,מצוק האבות,ספסל,שקיעה,תצפית,סתיו"],
+["matzokavot","../images/map/big/matzokavot9","2021","11","גוש עציון,מצוק האבות,ספסל,שקיעה,תצפית,סתיו"],
+["matzokavot","../images/map/big/matzokavot10","2021","11","גוש עציון,מצוק האבות,ספסל,שקיעה,תצפית,סתיו"],
+["matzokavot","../images/map/big/matzokavot11","2021","11","גוש עציון,מצוק האבות,ספסל,שקיעה,תצפית,סתיו"],
 ["matzokavot","../images/map/big/matzokavot6","2021","8","גוש עציון,מצוק אבות,זריחה,קיץ"],
 ["matzokavot","../images/map/big/matzokavot2","2021","4","גוש עציון,מצוק אבות,אביב"],
 ["matzokavot","../images/map/big/matzokavot1","2021","4","גוש עציון,מצוק אבות,נוף,תצפית,אביב,שקיעה"],
 ["matzokavot","../images/map/big/matzokavot4","2021","4","גוש עציון,מצוק אבות,פריחה,אביב"],
 ["matzokavot","../images/map/big/matzokavot3","2021","4","גוש עציון,מצוק אבות,נוף,אביב"],
-["minzarrusi","img/20210910_100142-01","2021","9","גוש עציון,מנזר הרוסי,תצפית,סתיו"],
-["minzarrusi","img/20210910_094819","2021","9","גוש עציון,מנזר הרוסי,תצפית,סתיו"],
-["minzarrusi","img/20210910_094113","2021","9","גוש עציון,מנזר הרוסי,תצפית,סתיו"],
-["mishlathamesh","img/20211004_094023-01","2021","10","גוש עציון,משלט הנקודה החמישית,אופניים,תצפית,נוף,סתיו"],
-["mishlathamesh","img/20210831_093748-01","2021","8","גוש עציון,שרידי מבנה אבן,נוף,אופניים,קיץ"],
+["minzarrusi","../images/map/big/minzarrusi8","2021","9","גוש עציון,מנזר הרוסי,תצפית,סתיו"],
+["minzarrusi","../images/map/big/minzarrusi9","2021","9","גוש עציון,מנזר הרוסי,תצפית,סתיו"],
+["minzarrusi","../images/map/big/minzarrusi10","2021","9","גוש עציון,מנזר הרוסי,תצפית,סתיו"],
+["mishlathamesh","../images/map/big/mishlathamesh6","2021","10","גוש עציון,משלט הנקודה החמישית,אופניים,תצפית,נוף,סתיו"],
+["mishlathamesh","../images/map/big/mishlathamesh7","2021","8","גוש עציון,שרידי מבנה אבן,נוף,אופניים,קיץ"],
 ["mishlathamesh","../images/map/big/mishlathamesh5","2021","8","גוש עציון,משלט הנקודה החמישית,נוף,תצפית,קיץ,מצוק"],
 ["mishlathamesh","../images/map/big/mishlathamesh1","2021","7","גוש עציון,משלט הנקודה החמישית,נוף,תצפית,קיץ,זריחה,מצוק"],
-["mitzpehasela","img/20200914_070959-01","2020","9","גוש עציון,מצפה הסלע,סתיו"],
-["mitzpehasela","img/20201220_100203-01","2020","12","גוש עציון,מצפה הסלע,פריחה,נרקיס,חורף"],
-["mitzportzvika","img/20210819_194912-01","2021","8","גוש עציון,מצפור צביקה,תצפית,נוף,בת עין,שקיעה,קיץ"],
-["mitzportzvika","img/20210819_194714-01","2021","8","גוש עציון,מצפור צביקה,תצפית,נוף,בת עין,שקיעה,קיץ"],
-["mitzportzvika","img/20210819_191635-01","2021","8","גוש עציון,מצפור צביקה,תצפית,נוף,בת עין,שקיעה,קיץ"],
-["mitzportzvika","img/20210819_191417","2021","8","גוש עציון,מצפור צביקה,תצפית,נוף,בת עין,שקיעה,קיץ"],
-["nahalpirim","img/20210920_160444","2021","9","גוש עציון,נחל הפירים,פריחה,חצב,סתיו"],
-["nahalpirim","img/20210920_160047-01","2021","9","גוש עציון,נחל הפירים,פריחה,חצב,סתיו"],
-["nahaltkoa","img/20211126_080539-01","2021","11","גוש עציון,נחל תקוע,אוכף,אופניים,סתיו"],
-["nahaltkoa","img/20211126_075529-01","2021","11","גוש עציון,נחל תקוע,אוכף,פנורמה,סתיו"],
-["nahaltkoa","img/IMG_2023","2021","11","גוש עציון,נחל תקוע,אוכף,לילה,סתיו"],
-["nahaltkoa","img/20211120_212503-01","2021","11","גוש עציון,נחל תקוע,לילה,ג'יפ,ירח,סתיו"],
-["nahaltkoa","img/20211120_205946-01","2021","11","גוש עציון,נחל תקוע,לילה,ג'יפ,ירח,סתיו"],
-["nahaltkoa","img/20210924_111420-01","2021","9","גוש עציון,נחל תקוע,ארכאולוגיה,סתיו,נוף"],
-["nahaltkoa","img/20210924_105001-01","2021","9","גוש עציון,נחל תקוע,פריחה,חצב,סתיו"],
-["nahaltkoa","img/20210924_101125-01","2021","9","גוש עציון,נחל תקוע,ארכאולוגיה,סתיו"],
+["mitzpehasela","../images/map/big/mitzpehasela1","2020","9","גוש עציון,מצפה הסלע,סתיו"],
+["mitzpehasela","../images/map/big/mitzpehasela4","2020","12","גוש עציון,מצפה הסלע,פריחה,נרקיס,חורף"],
+["mitzportzvika","../images/map/big/mitzportzvika1","2021","8","גוש עציון,מצפור צביקה,תצפית,נוף,בת עין,שקיעה,קיץ"],
+["mitzportzvika","../images/map/big/mitzportzvika2","2021","8","גוש עציון,מצפור צביקה,תצפית,נוף,בת עין,שקיעה,קיץ"],
+["mitzportzvika","../images/map/big/mitzportzvika3","2021","8","גוש עציון,מצפור צביקה,תצפית,נוף,בת עין,שקיעה,קיץ"],
+["mitzportzvika","../images/map/big/mitzportzvika4","2021","8","גוש עציון,מצפור צביקה,תצפית,נוף,בת עין,שקיעה,קיץ"],
+["nahalpirim","../images/map/big/nahalpirim10","2021","9","גוש עציון,נחל הפירים,פריחה,חצב,סתיו"],
+["nahalpirim","../images/map/big/nahalpirim11","2021","9","גוש עציון,נחל הפירים,פריחה,חצב,סתיו"],
+["maalerehavam","../images/map/big/maalerehavam2","2021","11","גוש עציון,נחל תקוע,לילה,ג'יפ,ירח,סתיו"],
+["maalerehavam","../images/map/big/maalerehavam3","2021","11","גוש עציון,נחל תקוע,לילה,ג'יפ,ירח,סתיו"],
+["nahaltkoa","../images/map/big/nahaltkoa15","2021","9","גוש עציון,נחל תקוע,ארכאולוגיה,סתיו,נוף"],
+["nahaltkoa","../images/map/big/nahaltkoa16","2021","9","גוש עציון,נחל תקוע,פריחה,חצב,סתיו"],
+["nahaltkoa","../images/map/big/nahaltkoa17","2021","9","גוש עציון,נחל תקוע,ארכאולוגיה,סתיו"],
+["nahaltkoa","../images/map/big/nahaltkoa14","2021","11","גוש עציון,נחל תקוע,חורף"],
 ["nahaltsofit","../images/map/big/nahaltsofit1","2018","12","נחל צופית,נוף,חורף,גוש עציון,"],
 ["nahaltsofit","../images/map/big/nahaltsofit2","2021","3","נחל צופית,נוף,אביב,גוש עציון,"],
 ["nahaltsofit","../images/map/big/nahaltsofit3","2021","3","נחל צופית,נוף,אביב,גוש עציון,"],
 ["nahaltsofit","../images/map/big/nahaltsofit4","2021","3","נחל צופית,נוף,אביב,גוש עציון,"],
 ["nebidaniel","../images/map/big/nebidaniel1","2021","3","פריחה,גוש עציון,אביב,"],
 ["nebidaniel","../images/map/big/nebidaniel2","2021","3","פריחה,גוש עציון,אביב,"],
+["nevedaniel","../images/map/big/nevedaniel1","2018","12","נווה דניאל,חורף,גוש עציון,"],
+["nevedaniel","../images/map/big/nevedaniel2","2018","12","נווה דניאל,קשת,חורף,גוש עציון,נוף,"],
+["nevedaniel","../images/map/big/nevedaniel9","2021","8","נווה דניאל,ירח,קיץ,גוש עציון,"],
 ["rojumasabit","../images/map/big/rojumasabit1","2021","3","רוג'ום א-סבית,שלולית חורף,אביב,גוש עציון,"],
 ["rojumasabit","../images/map/big/rojumasabit2","2021","3","רוג'ום א-סבית,שלולית חורף,אביב,גוש עציון,"],
 ["rojumasabit","../images/map/big/rojumasabit3","2021","3","רוג'ום א-סבית,שלולית חורף,אביב,גוש עציון,"],
 ["rojumasabit","../images/map/big/rojumasabit4","2021","3","רוג'ום א-סבית,שלולית חורף,פריחה,אביב,גוש עציון,"],
 ["rojumasabit","../images/map/big/rojumasabit5","2021","3","רוג'ום א-סבית,שלולית חורף,פריחה,אביב,גוש עציון,"],
 ["rojumasabit","../images/map/big/rojumasabit6","2021","3","רוג'ום א-סבית,שלולית חורף,פריחה,אביב,גוש עציון,"],
-["sdeboaz","img/20210822_190240-01","2021","8","גוש עציון,שדה בועז,שקיעה,נוף,תצפית,קיץ"],
-["shluhathamasuot","img/20210815_190243-01","2021","8","גוש עציון,שלוחת המשואות,כרמים,שקיעה,קיץ"],
-["shviltzvika","img/20210819_191122-01","2021","8","גוש עציון,שביל צביקה,נוף,שקיעה,קיץ"],
-["shviltzvika","img/20210819_190933-01","2021","8","גוש עציון,שביל צביקה,נוף,שקיעה,קיץ"],
-["shviltzvika","img/20210819_185904-01","2021","8","גוש עציון,שביל צביקה,נוף,שקיעה,קיץ"],
-["tazpitzofit","img/20210906_081700-01","2021","9","גוש עציון,תצפית צופית,תצפית,נוף,סתיו,אופניים"],
-["tazpitzofit","img/20210906_080914","2021","9","גוש עציון,תצפית צופית,תצפית,נוף,סתיו"],
+["sdeboaz","../images/map/big/sdeboaz5","2021","8","גוש עציון,שדה בועז,שקיעה,נוף,תצפית,קיץ"],
+["shluhathamasuot","../images/map/big/shluhathamasuot1","2021","8","גוש עציון,שלוחת המשואות,כרמים,שקיעה,קיץ"],
+["shviltzvika","../images/map/big/shviltzvika1","2021","8","גוש עציון,שביל צביקה,נוף,שקיעה,קיץ"],
+["shviltzvika","../images/map/big/shviltzvika2","2021","8","גוש עציון,שביל צביקה,נוף,שקיעה,קיץ"],
+["shviltzvika","../images/map/big/shviltzvika3","2021","8","גוש עציון,שביל צביקה,נוף,שקיעה,קיץ"],
+["tazpitzofit","../images/map/big/tazpitzofit3","2021","9","גוש עציון,תצפית צופית,תצפית,נוף,סתיו,אופניים"],
+["tazpitzofit","../images/map/big/tazpitzofit4","2021","9","גוש עציון,תצפית צופית,תצפית,נוף,סתיו"],
 ["tazpitzofit","../images/map/big/tazpitzofit1","2021","3","תצפית צופית,תצפית,נוף,אביב,גוש עציון,"],
 ["tazpitzofit","../images/map/big/tazpitzofit2","2021","3","תצפית צופית,פריחה,תצפית,נוף,אביב,גוש עציון,"],
-["tkoa","img/20211224_144146","2021","12","גוש עציון,תקוע,נוף למדבר,חורף,תצפית,חורף"],
-["tkoa","img/20211205_134055-01","2021","11","גוש עציון,נחל תקוע,חורף"],
-["tkoa","img/20211119_140506-01","2021","11","גוש עציון,תקוע ה,חוות ספר המדבר,סתיו"],
-["tkoa","img/20211119_135928-01","2021","11","גוש עציון,תקוע ה,חוות ספר המדבר,סתיו"],
+["tkoa","../images/map/big/tkoa1","2021","12","גוש עציון,תקוע,נוף למדבר,חורף,תצפית,חורף"],
 ["wadiganeden","../images/map/big/wadiganeden1","2021","8","גוש עציון,ואדי גן עדן,נחל משואות,קיץ"],
 ["wadiganeden","../images/map/big/wadiganeden2","2021","8","גוש עציון,ואדי גן עדן,נחל משואות,קיץ"],
-["waditau","img/20211215_090640","2021","11","גוש עציון,צניר,רכס טאו,חורף"],
-["waditau","img/20211213_091213","2021","11","גוש עציון,צניר,רכס טאו,חורף"],
-["waditau","img/20211213_095009-01","2021","11","גוש עציון,צניר,רכס טאו,חורף"],
-["waditau","img/20210914_091143","2021","9","גוש עציון,רכס טאו,נוף,סתיו"],
+["waditau","../images/map/big/waditau4","2021","11","גוש עציון,צניר,רכס טאו,חורף"],
+["waditau","../images/map/big/waditau5","2021","11","גוש עציון,צניר,רכס טאו,חורף"],
+["waditau","../images/map/big/waditau6","2021","11","גוש עציון,צניר,רכס טאו,חורף"],
+["waditau","../images/map/big/waditau7","2021","9","גוש עציון,רכס טאו,נוף,סתיו"],
 ["waditau","../images/map/big/waditau1","2021","8","גוש עציון,ואדי טאו,נוף,תצפית,שקיעה,קיץ"],
 ["waditau","../images/map/big/waditau2","2021","8","גוש עציון,ואדי טאו,נוף,תצפית,שקיעה,קיץ"],
 ];
 	
 
-const location_index = 0;
-const imagename_index = 1;
-const year_index = 2;
-const month_index = 3;
-const tags_index = 4;
+const LOCATION_INDEX = 0;
+const IMAGENAME_INDEX = 1;
+const YEAR_INDEX = 2;
+const MONTH_INDEX = 3;
+const TAGS_INDEX = 4;
 
 const form = document.querySelector('form');
 const input = document.querySelector('input');
@@ -105,8 +108,8 @@ loadingImage.style.display = 'none';
 
 form.addEventListener('submit', formSubmitted);
 
-//var all_images_sorted = sortArray(all_images);
-//printArray(all_images_sorted);
+//var all_sorted = sortArray(all_locations__);
+//printArray(all_sorted);
 
 initMap();
 
@@ -193,7 +196,7 @@ function performSearch(images, searchTerm) {
 
 	searchResult = [];
 	images.forEach(image => {
-		const tags = image[tags_index].split(",");
+		const tags = image[TAGS_INDEX].split(",");
 		isMatch = false;
 		tags.forEach(tag => {
 			if (tag.includes(searchTerm.toLowerCase())) {
@@ -212,7 +215,7 @@ function performSearchByYear(images, year) {
 
 	searchResult = [];
 	images.forEach(image => {
-		if (year === image[year_index]) {
+		if (year === image[YEAR_INDEX]) {
 			searchResult.push(image);
 		}
 	});
@@ -223,7 +226,7 @@ function performSearchByMonth(images, month) {
 
 	searchResult = [];
 	images.forEach(image => {
-		if (month === image[month_index]) {
+		if (month === image[MONTH_INDEX]) {
 			searchResult.push(image);
 		}
 	});
@@ -237,10 +240,10 @@ function displayImages(images, searchTerm) {
 	images.forEach(image => {
 		totalImages++;
 		const item = Object.create( {} );
-		item.src = image[imagename_index]+'.jpg';
-		item.srct = image[imagename_index]+'.jpg';
-		item.title = getLocationHebrewName(image[location_index]);
-		item.description = image[tags_index];
+		item.src = image[IMAGENAME_INDEX]+'.jpg';
+		item.srct = image[IMAGENAME_INDEX]+'.jpg';
+		item.title = getLocationHebrewName(image[LOCATION_INDEX]);
+		item.description = image[TAGS_INDEX];
 		items.push(item);
 	});
 	
@@ -305,7 +308,7 @@ function searchForLocations(locations, searchResult) {
 	// find all location names using HashMap
 	var locationNames = new Map();
 	searchResult.forEach(image => {
-		locationNames.set(image[location_index], 1);
+		locationNames.set(image[LOCATION_INDEX], 1);
 	});
 
 	// for each location name
