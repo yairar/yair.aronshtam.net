@@ -593,7 +593,8 @@ function searchFor(searchTerm) {
 
 	searchStart();
 
-	var searchResult = performSearch(all_images, searchTerm);
+	//var searchResult = performSearch(all_images, searchTerm);
+	var searchResult = performAdvancedSearch(all_images, searchTerm);
 	//console.log(searchResult);
 
 	displayImages(searchResult);
@@ -654,6 +655,7 @@ function searchStart() {
 	clearMarkers();
 }
 
+// simple search
 function performSearch(images, searchTerm) {
 
 	searchResult = [];
@@ -667,6 +669,38 @@ function performSearch(images, searchTerm) {
 		});
 		// if there is a match, add it to the result
 		if (isMatch) {
+			searchResult.push(image);
+		}
+	});
+	return searchResult;
+}
+
+function performAdvancedSearch(images, searchTerm) {
+
+	let searchTerms = searchTerm.split("+");
+	// remove spaces for each search word
+	for (i=0; i < searchTerms.length; i++) {
+		searchTerms[i] = searchTerms[i].trim();
+	}
+	console.log("searchTerm="+searchTerm + ", performAdvancedSearch: "+searchTerms);
+
+	let searchResult = [];
+	images.forEach(image => {
+		const tags = image[TAGS_INDEX].split(",");
+		matchedWords = 0;
+		searchTerms.forEach(word => {
+			// search word in all tags
+			for(i=0; i < tags.length; i++) {
+				if (tags[i].includes(word)) {
+					//console.log("found:" + word + " in tag:" + tags[i]);
+					matchedWords++;
+					break;
+				}
+			}
+		});
+		// if there is a match, add it to the result
+		//console.log("found " + matchedWords + " matched words of " + searchTerms.length);
+		if (matchedWords == searchTerms.length) {
 			searchResult.push(image);
 		}
 	});
