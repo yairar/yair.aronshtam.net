@@ -67,7 +67,9 @@ function setMarkers(map) {
 
 function setMarkersBySearchWord(map, searchTerm) {
 /*
+placesArray
 {
+	key       valueArr
 	'place1', ['photo1','photo2',...]
 	'place2', ['photo5','photo6',...]
 	...
