@@ -703,7 +703,14 @@
 			<h1>נופי גוש עציון</h1>
 			<br>
 			<h4>לחצו על הסמן במפה ולאחר מכן לחצו על התמונה כדי לראות תמונות נוספות של המקום</h4>
-
+			<br>
+			<h4>
+			<button onClick="clearMapAndSetNewSearch('גוש עציון')">הכל</button>
+			<button onClick="clearMapAndSetNewSearch('אביב')">אביב</button>
+			<button onClick="clearMapAndSetNewSearch('חורף')">חורף</button>
+			<button onClick="clearMapAndSetNewSearch('סתיו')">סתיו</button>
+			<button onClick="clearMapAndSetNewSearch('קיץ')">קיץ</button>
+			</h4>
 			<br>
 		</div>
 		<div id="map"></div>
@@ -859,7 +866,9 @@
 
 		<!-- Map using leafletjs -->
 		<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
-		<script src="js/all_locations.js?v=1"></script>
+		<script src="js/all_locations.js?v=2"></script>
+		<script src="js/all_images.js?v=2"></script>
+		<script src="image-search/main.js"></script>
 		<script src="js/map.js"></script>
 		<!-- //Map -->
 

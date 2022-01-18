@@ -7,7 +7,7 @@ const loc_markertype_index = 4;
 const loc_ext_index = 5;
 const loc_hebtitle_index = 6;
 
-var all_locations = [
+let all_locations = [
 ["aliyalesdeboaz","31.687242221358566","35.15778575105672","6","point","jpg","עליה לשדה בועז"],
 ["alonhaboded","31.65737218581017","35.12124601764684","1","point","jpg","האלון הבודד"],
 ["amathabiyar","31.656467565110308","35.14638981911344","7","point","jpg","אמת הביאר"],
