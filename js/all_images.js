@@ -183,6 +183,8 @@ let all_images = [
 ["herodion","../images/map/big/herodion9","2021","3","הרודיון,ארכאולוגיה,אביב,גוש עציון,"],
 ["herodion","../images/map/big/herodion10","2021","3","הרודיון,ארכאולוגיה,אביב,גוש עציון,"],
 ["herodion","../images/map/big/herodion11","2021","3","הרודיון,ארכאולוגיה,אביב,גוש עציון,נוף,"],
+["hirbethubela","../images/map/big/hirbethubela1","2021","5","חירבת חובלה,בת עין,אביב,גוש עציון,תצפית,נוף,"],
+["hirbethubela","../images/map/big/hirbethubela2","2021","5","חירבת חובלה,בת עין,אביב,גוש עציון,תצפית,נוף,"],
 ["hirbetjumjum","../images/map/big/hirbetjumjum1","2016","9","חירבת ג'ומג'ום,תצפית,נוף,סתיו,גוש עציון,"],
 ["hirbetjumjum","../images/map/big/hirbetjumjum2","2018","10","חירבת ג'ומג'ום,סתיו,גוש עציון,"],
 ["hirbetjumjum","../images/map/big/hirbetjumjum3","2018","10","חירבת ג'ומג'ום,סתיו,גוש עציון,"],
@@ -202,7 +204,8 @@ let all_images = [
 ["hirbetjumjum","../images/map/big/hirbetjumjum17","2021","2","חירבת ג'ומג'ום,פריחה,חורף,גוש עציון,"],
 ["hirbetjumjum","../images/map/big/hirbetjumjum18","2021","2","חירבת ג'ומג'ום,פריחה,חורף,גוש עציון,אופניים,"],
 ["hirbetjumjum","../images/map/big/hirbetjumjum19","2021","6","חירבת ג'ומג'ום,שריפה,נוף,קיץ,גוש עציון,"],
-//hurvasdeboaz
+["hurvasdeboaz","../images/map/big/hurvasdeboaz1","2021","11","חורבה ליד שדב בועז,תצפית,נוף,סתיו,גוש עציון,"],
+["hurvasdeboaz","../images/map/big/hurvasdeboaz2","2021","11","חורבה ליד שדב בועז,תצפית,נוף,סתיו,גוש עציון,פנורמה,"],
 ["hurvatariv","../images/map/big/hurvatariv1","2020","6","חורבת עריב,מבנה,קיץ,גוש עציון,"],
 ["hurvatariv","../images/map/big/hurvatariv2","2020","6","חורבת עריב,מבנה,קיץ,גוש עציון,"],
 ["hurvatariv","../images/map/big/hurvatariv3","2021","2","חורבת עריב,שלג,מבנה,חורף,גוש עציון,"],
@@ -256,7 +259,9 @@ let all_images = [
 ["matzokavot","../images/map/big/matzokavot19","2021","5","מצוק אבות,שקיעה,נוף,אביב,גוש עציון,"],
 ["matzokavot","../images/map/big/matzokavot20","2021","5","מצוק אבות,ים,שקיעה,נוף,אביב,גוש עציון,"],
 ["meara","../images/map/big/meara1","2019","5","מערה,אביב,גוש עציון,פריחה,"],
-//mearatidba
+["mearatidba","../images/map/big/mearatidba1","2021","11","מערת אידבע,מערה,סתיו,גוש עציון,"],
+["mearatidba","../images/map/big/mearatidba2","2020","12","מערת אידבע,מערה,חורף,גוש עציון,"],
+["mearatidba","../images/map/big/mearatidba3","2020","12","מערת אידבע,חורף,גוש עציון,"],
 ["mikvederehavot","../images/map/big/mikvederehavot1","2021","1","מקווה דרך אבות,ארכאולוגיה,מערה,חורף,גוש עציון,"],
 ["mikvederehavot","../images/map/big/mikvederehavot2","2021","1","מקווה דרך אבות,ארכאולוגיה,מערה,חורף,גוש עציון,"],
 ["mikvederehavot","../images/map/big/mikvederehavot3","2021","1","מקווה דרך אבות,ארכאולוגיה,מערה,חורף,גוש עציון,"],
@@ -515,7 +520,7 @@ let all_images = [
 ["rojumasabit","../images/map/big/rojumasabit10","2021","3","רוג'ום א-סבית,שלולית חורף,אביב,גוש עציון,פריחה,"],
 ["rojumasabit","../images/map/big/rojumasabit11","2021","3","רוג'ום א-סבית,שלולית חורף,אביב,גוש עציון,פריחה,"],
 ["rojumasabit","../images/map/big/rojumasabit12","2021","3","רוג'ום א-סבית,שלולית חורף,פריחה,אביב,גוש עציון,"],
-//sdebar
+["sdebar","../images/map/big/sdebar1","2021","3","שדה בר,נוף,אביב,גוש עציון,מדבר,"],
 ["sdeboaz","../images/map/big/sdeboaz1","2016","2","שדה בועז,נוף,חורף,גוש עציון,"],
 ["sdeboaz","../images/map/big/sdeboaz2","2018","12","שדה בועז,נוף,חורף,גוש עציון,פנורמה,"],
 ["sdeboaz","../images/map/big/sdeboaz3","2021","8","שדה בועז,שקיעה,נוף,קיץ,גוש עציון,"],
@@ -562,7 +567,7 @@ let all_images = [
 ["singlenevedaniel","../images/map/big/singlenevedaniel1","2020","10","סינגל נווה דניאל,נוף,סתיו,גוש עציון,"],
 ["singlenevedaniel","../images/map/big/singlenevedaniel2","2020","10","סינגל נווה דניאל,נוף,סתיו,גוש עציון,"],
 ["singlenevedaniel","../images/map/big/singlenevedaniel3","2020","10","סינגל נווה דניאל,נוף,סתיו,גוש עציון,אופניים,"],
-//singlesovevroshtzurim
+["singlesovevroshtzurim","../images/map/big/singlesovevroshtzurim1","2021","2","סינגל סובב ראש צורים,אופניים,פריחה,חורף,גוש עציון,"],
 ["sovevdagan","../images/map/big/sovevdagan1","2018","3","סובב דגן,תל עיטם,נוף,פנורמה,אביב,גוש עציון,"],
 ["sovevdagan","../images/map/big/sovevdagan2","2018","3","סובב דגן,אפרת,אביב,גוש עציון,"],
 ["sovevdagan","../images/map/big/sovevdagan3","2018","3","סובב דגן,דיר אל בנת,ארכאולוגיה,אביב,גוש עציון,"],
