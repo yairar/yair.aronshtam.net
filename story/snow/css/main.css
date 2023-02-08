@@ -158,6 +158,10 @@ section {
 .parallax5 {
 	background: url("../../../images/map/big/einabukleb18.jpg");
 }
+.parallax6 {
+	background: url("../img/parkamothamaimmapal.jpg");
+}
+
 .parallax1, .parallax2, .parallax3, .parallax4, .parallax5, .parallax6 {
 	background-repeat: no-repeat;
 	background-attachment: fixed;
