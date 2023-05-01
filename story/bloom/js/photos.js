@@ -70,6 +70,7 @@ var allPhotos = [
 {src:'narkis2', w:1400, h:1050, title:'צוקי בת עין', tags: 'narkis11'},
 {src:'narkis3', w:675, h:900, title:'צוקי בת עין', tags: 'narkis11'},
 {src:'narkis4', w:675, h:900, title:'צוקי בת עין', tags: 'narkis11'},
+{src:'narkis5', w:1400, h:1050, title:'מצפה הסלע', tags: 'narkis11'},
 /*dec*/
 {src:'narkis10', w:1400, h:1050, title:'צוקי בת עין', tags: 'narkis12'},
 {src:'narkis11', w:1400, h:1049, title:'צוקי בת עין', tags: 'narkis12'},

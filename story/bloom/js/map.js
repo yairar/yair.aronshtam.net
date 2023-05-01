@@ -20,7 +20,7 @@ var locations = [
 ["parkamothamaim","פארק אמות המים", "31.678128282525968","35.17247620983129","kurkum16"],
 ["tzukeibatain","צוקי בת עין (מצלעת בת עין)","31.660116892403202","35.09559337062841","narkis1,narkis2,narkis3,narkis4,narkis10,narkis11,narkis13,narkis14,narkis15"],
 
-["mitzpehasela","מצפה הסלע",        "31.664591530824907","35.10027114315038","narkis12,kalanit2,kalanit3,kalanit4,kalanit5,kalanit6,kalanit7,kalanit8,rakafot2,rakafot3,rakafot4,irit2,irit4"],
+["mitzpehasela","מצפה הסלע",        "31.664591530824907","35.10027114315038","narkis5,narkis12,kalanit2,kalanit3,kalanit4,kalanit5,kalanit6,kalanit7,kalanit8,rakafot2,rakafot3,rakafot4,irit2,irit4"],
 
 ["givathahish","גבעת החיש",         "31.65734981428064","35.134184993934696","shkediya1,shkediya2"],
 ["nahalpirim","נחל הפירים",         "31.674398300128082","35.161425508689945","shkediya3"],
