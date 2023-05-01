@@ -14,12 +14,23 @@ var locations = [
 ["matzokavot","מצוק האבות",         "31.671102143614863","35.13614837093358","sitvanit10,sitvanit11,sitvanit12"],
 ["yaartkoa","יער תקוע",             "31.658915549405734","35.2285987512589","sitvanit14,sitvanit15,sitvanit16"],
 ["sovevdagan","מורדות הדגן",        "31.682072554314008","35.176170385805676","sitvanit20,sitvanit21"],
-["hurvatbrachot","חורבת ברכות במגדל עוז","31.643440117590835","35.14324013156896","kurkum1"],
+["hurvatbrachot","חורבת ברכות במגדל עוז","31.643440117590835","35.14324013156896","kurkum1,kalanit9"],
 ["yaareretzayalim","יער ארץ האיילים","31.66090315318798", "35.11733842782205","kurkum2,kurkum3,kurkum4,kurkum5,kurkum6,kurkum12"],
 ["nahalozrarim","נחל עוזררים",      "31.58311939529301","35.217011608314564","kurkum15"],
 ["parkamothamaim","פארק אמות המים", "31.678128282525968","35.17247620983129","kurkum16"],
 ["tzukeibatain","צוקי בת עין (מצלעת בת עין)","31.660116892403202","35.09559337062841","narkis1,narkis2,narkis3,narkis4,narkis10,narkis11,narkis13,narkis14,narkis15"],
-["mitzpehasela","מצפה הסלע",        "31.664591530824907","35.10027114315038","narkis12"],
+
+["mitzpehasela","מצפה הסלע",        "31.664591530824907","35.10027114315038","narkis12,kalanit2,kalanit3,kalanit4,kalanit5,kalanit6,kalanit7,kalanit8,rakafot2,rakafot3,rakafot4,irit2,irit4"],
+
+["givathahish","גבעת החיש",         "31.65734981428064","35.134184993934696","shkediya1,shkediya2"],
+["nahalpirim","נחל הפירים",         "31.674398300128082","35.161425508689945","shkediya3"],
+["shluhathamasuot","שלוחת המשואות", "31.664438780664813","35.103371776771596","shkediya4,shkediya5,shkediya6,shkediya7,shkediya8"],
+["nahalrevadim","נחל רבדים",        "31.675522168083937","35.11805955333715","kalanit1,kalanit10"],
+["einhubela","עין חובלה",           "31.659049072956652","35.10770700070066","irus1"],
+["hirbetjumjum","חירבת ג'ומג'ום",   "31.668648","35.101899","irus2,irus3,irus4"],
+["mitzperevadim","מצפה רבדים",      "31.674161954829643", "35.114798375884945","rakafot1,irit1,irit3,irit5"],
+["nahalhaetz","נחל העץ",            "31.6726270750532","35.11404696865087","narkis20,narkis21,narkis22,narkis23"],
+
 ];
 
 
