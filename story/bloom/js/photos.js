@@ -189,6 +189,25 @@ var allPhotos = [
 {src:'irusshahum9', w:1400, h:1050, title:'נחל תקוע', tags: 'irushashahum03', month:'3'},
 {src:'irusshahum10', w:1400, h:1000, title:'נחל תקוע', tags: 'irushashahum03', month:'3'},
 
+{src:'kalanit50', w:1400, h:1050, title:'מצפה הסלע', tags: 'kalanit03', month:'3'},
+{src:'kalanit51', w:1400, h:875, title:'נבי דניאל', tags: 'kalanit03', month:'3'},
+{src:'kalanit52', w:1400, h:573, title:'נבי דניאל', tags: 'kalanit03', month:'3'},
+{src:'kalanit53', w:1400, h:1050, title:'נבי דניאל', tags: 'kalanit03', month:'3'},
+{src:'kalanit54', w:1400, h:1050, title:'יער תקוע', tags: 'kalanit03', month:'3'},
+{src:'kalanit55', w:1400, h:1050, title:'יער תקוע', tags: 'kalanit03', month:'3'},
+{src:'kalanit56', w:1400, h:1050, title:'יער תקוע', tags: 'kalanit03', month:'3'},
+{src:'kalanit57', w:1400, h:1050, title:'יער תקוע', tags: 'kalanit03', month:'3'},
+{src:'kalanit58', w:1400, h:1050, title:'עליה לשדה בועז', tags: 'kalanit03', month:'3'},
+{src:'kalanit59', w:1400, h:1050, title:'עליה לשדה בועז', tags: 'kalanit03', month:'3'},
+{src:'kalanit60', w:1400, h:1050, title:'עין מסלע (עין אבו כלאב)', tags: 'kalanit03', month:'3'},
+{src:'kalanit61', w:1400, h:933, title:'עין מסלע (עין אבו כלאב)', tags: 'kalanit03', month:'3'},
+{src:'kalanit62', w:1400, h:1050, title:'עין מסלע (עין אבו כלאב)', tags: 'kalanit03', month:'3'},
+{src:'kalanit63', w:1400, h:1050, title:'מצפה הסלע', tags: 'kalanit03', month:'3'},
+{src:'kalanit64', w:1400, h:1050, title:'נחל רבדים', tags: 'kalanit03', month:'3'},
+{src:'kalanit65', w:1400, h:1050, title:'נחל רבדים', tags: 'kalanit03', month:'3'},
+{src:'kalanit66', w:1400, h:1050, title:'נחל רבדים', tags: 'kalanit03', month:'3'},
+{src:'kalanit67', w:1400, h:1050, title:'יער באפרת', tags: 'kalanit03', month:'3'}, /*****חסר מיקום****/
+{src:'kalanit68', w:1400, h:1050, title:'דרך האבות - אבן המיל ה-11', tags: 'kalanit03', month:'3'},
 ];
 
 
