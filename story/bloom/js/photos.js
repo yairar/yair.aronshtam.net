@@ -208,6 +208,7 @@ var allPhotos = [
 {src:'kalanit66', w:1400, h:1050, title:'נחל רבדים', tags: 'kalanit03', month:'3'},
 {src:'kalanit67', w:1400, h:1050, title:'יער באפרת', tags: 'kalanit03', month:'3'}, /*****חסר מיקום****/
 {src:'kalanit68', w:1400, h:1050, title:'דרך האבות - אבן המיל ה-11', tags: 'kalanit03', month:'3'},
+{src:'kalanit69', w:1400, h:1050, title:'דרך האבות - אבן המיל ה-11', tags: 'kalanit03', month:'3'},
 ];
 
 
