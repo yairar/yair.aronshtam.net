@@ -543,6 +543,17 @@
 <script>
  jQuery(document).ready(function () {
 
+	// create new array with correct photo path
+	let allPhotosWithPath = [];
+	for (i = 0; i < allPhotos.length; i++) {
+		let photoItem = {};
+		// object copy is needed here in order not to change original allPhotos array
+		Object.assign(photoItem, allPhotos[i]); 
+		// create full image url before adding to itemsSubset
+		photoItem.src = 'images/map/big/'+photoItem.src+'.jpg';
+		allPhotosWithPath.push(photoItem);
+	}
+
 	jQuery("#nanogallery2").nanogallery2( {
 		// ### gallery settings ### 
 		thumbnailHeight:  150,
@@ -550,7 +561,7 @@
 		itemsBaseURL:     '',
 		
 		// ### gallery content ### 
-		items: allPhotos, // allPhotos defined in photos.js
+		items: allPhotosWithPath,
 		  
 		// GALLERY AND THUMBNAIL LAYOUT
 		galleryMosaic : [                       // default layout
