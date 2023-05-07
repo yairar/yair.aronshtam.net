@@ -8,7 +8,9 @@ let allMarkers = [];
 let locations = [
 // [0] - icon file name, [1] - Title in Hebrew, [2-3] - Position, [4]-Base name for all photos, [5]- Photo numbers, 
 ["aliyalesdeboaz","עליה לשדה בועז","31.687242221358566","35.15778575105672","hatzav2,hatzav9,hatzav10"],
-["nahaltkoa","נחל תקוע",            "31.64042592339606","35.23539010448462","hatzav1,hatzav3,hatzav4,hatzav5,hatzav6,hatzav7,hatzav8,sitvanit13,sitvanit22,sitvanit23,shkediya35,shkediya36,shkediya37,irit10,irit16,irit17"],
+
+["nahaltkoa","נחל תקוע",            "31.64042592339606","35.23539010448462","hatzav1,hatzav3,hatzav4,hatzav5,hatzav6,hatzav7,hatzav8,sitvanit13,sitvanit22,sitvanit23,shkediya35,shkediya36,shkediya37,irit10,irit16,irit17,irusshahum1,irusshahum2,irusshahum3,irusshahum4,irusshahum5,irusshahum6,irusshahum7,irusshahum8,irusshahum9,irusshahum10"],
+
 ['vadihelmoniyot', 'ואדי חלמויות', "31.64339855604563", "35.25780264301305","helmoniyot1,helmoniyot2,helmoniyot3,helmoniyot4,helmoniyot5,helmoniyot6,helmoniyot7,helmoniyot8,helmoniyot9,helmoniyot10,helmoniyot11,helmoniyot12,helmoniyot13,helmoniyot14,helmoniyot15" ],
 ["givatoz","גבעת עוז",              "31.63684529907876","35.13628248138433","sitvanit1,sitvanit7,sitvanit8,kurkum11"],
 ["nebidaniel","נבי דניאל",          "31.687536646234864","35.146099366378834","sitvanit2,sitvanit3,sitvanit4"],

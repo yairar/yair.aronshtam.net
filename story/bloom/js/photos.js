@@ -178,6 +178,16 @@ var allPhotos = [
 {src:'tzipornit3', w:1400, h:787, title:'גבעת החי"ש', tags: 'tzipornit02', month:'2'},
 
 /*march*/
+{src:'irusshahum1', w:1400, h:1052, title:'נחל תקוע', tags: 'irushashahum03', month:'3'},
+{src:'irusshahum2', w:675, h:900, title:'נחל תקוע', tags: 'irushashahum03', month:'3'},
+{src:'irusshahum3', w:1400, h:933, title:'נחל תקוע', tags: 'irushashahum03', month:'3'},
+{src:'irusshahum4', w:1400, h:1050, title:'נחל תקוע', tags: 'irushashahum03', month:'3'},
+{src:'irusshahum5', w:675, h:900, title:'נחל תקוע', tags: 'irushashahum03', month:'3'},
+{src:'irusshahum6', w:1400, h:1050, title:'נחל תקוע', tags: 'irushashahum03', month:'3'},
+{src:'irusshahum7', w:600, h:900, title:'נחל תקוע', tags: 'irushashahum03', month:'3'},
+{src:'irusshahum8', w:1400, h:1050, title:'נחל תקוע', tags: 'irushashahum03', month:'3'},
+{src:'irusshahum9', w:1400, h:1050, title:'נחל תקוע', tags: 'irushashahum03', month:'3'},
+{src:'irusshahum10', w:1400, h:1000, title:'נחל תקוע', tags: 'irushashahum03', month:'3'},
 
 ];
 
