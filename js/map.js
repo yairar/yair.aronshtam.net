@@ -75,7 +75,7 @@ placesArray
 }
 */
 let searchResult = performAdvancedSearch(all_images, searchTerm);
-console.log('found '+ searchResult.length + ' places');
+//console.log('found '+ searchResult.length + ' places');
 let placesArray = {};
 let key;
 let valueArr;
@@ -88,7 +88,7 @@ searchResult.forEach(element => {
 	valueArr.push(element[1]);
 	placesArray[key] = valueArr;
 });
-console.log(placesArray);
+//console.log(placesArray);
 
 let placeFiles;
 all_locations.forEach(point => {
