@@ -283,7 +283,32 @@ var allPhotos = [
 {src:'marva3', w:1400, h:1050, title:'נחל הפירים', tags: 'marvakhula', month:'4'},
 {src:'marva4', w:1400, h:1050, title:'נחל הפירים', tags: 'marvakhula', month:'4'},
 
-
+{src:'priha50', w:1400, h:788, title:'צהרונים', tags: 'priha04', month:'4'},
+{src:'priha51', w:1400, h:787, title:'שמורת עוז וגאון', tags: 'priha04', month:'4'},
+{src:'priha52', w:599, h:900, title:'שמורת עוז וגאון', tags: 'priha04', month:'4'},
+{src:'priha53', w:1400, h:934, title:'ליד עין אל קסיס', tags: 'priha04', month:'4'},
+{src:'priha54', w:1400, h:934, title:'נחל תקוע', tags: 'priha04', month:'4'},
+{src:'priha55', w:1400, h:1012, title:'עין אל-קסיס', tags: 'priha04', month:'4'},
+{src:'priha56', w:1400, h:1050, title:'נחל תקוע', tags: 'priha04', month:'4'},
+{src:'priha57', w:1400, h:934, title:'נחל תקוע', tags: 'priha04', month:'4'},
+{src:'priha58', w:1400, h:1050, title:'מעל נחל הפירים', tags: 'priha04', month:'4'},
+{src:'priha59', w:1400, h:934, title:'צוקי בת עין', tags: 'priha04', month:'4'},
+{src:'priha60', w:1400, h:934, title:'נחל הפירים', tags: 'priha04', month:'4'},
+{src:'priha61', w:675, h:900, title:'נחל הפירים', tags: 'priha04', month:'4'},
+{src:'priha62', w:1400, h:1050, title:'שדה בועז', tags: 'priha04', month:'4'},
+{src:'priha63', w:1400, h:1050, title:'מצוק האבות', tags: 'priha04', month:'4'},
+{src:'priha64', w:1400, h:1050, title:'מצוק האבות', tags: 'priha04', month:'4'},
+{src:'priha65', w:1400, h:1050, title:'מצוק האבות', tags: 'priha04', month:'4'},
+{src:'priha66', w:675, h:900, title:'מצוק האבות', tags: 'priha04', month:'4'},
+{src:'priha67', w:1400, h:1050, title:'ליד עין אבו כלאב', tags: 'priha04', month:'4'},
+{src:'priha68', w:1400, h:1050, title:'ליד עין אבו כלאב', tags: 'priha04', month:'4'},
+{src:'priha69', w:1400, h:1050, title:'ליד עין אבו כלאב', tags: 'priha04', month:'4'},
+{src:'priha70', w:1400, h:1049, title:'ליד עין אבו כלאב', tags: 'priha04', month:'4'},
+{src:'priha71', w:675, h:900, title:'ליד עין אבו כלאב', tags: 'priha04', month:'4'},
+{src:'priha72', w:675, h:900, title:'ליד עין אבו כלאב', tags: 'priha04', month:'4'},
+{src:'priha73', w:1400, h:1050, title:'שמורת עוז וגאון', tags: 'priha04', month:'4'},
+{src:'priha74', w:1400, h:1050, title:'נחל הפירים', tags: 'priha04', month:'4'},
+{src:'priha75', w:1400, h:934, title:'נחל תקוע', tags: 'priha04', month:'4'},
 
 ];
 
