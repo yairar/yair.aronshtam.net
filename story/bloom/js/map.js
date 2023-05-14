@@ -7,7 +7,7 @@ let allMarkers = [];
 
 let locations = [
 // [0] - icon file name, [1] - Title in Hebrew, [2-3] - Position, [4]-Base name for all photos, [5]- Photo numbers, 
-["aliyalesdeboaz","עליה לשדה בועז","31.687242221358566","35.15778575105672","hatzav2,hatzav9,hatzav10,kalanit58,kalanit59"],
+["aliyalesdeboaz","עליה לשדה בועז","31.687242221358566","35.15778575105672","hatzav2,hatzav9,hatzav10,kalanit58,kalanit59,shkediya40"],
 
 ["nahaltkoa","נחל תקוע",            "31.64042592339606","35.23539010448462","hatzav1,hatzav3,hatzav4,hatzav5,hatzav6,hatzav7,hatzav8,sitvanit13,sitvanit22,sitvanit23,shkediya35,shkediya36,shkediya37,irit10,irit16,irit17,irusshahum1,irusshahum2,irusshahum3,irusshahum4,irusshahum5,irusshahum6,irusshahum7,irusshahum8,irusshahum9,irusshahum10"],
 
@@ -27,7 +27,7 @@ let locations = [
 ["mitzpehasela","מצפה הסלע",        "31.664591530824907","35.10027114315038","narkis5,narkis12,kalanit2,kalanit3,kalanit4,kalanit5,kalanit6,kalanit7,kalanit8,rakafot2,rakafot3,rakafot4,irit2,irit4,irit11,irit12,kalanit40,kalanit41,kalanit44,kalanit45,kalanit46,kalanit50,kalanit63,sahlav11,sahlav12,sahlav13,sahlav14,sahlav15,tzivoni10,tzivoni11,tzivoni12,tzivoni13"],
 
 ["givathahish","גבעת החיש",         "31.65734981428064","35.134184993934696","shkediya1,shkediya2,tzipornit3,tzipornit12"],
-["nahalpirim","נחל הפירים",         "31.674398300128082","35.161425508689945","shkediya3,shkediya29,shkediya30,shkediya31,sahlav7"],
+["nahalpirim","נחל הפירים",         "31.674398300128082","35.161425508689945","shkediya3,shkediya29,shkediya30,shkediya31,sahlav7,shkediya41,shkediya45,shkediya47"],
 ["shluhathamasuot","שלוחת המשואות", "31.664438780664813","35.103371776771596","shkediya4,shkediya5,shkediya6,shkediya7,shkediya8,shkediya38,kalanit33"],
 ["nahalrevadim","נחל רבדים",        "31.675522168083937","35.11805955333715","kalanit1,kalanit10,kalanit64,kalanit65,kalanit66"],
 ["einhubela","עין חובלה",           "31.659049072956652","35.10770700070066","irus1"],
@@ -49,6 +49,7 @@ let locations = [
 ["derehavot","דרך האבות - אבן המיל ה-11","31.671707131791216","35.136631168556264","kalanit68,kalanit69,sahlav3,sahlav16"],
 ["efratdagan","אפרת, דגן",          "31.680360629771215", "35.17141405506139","sahlav4"],
 ["yaarzait","יער בזית",             "31.666673534006847","35.162305273246815","sahlav8,sahlav9,sahlav10"],
+["rojumasabit","שלולית חורף רוג'ום א-סבית","31.653030085369252","35.14042917652135","tzipornit13,shkediya42,shkediya43"],
 ];
 
 

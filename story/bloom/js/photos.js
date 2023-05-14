@@ -244,6 +244,15 @@ var allPhotos = [
 {src:'tzipornit12', w:1400, h:933, title:'גבעת החי"ש', tags: 'tzipornit03', month:'3'},
 {src:'tzipornit13', w:1400, h:1050, title:"רוג'ום א-סבית", tags: 'tzipornit03', month:'3'}, /*****חסר מיקום****/
 
+{src:'shkediya40', w:1400, h:933, title:'עליה לשדה בועז', tags: 'shkediya03', month:'3'},
+{src:'shkediya41', w:1400, h:1050, title:'נחל הפירים', tags: 'shkediya03', month:'3'},
+{src:'shkediya42', w:1400, h:1050, title:"רוג'ום א-סבית", tags: 'shkediya03', month:'3'},
+{src:'shkediya43', w:1400, h:1050, title:"רוג'ום א-סבית", tags: 'shkediya03', month:'3'},
+{src:'shkediya44', w:1400, h:1050, title:'אמת הביאר', tags: 'shkediya03', month:'3'},
+{src:'shkediya45', w:1400, h:1050, title:'נחל הפירים', tags: 'shkediya03', month:'3'},
+{src:'shkediya46', w:1400, h:1050, title:'אפרת', tags: 'shkediya03', month:'3'},
+{src:'shkediya47', w:1400, h:787, title:'נחל הפירים', tags: 'shkediya03', month:'3'},
+
 ];
 
 
