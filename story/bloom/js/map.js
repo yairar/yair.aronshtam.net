@@ -9,7 +9,7 @@ let locations = [
 // [0] - icon file name, [1] - Title in Hebrew, [2-3] - Position, [4]-Base name for all photos, [5]- Photo numbers, 
 ["aliyalesdeboaz","עליה לשדה בועז","31.687242221358566","35.15778575105672","hatzav2,hatzav9,hatzav10,kalanit58,kalanit59,shkediya40"],
 
-["nahaltkoa","נחל תקוע",            "31.64042592339606","35.23539010448462","hatzav1,hatzav3,hatzav4,hatzav5,hatzav6,hatzav7,hatzav8,sitvanit13,sitvanit22,sitvanit23,shkediya35,shkediya36,shkediya37,irit10,irit16,irit17,irusshahum1,irusshahum2,irusshahum3,irusshahum4,irusshahum5,irusshahum6,irusshahum7,irusshahum8,irusshahum9,irusshahum10"],
+["nahaltkoa","נחל תקוע",            "31.64042592339606","35.23539010448462","hatzav1,hatzav3,hatzav4,hatzav5,hatzav6,hatzav7,hatzav8,sitvanit13,sitvanit22,sitvanit23,shkediya35,shkediya36,shkediya37,irit10,irit16,irit17,irusshahum1,irusshahum2,irusshahum3,irusshahum4,irusshahum5,irusshahum6,irusshahum7,irusshahum8,irusshahum9,irusshahum10,priha30,priha41,priha42,priha44"],
 
 ['vadihelmoniyot', 'ואדי חלמויות', "31.64339855604563", "35.25780264301305","helmoniyot1,helmoniyot2,helmoniyot3,helmoniyot4,helmoniyot5,helmoniyot6,helmoniyot7,helmoniyot8,helmoniyot9,helmoniyot10,helmoniyot11,helmoniyot12,helmoniyot13,helmoniyot14,helmoniyot15" ],
 ["givatoz","גבעת עוז",              "31.63684529907876","35.13628248138433","sitvanit1,sitvanit7,sitvanit8,kurkum11"],
@@ -20,11 +20,11 @@ let locations = [
 ["sovevdagan","מורדות הדגן",        "31.682072554314008","35.176170385805676","sitvanit20,sitvanit21"],
 ["hurvatbrachot","חורבת ברכות במגדל עוז","31.643440117590835","35.14324013156896","kurkum1,kalanit9תshkediya24,shkediya25,shkediya26,shkediya27,shkediya28,kalanit32"],
 ["yaareretzayalim","יער ארץ האיילים","31.66090315318798", "35.11733842782205","kurkum2,kurkum3,kurkum4,kurkum5,kurkum6,kurkum12,sahlav1,sahlav2"],
-["nahalozrarim","שמורת הר כנוב (נחל עוזררים)","31.58311939529301","35.217011608314564","kurkum15,tzivoni14"],
+["nahalozrarim","שמורת הר כנוב (נחל עוזררים)","31.58311939529301","35.217011608314564","kurkum15,tzivoni14,priha40"],
 ["parkamothamaim","פארק אמות המים", "31.678128282525968","35.17247620983129","kurkum16"],
 ["tzukeibatain","צוקי בת עין (מצלעת בת עין)","31.660116892403202","35.09559337062841","narkis1,narkis2,narkis3,narkis4,narkis10,narkis11,narkis13,narkis14,narkis15"],
 
-["mitzpehasela","מצפה הסלע",        "31.664591530824907","35.10027114315038","narkis5,narkis12,kalanit2,kalanit3,kalanit4,kalanit5,kalanit6,kalanit7,kalanit8,rakafot2,rakafot3,rakafot4,irit2,irit4,irit11,irit12,kalanit40,kalanit41,kalanit44,kalanit45,kalanit46,kalanit50,kalanit63,sahlav11,sahlav12,sahlav13,sahlav14,sahlav15,tzivoni10,tzivoni11,tzivoni12,tzivoni13"],
+["mitzpehasela","מצפה הסלע",        "31.664591530824907","35.10027114315038","narkis5,narkis12,kalanit2,kalanit3,kalanit4,kalanit5,kalanit6,kalanit7,kalanit8,rakafot2,rakafot3,rakafot4,irit2,irit4,irit11,irit12,kalanit40,kalanit41,kalanit44,kalanit45,kalanit46,kalanit50,kalanit63,sahlav11,sahlav12,sahlav13,sahlav14,sahlav15,tzivoni10,tzivoni11,tzivoni12,tzivoni13,priha38,priha39,priha43"],
 
 ["givathahish","גבעת החיש",         "31.65734981428064","35.134184993934696","shkediya1,shkediya2,tzipornit3,tzipornit12"],
 ["nahalpirim","נחל הפירים",         "31.674398300128082","35.161425508689945","shkediya3,shkediya29,shkediya30,shkediya31,sahlav7,shkediya41,shkediya45,shkediya47"],
@@ -37,7 +37,7 @@ let locations = [
 
 ["efrattamar","אפרת, תמר","31.68038802020158","35.16397897167212","shkediya20"],
 ["einsajme","עין יצחק-סג'מה","31.659591495439255","35.11299796358264","shkediya21"],
-["nahallivne","נחל ליבנה","31.661414547015998", "35.09977800540155","shkediya22,kalanit39"],
+["nahallivne","נחל ליבנה","31.661414547015998", "35.09977800540155","shkediya22,kalanit39,priha34"],
 ["nahalnaamanim","נחל נעמנים","31.66683904212615","35.131746865940144","shkediya23,tzipornit11"],
 ["amathabiyar","אמת הביאר","31.656467565110308","35.14638981911344","shkediya32,shkediya33,shkediya34"],
 ["singlederehavot","סינגל דרך האבות","31.667156","35.134505","kalanit30"],
@@ -48,8 +48,9 @@ let locations = [
 
 ["derehavot","דרך האבות - אבן המיל ה-11","31.671707131791216","35.136631168556264","kalanit68,kalanit69,sahlav3,sahlav16"],
 ["efratdagan","אפרת, דגן",          "31.680360629771215", "35.17141405506139","sahlav4"],
-["yaarzait","יער בזית",             "31.666673534006847","35.162305273246815","sahlav8,sahlav9,sahlav10"],
+["yaarzait","יער בזית",             "31.666673534006847","35.162305273246815","sahlav8,sahlav9,sahlav10,priha36"],
 ["rojumasabit","שלולית חורף רוג'ום א-סבית","31.653030085369252","35.14042917652135","tzipornit13,shkediya42,shkediya43"],
+["tkoa","תקוע",                     "31.648792354941072","35.22953215999608","priha31"],
 ];
 
 

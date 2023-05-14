@@ -242,7 +242,7 @@ var allPhotos = [
 {src:'tzipornit10', w:1400, h:788, title:'נצר', tags: 'tzipornit03', month:'3'},
 {src:'tzipornit11', w:1400, h:788, title:'נחל נעמנים', tags: 'tzipornit03', month:'3'},
 {src:'tzipornit12', w:1400, h:933, title:'גבעת החי"ש', tags: 'tzipornit03', month:'3'},
-{src:'tzipornit13', w:1400, h:1050, title:"רוג'ום א-סבית", tags: 'tzipornit03', month:'3'}, /*****חסר מיקום****/
+{src:'tzipornit13', w:1400, h:1050, title:"רוג'ום א-סבית", tags: 'tzipornit03', month:'3'},
 
 {src:'shkediya40', w:1400, h:933, title:'עליה לשדה בועז', tags: 'shkediya03', month:'3'},
 {src:'shkediya41', w:1400, h:1050, title:'נחל הפירים', tags: 'shkediya03', month:'3'},
@@ -252,6 +252,24 @@ var allPhotos = [
 {src:'shkediya45', w:1400, h:1050, title:'נחל הפירים', tags: 'shkediya03', month:'3'},
 {src:'shkediya46', w:1400, h:1050, title:'אפרת', tags: 'shkediya03', month:'3'},
 {src:'shkediya47', w:1400, h:787, title:'נחל הפירים', tags: 'shkediya03', month:'3'},
+
+{src:'priha30', w:1400, h:1050, title:'לשון פר סמורה בנחל תקוע', tags: 'priha03', month:'3'},
+{src:'priha31', w:1400, h:932, title:'נוריות ועירית בתקוע', tags: 'priha03', month:'3'},
+{src:'priha32', w:1400, h:1050, title:'רקפות ליד עין אל-קסיס', tags: 'priha03', month:'3'}, /*****חסר מיקום****/
+{src:'priha33', w:1400, h:1050, title:'תצפית צופית', tags: 'priha03', month:'3'}, /*****חסר מיקום****/
+{src:'priha34', w:1400, h:1050, title:'נוריות מעל נחל ליבנה', tags: 'priha03', month:'3'},
+{src:'priha35', w:1400, h:933, title:'נוריות,עירית ורקפות באזור בת עין ב', tags: 'priha03', month:'3'}, /*****חסר מיקום****/
+{src:'priha36', w:1400, h:1050, title:'רקפות ביער בזית', tags: 'priha03', month:'3'},
+{src:'priha37', w:1400, h:1050, title:'רקפות ושקדיות באפרת', tags: 'priha03', month:'3'}, /*****חסר מיקום****/
+{src:'priha38', w:1400, h:854, title:'מצפה הסלע אחרי הגשם', tags: 'priha03', month:'3'},
+{src:'priha39', w:1400, h:1050, title:'מצפה הסלע אחרי הגשם', tags: 'priha03', month:'3'},
+{src:'priha40', w:1400, h:1050, title:'שמורת הר כנוב', tags: 'priha03', month:'3'},
+{src:'priha41', w:675, h:900, title:'סייפן בנחל תקוע', tags: 'priha03', month:'3'},
+{src:'priha42', w:600, h:900, title:'סייפן בנחל תקוע', tags: 'priha03', month:'3'},
+{src:'priha43', w:674, h:900, title:'מצפה הסלע אחרי הגשם', tags: 'priha03', month:'3'},
+{src:'priha44', w:1400, h:726, title:'עירית בנחל תקוע', tags: 'priha03', month:'3'},
+{src:'priha45', w:1400, h:933, title:'שקדיות ליד תקוע', tags: 'priha03', month:'3'},
+{src:'priha46', w:1400, h:933, title:'עירית ליד תקוע', tags: 'priha03', month:'3'},
 
 ];
 
