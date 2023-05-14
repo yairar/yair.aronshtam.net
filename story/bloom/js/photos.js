@@ -209,6 +209,23 @@ var allPhotos = [
 {src:'kalanit67', w:1400, h:1050, title:'יער באפרת', tags: 'kalanit03', month:'3'}, /*****חסר מיקום****/
 {src:'kalanit68', w:1400, h:1050, title:'דרך האבות - אבן המיל ה-11', tags: 'kalanit03', month:'3'},
 {src:'kalanit69', w:1400, h:1050, title:'דרך האבות - אבן המיל ה-11', tags: 'kalanit03', month:'3'},
+
+{src:'sahlav1', w:1400, h:933, title:'יער ארץ האיילים', tags: 'sahlav03', month:'3'},
+{src:'sahlav2', w:1400, h:1050, title:'יער ארץ האיילים', tags: 'sahlav03', month:'3'},
+{src:'sahlav3', w:1400, h:1050, title:'דרך האבות - אבן המיל ה-11', tags: 'sahlav03', month:'3'},
+{src:'sahlav4', w:1400, h:1050, title:'אפרת, דגן', tags: 'sahlav03', month:'3'},
+{src:'sahlav5', w:1400, h:1050, title:'נבי דניאל', tags: 'sahlav03', month:'3'},
+{src:'sahlav6', w:1400, h:1050, title:'אוכף המוכתר', tags: 'sahlav03', month:'3'}, /*****חסר מיקום****/
+{src:'sahlav7', w:1400, h:1050, title:'נחל הפירים', tags: 'sahlav03', month:'3'},
+{src:'sahlav8', w:1400, h:1120, title:'יער בזית', tags: 'sahlav03', month:'3'},
+{src:'sahlav9', w:1400, h:933, title:'יער בזית', tags: 'sahlav03', month:'3'},
+{src:'sahlav10', w:1400, h:1050, title:'יער בזית', tags: 'sahlav03', month:'3'},
+{src:'sahlav11', w:1300, h:975, title:'מצפה הסלע', tags: 'sahlav03', month:'3'},
+{src:'sahlav12', w:1400, h:1050, title:'מצפה הסלע', tags: 'sahlav03', month:'3'},
+{src:'sahlav13', w:1400, h:933, title:'מצפה הסלע', tags: 'sahlav03', month:'3'},
+{src:'sahlav14', w:1400, h:1118, title:'מצפה הסלע', tags: 'sahlav03', month:'3'},
+{src:'sahlav15', w:599, h:900, title:'מצפה הסלע', tags: 'sahlav03', month:'3'},
+{src:'sahlav16', w:1400, h:1011, title:'דרך האבות - אבן המיל ה-11', tags: 'sahlav03', month:'3'},
 ];
 
 

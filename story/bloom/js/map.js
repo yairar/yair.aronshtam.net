@@ -13,21 +13,21 @@ let locations = [
 
 ['vadihelmoniyot', 'ואדי חלמויות', "31.64339855604563", "35.25780264301305","helmoniyot1,helmoniyot2,helmoniyot3,helmoniyot4,helmoniyot5,helmoniyot6,helmoniyot7,helmoniyot8,helmoniyot9,helmoniyot10,helmoniyot11,helmoniyot12,helmoniyot13,helmoniyot14,helmoniyot15" ],
 ["givatoz","גבעת עוז",              "31.63684529907876","35.13628248138433","sitvanit1,sitvanit7,sitvanit8,kurkum11"],
-["nebidaniel","נבי דניאל",          "31.687536646234864","35.146099366378834","sitvanit2,sitvanit3,sitvanit4,kalanit51,kalanit52,kalanit53"],
+["nebidaniel","נבי דניאל",          "31.687536646234864","35.146099366378834","sitvanit2,sitvanit3,sitvanit4,kalanit51,kalanit52,kalanit53,sahlav5"],
 ["sdeboaz","שדה בועז",              "31.693816346658057","35.147842802238515","sitvanit5,sitvanit6,kurkum10"],
 ["matzokavot","מצוק האבות",         "31.671102143614863","35.13614837093358","sitvanit10,sitvanit11,sitvanit12"],
 ["yaartkoa","יער תקוע",             "31.658915549405734","35.2285987512589","sitvanit14,sitvanit15,sitvanit16,kalanit54,kalanit55,kalanit56,kalanit57"],
 ["sovevdagan","מורדות הדגן",        "31.682072554314008","35.176170385805676","sitvanit20,sitvanit21"],
 ["hurvatbrachot","חורבת ברכות במגדל עוז","31.643440117590835","35.14324013156896","kurkum1,kalanit9תshkediya24,shkediya25,shkediya26,shkediya27,shkediya28,kalanit32"],
-["yaareretzayalim","יער ארץ האיילים","31.66090315318798", "35.11733842782205","kurkum2,kurkum3,kurkum4,kurkum5,kurkum6,kurkum12"],
+["yaareretzayalim","יער ארץ האיילים","31.66090315318798", "35.11733842782205","kurkum2,kurkum3,kurkum4,kurkum5,kurkum6,kurkum12,sahlav1,sahlav2"],
 ["nahalozrarim","נחל עוזררים",      "31.58311939529301","35.217011608314564","kurkum15"],
 ["parkamothamaim","פארק אמות המים", "31.678128282525968","35.17247620983129","kurkum16"],
 ["tzukeibatain","צוקי בת עין (מצלעת בת עין)","31.660116892403202","35.09559337062841","narkis1,narkis2,narkis3,narkis4,narkis10,narkis11,narkis13,narkis14,narkis15"],
 
-["mitzpehasela","מצפה הסלע",        "31.664591530824907","35.10027114315038","narkis5,narkis12,kalanit2,kalanit3,kalanit4,kalanit5,kalanit6,kalanit7,kalanit8,rakafot2,rakafot3,rakafot4,irit2,irit4,irit11,irit12,kalanit40,kalanit41,kalanit44,kalanit45,kalanit46,kalanit50,kalanit63"],
+["mitzpehasela","מצפה הסלע",        "31.664591530824907","35.10027114315038","narkis5,narkis12,kalanit2,kalanit3,kalanit4,kalanit5,kalanit6,kalanit7,kalanit8,rakafot2,rakafot3,rakafot4,irit2,irit4,irit11,irit12,kalanit40,kalanit41,kalanit44,kalanit45,kalanit46,kalanit50,kalanit63,sahlav11,sahlav12,sahlav13,sahlav14,sahlav15"],
 
 ["givathahish","גבעת החיש",         "31.65734981428064","35.134184993934696","shkediya1,shkediya2,tzipornit3"],
-["nahalpirim","נחל הפירים",         "31.674398300128082","35.161425508689945","shkediya3,shkediya29,shkediya30,shkediya31"],
+["nahalpirim","נחל הפירים",         "31.674398300128082","35.161425508689945","shkediya3,shkediya29,shkediya30,shkediya31,sahlav7"],
 ["shluhathamasuot","שלוחת המשואות", "31.664438780664813","35.103371776771596","shkediya4,shkediya5,shkediya6,shkediya7,shkediya8,shkediya38,kalanit33"],
 ["nahalrevadim","נחל רבדים",        "31.675522168083937","35.11805955333715","kalanit1,kalanit10,kalanit64,kalanit65,kalanit66"],
 ["einhubela","עין חובלה",           "31.659049072956652","35.10770700070066","irus1"],
@@ -46,7 +46,9 @@ let locations = [
 ["einabukleb","עין אבו כלאב","31.66941978919852","35.113218166065266","kalanit42,kalanit60,kalanit61,kalanit62"],
 ["netzer","נצר","31.656272184005502","35.13943675918584","tzipornit1"],
 
-["derehavot","דרך האבות - אבן המיל ה-11","31.671707131791216","35.136631168556264","kalanit68,kalanit69"],
+["derehavot","דרך האבות - אבן המיל ה-11","31.671707131791216","35.136631168556264","kalanit68,kalanit69,sahlav3,sahlav16"],
+["efratdagan","אפרת, דגן",          "31.680360629771215", "35.17141405506139","sahlav4"],
+["yaarzait","יער בזית",             "31.666673534006847","35.162305273246815","sahlav8,sahlav9,sahlav10"],
 ];
 
 
