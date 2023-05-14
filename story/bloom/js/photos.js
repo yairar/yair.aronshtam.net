@@ -232,6 +232,18 @@ var allPhotos = [
 {src:'tzivoni12', w:1400, h:1050, title:'מצפה הסלע', tags: 'tzivoni03', month:'3'},
 {src:'tzivoni13', w:1400, h:1050, title:'מצפה הסלע', tags: 'tzivoni03', month:'3'},
 {src:'tzivoni14', w:1400, h:1050, title:'שמורת הר כנוב (נחל עוזררים)', tags: 'tzivoni03', month:'3'},
+
+{src:'tzaharon1', w:1400, h:1050, title:'עין מסלע (עין אבו כלאב)', tags: 'tzaharonim03', month:'3'},
+{src:'tzaharon2', w:506, h:900, title:'עין מסלע (עין אבו כלאב)', tags: 'tzaharonim03', month:'3'},
+{src:'tzaharon3', w:675, h:900, title:'עין מסלע (עין אבו כלאב)', tags: 'tzaharonim03', month:'3'},
+{src:'tzaharon4', w:675, h:900, title:'עין מסלע (עין אבו כלאב)', tags: 'tzaharonim03', month:'3'},
+{src:'tzaharon5', w:1400, h:1049, title:'עין מסלע (עין אבו כלאב)', tags: 'tzaharonim03', month:'3'},
+
+{src:'tzipornit10', w:1400, h:788, title:'נצר', tags: 'tzipornit03', month:'3'},
+{src:'tzipornit11', w:1400, h:788, title:'נחל נעמנים', tags: 'tzipornit03', month:'3'},
+{src:'tzipornit12', w:1400, h:933, title:'גבעת החי"ש', tags: 'tzipornit03', month:'3'},
+{src:'tzipornit13', w:1400, h:1050, title:"רוג'ום א-סבית", tags: 'tzipornit03', month:'3'}, /*****חסר מיקום****/
+
 ];
 
 

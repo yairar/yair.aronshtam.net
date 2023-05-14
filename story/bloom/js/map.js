@@ -26,7 +26,7 @@ let locations = [
 
 ["mitzpehasela","מצפה הסלע",        "31.664591530824907","35.10027114315038","narkis5,narkis12,kalanit2,kalanit3,kalanit4,kalanit5,kalanit6,kalanit7,kalanit8,rakafot2,rakafot3,rakafot4,irit2,irit4,irit11,irit12,kalanit40,kalanit41,kalanit44,kalanit45,kalanit46,kalanit50,kalanit63,sahlav11,sahlav12,sahlav13,sahlav14,sahlav15,tzivoni10,tzivoni11,tzivoni12,tzivoni13"],
 
-["givathahish","גבעת החיש",         "31.65734981428064","35.134184993934696","shkediya1,shkediya2,tzipornit3"],
+["givathahish","גבעת החיש",         "31.65734981428064","35.134184993934696","shkediya1,shkediya2,tzipornit3,tzipornit12"],
 ["nahalpirim","נחל הפירים",         "31.674398300128082","35.161425508689945","shkediya3,shkediya29,shkediya30,shkediya31,sahlav7"],
 ["shluhathamasuot","שלוחת המשואות", "31.664438780664813","35.103371776771596","shkediya4,shkediya5,shkediya6,shkediya7,shkediya8,shkediya38,kalanit33"],
 ["nahalrevadim","נחל רבדים",        "31.675522168083937","35.11805955333715","kalanit1,kalanit10,kalanit64,kalanit65,kalanit66"],
@@ -38,13 +38,13 @@ let locations = [
 ["efrattamar","אפרת, תמר","31.68038802020158","35.16397897167212","shkediya20"],
 ["einsajme","עין יצחק-סג'מה","31.659591495439255","35.11299796358264","shkediya21"],
 ["nahallivne","נחל ליבנה","31.661414547015998", "35.09977800540155","shkediya22,kalanit39"],
-["nahalnaamanim","נחל נעמנים","31.66683904212615","35.131746865940144","shkediya23"],
+["nahalnaamanim","נחל נעמנים","31.66683904212615","35.131746865940144","shkediya23,tzipornit11"],
 ["amathabiyar","אמת הביאר","31.656467565110308","35.14638981911344","shkediya32,shkediya33,shkediya34"],
 ["singlederehavot","סינגל דרך האבות","31.667156","35.134505","kalanit30"],
 ["havatsfarhamidbar","חוות ספר המדבר","31.63344795598882","35.24662176029722","kalanit31,tzivoni1,tzivoni2,tzivoni3"],
 ["wadiganeden","ואדי גן עדן (נחל משואות)","31.66776930641217","35.105903782081654","kalanit34"],
-["einabukleb","עין אבו כלאב","31.66941978919852","35.113218166065266","kalanit42,kalanit60,kalanit61,kalanit62"],
-["netzer","נצר","31.656272184005502","35.13943675918584","tzipornit1"],
+["einabukleb","עין אבו כלאב","31.66941978919852","35.113218166065266","kalanit42,kalanit60,kalanit61,kalanit62,tzaharon1,tzaharon2,tzaharon3,tzaharon4,tzaharon5"],
+["netzer","נצר","31.656272184005502","35.13943675918584","tzipornit1,tzipornit10"],
 
 ["derehavot","דרך האבות - אבן המיל ה-11","31.671707131791216","35.136631168556264","kalanit68,kalanit69,sahlav3,sahlav16"],
 ["efratdagan","אפרת, דגן",          "31.680360629771215", "35.17141405506139","sahlav4"],
