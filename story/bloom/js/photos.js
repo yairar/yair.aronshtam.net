@@ -226,6 +226,12 @@ var allPhotos = [
 {src:'sahlav14', w:1400, h:1118, title:'מצפה הסלע', tags: 'sahlav03', month:'3'},
 {src:'sahlav15', w:599, h:900, title:'מצפה הסלע', tags: 'sahlav03', month:'3'},
 {src:'sahlav16', w:1400, h:1011, title:'דרך האבות - אבן המיל ה-11', tags: 'sahlav03', month:'3'},
+
+{src:'tzivoni10', w:1400, h:1050, title:'מצפה הסלע', tags: 'tzivoni03', month:'3'},
+{src:'tzivoni11', w:1400, h:1052, title:'מצפה הסלע', tags: 'tzivoni03', month:'3'},
+{src:'tzivoni12', w:1400, h:1050, title:'מצפה הסלע', tags: 'tzivoni03', month:'3'},
+{src:'tzivoni13', w:1400, h:1050, title:'מצפה הסלע', tags: 'tzivoni03', month:'3'},
+{src:'tzivoni14', w:1400, h:1050, title:'שמורת הר כנוב (נחל עוזררים)', tags: 'tzivoni03', month:'3'},
 ];
 
 
