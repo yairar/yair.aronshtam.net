@@ -310,6 +310,21 @@ var allPhotos = [
 {src:'priha74', w:1400, h:1050, title:'נחל הפירים', tags: 'priha04', month:'4'},
 {src:'priha75', w:1400, h:934, title:'נחל תקוע', tags: 'priha04', month:'4'},
 
+/*may*/
+{src:'hotmit1', w:1400, h:1050, title:'מצפה רבדים', tags: 'hotmit05', month:'5'},
+{src:'hotmit2', w:1400, h:1050, title:'מצפה הסלע', tags: 'hotmit05', month:'5'},
+{src:'hotmit3', w:1400, h:1050, title:'מצפה הסלע', tags: 'hotmit05', month:'5'},
+{src:'hotmit4', w:1400, h:1050, title:'מצפה הסלע', tags: 'hotmit05', month:'5'},
+{src:'hotmit5', w:1400, h:1050, title:'מצפה הסלע', tags: 'hotmit05', month:'5'},
+{src:'hotmit6', w:1400, h:1050, title:'צוקי בת עין', tags: 'hotmit05', month:'5'},
+
+{src:'priha80', w:1400, h:935, title:'מצפור לזכר הבנים', tags: 'priha05', month:'5'},
+{src:'priha81', w:1400, h:935, title:'מצפור לזכר הבנים', tags: 'priha05', month:'5'},
+{src:'priha82', w:1400, h:1050, title:'נחל הפירים', tags: 'priha05', month:'5'},
+{src:'priha83', w:675, h:900, title:'עין אל-קסיס', tags: 'priha05', month:'5'},
+{src:'priha84', w:1400, h:933, title:'נבי דניאל', tags: 'priha05', month:'5'},
+{src:'priha85', w:1400, h:1050, title:'שמורת עוז וגאון', tags: 'priha05', month:'5'},
+{src:'priha86', w:1400, h:788, title:'נחל הפירים', tags: 'priha05', month:'5'},
 ];
 
 
