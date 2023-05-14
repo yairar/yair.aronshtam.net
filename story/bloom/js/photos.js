@@ -271,6 +271,20 @@ var allPhotos = [
 {src:'priha45', w:1400, h:933, title:'שקדיות ליד תקוע', tags: 'priha03', month:'3'},
 {src:'priha46', w:1400, h:933, title:'עירית ליד תקוע', tags: 'priha03', month:'3'},
 
+/*april*/
+{src:'nurit1', w:1400, h:1050, title:"רוג'ום א-סבית", tags: 'nuritmaim', month:'4'},
+{src:'nurit2', w:1400, h:1050, title:"רוג'ום א-סבית", tags: 'nuritmaim', month:'4'},
+{src:'nurit3', w:1400, h:1050, title:"רוג'ום א-סבית", tags: 'nuritmaim', month:'4'},
+{src:'nurit4', w:1400, h:1051, title:"רוג'ום א-סבית", tags: 'nuritmaim', month:'4'},
+{src:'nurit5', w:1400, h:1050, title:"רוג'ום א-סבית", tags: 'nuritmaim', month:'4'},
+
+{src:'marva1', w:1400, h:1050, title:'מצוק האבות', tags: 'marvakhula', month:'4'},
+{src:'marva2', w:1400, h:1050, title:'מצוק האבות', tags: 'marvakhula', month:'4'},
+{src:'marva3', w:1400, h:1050, title:'נחל הפירים', tags: 'marvakhula', month:'4'},
+{src:'marva4', w:1400, h:1050, title:'נחל הפירים', tags: 'marvakhula', month:'4'},
+
+
+
 ];
 
 
@@ -345,3 +359,4 @@ function openPhotoSwipeVideo(id) {
     var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, itemsSubset, options);
     gallery.init();	
 }
+
