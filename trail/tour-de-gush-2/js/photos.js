@@ -7,6 +7,8 @@ var items = [
 {src:'images/map/big/mitzporhaelef6.jpg', w:1400, h:933, title:'מצפור האלף', tags: 'mitzpor1000'},
 {src:'images/map/big/mitzporhaelef7.jpg', w:1400, h:1050, title:'מצפור האלף', tags: 'mitzpor1000'},
 {src:'images/map/big/mitzporhaelef8.jpg', w:1400, h:1050, title:'רואים את האוניות בנמל אשדוד ממצפור האלף', tags: 'mitzpor1000'},
+{src:'images/map/big/mitzporhaelef9.jpg', w:1400, h:933, title:'מצפור האלף', tags: 'mitzpor1000'},
+{src:'images/map/big/mitzporhaelef10.jpg', w:1400, h:1050, title:'מצפור האלף', tags: 'mitzpor1000'},
 
 {src:'images/map/big/sdeboaz1.jpg', w:1400, h:1050, title:'שדה בועז', tags: 'sdeboaz'},
 {src:'images/map/big/sdeboaz4.jpg', w:1400, h:1050, title:'שדה בועז', tags: 'sdeboaz'},
@@ -28,6 +30,7 @@ var items = [
 {src:'images/map/big/waditau14.jpg', w:1400, h:1050, title:'ואדי טאו', tags: 'sdeboaz'},
 {src:'images/map/big/sdeboaz2.jpg', w:1600, h:439, title:'שדה בועז', tags: 'sdeboaz'},
 {src:'images/map/big/sdeboaz3.jpg', w:1600, h:628, title:'שדה בועז', tags: 'sdeboaz'},
+{src:'images/map/big/waditau15.jpg', w:1400, h:933, title:'ואדי טאו', tags: 'sdeboaz'},
 
 {src:'images/map/big/nebidaniel8.jpg', w:1400, h:1050, title:'נבי דניאל', tags: 'nebidaniel'},
 {src:'images/map/big/nebidaniel15.jpg', w:1400, h:1050, title:'נבי דניאל', tags: 'nebidaniel'},
