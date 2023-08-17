@@ -9,7 +9,7 @@ var mymap_markers = [];
 
 function initMap() {
 
-	mymap = L.map('map').setView([31.67007854996975, 35.149426079718296], 15);
+	mymap = L.map('map').setView([31.66325829375394, 35.160813965034535], 13);
 
 	L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 		maxZoom: 18,
