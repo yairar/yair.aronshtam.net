@@ -93,6 +93,21 @@ var items = [
 
 {src:'image/gesherkantra1.jpg', w:1600, h:1200, title:"גשר הקנטרה", tags: 'gesherkantra summer landscape israel'},
 
+{src:'image/golan1.jpg', w:1600, h:1200, title:"מפל עורבים", tags: 'golan winter landscape israel'},
+{src:'image/golan2.jpg', w:1600, h:1200, title:"נחל אל על", tags: 'golan summer landscape israel'},
+{src:'image/golan3.jpg', w:1600, h:1200, title:"עין תות", tags: 'golan summer landscape israel'},
+{src:'image/golan4.jpg', w:1600, h:1068, title:"שקיעה מעל כנרת", tags: 'golan autumn landscape israel'},
+{src:'image/golan5.jpg', w:1600, h:1200, title:"נחל זוויתן", tags: 'golan winter landscape israel'},
+{src:'image/golan6.jpg', w:1600, h:1200, title:"מפל האירוסים", tags: 'golan winter landscape israel'},
+{src:'image/golan7.jpg', w:1600, h:1067, title:"ואדי נוב", tags: 'golan winter landscape israel'},
+{src:'image/golan8.jpg', w:1600, h:1067, title:"פריחה בטיילת דרום הגולן", tags: 'golan spring landscape israel'},
+{src:'image/golan9.jpg', w:1600, h:1200, title:"נחל זוויתן", tags: 'golan spring landscape israel'},
+{src:'image/golan10.jpg', w:1600, h:1200, title:"בריכת קשת", tags: 'golan spring landscape israel'},
+{src:'image/golan11.jpg', w:1600, h:1066, title:"עיינות פאחם", tags: 'golan spring landscape israel'},
+{src:'image/golan12.jpg', w:1600, h:1200, title:"עין פיק", tags: 'golan summer landscape israel'},
+{src:'image/golan13.jpg', w:1600, h:1200, title:"עיינות עדן", tags: 'golan summer landscape israel'},
+{src:'image/golan14.jpg', w:1600, h:1200, title:"פריחת חצבים בטיילת דרום הגולן", tags: 'golan autumn landscape israel'},
+
 {src:'image/havatsfarhamidbar2.jpg', w:1600, h:900, title:"חוות ספר המדבר", tags: 'farm spring landscape gush'},
 
 {src:'image/helmoniyot1.jpg', w:1600, h:901, title:"חלמוניות במעלה רחבעם", tags: 'helmoniyot bloom autumn gush'},
