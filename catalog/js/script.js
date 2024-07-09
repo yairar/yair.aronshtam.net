@@ -35,7 +35,7 @@ var items = [
 {src:'image/bloom9.jpg', w:1600, h:1067, title:'נחל תקוע', tags: 'bloom winter gush'},
 {src:'image/bloom10.jpg', w:1600, h:1000, title:'ליד שדה בועז', tags: 'bloom spring gush'},
 {src:'image/bloom11.jpg', w:1600, h:900, title:'סתווניות ליד אלעזר', tags: 'bloom autumn gush'},
-{src:'image/bloom12.jpg', w:1600, h:1066, title:'פריחת צבעוני בתקוע', tags: 'bloom spring gush'},
+{src:'image/bloom12.jpg', w:1600, h:1067, title:'פריחת צבעוני בתקוע', tags: 'bloom spring'},
 {src:'image/bloom13.jpg', w:800, h:1200, title:'פארק עדולם', tags: 'bloom spring israel'},
 {src:'image/bloom14.jpg', w:1600, h:1067, title:'דרום אדום', tags: 'bloom daromadom spring israel'},
 {src:'image/bloom15.jpg', w:1600, h:1066, title:'דרום אדום', tags: 'bloom daromadom spring israel'},
@@ -122,6 +122,8 @@ var items = [
 {src:'image/golan24.jpg', w:1600, h:1200, title:"רקפות ביהודיה", tags: 'golan winter bloom maayan israel'},
 {src:'image/golan25.jpg', w:1050, h:1400, title:"מפל ג'ילבון", tags: 'golan spring maayan israel'},
 {src:'image/golan26.jpg', w:1600, h:1200, title:"ואדי נוב", tags: 'golan winter landscape maayan israel'},
+{src:'image/golan27.jpg', w:1600, h:1200, title:"תצפית נחל מיצר", tags: 'golan spring landscape israel'},
+{src:'image/golan28.jpg', w:1600, h:1200, title:"ואדי נוב", tags: 'golan winter landscape maayan israel'},
 
 {src:'image/havatsfarhamidbar2.jpg', w:1600, h:900, title:"חוות ספר המדבר", tags: 'farm spring landscape gush'},
 
@@ -148,7 +150,7 @@ var items = [
 {src:'image/mitzporzvika1.jpg', w:1600, h:1067, title:'מצפור צביקה', tags: 'mitzporzvika sunset landscape summer gush'},	
 	
 {src:'image/nahalhapirim1.jpg', w:1600, h:847, title:'נחל הפירים', tags: 'nahalhapirim spring gush'},
-{src:'image/nahalhapirim7.jpg', w:1600, h:1038, title:'נחל הפירים', tags: 'nahalhapirim spring gush'},
+{src:'image/nahalhapirim7.jpg', w:1600, h:1067, title:'נחל הפירים', tags: 'nahalhapirim summer gush'},
 {src:'image/nahalhapirim8.jpg', w:1600, h:1068, title:'נחל הפירים', tags: 'nahalhapirim spring gush'},
 {src:'image/nahalhapirim11.jpg', w:1600, h:900, title:'נחל הפירים', tags: 'nahalhapirim autumn gush'},
 {src:'image/nahalhapirim21.jpg', w:1600, h:1066, title:'נחל הפירים', tags: 'nahalhapirim winter gush'},
