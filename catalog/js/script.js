@@ -15,6 +15,7 @@ var items = [
 {src:'image/autumn3.jpg', w:1600, h:1067, title:'פרדס רימונים', tags: 'rimon autumn gush best'},
 {src:'image/autumn4.jpg', w:1600, h:1065, title:'על הקצה', tags: 'leaf autumn gush best'},
 {src:'image/autumn5.jpg', w:1600, h:1067, title:'פרדס רימונים', tags: 'rimon autumn gush'},
+{src:'image/autumn6.jpg', w:1600, h:1066, title:'נחל הפירים', tags: 'nahalhapirim autumn gush best'},
 
 {src:'image/banias1.jpg', w:1600, h:1200, title:'מפל בניאס', tags: 'banias summer israel best'},
 
@@ -33,7 +34,7 @@ var items = [
 {src:'image/bloom7.jpg', w:1600, h:1067, title:'שקדיות באפרת', tags: 'bloom spring gush'},
 {src:'image/bloom8.jpg', w:1600, h:1067, title:'אמת הביאר', tags: 'bloom spring gush'},
 {src:'image/bloom9.jpg', w:1600, h:1067, title:'נחל תקוע', tags: 'bloom winter gush'},
-{src:'image/bloom10.jpg', w:1600, h:1000, title:'ליד שדה בועז', tags: 'bloom spring gush'},
+{src:'image/bloom10.jpg', w:1600, h:1068, title:'פריחת השקדיות', tags: 'bloom spring gush'},
 {src:'image/bloom11.jpg', w:1600, h:900, title:'סתווניות ליד אלעזר', tags: 'bloom autumn gush'},
 {src:'image/bloom12.jpg', w:1600, h:1067, title:'פריחת צבעוני בתקוע', tags: 'bloom spring'},
 {src:'image/bloom13.jpg', w:800, h:1200, title:'פארק עדולם', tags: 'bloom spring israel'},
