@@ -1839,6 +1839,9 @@ a.to-top {
 	}
 	.grid figcaption {
 		padding: 20px 0;
+
+		opacity: 1;
+		margin-bottom: 60px;
 	}
 	.grid figcaption h3 {
 		font-size: 20px;
