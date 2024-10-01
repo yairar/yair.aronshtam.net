@@ -11,7 +11,7 @@
 
 .grid {
 	overflow: hidden;
-	margin: 0;
+	margin: 0 auto; /* This centers the div horizontally */
 	padding: 3em 0 0 0;
 	width: 100%;
 	max-width: 1920px;
