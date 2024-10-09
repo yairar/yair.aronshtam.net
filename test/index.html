@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leaflet Map with Google Sheets</title>
+    <title>Leaflet Map with CSV Data from URL</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <style>
@@ -23,20 +23,17 @@
         button {
             padding: 10px 20px;
             font-size: 1rem;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
 
-    <h1>Google Sheets to Leaflet Map</h1>
+    <h1>CSV Data from URL to Leaflet Map</h1>
 
-    <form id="sheetForm">
-        <label for="sheetLink">Google Sheet Link:</label><br>
-        <input type="text" id="sheetLink" placeholder="Enter Google Sheet link"><br>
-
-        <label for="sheetId">Google Sheet ID:</label><br>
-        <input type="text" id="sheetId" placeholder="Enter Google Sheet ID"><br>
-
+    <form id="csvForm">
+        <label for="csvUrl">CSV URL:</label><br>
+        <input type="text" id="csvUrl" placeholder="Enter CSV URL" value="https://docs.google.com/spreadsheets/d/e/2PACX-1vTQ7ctTZexihkuWDMUc9fYFsftyvg1_uHu6udnptZMDpsaJ4fun4jbW9Lrt5oWdqJc0fN50qHleBuwA/pub?output=csv"><br>
         <button type="submit">Load Map</button>
     </form>
 
@@ -51,50 +48,46 @@
         }).addTo(map);
 
         // Handle form submission
-        document.getElementById('sheetForm').addEventListener('submit', function (e) {
+        document.getElementById('csvForm').addEventListener('submit', function (e) {
             e.preventDefault();
-            const sheetLink = document.getElementById('sheetLink').value;
-            const sheetIdField = document.getElementById('sheetId').value;
 
-            // Determine if the sheetId is directly entered or extracted from the link
-            const sheetId = sheetIdField || extractSheetId(sheetLink);
+            const csvUrl = document.getElementById('csvUrl').value;
 
-            if (sheetId) {
-                const apiUrl = `https://spreadsheets.google.com/feeds/list/${sheetId}/od6/public/values?alt=json`;
-
-                // Fetch the Google Sheets data and plot points on the map
-                fetch(apiUrl)
-                    .then(response => response.text())  // Get as plain text first for debugging
-                    .then(data => {
-                        console.log(data);  // Log raw data for debugging
-                        try {
-                            const jsonData = JSON.parse(data);
-                            plotDataOnMap(jsonData);
-                        } catch (error) {
-                            console.error('Error parsing JSON:', error);
-                        }
-                    })
-                    .catch(err => {
-                        console.error('Error fetching Google Sheets data:', err);
-                    });
-            } else {
-                alert("Please enter a valid Google Sheet ID or link.");
-            }
+            fetch(csvUrl)
+                .then(response => response.text()) // Get the CSV as text
+                .then(csvText => {
+                    const parsedData = parseCSV(csvText);  // Parse the CSV
+                    plotDataOnMap(parsedData);  // Plot points on the map
+                })
+                .catch(err => console.error('Error fetching CSV data:', err));
         });
 
-        // Extract Google Sheet ID from the link
-        function extractSheetId(url) {
-            const regex = /\/d\/(.*?)\//;
-            const match = url.match(regex);
-            return match ? match[1] : null;
+        // Function to parse CSV data
+        function parseCSV(csv) {
+            const rows = csv.trim().split("\n");
+            const headers = rows[0].split(",");
+            const result = [];
+
+            for (let i = 1; i < rows.length; i++) {
+                const values = rows[i].split(",");
+                let entry = {};
+
+                headers.forEach((header, index) => {
+                    entry[header.trim()] = values[index].trim();
+                });
+
+                result.push(entry);
+            }
+
+            return result;
         }
 
         // Function to plot data on the map
         function plotDataOnMap(data) {
-            data.feed.entry.forEach(function (entry) {
-                const name = entry['gsx$name'].$t;
-                const lat = parseFloat(entry['gsx$latitude'].$t);
-                const lng = parseFloat(entry['gsx$longitude'].$t);
+            data.forEach(function (entry) {
+                const name = entry['name'];
+                const lat = parseFloat(entry['latitude']);
+                const lng = parseFloat(entry['longitude']);
 
                 if (!isNaN(lat) && !isNaN(lng)) {
                     L.marker([lat, lng]).addTo(map)
