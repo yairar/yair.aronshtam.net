@@ -11,14 +11,32 @@
             height: 600px;
             width: 100%;
         }
+
+        /* Style for input fields */
+        input[type="text"] {
+            width: 60%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 1rem;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+        }
     </style>
 </head>
 <body>
 
     <h1>Google Sheets to Leaflet Map</h1>
+
     <form id="sheetForm">
-        <label for="sheetLink">Google Sheet Link:</label>
-        <input type="text" id="sheetLink" placeholder="Enter Google Sheet link" required>
+        <label for="sheetLink">Google Sheet Link:</label><br>
+        <input type="text" id="sheetLink" placeholder="Enter Google Sheet link"><br>
+
+        <label for="sheetId">Google Sheet ID:</label><br>
+        <input type="text" id="sheetId" placeholder="Enter Google Sheet ID"><br>
+
         <button type="submit">Load Map</button>
     </form>
 
@@ -36,23 +54,31 @@
         document.getElementById('sheetForm').addEventListener('submit', function (e) {
             e.preventDefault();
             const sheetLink = document.getElementById('sheetLink').value;
+            const sheetIdField = document.getElementById('sheetId').value;
 
-            // Convert Google Sheets link to a format we can use
-            const sheetId = extractSheetId(sheetLink);
+            // Determine if the sheetId is directly entered or extracted from the link
+            const sheetId = sheetIdField || extractSheetId(sheetLink);
+
             if (sheetId) {
                 const apiUrl = `https://spreadsheets.google.com/feeds/list/${sheetId}/od6/public/values?alt=json`;
 
                 // Fetch the Google Sheets data and plot points on the map
                 fetch(apiUrl)
-                    .then(response => response.json())
+                    .then(response => response.text())  // Get as plain text first for debugging
                     .then(data => {
-                        plotDataOnMap(data);
+                        console.log(data);  // Log raw data for debugging
+                        try {
+                            const jsonData = JSON.parse(data);
+                            plotDataOnMap(jsonData);
+                        } catch (error) {
+                            console.error('Error parsing JSON:', error);
+                        }
                     })
                     .catch(err => {
                         console.error('Error fetching Google Sheets data:', err);
                     });
             } else {
-                alert("Invalid Google Sheets link");
+                alert("Please enter a valid Google Sheet ID or link.");
             }
         });
 
