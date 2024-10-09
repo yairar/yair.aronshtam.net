@@ -85,9 +85,9 @@
         // Function to plot data on the map
         function plotDataOnMap(data) {
             data.forEach(function (entry) {
-                const name = entry['name'];
-                const lat = parseFloat(entry['latitude']);
-                const lng = parseFloat(entry['longitude']);
+                const name = entry['Name'];
+                const lat = parseFloat(entry['Latitude']);
+                const lng = parseFloat(entry['Longitude']);
 
                 if (!isNaN(lat) && !isNaN(lng)) {
                     L.marker([lat, lng]).addTo(map)
