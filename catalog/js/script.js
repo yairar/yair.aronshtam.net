@@ -165,7 +165,8 @@ var items = [
 {src:'image/golan57.jpg', w:1600, h:1200, title:"נוף לכנרת וטבריה", tags: 'golan spring kineret landscape israel'},
 {src:'image/golan58.jpg', w:1600, h:1200, title:"גשר הרכבת אל חמה", tags: 'golan spring landscape israel'},
 {src:'image/golan59.jpg', w:1600, h:1200, title:"עליה לגולן מחמת גדר", tags: 'golan spring landscape israel'},
-
+{src:'image/golan60.jpg', w:1600, h:1131, title:"קוגאז' פריחה בגולן", tags: 'golan spring bloom collage israel'},
+{src:'image/golan61.jpg', w:1600, h:1131, title:"קוגאז' פריחה בגולן", tags: 'golan spring bloom collage israel'},
 
 {src:'image/havatsfarhamidbar2.jpg', w:1600, h:900, title:"חוות ספר המדבר", tags: 'farm spring landscape gush'},
 
