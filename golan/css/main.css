@@ -148,11 +148,12 @@ section {
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
-	padding: 100px 0;
+	padding: 50px 0;
 
 	display: flex;
-  justify-content: center; /* Horizontally center */
-  align-items: center; /* Vertically center (optional) */
+	justify-content: center; /* Horizontally center */
+	align-items: center; /* Vertically center (optional) */
+	direction: rtl;
 }
 .parallax_inner {
 	width: 60%;
@@ -165,37 +166,28 @@ section {
 
 .parallax2 {
 	background: url("../images/parallax2.jpg");
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-position: center;
-	background-size: cover;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	padding: 180px 0;
+	background-size: 100% auto;
+  	background-repeat: no-repeat;
+  	background-position: center;
+    /*background-attachment: fixed;*/
+
+	padding: 160px 0;
 }
 
 .parallax3 {
 	background: url("../images/parallax3.jpg");
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-position: center;
-	background-size: cover;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
+	background-size: 100% auto;
+  	background-repeat: no-repeat;
+  	background-position: center;
 	padding: 180px 0;
 }
 
 .parallax4 {
 	background: url("../images/parallax4.jpg");
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-position: center;
-	background-size: cover;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
+	background-size: 100% auto;
+  	background-repeat: no-repeat;
+  	background-position: center;
+    background-attachment: fixed;
 	padding: 180px 0;
 }
 
