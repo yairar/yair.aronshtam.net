@@ -237,8 +237,11 @@ function displayImages(images, searchTerm) {
 			// DEEP LINKING
 			locationHash: false,
 
-			viewerToolbar: { display:true },
-			viewerTools: { bottom:'label'}
+			viewerTools: {
+				topRight: 'downloadButton, zoomButton, fullscreenButton, closeButton',
+				bottom:'label'
+			}
+
 		});
 	}
 }
