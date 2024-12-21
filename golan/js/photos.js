@@ -4,6 +4,8 @@ var photo_items = [
 
 {src:'images/map/big/einkef1.jpg', w:1600, h:1200, title:'עין כיף', tags: 'einkef maayan autumn'},
 
+{src:'images/map/big/einkshatot1.jpg', w:1600, h:1200, title:'עין הקשתות', tags: 'einkshatot maayan spring'},
+
 {src:'images/map/big/einnov1.jpg', w:1600, h:1200, title:'עין נוב', tags: 'einnov maayan summer'},
 
 {src:'images/map/big/einoteden1.jpg', w:1600, h:1200, title:'עיינות עדן', tags: 'einoteden maayan autumn'},
@@ -15,17 +17,33 @@ var photo_items = [
 {src:'images/map/big/katzr1.jpg', w:1600, h:1198, title:'קצר ברדוויל', tags: 'katzr viewpoint winter'},
 {src:'images/map/big/katzr2.jpg', w:1600, h:1200, title:'קצר ברדוויל', tags: 'katzr viewpoint autumn'},
 
-{src:'images/map/big/mitzpefishgop1.jpg', w:1600, h:1200, title:'מצפה פישגופ, אפיק', tags: 'fishgop afik mitzpe'},
+{src:'images/map/big/mitzpedima1.jpg', w:1600, h:1200, title:'מצפה דימה, גשור', tags: 'mitzpedima gshur mitzpe spring'},
+{src:'images/map/big/mitzpedima2.jpg', w:1600, h:1200, title:'מצפה דימה, גשור', tags: 'mitzpedima gshur mitzpe spring'},
+{src:'images/map/big/mitzpedima3.jpg', w:1600, h:1200, title:'מצפה דימה, גשור', tags: 'mitzpedima gshur mitzpe spring'},
+{src:'images/map/big/mitzpedima4.jpg', w:1600, h:1200, title:'מצפה דימה, גשור', tags: 'mitzpedima gshur mitzpe spring'},
+
+{src:'images/map/big/mitzpefishgop1.jpg', w:1600, h:1200, title:'מצפה פישגופ, אפיק', tags: 'mitzpefishgop afik mitzpe winter'},
+{src:'images/map/big/mitzpefishgop2.jpg', w:1600, h:1200, title:'מצפה פישגופ, אפיק', tags: 'mitzpefishgop afik mitzpe summer'},
+{src:'images/map/big/mitzpefishgop3.jpg', w:1600, h:1070, title:'מצפה פישגופ, אפיק', tags: 'mitzpefishgop afik mitzpe summer'},
+{src:'images/map/big/mitzpefishgop4.jpg', w:1600, h:1067, title:'מצפה פישגופ, אפיק', tags: 'mitzpefishgop afik mitzpe summer'},
 
 {src:'images/map/big/meitzar1.jpg', w:1600, h:1200, title:'נחל מיצר', tags: 'meitzar spring viewpoint'},
 
 {src:'images/map/big/nov1.jpg', w:1600, h:1201, title:'נוב', tags: 'nov autumn'},
 {src:'images/map/big/nov5.jpg', w:1600, h:1200, title:'נוב', tags: 'nov spring sunset'},
 
+{src:'images/map/big/samach1.jpg', w:1600, h:1200, title:'נחל סמך', tags: 'samach spring river'},
+{src:'images/map/big/samach2.jpg', w:1600, h:1200, title:'נחל סמך', tags: 'samach spring river'},
+{src:'images/map/big/samach3.jpg', w:675, h:900, title:'נחל סמך', tags: 'samach spring river'},
+{src:'images/map/big/samach4.jpg', w:1600, h:1200, title:'נחל סמך', tags: 'samach spring river'},
+{src:'images/map/big/samach5.jpg', w:1600, h:1200, title:'נחל סמך', tags: 'samach spring river'},
+{src:'images/map/big/samach6.jpg', w:1600, h:1200, title:'נחל סמך', tags: 'samach spring river'},
+{src:'images/map/big/samach7.jpg', w:1600, h:1200, title:'נחל סמך', tags: 'samach spring river'},
+{src:'images/map/big/samach8.jpg', w:721, h:900, title:'נחל סמך', tags: 'samach spring river'},
+{src:'images/map/big/samach9.jpg', w:1600, h:1200, title:'נחל סמך', tags: 'samach spring river'},
+
 {src:'images/map/big/wadinov1.jpg', w:1600, h:1200, title:'', tags: 'wadinov winter flow'},
 {src:'images/map/big/wadinov2.jpg', w:1600, h:1200, title:'', tags: 'wadinov winter'},
-
-
 ];
 
 function openPhotoSwipe(subsetTag) {
