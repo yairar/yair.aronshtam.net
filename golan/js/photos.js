@@ -10,22 +10,33 @@ var photo_items = [
 
 {src:'images/map/big/einoteden1.jpg', w:1600, h:1200, title:'עיינות עדן', tags: 'einoteden maayan autumn'},
 
+{src:'images/map/big/einotfahem1.jpg', w:1600, h:1200, title:'עינות פאחם', tags: 'einotfahem maayan summer'},
+
+{src:'images/map/big/eintut1.jpg', w:1600, h:1200, title:'עין תות', tags: 'eintut autumn maayan'},
+
 {src:'images/map/big/elal1.jpg', w:1600, h:1200, title:'נחל אל על', tags: 'elal autumn waterfall'},
 {src:'images/map/big/elal2.jpg', w:1600, h:1200, title:'נחל אל על', tags: 'elal autumn waterfall waterfall_lavan'},
 {src:'images/map/big/elal5.jpg', w:1600, h:1200, title:'נחל אל על', tags: 'elal autumn'},
 
+{src:'images/map/big/gamla1.jpg', w:1600, h:1200, title:'גמלא', tags: 'gamla spring'},
+
+{src:'images/map/big/juhader1.jpg', w:675, h:900, title:"ג'וחדר", tags: 'juhader maayan summer'},
+
 {src:'images/map/big/katzr1.jpg', w:1600, h:1198, title:'קצר ברדוויל', tags: 'katzr viewpoint winter'},
 {src:'images/map/big/katzr2.jpg', w:1600, h:1200, title:'קצר ברדוויל', tags: 'katzr viewpoint autumn'},
+
+{src:'images/map/big/mapalirusim1.jpg', w:1600, h:1200, title:'מפל האירוסים', tags: 'mapalirusim waterfall winter'},
 
 {src:'images/map/big/mitzpedima1.jpg', w:1600, h:1200, title:'מצפה דימה, גשור', tags: 'mitzpedima gshur mitzpe spring'},
 {src:'images/map/big/mitzpedima2.jpg', w:1600, h:1200, title:'מצפה דימה, גשור', tags: 'mitzpedima gshur mitzpe spring'},
 {src:'images/map/big/mitzpedima3.jpg', w:1600, h:1200, title:'מצפה דימה, גשור', tags: 'mitzpedima gshur mitzpe spring'},
 {src:'images/map/big/mitzpedima4.jpg', w:1600, h:1200, title:'מצפה דימה, גשור', tags: 'mitzpedima gshur mitzpe spring'},
 
-{src:'images/map/big/mitzpefishgop1.jpg', w:1600, h:1200, title:'מצפה פישגופ, אפיק', tags: 'mitzpefishgop afik mitzpe winter'},
+{src:'images/map/big/mitzpefishgop1.jpg', w:1600, h:899, title:'מצפה פישגופ, אפיק', tags: 'mitzpefishgop afik mitzpe winter'},
 {src:'images/map/big/mitzpefishgop2.jpg', w:1600, h:1200, title:'מצפה פישגופ, אפיק', tags: 'mitzpefishgop afik mitzpe summer'},
 {src:'images/map/big/mitzpefishgop3.jpg', w:1600, h:1070, title:'מצפה פישגופ, אפיק', tags: 'mitzpefishgop afik mitzpe summer'},
 {src:'images/map/big/mitzpefishgop4.jpg', w:1600, h:1067, title:'מצפה פישגופ, אפיק', tags: 'mitzpefishgop afik mitzpe summer'},
+{src:'images/map/big/mitzpefishgop5.jpg', w:1600, h:1200, title:'מצפה פישגופ, אפיק', tags: 'mitzpefishgop afik mitzpe winter'},
 
 {src:'images/map/big/meitzar1.jpg', w:1600, h:1200, title:'נחל מיצר', tags: 'meitzar spring viewpoint'},
 
