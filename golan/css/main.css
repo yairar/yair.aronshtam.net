@@ -59,6 +59,13 @@ section {
 }
 
 /* To Navigation Style */
+.top-nav-back{
+	position: fixed; 
+	width: 10%;
+
+	top: 0; 
+	left: 0;
+}
 .codrops-top {
 	width: 100%;
 	text-transform: uppercase;
