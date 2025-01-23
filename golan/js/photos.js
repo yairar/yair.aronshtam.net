@@ -1,6 +1,12 @@
 var photo_items = [
 {src:'images/map/big/ahunov1.jpg', w:1600, h:1201, title:'זריחה באחו נוב', tags: 'ahunov sunrise winter'},
 {src:'images/map/big/ahunov2.jpg', w:1600, h:1200, title:'זריחה באחו נוב', tags: 'ahunov sunrise winter'},
+{src:'images/map/big/ahunov3.jpg', w:1600, h:1201, title:'פריחה באחו נוב', tags: 'ahunov winter bloom'},
+{src:'images/map/big/ahunov4.jpg', w:1600, h:1200, title:'פריחה באחו נוב', tags: 'ahunov winter bloom'},
+{src:'images/map/big/ahunov5.jpg', w:1600, h:1200, title:'פריחה באחו נוב', tags: 'ahunov winter bloom'},
+{src:'images/map/big/ahunov6.jpg', w:1600, h:1200, title:'פריחה באחו נוב', tags: 'ahunov winter bloom'},
+{src:'images/map/big/ahunov7.jpg', w:900, h:1200, title:'פריחה באחו נוב', tags: 'ahunov winter bloom'},
+{src:'images/map/big/ahunov8.jpg', w:1600, h:1281, title:'פריחה באחו נוב', tags: 'ahunov winter bloom'},
 
 {src:'images/map/big/einkef1.jpg', w:1600, h:1200, title:'עין כיף', tags: 'einkef maayan autumn'},
 
