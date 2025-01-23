@@ -188,7 +188,7 @@ var items = [
 {src:'image/kanvas6.jpg', w:1600, h:1143, title:"הדמיה", tags: 'kanvas'},
 {src:'image/kanvas7.jpg', w:1600, h:1200, title:"הדפסה על זכוכית למשרד", tags: 'kanvas'},
 {src:'image/kanvas8.jpg', w:1600, h:961, title:"הדפסה על זכוכית למשרד", tags: 'kanvas'},
-{src:'image/kanvas9.jpg', w:1120, h:1400, title:"הדפסה על קנבס", tags: 'kanvas'},
+{src:'image/kanvas9.jpg', w:1120, h:1400, title:"הדפסה על קנבס", tags: 'kanvas'}, 
 
 {src:'image/maayanharod1.jpg', w:1600, h:1066, title:"מעיין חרוד", tags: 'maayanharod summer landscape israel'},
 
