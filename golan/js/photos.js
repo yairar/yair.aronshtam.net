@@ -53,6 +53,8 @@ var photo_items = [
 {src:'images/map/big/mitzpefishgop3.jpg', w:1600, h:1070, title:'מצפה פישגופ, אפיק', tags: 'mitzpefishgop afik mitzpe summer'},
 {src:'images/map/big/mitzpefishgop4.jpg', w:1600, h:1067, title:'מצפה פישגופ, אפיק', tags: 'mitzpefishgop afik mitzpe summer'},
 {src:'images/map/big/mitzpefishgop5.jpg', w:1600, h:1200, title:'מצפה פישגופ, אפיק', tags: 'mitzpefishgop afik mitzpe winter'},
+{src:'images/map/big/mitzpefishgop6.jpg', w:1600, h:1200, title:'מצפה פישגופ, אפיק', tags: 'mitzpefishgop afik mitzpe winter'},
+{src:'images/map/big/mitzpefishgop7.jpg', w:1600, h:1200, title:'מצפה פישגופ, אפיק', tags: 'mitzpefishgop afik mitzpe winter'},
 
 {src:'images/map/big/meitzar1.jpg', w:1600, h:1200, title:'נחל מיצר', tags: 'meitzar spring viewpoint'},
 
@@ -75,6 +77,16 @@ var photo_items = [
 {src:'images/map/big/samach7.jpg', w:1600, h:1200, title:'נחל סמך', tags: 'samach spring river'},
 {src:'images/map/big/samach8.jpg', w:721, h:900, title:'נחל סמך', tags: 'samach spring river'},
 {src:'images/map/big/samach9.jpg', w:1600, h:1200, title:'נחל סמך', tags: 'samach spring river'},
+
+{src:'images/map/big/tayeletmavohama1.jpg', w:1600, h:1067, title:'טיילת מבוא חמה', tags: 'tayeletmavohama winter'},
+{src:'images/map/big/tayeletmavohama2.jpg', w:1600, h:1200, title:'טיילת מבוא חמה', tags: 'tayeletmavohama winter'},
+{src:'images/map/big/tayeletmavohama3.jpg', w:1600, h:1067, title:'טיילת מבוא חמה', tags: 'tayeletmavohama winter bloom'},
+{src:'images/map/big/tayeletmavohama4.jpg', w:1600, h:1067, title:'טיילת מבוא חמה', tags: 'tayeletmavohama winter'},
+{src:'images/map/big/tayeletmavohama5.jpg', w:1600, h:1200, title:'טיילת מבוא חמה', tags: 'tayeletmavohama winter'},
+{src:'images/map/big/tayeletmavohama6.jpg', w:1600, h:1067, title:'טיילת מבוא חמה', tags: 'tayeletmavohama spring'},
+{src:'images/map/big/tayeletmavohama7.jpg', w:1600, h:1200, title:'טיילת מבוא חמה', tags: 'tayeletmavohama spring bloom'},
+{src:'images/map/big/tayeletmavohama8.jpg', w:1600, h:1200, title:'טיילת מבוא חמה', tags: 'tayeletmavohama spring'},
+{src:'images/map/big/tayeletmavohama9.jpg', w:1600, h:1200, title:'טיילת מבוא חמה', tags: 'tayeletmavohama autumn bloom'},
 
 {src:'images/map/big/wadinov1.jpg', w:1600, h:1200, title:'', tags: 'wadinov winter flow'},
 {src:'images/map/big/wadinov2.jpg', w:1600, h:1200, title:'', tags: 'wadinov winter'},
