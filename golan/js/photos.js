@@ -42,6 +42,15 @@ var photo_items = [
 {src:'images/map/big/katzr2.jpg', w:1600, h:1200, title:'קצר ברדוויל', tags: 'katzr viewpoint autumn'},
 
 {src:'images/map/big/mapalirusim1.jpg', w:1600, h:1200, title:'מפל האירוסים', tags: 'mapalirusim waterfall winter'},
+{src:'images/map/big/mapalirusim2.jpg', w:900, h:1200, title:'מפל האירוסים', tags: 'mapalirusim waterfall winter'},
+{src:'images/map/big/mapalirusim3.jpg', w:1600, h:1200, title:'מפל האירוסים', tags: 'mapalirusim waterfall winter'},
+{src:'images/map/big/mapalirusim4.jpg', w:900, h:1200, title:'מפל האירוסים', tags: 'mapalirusim waterfall winter'},
+{src:'images/map/big/mapalirusim5.jpg', w:900, h:1200, title:'פריחה במפל האירוסים', tags: 'mapalirusim winter'},
+{src:'images/map/big/mapalirusim6.jpg', w:1600, h:1200, title:'בדרך למפל האירוסים', tags: 'mapalirusim winter'},
+{src:'images/map/big/mapalirusim7.jpg', w:1600, h:1200, title:'מפל האירוסים', tags: 'mapalirusim waterfall spring'},
+{src:'images/map/big/mapalirusim8.jpg', w:1600, h:1200, title:'פריחת האירוסים בצומת המפלים', tags: 'mapalirusim spring'},
+{src:'images/map/big/mapalirusim9.jpg', w:800, h:1200, title:'פריחת האירוסים בצומת המפלים', tags: 'mapalirusim spring'},
+{src:'images/map/big/mapalirusim10.jpg', w:1600, h:1202, title:'פריחת האירוסים בצומת המפלים', tags: 'mapalirusim spring'},
 
 {src:'images/map/big/mitzpedima1.jpg', w:1600, h:1200, title:'מצפה דימה, גשור', tags: 'mitzpedima gshur mitzpe spring'},
 {src:'images/map/big/mitzpedima2.jpg', w:1600, h:1200, title:'מצפה דימה, גשור', tags: 'mitzpedima gshur mitzpe spring'},
