@@ -11,6 +11,15 @@ var photo_items = [
 {src:'images/map/big/einkef1.jpg', w:1600, h:1200, title:'עין כיף', tags: 'einkef maayan autumn'},
 
 {src:'images/map/big/einkshatot1.jpg', w:1600, h:1200, title:'עין הקשתות', tags: 'einkshatot maayan spring'},
+{src:'images/map/big/einkshatot2.jpg', w:1600, h:1064, title:'נוף לכנרת מעין הקשתות', tags: 'einkshatot maayan autumn viewpoint'},
+{src:'images/map/big/einkshatot3.jpg', w:1600, h:1200, title:'עין הקשתות', tags: 'einkshatot maayan autumn'},
+{src:'images/map/big/einkshatot4.jpg', w:406, h:541, title:'תבליט המנורה והלולב בבית כנסת בעין הקשתות', tags: 'einkshatot maayan autumn'},
+{src:'images/map/big/einkshatot5.jpg', w:1600, h:1200, title:'מבנה הקשתות והמעיין בעין הקשתות', tags: 'einkshatot maayan autumn'},
+{src:'images/map/big/einkshatot6.jpg', w:900, h:1200, title:'עין הקשתות', tags: 'einkshatot maayan autumn'},
+{src:'images/map/big/einkshatot7.jpg', w:1600, h:1067, title:'עין הקשתות', tags: 'einkshatot maayan autumn'},
+{src:'images/map/big/einkshatot8.jpg', w:1600, h:1200, title:'גת עתיקה בעין הקשתות', tags: 'einkshatot maayan autumn'},
+{src:'images/map/big/einkshatot9.jpg', w:1600, h:1200, title:'אולם כניסה בעין הקשתות', tags: 'einkshatot maayan autumn'},
+{src:'images/map/big/einkshatot10.jpg', w:720, h:900, title:'נוף לחרמון ונחל סמך מעין הקשתות', tags: 'einkshatot maayan spring'},
 
 {src:'images/map/big/einnov1.jpg', w:1600, h:1200, title:'עין נוב', tags: 'einnov maayan summer'},
 
@@ -20,8 +29,9 @@ var photo_items = [
 
 {src:'images/map/big/eintut1.jpg', w:1600, h:1200, title:'עין תות', tags: 'eintut autumn maayan'},
 
-{src:'images/map/big/elal1.jpg', w:1600, h:1200, title:'נחל אל על', tags: 'elal autumn waterfall'},
-{src:'images/map/big/elal2.jpg', w:1600, h:1200, title:'נחל אל על', tags: 'elal autumn waterfall waterfall_lavan'},
+{src:'images/map/big/elal1.jpg', w:1600, h:1200, title:'נחל אל על, המפל השחור', tags: 'elal autumn waterfall'},
+{src:'images/map/big/elal2.jpg', w:1600, h:1200, title:'נחל אל על, המפל הלבן', tags: 'elal autumn waterfall waterfall_lavan'},
+{src:'images/map/big/elal3.jpg', w:1600, h:1200, title:'תצפית על נחל אל על', tags: 'elal autumn'},
 {src:'images/map/big/elal5.jpg', w:1600, h:1200, title:'נחל אל על', tags: 'elal autumn'},
 
 {src:'images/map/big/gamla1.jpg', w:1600, h:1200, title:'גמלא', tags: 'gamla spring'},
@@ -46,14 +56,21 @@ var photo_items = [
 
 {src:'images/map/big/meitzar1.jpg', w:1600, h:1200, title:'נחל מיצר', tags: 'meitzar spring viewpoint'},
 
-{src:'images/map/big/nov1.jpg', w:1600, h:1201, title:'נוב', tags: 'nov autumn'},
-{src:'images/map/big/nov5.jpg', w:1600, h:1200, title:'נוב', tags: 'nov spring sunset'},
+{src:'images/map/big/nov1.jpg', w:1600, h:1201, title:'נוב', tags: 'moshav nov autumn'},
+{src:'images/map/big/nov2.jpg', w:1600, h:1200, title:'תצפית מבונקר בנוב', tags: 'moshav nov winter sunset'},
+{src:'images/map/big/nov3.jpg', w:1600, h:1067, title:'קן חסידות בנוב', tags: 'moshav nov spring hasidot'},
+{src:'images/map/big/nov4.jpg', w:800, h:1200, title:'גידול הדסים בנוב', tags: 'moshav nov autumn hadasim'},
+{src:'images/map/big/nov5.jpg', w:1600, h:1200, title:'תצפית מבונקר בנוב', tags: 'moshav nov spring bloom turmusim'},
+{src:'images/map/big/nov6.jpg', w:1600, h:1200, title:'תצפית מבונקר בנוב', tags: 'moshav nov autumn sunset'},
+{src:'images/map/big/nov7.jpg', w:1600, h:1067, title:'גידול הדסים בנוב', tags: 'moshav nov summer sunset'},
+{src:'images/map/big/nov8.jpg', w:1600, h:1200, title:'נוב', tags: 'moshav nov autumn'},
+{src:'images/map/big/nov9.jpg', w:1600, h:1199, title:'נוב', tags: 'moshav nov winter kvasim'},
 
 {src:'images/map/big/samach1.jpg', w:1600, h:1200, title:'נחל סמך', tags: 'samach spring river'},
 {src:'images/map/big/samach2.jpg', w:1600, h:1200, title:'נחל סמך', tags: 'samach spring river'},
-{src:'images/map/big/samach3.jpg', w:675, h:900, title:'נחל סמך', tags: 'samach spring river'},
+{src:'images/map/big/samach3.jpg', w:675, h:900, title:'גשר הסורי, נחל סמך', tags: 'samach spring river'},
 {src:'images/map/big/samach4.jpg', w:1600, h:1200, title:'נחל סמך', tags: 'samach spring river'},
-{src:'images/map/big/samach5.jpg', w:1600, h:1200, title:'נחל סמך', tags: 'samach spring river'},
+{src:'images/map/big/samach5.jpg', w:1600, h:1200, title:'גשר הסורי, נחל סמך', tags: 'samach spring river'},
 {src:'images/map/big/samach6.jpg', w:1600, h:1200, title:'נחל סמך', tags: 'samach spring river'},
 {src:'images/map/big/samach7.jpg', w:1600, h:1200, title:'נחל סמך', tags: 'samach spring river'},
 {src:'images/map/big/samach8.jpg', w:721, h:900, title:'נחל סמך', tags: 'samach spring river'},
