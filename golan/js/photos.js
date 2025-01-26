@@ -8,6 +8,9 @@ var photo_items = [
 {src:'images/map/big/ahunov7.jpg', w:900, h:1200, title:'פריחה באחו נוב', tags: 'ahunov winter bloom'},
 {src:'images/map/big/ahunov8.jpg', w:1600, h:1281, title:'פריחה באחו נוב', tags: 'ahunov winter bloom'},
 
+{src:'images/map/big/bajoriya1.jpg', w:1600, h:1200, title:"בג'וריה", tags: 'bajoriya winter'},
+{src:'images/map/big/bajoriya2.jpg', w:1600, h:1200, title:"בג'וריה", tags: 'bajoriya spring'},
+
 {src:'images/map/big/einkef1.jpg', w:1600, h:1200, title:'עין כיף', tags: 'einkef maayan autumn'},
 
 {src:'images/map/big/einkshatot1.jpg', w:1600, h:1200, title:'עין הקשתות', tags: 'einkshatot maayan spring'},
@@ -40,6 +43,10 @@ var photo_items = [
 
 {src:'images/map/big/katzr1.jpg', w:1600, h:1198, title:'קצר ברדוויל', tags: 'katzr viewpoint winter'},
 {src:'images/map/big/katzr2.jpg', w:1600, h:1200, title:'קצר ברדוויל', tags: 'katzr viewpoint autumn'},
+
+{src:'images/map/big/maayankanaf1.jpg', w:1600, h:1201, title:'מעיין כנף', tags: 'maayankanaf autumn'},
+{src:'images/map/big/maayankanaf2.jpg', w:1600, h:1200, title:'מעיין כנף', tags: 'maayankanaf summer'},
+{src:'images/map/big/maayankanaf3.jpg', w:1600, h:1067, title:'מעיין כנף', tags: 'maayankanaf spring'},
 
 {src:'images/map/big/mapalirusim1.jpg', w:1600, h:1200, title:'מפל האירוסים', tags: 'mapalirusim waterfall winter'},
 {src:'images/map/big/mapalirusim2.jpg', w:900, h:1200, title:'מפל האירוסים', tags: 'mapalirusim waterfall winter'},
