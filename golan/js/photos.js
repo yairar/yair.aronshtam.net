@@ -47,9 +47,15 @@ var photo_items = [
 {src:'images/map/big/elal1.jpg', w:1600, h:1200, title:'נחל אל על, המפל השחור', tags: 'elal autumn waterfall'},
 {src:'images/map/big/elal2.jpg', w:1600, h:1200, title:'נחל אל על, המפל הלבן', tags: 'elal autumn waterfall waterfall_lavan'},
 {src:'images/map/big/elal3.jpg', w:1600, h:1200, title:'תצפית על נחל אל על', tags: 'elal autumn'},
+{src:'images/map/big/elal4.jpg', w:1600, h:1200, title:'נחל אל על, המפל הלבן', tags: 'elal autumn waterfall waterfall_lavan'},
 {src:'images/map/big/elal5.jpg', w:1600, h:1200, title:'נחל אל על', tags: 'elal autumn'},
+{src:'images/map/big/elal6.jpg', w:1050, h:1200, title:'נחל אל על, המפל הלבן', tags: 'elal autumn waterfall waterfall_lavan'},
 
 {src:'images/map/big/gamla1.jpg', w:1600, h:1200, title:'גמלא', tags: 'gamla spring'},
+{src:'images/map/big/gamla2.jpg', w:1600, h:1200, title:'גמלא', tags: 'gamla spring'},
+{src:'images/map/big/gamla3.jpg', w:1600, h:1066, title:'גמלא', tags: 'gamla spring'},
+{src:'images/map/big/gamla4.jpg', w:1600, h:1067, title:'גמלא', tags: 'gamla autumn'},
+
 
 {src:'images/map/big/juhader1.jpg', w:675, h:900, title:"ג'וחדר", tags: 'juhader maayan summer'},
 {src:'images/map/big/juhader2.jpg', w:900, h:1200, title:"ג'וחדר", tags: 'juhader maayan autumn'},
@@ -72,6 +78,9 @@ var photo_items = [
 {src:'images/map/big/mapalirusim9.jpg', w:800, h:1200, title:'פריחת האירוסים בצומת המפלים', tags: 'mapalirusim spring'},
 {src:'images/map/big/mapalirusim10.jpg', w:1600, h:1202, title:'פריחת האירוסים בצומת המפלים', tags: 'mapalirusim spring'},
 
+{src:'images/map/big/meitzar1.jpg', w:1600, h:1200, title:'נחל מיצר', tags: 'meitzar spring viewpoint'},
+{src:'images/map/big/meitzar2.jpg', w:1600, h:1067, title:'נחל מיצר', tags: 'meitzar spring viewpoint'},
+
 {src:'images/map/big/mitzpedima1.jpg', w:1600, h:1200, title:'מצפה דימה, גשור', tags: 'mitzpedima gshur mitzpe spring'},
 {src:'images/map/big/mitzpedima2.jpg', w:1600, h:1200, title:'מצפה דימה, גשור', tags: 'mitzpedima gshur mitzpe spring'},
 {src:'images/map/big/mitzpedima3.jpg', w:1600, h:1200, title:'מצפה דימה, גשור', tags: 'mitzpedima gshur mitzpe spring'},
@@ -84,8 +93,6 @@ var photo_items = [
 {src:'images/map/big/mitzpefishgop5.jpg', w:1600, h:1200, title:'מצפה פישגופ, אפיק', tags: 'mitzpefishgop afik mitzpe winter'},
 {src:'images/map/big/mitzpefishgop6.jpg', w:1600, h:1200, title:'מצפה פישגופ, אפיק', tags: 'mitzpefishgop afik mitzpe winter'},
 {src:'images/map/big/mitzpefishgop7.jpg', w:1600, h:1200, title:'מצפה פישגופ, אפיק', tags: 'mitzpefishgop afik mitzpe winter'},
-
-{src:'images/map/big/meitzar1.jpg', w:1600, h:1200, title:'נחל מיצר', tags: 'meitzar spring viewpoint'},
 
 {src:'images/map/big/nov1.jpg', w:1600, h:1201, title:'נוב', tags: 'moshav nov autumn'},
 {src:'images/map/big/nov2.jpg', w:1600, h:1200, title:'תצפית מבונקר בנוב', tags: 'moshav nov winter sunset'},
@@ -117,8 +124,13 @@ var photo_items = [
 {src:'images/map/big/tayeletmavohama8.jpg', w:1600, h:1200, title:'טיילת מבוא חמה', tags: 'tayeletmavohama spring'},
 {src:'images/map/big/tayeletmavohama9.jpg', w:1600, h:1200, title:'טיילת מבוא חמה', tags: 'tayeletmavohama autumn bloom'},
 
-{src:'images/map/big/wadinov1.jpg', w:1600, h:1200, title:'', tags: 'wadinov winter flow'},
-{src:'images/map/big/wadinov2.jpg', w:1600, h:1200, title:'', tags: 'wadinov winter'},
+{src:'images/map/big/wadinov1.jpg', w:1600, h:1200, title:'ואדי נוב', tags: 'wadinov winter flow'},
+{src:'images/map/big/wadinov2.jpg', w:1600, h:1200, title:'ואדי נוב', tags: 'wadinov winter'},
+
+{src:'images/map/big/yaarmavohama1.jpg', w:1600, h:1200, title:'יער מבוא חמה', tags: 'yaarmavohama autumn'},
+{src:'images/map/big/yaarmavohama2.jpg', w:1600, h:1200, title:'יער מבוא חמה', tags: 'yaarmavohama autumn viewpoint'},
+{src:'images/map/big/yaarmavohama3.jpg', w:1600, h:1067, title:'יער מבוא חמה', tags: 'yaarmavohama autumn'},
+{src:'images/map/big/yaarmavohama4.jpg', w:1600, h:1200, title:'יער מבוא חמה', tags: 'yaarmavohama spring'},
 ];
 
 function openPhotoSwipe(subsetTag) {
