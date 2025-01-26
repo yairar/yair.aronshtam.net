@@ -27,10 +27,22 @@ var photo_items = [
 {src:'images/map/big/einnov1.jpg', w:1600, h:1200, title:'עין נוב', tags: 'einnov maayan summer'},
 
 {src:'images/map/big/einoteden1.jpg', w:1600, h:1200, title:'עיינות עדן', tags: 'einoteden maayan autumn'},
+{src:'images/map/big/einoteden2.jpg', w:1600, h:1200, title:'עיינות עדן', tags: 'einoteden maayan autumn'},
+{src:'images/map/big/einoteden3.jpg', w:1600, h:1200, title:'עיינות עדן', tags: 'einoteden maayan autumn'},
 
 {src:'images/map/big/einotfahem1.jpg', w:1600, h:1200, title:'עינות פאחם', tags: 'einotfahem maayan summer'},
 
+{src:'images/map/big/einpik1.jpg', w:1600, h:1200, title:'עין פיק', tags: 'einpik maayan autumn'},
+{src:'images/map/big/einpik2.jpg', w:1600, h:1200, title:'עין פיק', tags: 'einpik maayan autumn'},
+
+{src:'images/map/big/eintaufik1.jpg', w:1600, h:1200, title:'עין תאופיק (עין עקוב)', tags: 'eintaufik maayan autumn'},
+{src:'images/map/big/eintaufik2.jpg', w:1600, h:1200, title:'עין תאופיק (עין עקוב)', tags: 'eintaufik maayan autumn'},
+{src:'images/map/big/eintaufik3.jpg', w:900, h:1200, title:'עין תאופיק (עין עקוב)', tags: 'eintaufik maayan autumn'},
+{src:'images/map/big/eintaufik4.jpg', w:1600, h:1200, title:'עין תאופיק (עין עקוב)', tags: 'eintaufik maayan autumn'},
+
 {src:'images/map/big/eintut1.jpg', w:1600, h:1200, title:'עין תות', tags: 'eintut autumn maayan'},
+{src:'images/map/big/eintut2.jpg', w:1600, h:1200, title:'עין תות', tags: 'eintut winter maayan'},
+{src:'images/map/big/eintut3.jpg', w:1600, h:1200, title:'עין תות', tags: 'eintut winter maayan'},
 
 {src:'images/map/big/elal1.jpg', w:1600, h:1200, title:'נחל אל על, המפל השחור', tags: 'elal autumn waterfall'},
 {src:'images/map/big/elal2.jpg', w:1600, h:1200, title:'נחל אל על, המפל הלבן', tags: 'elal autumn waterfall waterfall_lavan'},
@@ -40,6 +52,7 @@ var photo_items = [
 {src:'images/map/big/gamla1.jpg', w:1600, h:1200, title:'גמלא', tags: 'gamla spring'},
 
 {src:'images/map/big/juhader1.jpg', w:675, h:900, title:"ג'וחדר", tags: 'juhader maayan summer'},
+{src:'images/map/big/juhader2.jpg', w:900, h:1200, title:"ג'וחדר", tags: 'juhader maayan autumn'},
 
 {src:'images/map/big/katzr1.jpg', w:1600, h:1198, title:'קצר ברדוויל', tags: 'katzr viewpoint winter'},
 {src:'images/map/big/katzr2.jpg', w:1600, h:1200, title:'קצר ברדוויל', tags: 'katzr viewpoint autumn'},
