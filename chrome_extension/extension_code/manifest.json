@@ -1,7 +1,7 @@
 {
   "name": "New tab page with Golan Heights photo",
   "description": "Unique photos of Golan Heights by Yair Aronshtam",
-  "version": "3.0",
+  "version": "4.0",
   "incognito": "split",
   "chrome_url_overrides": {
     "newtab": "newTab.html"
