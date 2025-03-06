@@ -7,6 +7,11 @@ var photo_items = [
 {src:'images/map/big/ahunov6.jpg', w:1600, h:1200, title:'פריחה באחו נוב', tags: 'ahunov winter bloom'},
 {src:'images/map/big/ahunov7.jpg', w:900, h:1200, title:'פריחה באחו נוב', tags: 'ahunov winter bloom'},
 {src:'images/map/big/ahunov8.jpg', w:1600, h:1281, title:'פריחה באחו נוב', tags: 'ahunov winter bloom'},
+{src:'images/map/big/ahunov9.jpg', w:1600, h:1199, title:'פריחה באחו נוב', tags: 'ahunov winter bloom'},
+{src:'images/map/big/ahunov10.jpg', w:1600, h:1200, title:'פריחה באחו נוב', tags: 'ahunov winter bloom'},
+{src:'images/map/big/ahunov11.jpg', w:1600, h:1200, title:'פריחה באחו נוב', tags: 'ahunov winter bloom'},
+{src:'images/map/big/ahunov12.jpg', w:1600, h:1200, title:'פריחה באחו נוב', tags: 'ahunov winter bloom'},
+{src:'images/map/big/ahunov13.jpg', w:1600, h:1200, title:'פריחה באחו נוב', tags: 'ahunov winter bloom'},
 
 {src:'images/map/big/bajoriya1.jpg', w:1600, h:1200, title:"בג'וריה", tags: 'bajoriya winter'},
 {src:'images/map/big/bajoriya2.jpg', w:1600, h:1200, title:"בג'וריה", tags: 'bajoriya spring'},
