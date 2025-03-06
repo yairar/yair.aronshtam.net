@@ -1,17 +1,19 @@
 {
   "photos": [
-  "ahunov1.jpg", 
-  "ahunov2.jpg", 
-  "ahunov3.jpg",
-  "ahunov4.jpg",
-  "ahunov5.jpg",
-  "ahunov6.jpg",
-  "ahunov7.jpg",
-  "ahunov8.jpg",
-  "ahunov9.jpg",
-  "ahunov10.jpg",
-  "ahunov11.jpg",
-  "ahunov12.jpg",
-  "ahunov13.jpg"
+    {
+      "filename": "ahunov1.jpg",
+      "title": "Sunset Over the Golan",
+      "location": "Golan Heights, Israel"
+    },
+    {
+      "filename": "ahunov2.jpg",
+      "title": "Mountain View",
+      "location": "Mount Hermon, Israel"
+    },
+    {
+      "filename": "ahunov3.jpg",
+      "title": "Lake Galilee Sunrise",
+      "location": "Sea of Galilee, Israel"
+    }
   ]
 }
