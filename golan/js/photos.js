@@ -114,6 +114,14 @@ var photo_items = [
 {src:'images/map/big/samach8.jpg', w:721, h:900, title:'נחל סמך', tags: 'samach spring river'},
 {src:'images/map/big/samach9.jpg', w:1600, h:1200, title:'נחל סמך', tags: 'samach spring river'},
 
+{src:'images/map/big/tayeletdromhagolan1.jpg', w:1600, h:1067, title:'טיילת דרום הגולן', tags: 'tayeletdromhagolan spring'},
+{src:'images/map/big/tayeletdromhagolan2.jpg', w:1600, h:1067, title:'טיילת דרום הגולן', tags: 'tayeletdromhagolan spring'},
+{src:'images/map/big/tayeletdromhagolan3.jpg', w:1600, h:1067, title:'טיילת דרום הגולן', tags: 'tayeletdromhagolan spring'},
+{src:'images/map/big/tayeletdromhagolan4.jpg', w:1600, h:1067, title:'טיילת דרום הגולן', tags: 'tayeletdromhagolan spring'},
+{src:'images/map/big/tayeletdromhagolan5.jpg', w:1600, h:1067, title:'טיילת דרום הגולן', tags: 'tayeletdromhagolan spring'},
+{src:'images/map/big/tayeletdromhagolan6.jpg', w:1600, h:1201, title:'טיילת דרום הגולן', tags: 'tayeletdromhagolan spring'},
+{src:'images/map/big/tayeletdromhagolan7.jpg', w:1600, h:1066, title:'טיילת דרום הגולן', tags: 'tayeletdromhagolan spring'},
+
 {src:'images/map/big/tayeletmavohama1.jpg', w:1600, h:1067, title:'טיילת מבוא חמה', tags: 'tayeletmavohama winter'},
 {src:'images/map/big/tayeletmavohama2.jpg', w:1600, h:1200, title:'טיילת מבוא חמה', tags: 'tayeletmavohama winter'},
 {src:'images/map/big/tayeletmavohama3.jpg', w:1600, h:1067, title:'טיילת מבוא חמה', tags: 'tayeletmavohama winter bloom'},
