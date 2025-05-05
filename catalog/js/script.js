@@ -19,6 +19,7 @@ var items = [
 {src:'image/autumn6.jpg', w:1600, h:1066, title:'נחל הפירים', tags: 'nahalhapirim autumn gush best'},
 
 {src:'image/banias1.jpg', w:1600, h:1200, title:'מפל בניאס', tags: 'banias summer israel best'},
+{src:'image/banias2.jpg', w:1600, h:1198, title:'בניאס', tags: 'banias winter israel best'},
 
 {src:'image/batayin1.jpg', w:1600, h:975, title:'נוף על בת עין', tags: 'batayin winter landscape gush'},
 {src:'image/batayin2.jpg', w:1600, h:900, title:'כרמים ליד בת עין', tags: 'batayin winter bloom vineyard gush'},
@@ -167,6 +168,12 @@ var items = [
 {src:'image/golan59.jpg', w:1600, h:1200, title:"עליה לגולן מחמת גדר", tags: 'golan spring landscape israel'},
 {src:'image/golan60.jpg', w:1600, h:1131, title:"קוגאז' פריחה בגולן", tags: 'golan spring bloom collage israel'},
 {src:'image/golan61.jpg', w:1600, h:1131, title:"קוגאז' פריחה בגולן", tags: 'golan spring bloom collage israel'},
+{src:'image/golan62.jpg', w:1600, h:1200, title:"נוף לחרמון", tags: 'golan spring horse israel best'},
+{src:'image/golan63.jpg', w:1120, h:1400, title:"מפל ג'ילבון", tags: 'golan winter waterfall israel'},
+{src:'image/golan64.jpg', w:1600, h:1200, title:"בית כנסת בעין הקשתות", tags: 'golan winter archeology israel'},
+{src:'image/golan65.jpg', w:1600, h:1066, title:"עין איוב בכנרת", tags: 'golan kineret waterfall winter israel'},
+{src:'image/golan66.jpg', w:1600, h:1200, title:"נוף לחרמון", tags: 'golan spring landscape bloom israel'},
+{src:'image/golan67.jpg', w:1600, h:1200, title:"שקיעה בכנרת", tags: 'golan kineret sunset spring israel'},
 
 {src:'image/havatsfarhamidbar2.jpg', w:1600, h:900, title:"חוות ספר המדבר", tags: 'farm spring landscape gush'},
 
