@@ -12,9 +12,13 @@ const imageSection = document.querySelector('#nanogallery2');
 
 ///////////////////////////////////////////////////
 
-loadingImage.style.display = 'none';
+if (loadingImage) {
+	loadingImage.style.display = 'none';
+}
 
-form.addEventListener('submit', formSubmitted);
+if (form) {
+	form.addEventListener('submit', formSubmitted);
+}
 
 //var all_sorted = sortArray(all_locations__);
 //printArray(all_sorted);
