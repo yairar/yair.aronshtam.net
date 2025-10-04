@@ -58,6 +58,7 @@ var items = [
 {src:'image/bloom29.jpg', w:1600, h:1201, title:'', tags: 'bloom spring gush'},
 {src:'image/bloom30.jpg', w:749, h:1000, title:'צהרון מצוי', tags: 'bloom spring gush'},
 {src:'image/bloom31.jpg', w:1600, h:1068, title:'פארק עדולם', tags: 'bloom spring adulam'},
+{src:'image/bloom32.jpg', w:1600, h:1067, title:'דרום אדום', tags: 'bloom spring daromadom'},
 
 {src:'image/bluecave2.jpg', w:1400, h:1050, title:'מערה הכחולה', tags: 'bluecave summer israel best'},
 
@@ -98,9 +99,12 @@ var items = [
 {src:'image/einlivne5.jpg', w:1600, h:1200, title:"עין ליבנה", tags: 'maayan summer gush'},
 
 {src:'image/einmaim1.jpg', w:1400, h:1050, title:'עין מי"ם', tags: 'maayan einmaim spring gush'},
+{src:'image/einmigdal.jpg', w:1600, h:1144, title:'עין מגדל', tags: 'maayan einmigdal spring north best'},
 
 {src:'image/einprat1.jpg', w:1600, h:1529, title:"עין פרת", tags: 'maayan winter israel'},
 {src:'image/einprat2.jpg', w:1600, h:1200, title:"עין פרת", tags: 'maayan winter israel best'},
+
+{src:'image/einyorkeam.jpg', w:1600, h:1200, title:"עין ירקעם", tags: 'maayan winter israel best'},
 
 {src:'image/foresteretzayalim1.jpg', w:1600, h:1068, title:"יער ארץ האיילים", tags: 'forest spring landscape gush'},
 {src:'image/foresteretzayalim4.jpg', w:1600, h:1068, title:"יער ארץ האיילים", tags: 'forest bloom autumn gush'},
@@ -141,7 +145,7 @@ var items = [
 {src:'image/golan32.jpg', w:1600, h:1200, title:"על הסוס בנוב", tags: 'golan winter landscape horse israel'},
 {src:'image/golan33.jpg', w:1600, h:1200, title:"עין נוב", tags: 'golan summer maayan israel'},
 {src:'image/golan34.jpg', w:1600, h:1067, title:"קן חסידות בנוב", tags: 'golan summer bird israel'},
-{src:'image/golan35.jpg', w:600, h:900, title:"גידול הדסים בנוב", tags: 'golan summer sunset israel'},
+{src:'image/golan35.jpg', w:600, h:900, title:"גידול הדסים בנוב", tags: 'golan hadasim nov summer sunset israel'},
 {src:'image/golan36.jpg', w:1600, h:1131, title:"קולאג' נוב", tags: 'golan collage nov israel'},
 {src:'image/golan37.jpg', w:636, h:900, title:"קולאג' מפלים", tags: 'golan waterfall lanscape collage israel'},
 {src:'image/golan38.jpg', w:1517, h:1080, title:"שקיעה בבונקר של נוב", tags: 'golan spring landscape sunset lupine israel'},
@@ -174,6 +178,12 @@ var items = [
 {src:'image/golan65.jpg', w:1600, h:1066, title:"עין איוב בכנרת", tags: 'golan kineret waterfall winter israel'},
 {src:'image/golan66.jpg', w:1600, h:1200, title:"נוף לחרמון", tags: 'golan spring landscape bloom israel'},
 {src:'image/golan67.jpg', w:1600, h:1200, title:"שקיעה בכנרת", tags: 'golan kineret sunset spring israel'},
+{src:'image/golan68.jpg', w:1600, h:902, title:"גמלא", tags: 'golan spring landscape israel'},
+{src:'image/golan69.jpg', w:1600, h:1200, title:"קצר ברדוויל", tags: 'golan autumn landscape israel'},
+{src:'image/golan70.jpg', w:1600, h:1200, title:"חלמונית על רקע כנרת", tags: 'golan	bloom autumn landscape israel'},
+{src:'image/golan71.jpg', w:1600, h:1200, title:"פרות בגולן", tags: 'golan cow spring landscape israel'},
+{src:'image/golan72.jpg', w:1600, h:1200, title:"גידול הדסים בנוב", tags: 'golan hadasim nov winter	israel'},
+
 
 {src:'image/havatsfarhamidbar2.jpg', w:1600, h:900, title:"חוות ספר המדבר", tags: 'farm spring landscape gush'},
 
@@ -198,6 +208,8 @@ var items = [
 {src:'image/kanvas9.jpg', w:1120, h:1400, title:"הדפסה על קנבס", tags: 'kanvas'}, 
 
 {src:'image/maayanharod1.jpg', w:1600, h:1066, title:"מעיין חרוד", tags: 'maayanharod summer landscape israel'},
+
+{src:'image/marsaba1.jpg', w:1600, h:1067, title:"מנזר מר סבא", tags: 'marsaba winter landscape desert israel'},
 
 {src:'image/metzada1.jpg', w:1600, h:1200, title:"מצדה", tags: 'metzada winter landscape israel'},
 {src:'image/metzada2.jpg', w:1600, h:1068, title:"מצדה", tags: 'metzada winter landscape israel sunset'},
