@@ -1,5 +1,10 @@
 {
 "best_photos": [
+{"f": "catalog/image/bloom5.jpg", "t": "Herodion view", "loc": "Gush Etzion", "tags": "bloom gushetzion winter 2017 02"},
+{"f": "catalog/image/bloom13.jpg", "t": "", "loc": "Adulam park", "tags": "bloom winter 2019 02"},
+{"f": "catalog/image/bloom25.jpg", "t": "", "loc": "Jerusalem", "tags": "bloom autumn 2023 11"},
+{"f": "catalog/image/bloom27.jpg", "t": "", "loc": "Gush Etzion", "tags": "bloom gushetzion spring 2023 03"},
+
 {"f": "golan/images/map/big/ahunov1.jpg", "t": "Sunrise over Nov Meadow Nature Reserve", "loc": "Golan Heights", "tags": "nov meadow golan winter 2024 01"},
 {"f": "golan/images/map/big/ahunov3.jpg", "t": "Blossom in Nov Meadow Nature Reserve", "loc": "Golan Heights", "tags": "nov meadow bloom golan winter 2025 01"},
 {"f": "golan/images/map/big/ahunov4.jpg", "t": "Blossom in Nov Meadow Nature Reserve", "loc": "Golan Heights", "tags": "nov meadow bloom golan winter 2025 01"},
