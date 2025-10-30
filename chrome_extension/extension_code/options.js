@@ -20,7 +20,7 @@ const saveOptions = () => {
 // stored in chrome.storage.
 const restoreOptions = () => {
   chrome.storage.sync.get(
-    { fvs: 'show' },
+    { fvs: 'hide' },
     (items) => {
       document.getElementById('fvs').value = items.fvs;
     }

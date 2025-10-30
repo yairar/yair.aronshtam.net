@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "New tab page with Golan Heights photo",
   "description": "Unique photos of Golan Heights by Yair Aronshtam",
-  "version": "5.0",
+  "version": "6.0",
 
   "host_permissions": ["https://yair.aronshtam.net/*"],
   "background": {
