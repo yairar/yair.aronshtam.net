@@ -247,4 +247,10 @@ section {
 		width: 360px;
 		height: 203px;
 	}
+	.img-links {
+		gap: 20px; /* Space between images */
+	}
+	.img-links img {
+		width: 150px;
+	}
 }
