@@ -11,6 +11,9 @@ var items = [
 {src:'image/arugot3.jpg', w:1400, h:933, title:'נחל ערוגות', tags: 'arugot summer israel best'},
 {src:'image/arugot4.jpg', w:1600, h:1200, title:'נחל ערוגות', tags: 'arugot winter israel best'},
 
+{src:'image/arugot8.jpg', w:1600, h:1001, title:'נחל ערוגות', tags: 'arugot autumn israel best'},
+{src:'image/arugot10.jpg', w:875, h:1200, title:'נחל ערוגות', tags: 'arugot autumn israel best'},
+
 {src:'image/autumn1.jpg', w:799, h:1200, title:'פרדס רימונים בנווה דניאל', tags: 'rimon autumn gush best'},
 {src:'image/autumn2.jpg', w:1600, h:744, title:'נחל הפירים', tags: 'nahalhapirim autumn gush best'},
 {src:'image/autumn3.jpg', w:1600, h:1067, title:'פרדס רימונים בנווה דניאל', tags: 'rimon autumn gush best'},
@@ -18,8 +21,12 @@ var items = [
 {src:'image/autumn5.jpg', w:1600, h:1067, title:'פרדס רימונים בנווה דניאל', tags: 'rimon autumn gush'},
 {src:'image/autumn6.jpg', w:1600, h:1066, title:'נחל הפירים', tags: 'nahalhapirim autumn gush best'},
 
+{src:'image/autumn11.jpg', w:1600, h:1065, title:'סטף', tags: 'autumn'},
+{src:'image/autumn12.jpg', w:1600, h:1200, title:'עין חמד', tags: 'autumn'},
+
 {src:'image/banias1.jpg', w:1600, h:1200, title:'מפל בניאס', tags: 'banias summer israel best'},
 {src:'image/banias2.jpg', w:1600, h:1198, title:'בניאס', tags: 'banias winter israel best'},
+{src:'image/banias3.jpg', w:1600, h:1066, title:'מפל בניאס', tags: 'banias summer israel'},
 
 {src:'image/batayin1.jpg', w:1600, h:975, title:'נוף על בת עין', tags: 'batayin winter landscape gush'},
 {src:'image/batayin3.jpg', w:1400, h:1050, title:'צוקי בת עין', tags: 'batayin winter bloom gush'},
@@ -60,6 +67,10 @@ var items = [
 {src:'image/bloom32.jpg', w:1600, h:1067, title:'דרום אדום', tags: 'bloom spring daromadom'},
 {src:'image/bloom37.jpg', w:1600, h:900, title:'מטע שקדיות', tags: 'bloom spring almond'},
 {src:'image/bloom39.jpg', w:1600, h:1067, title:'עלה נידף', tags: 'bloom spring reflection'},
+{src:'image/bloom40.jpg', w:1600, h:1068, title:'פריחת שקדיות', tags: 'bloom spring almond'},
+{src:'image/bloom41.jpg', w:901, h:1200, title:'פריחת שקדיות', tags: 'bloom spring almond'},
+{src:'image/bloom42.jpg', w:1600, h:1067, title:'תורמוסים', tags: 'bloom spring lupine'},
+{src:'image/bloom43.jpg', w:1600, h:1067, title:'פרפר', tags: 'bloom spring butterfly'},
 
 {src:'image/bluecave2.jpg', w:1400, h:1050, title:'מערה הכחולה', tags: 'bluecave summer israel best'},
 
@@ -88,7 +99,7 @@ var items = [
 {src:'image/einabukleb1.jpg', w:1600, h:899, title:'עין אבו כלאב', tags: 'maayan einabukleb spring gush best'},
 {src:'image/einabukleb2.jpg', w:1400, h:933, title:'עין אבו כלאב', tags: 'maayan einabukleb autumn gush'},
 
-{src:'image/einelkasis2.jpg', w:1600, h:901, title:'עין אל-קסיס', tags:'maayan sdeboaz spring gush'},
+
 {src:'image/einelkasis5.jpg', w:1600, h:1067, title:'עין אל-קסיס', tags: 'maayan sdeboaz bloom spring gush best'},
 	
 {src:'image/einitzhak4.jpg', w:1600, h:1200, title:"עין יצחק (עין סג'מה)", tags: 'maayan summer gush'},
@@ -187,7 +198,7 @@ var items = [
 
 {src:'image/golan74.jpg', w:1600, h:1200, title:"חלמוניות בשקיעה על רקע כנרת", tags: 'golan	bloom autumn landscape israel'},
 {src:'image/golan75.jpg', w:1600, h:1200, title:"חלמוניות בשקיעה על רקע כנרת", tags: 'golan	bloom autumn landscape israel'},
-{src:'image/golan76.jpg', w:1600, h:1200, title:"שקיעה מעל כנרת", tags: 'golan	bloom autumn'},
+{src:'image/golan76.jpg', w:1600, h:1200, title:"שקיעה מעל כנרת", tags: 'golan autumn sunset landscape israel'},
 
 {src:'image/havatsfarhamidbar2.jpg', w:1600, h:900, title:"חוות ספר המדבר", tags: 'farm spring landscape gush'},
 
@@ -259,6 +270,7 @@ var items = [
 
 {src:'image/sea1.jpg', w:1600, h:1067, title:'שקיעה בים', tags: 'sea sunset summer israel best'},
 {src:'image/sea2.jpg', w:1600, h:1066, title:'שקיעה בים', tags: 'sea sunset summer israel best'},
+{src:'image/sea3.jpg', w:1600, h:1200, title:'חוף דור', tags: 'sea summer israel'},
 {src:'image/sea4.jpg', w:1600, h:1200, title:'שקיעה בים', tags: 'sea sunset summer israel best'},
 
 {src:'image/sunset1.jpg', w:1600, h:1067, title:'שקיעה מעל כפר עציון', tags: 'sunset summer gush'},
