@@ -22,17 +22,16 @@ var items = [
 {src:'image/banias2.jpg', w:1600, h:1198, title:'בניאס', tags: 'banias winter israel best'},
 
 {src:'image/batayin1.jpg', w:1600, h:975, title:'נוף על בת עין', tags: 'batayin winter landscape gush'},
-{src:'image/batayin2.jpg', w:1600, h:900, title:'כרמים ליד בת עין', tags: 'batayin winter bloom vineyard gush'},
 {src:'image/batayin3.jpg', w:1400, h:1050, title:'צוקי בת עין', tags: 'batayin winter bloom gush'},
 
 {src:'image/beitzait1.jpg', w:1600, h:900, title:'מאגר בית זית', tags: 'beitzait winter israel'},
 
 {src:'image/bloom1.jpg', w:1600, h:1065, title:'פרדס רימונים בנווה דניאל', tags: 'bloom autumn best gush'},
-{src:'image/bloom2.jpg', w:1600, h:1065, title:'', tags: 'autumn best gush'},
+{src:'image/bloom2.jpg', w:1600, h:1065, title:'עלה נידף', tags: 'autumn best gush'},
 {src:'image/bloom3.jpg', w:1600, h:1067, title:'דרום אדום', tags: 'bloom daromadom spring israel best'},
 {src:'image/bloom4.jpg', w:1600, h:1002, title:'כורכום חורפי ליד שדה בועז', tags: 'bloom winter gush'},
 {src:'image/bloom5.jpg', w:785, h:1000, title:'נחל תקוע', tags: 'bloom spring gush'},
-{src:'image/bloom6.jpg', w:1600, h:1069, title:'כרכום חורפי ביער ארץ האיילים', tags: 'bloom spring gush best'},
+{src:'image/bloom6.jpg', w:1600, h:1200, title:'כרכום חורפי ביער ארץ האיילים', tags: 'bloom spring gush best'},
 {src:'image/bloom7.jpg', w:1600, h:1067, title:'שקדיות באפרת', tags: 'bloom spring gush'},
 {src:'image/bloom8.jpg', w:1600, h:1067, title:'אמת הביאר', tags: 'bloom spring gush'},
 {src:'image/bloom9.jpg', w:1600, h:1067, title:'נחל תקוע', tags: 'bloom winter gush'},
@@ -53,12 +52,14 @@ var items = [
 {src:'image/bloom24.jpg', w:1600, h:1066, title:'סתווניות', tags: 'bloom autumn gush'},
 {src:'image/bloom25.jpg', w:1050, h:1576, title:'כורכום חורפי', tags: 'bloom autumn'},
 {src:'image/bloom26.jpg', w:1600, h:1067, title:'פרפר על סתווניות', tags: 'bloom autumn gush'},
-{src:'image/bloom27.jpg', w:749, h:1000, title:'מצפה הסלע', tags: 'bloom spring gush rain'},
+{src:'image/bloom27.jpg', w:749, h:1000, title:'מצפה הסלע אחרי הגשם', tags: 'bloom spring gush rain'},
 {src:'image/bloom28.jpg', w:1600, h:1200, title:'מצפה הסלע', tags: 'bloom spring gush'},
-{src:'image/bloom29.jpg', w:1600, h:1201, title:'', tags: 'bloom spring gush'},
+{src:'image/bloom29.jpg', w:1600, h:1201, title:'טל הבוקר', tags: 'bloom spring gush'},
 {src:'image/bloom30.jpg', w:749, h:1000, title:'צהרון מצוי', tags: 'bloom spring gush'},
 {src:'image/bloom31.jpg', w:1600, h:1068, title:'פארק עדולם', tags: 'bloom spring adulam'},
 {src:'image/bloom32.jpg', w:1600, h:1067, title:'דרום אדום', tags: 'bloom spring daromadom'},
+{src:'image/bloom37.jpg', w:1600, h:900, title:'מטע שקדיות', tags: 'bloom spring almond'},
+{src:'image/bloom39.jpg', w:1600, h:1067, title:'עלה נידף', tags: 'bloom spring reflection'},
 
 {src:'image/bluecave2.jpg', w:1400, h:1050, title:'מערה הכחולה', tags: 'bluecave summer israel best'},
 
@@ -175,15 +176,18 @@ var items = [
 {src:'image/golan62.jpg', w:1600, h:1200, title:"נוף לחרמון", tags: 'golan spring horse israel best'},
 {src:'image/golan63.jpg', w:1120, h:1400, title:"מפל ג'ילבון", tags: 'golan winter waterfall israel'},
 {src:'image/golan64.jpg', w:1600, h:1200, title:"בית כנסת בעין הקשתות", tags: 'golan winter archeology israel'},
-{src:'image/golan65.jpg', w:1600, h:1066, title:"עין איוב בכנרת", tags: 'golan kineret waterfall winter israel'},
+
 {src:'image/golan66.jpg', w:1600, h:1200, title:"נוף לחרמון", tags: 'golan spring landscape bloom israel'},
-{src:'image/golan67.jpg', w:1600, h:1200, title:"שקיעה בכנרת", tags: 'golan kineret sunset spring israel'},
+
 {src:'image/golan68.jpg', w:1600, h:902, title:"גמלא", tags: 'golan spring landscape israel'},
 {src:'image/golan69.jpg', w:1600, h:1200, title:"קצר ברדוויל", tags: 'golan autumn landscape israel'},
-{src:'image/golan70.jpg', w:1600, h:1200, title:"חלמונית על רקע כנרת", tags: 'golan	bloom autumn landscape israel'},
+{src:'image/golan70.jpg', w:1600, h:1200, title:"חלמוניות בשקיעה על רקע כנרת", tags: 'golan	bloom autumn landscape israel'},
 {src:'image/golan71.jpg', w:1600, h:1200, title:"פרות בגולן", tags: 'golan cow spring landscape israel'},
 {src:'image/golan72.jpg', w:1600, h:1200, title:"גידול הדסים בנוב", tags: 'golan hadasim nov winter	israel'},
 
+{src:'image/golan74.jpg', w:1600, h:1200, title:"חלמוניות בשקיעה על רקע כנרת", tags: 'golan	bloom autumn landscape israel'},
+{src:'image/golan75.jpg', w:1600, h:1200, title:"חלמוניות בשקיעה על רקע כנרת", tags: 'golan	bloom autumn landscape israel'},
+{src:'image/golan76.jpg', w:1600, h:1200, title:"שקיעה מעל כנרת", tags: 'golan	bloom autumn'},
 
 {src:'image/havatsfarhamidbar2.jpg', w:1600, h:900, title:"חוות ספר המדבר", tags: 'farm spring landscape gush'},
 
@@ -196,6 +200,8 @@ var items = [
 {src:'image/herodion2.jpg', w:1600, h:1200, title:"הרודיון", tags: 'herodion rainbow winter gush'},
 
 {src:'image/jerusalem1.jpg', w:1600, h:1065, title:"ירושלים", tags: 'jerusalem spring israel best'},
+{src:'image/jerusalem11.jpg', w:866, h:1200, title:"ילדים ברחובות ירושלים", tags: 'jerusalem spring israel'},
+{src:'image/jerusalem15.jpg', w:1600, h:1066, title:"שקיעה בהרי ירושלים", tags: 'jerusalem autumn landscape israel'},
 
 {src:'image/kanvas1.jpg', w:900, h:739, title:"הדפסה על קנבס גדול", tags: 'kanvas'},
 {src:'image/kanvas2.jpg', w:1600, h:1004, title:"הדפסה על קנבס", tags: 'kanvas'},
@@ -206,6 +212,9 @@ var items = [
 {src:'image/kanvas7.jpg', w:1600, h:1200, title:"הדפסה על זכוכית למשרד", tags: 'kanvas'},
 {src:'image/kanvas8.jpg', w:1600, h:961, title:"הדפסה על זכוכית למשרד", tags: 'kanvas'},
 {src:'image/kanvas9.jpg', w:1120, h:1400, title:"הדפסה על קנבס", tags: 'kanvas'}, 
+
+{src:'image/kineret2.jpg', w:1600, h:1066, title:"עין איוב בכנרת", tags: 'golan kineret waterfall winter israel'},
+{src:'image/kineret3.jpg', w:1600, h:1200, title:"שקיעה בכנרת", tags: 'golan kineret sunset spring israel'},
 
 {src:'image/maayanharod1.jpg', w:1600, h:1066, title:"מעיין חרוד", tags: 'maayanharod summer landscape israel'},
 
@@ -248,7 +257,9 @@ var items = [
 {src:'image/sdeboaz1.jpg', w:1600, h:1201, title:'שקיעה מעל שדה בועז (נוף מאפרת)', tags: 'sdeboaz sunset summer gush'},		
 {src:'image/sdeboaz2.jpg', w:1600, h:1066, title:'שקיעה מעל שדה בועז (נוף מאפרת)', tags: 'sdeboaz sunset summer gush'},
 
-{src:'image/sea1.jpg', w:1600, h:1067, title:'חוף הים באשקלון', tags: 'sea sunset summer israel best'},
+{src:'image/sea1.jpg', w:1600, h:1067, title:'שקיעה בים', tags: 'sea sunset summer israel best'},
+{src:'image/sea2.jpg', w:1600, h:1066, title:'שקיעה בים', tags: 'sea sunset summer israel best'},
+{src:'image/sea4.jpg', w:1600, h:1200, title:'שקיעה בים', tags: 'sea sunset summer israel best'},
 
 {src:'image/sunset1.jpg', w:1600, h:1067, title:'שקיעה מעל כפר עציון', tags: 'sunset summer gush'},
 	
@@ -256,7 +267,9 @@ var items = [
 {src:'image/tazpithabanim2.jpg', w:1600, h:900, title:'תצפית לזכר שלושת הבנים', tags: 'tazpithabanim sunset landscape spring gush'},
 
 {src:'image/telazeka1.jpg', w:1600, h:1065, title:'תל עזקה', tags: 'telazeka landscape spring israel'},
-		
+
+{src:'../chrome_extension/golanphotos/tzalmon7.jpg',w:961, h:1200, title:'נחל צלמון', tags: 'sun summer israel best'},		
+
 {src:'image/yaartkoa1.jpg', w:1600, h:1003, title:'יער תקוע', tags: 'yaartkoa forest spring gush'},
 {src:'image/yaartkoa2.jpg', w:1600, h:1200, title:'ביציאה מיער תקוע לנחל תקוע', tags: 'yaartkoa bloom spring gush'},
 ];
