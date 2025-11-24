@@ -280,7 +280,9 @@ var items = [
 
 {src:'image/telazeka1.jpg', w:1600, h:1065, title:'תל עזקה', tags: 'telazeka landscape spring israel'},
 
-{src:'../chrome_extension/golanphotos/tzalmon7.jpg',w:961, h:1200, title:'נחל צלמון', tags: 'sun summer israel best'},		
+{src:'../chrome_extension/golanphotos/tzalmon7.jpg',w:961, h:1200, title:'נחל צלמון', tags: 'sun summer israel best'},
+{src:'../chrome_extension/golanphotos/tayeletmavohama38.jpg',w:1600, h:1200, title:'חלמונית בטיילת מבוא חמה', tags: 'sunset autumn golan israel'},
+{src:'../chrome_extension/golanphotos/tayeletmavohama39.jpg',w:1600, h:1200, title:'חלמוניות בטיילת מבוא חמה', tags: 'sunset autumn golan israel best'},
 
 {src:'image/yaartkoa1.jpg', w:1600, h:1003, title:'יער תקוע', tags: 'yaartkoa forest spring gush'},
 {src:'image/yaartkoa2.jpg', w:1600, h:1200, title:'ביציאה מיער תקוע לנחל תקוע', tags: 'yaartkoa bloom spring gush'},
