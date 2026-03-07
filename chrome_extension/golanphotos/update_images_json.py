@@ -37,11 +37,12 @@ def scan_images(folder: str) -> list[str]:
 
 
 def build_photos(filenames: list[str], existing_titles: dict[str, str]) -> list[dict]:
-    """Build the photos list, preserving titles for known files."""
-    return [
-        {"f": fname, "t": existing_titles.get(fname, "")}
-        for fname in filenames
-    ]
+    """Build the photos list; new files inherit the previous entry's title."""
+    photos = []
+    for fname in filenames:
+        last_title = photos[-1]["t"] if photos else ""
+        photos.append({"f": fname, "t": existing_titles.get(fname, last_title)})
+    return photos
 
 
 def main():
