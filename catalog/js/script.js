@@ -187,18 +187,22 @@ var items = [
 {src:'image/golan62.jpg', w:1600, h:1200, title:"נוף לחרמון", tags: 'golan spring horse israel best'},
 {src:'image/golan63.jpg', w:1120, h:1400, title:"מפל ג'ילבון", tags: 'golan winter waterfall israel'},
 {src:'image/golan64.jpg', w:1600, h:1200, title:"בית כנסת בעין הקשתות", tags: 'golan winter archeology israel'},
-
 {src:'image/golan66.jpg', w:1600, h:1200, title:"נוף לחרמון", tags: 'golan spring landscape bloom israel'},
-
 {src:'image/golan68.jpg', w:1600, h:902, title:"גמלא", tags: 'golan spring landscape israel'},
 {src:'image/golan69.jpg', w:1600, h:1200, title:"קצר ברדוויל", tags: 'golan autumn landscape israel'},
 {src:'image/golan70.jpg', w:1600, h:1200, title:"חלמוניות בשקיעה על רקע כנרת", tags: 'golan	bloom autumn landscape israel'},
 {src:'image/golan71.jpg', w:1600, h:1200, title:"פרות בגולן", tags: 'golan cow spring landscape israel'},
 {src:'image/golan72.jpg', w:1600, h:1200, title:"גידול הדסים בנוב", tags: 'golan hadasim nov winter	israel'},
-
 {src:'image/golan74.jpg', w:1600, h:1200, title:"חלמוניות בשקיעה על רקע כנרת", tags: 'golan	bloom autumn landscape israel'},
 {src:'image/golan75.jpg', w:1600, h:1200, title:"חלמוניות בשקיעה על רקע כנרת", tags: 'golan	bloom autumn landscape israel'},
 {src:'image/golan76.jpg', w:1600, h:1200, title:"שקיעה מעל כנרת", tags: 'golan autumn sunset landscape israel'},
+{src:'../chrome_extension/golanphotos/elal60.jpg',w:1600, h:1072, title:'שמורת נחל אל על', tags: 'golan winter landscape elal israel'},
+{src:'../chrome_extension/golanphotos/mapaleliad4.jpg',w:900, h:1200, title:'מפל אליעד', tags: 'golan waterfall winter israel best'},
+{src:'../chrome_extension/golanphotos/zrimot59.jpg',w:800, h:1200, title:'זרימות ומפלים', tags: 'golan waterfall winter israel best'},
+{src:'../chrome_extension/golanphotos/zrimot60.jpg',w:1600, h:1200, title:'זרימות ומפלים', tags: 'golan waterfall winter israel'},
+{src:'../chrome_extension/golanphotos/zrimot61.jpg',w:1600, h:1200, title:'זרימות בגולן', tags: 'golan winter waterflow israel'},
+
+{src:'../chrome_extension/golanphotos/hamatgader12.jpg',w:1600, h:1200, title:'עליה לגולן מחמת גדר', tags: 'golan winter bloom landscape israel'},
 
 {src:'image/havatsfarhamidbar2.jpg', w:1600, h:900, title:"חוות ספר המדבר", tags: 'farm spring landscape gush'},
 
@@ -226,6 +230,7 @@ var items = [
 
 {src:'image/kineret2.jpg', w:1600, h:1066, title:"עין איוב בכנרת", tags: 'golan kineret waterfall winter israel'},
 {src:'image/kineret3.jpg', w:1600, h:1200, title:"שקיעה בכנרת", tags: 'golan kineret sunset spring israel'},
+{src:'../chrome_extension/golanphotos/kineret38.jpg', w:1600, h:1068, title:"נוף לכנרת משביל הגולן", tags: 'golan kineret winter landscape israel'},
 
 {src:'image/maayanharod1.jpg', w:1600, h:1066, title:"מעיין חרוד", tags: 'maayanharod summer landscape israel'},
 
@@ -261,6 +266,8 @@ var items = [
 {src:'image/parpar1.jpg', w:1600, h:1067, title:'פרפר בתקוע', tags: 'butterfly spring israel gush'},		
 
 {src:'image/rain1.jpg', w:1600, h:1067, title:'גשם ביער של בת עין', tags: 'rain winter israel gush'},		
+
+{src:'image/ramatsirin1.jpg', w:1600, h:1200, title:'פריחה ברמת סירין', tags: 'bloom winter israel'},		
 
 {src:'image/sahne1.jpg', w:1600, h:1200, title:'סחנה - גן השלושה', tags: 'sahne summer israel'},		
 {src:'image/sahne2.jpg', w:1600, h:1200, title:'סחנה - גן השלושה', tags: 'sahne summer israel best'},		
