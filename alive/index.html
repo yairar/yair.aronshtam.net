@@ -436,6 +436,9 @@
       font-size:1rem; letter-spacing:.06em;
       color:rgba(255,255,255,.80);
     }
+    .footer-brand-name {
+      text-decoration: none;
+    }
     .footer-copy {
       font-size:.56rem; font-weight:300; letter-spacing:.16em;
       color:rgba(255,255,255,.28);
@@ -689,7 +692,9 @@
 
   <!-- ── FOOTER ── -->
   <footer role="contentinfo">
-    <span class="footer-brand">צילום: יאיר ארונשטם</span>
+    <a href="https://yair.aronshtam.net/" target="_blank" class="footer-brand-name">
+      <span class="footer-brand">צילום: יאיר ארונשטם</span>
+    </a>
     <span class="footer-copy">© 2026 כל הזכויות שמורות ליאיר ארונשטם</span>
     <a href="https://www.instagram.com/harvona/" class="footer-ig" target="_blank" rel="noopener noreferrer" aria-label="אינסטגרם: @harvona">
       <svg class="ig-svg" viewBox="0 0 24 24" aria-hidden="true">
@@ -742,8 +747,56 @@
 
     /* ── Photo → Video hover ─────────────────────────────────── */
     const prefersReduced = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-    const isMobile = () => window.innerWidth <= 768;
+    const isMobile = () =>
+      window.matchMedia('(hover: none), (pointer: coarse)').matches || window.innerWidth <= 768;
     const timers = new Map();
+
+    const playTileVideo = (video) => {
+      if (timers.has(video)) { clearTimeout(timers.get(video)); timers.delete(video); }
+
+      if (!video.src && video.dataset.src) {
+        video.src = video.dataset.src;
+        video.load();
+      }
+
+      if (activeVideo && activeVideo !== video) {
+        activeVideo.classList.remove('playing');
+        activeVideo.pause();
+      }
+
+      video.muted = !soundEnabled;
+      activeVideo = video;
+
+      const p = video.play();
+      if (p) {
+        p.then(() => video.classList.add('playing'))
+         .catch(() => {
+           video.muted = true;
+           video.play()
+             .then(() => video.classList.add('playing'))
+             .catch(() => {});
+         });
+      }
+    };
+
+    const stopTileVideo = (video, delayed = true) => {
+      video.classList.remove('playing');
+      if (activeVideo === video) activeVideo = null;
+
+      const doStop = () => {
+        video.pause();
+        video.currentTime = 0;
+        timers.delete(video);
+      };
+
+      if (!delayed) {
+        doStop();
+        return;
+      }
+
+      const t = setTimeout(doStop, 900);
+      timers.set(video, t);
+    };
 
     document.querySelectorAll('.tile').forEach(tile => {
       const video = tile.querySelector('video');
@@ -751,39 +804,19 @@
 
       tile.addEventListener('mouseenter', () => {
         if (isMobile()) return;
-
-        if (timers.has(video)) { clearTimeout(timers.get(video)); timers.delete(video); }
-
-        if (!video.src && video.dataset.src) {
-          video.src = video.dataset.src;
-          video.load();
-        }
-
-        video.muted = !soundEnabled;
-        activeVideo = video;
-
-        const p = video.play();
-        if (p) {
-          p.then(() => video.classList.add('playing'))
-           .catch(() => {
-             video.muted = true;
-             video.play()
-               .then(() => video.classList.add('playing'))
-               .catch(() => {});
-           });
-        }
+        playTileVideo(video);
       });
 
       tile.addEventListener('mouseleave', () => {
-        video.classList.remove('playing');
-        if (activeVideo === video) activeVideo = null;
-        const t = setTimeout(() => {
-          video.pause();
-          video.currentTime = 0;
-          timers.delete(video);
-        }, 900);
-        timers.set(video, t);
+        stopTileVideo(video);
       });
+
+      tile.addEventListener('touchend', (e) => {
+        if (!isMobile()) return;
+        e.preventDefault();
+        if (video.classList.contains('playing')) stopTileVideo(video, false);
+        else playTileVideo(video);
+      }, { passive: false });
     });
 
     /* ── Remove shimmer ──────────────────────────────────────── */
