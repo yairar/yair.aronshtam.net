@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="יאיר ארונשטם — צילום נוף. הנופים של הגולן והצפון מתעוררים לחיים.">
+  <meta name="author" content="יאיר ארונשטם">
+  <title>יאיר ארונשטם — צילום נוף</title>
+
+  <meta property="og:title" content="Yair Aronshtam - Photos come to live" />
+  <meta property="og:image" content="https://yair.aronshtam.net/alive/img/hero-img-2.jpg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="הנופים של הגולן והצפון מתעוררים לחיים" />
+  <meta property="og:url" content="https://yair.aronshtam.net/alive/" />
+  <meta property="og:site_name" content="הנופים של הגולן והצפון מתעוררים לחיים" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Secular One for Hebrew display headings, Heebo for body -->
+  <link href="https://fonts.googleapis.com/css2?family=Secular+One&family=Heebo:wght@200;300;400&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+    :root {
+      --bg:        #f6f6f4;
+      --surface:   #ffffff;
+      --ink:       #0d0d0c;
+      --ink-mid:   #585856;
+      --ink-muted: #9e9e9b;
+      --rule:      #e0e0db;
+      --gold:      #b8975e;
+      --nav-h:     70px;
+      --gutter:    52px;
+      --ease:      cubic-bezier(0.16,1,0.3,1);
+    }
+
+    html { scroll-behavior:smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Heebo', 'Arial Hebrew', Arial, sans-serif;
+      font-weight: 200;
+      line-height: 1;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      direction: rtl;
+    }
+
+    /* ══════════════════════════════════════
+       NAV
+    ══════════════════════════════════════ */
+    nav {
+      position: fixed; top:0; inset-inline:0; z-index:900;
+      height: var(--nav-h);
+      display: flex; align-items:center; justify-content:space-between;
+      padding: 0 var(--gutter);
+      background: rgba(246,246,244,.80);
+      backdrop-filter: blur(16px) saturate(1.5);
+      -webkit-backdrop-filter: blur(16px) saturate(1.5);
+      transition: background .4s ease, box-shadow .4s ease;
+    }
+    nav.scrolled {
+      background: rgba(246,246,244,.97);
+      box-shadow: 0 1px 0 var(--rule);
+    }
+
+    .nav-brand {
+      display: flex; flex-direction:column; gap:2px;
+      text-decoration: none;
+    }
+    .nav-brand-name {
+      font-family: 'Secular One', sans-serif;
+      font-size: .95rem; letter-spacing:.04em;
+      color: var(--ink); line-height:1;
+      transition: opacity .3s ease;
+    }
+    .nav-brand-sub {
+      font-size: .54rem; font-weight:300;
+      letter-spacing:.22em; text-transform:uppercase;
+      color: var(--ink-muted); line-height:1;
+    }
+    .nav-brand:hover .nav-brand-name { opacity:.45; }
+
+    .nav-links { list-style:none; display:flex; gap:38px; }
+    .nav-links a {
+      font-size:.66rem; font-weight:300;
+      letter-spacing:.2em; text-transform:uppercase;
+      color:var(--ink-mid); text-decoration:none;
+      position:relative; transition:color .3s ease;
+    }
+    .nav-links a::after {
+      content:''; position:absolute;
+      bottom:-3px; inset-inline-start:0;
+      width:0; height:1px;
+      background:var(--ink);
+      transition:width .5s var(--ease);
+    }
+    .nav-links a:hover { color:var(--ink); }
+    .nav-links a:hover::after { width:100%; }
+
+    /* hamburger */
+    .nav-hamburger {
+      display:none; flex-direction:column; gap:5px;
+      cursor:pointer; padding:4px; background:none; border:none;
+    }
+    .nav-hamburger span {
+      width:20px; height:1px; background:var(--ink);
+      display:block; transition:all .4s var(--ease);
+    }
+
+    .mobile-drawer {
+      display:none; position:fixed;
+      top:var(--nav-h); inset-inline:0; z-index:850;
+      background:rgba(246,246,244,.98);
+      border-top:1px solid var(--rule);
+      padding:28px var(--gutter); flex-direction:column; gap:26px;
+      backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+    }
+    .mobile-drawer.open { display:flex; }
+    .mobile-drawer a {
+      font-size:.8rem; font-weight:300;
+      letter-spacing:.18em; text-transform:uppercase;
+      color:var(--ink); text-decoration:none;
+    }
+
+    /* ══════════════════════════════════════
+       AUDIO TOGGLE
+    ══════════════════════════════════════ */
+    #audio-toggle {
+      position:fixed; bottom:36px; inset-inline-start:36px; z-index:800;
+      width:50px; height:50px; border-radius:50%;
+      background:rgba(13,13,12,.80);
+      backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+      border:1px solid rgba(255,255,255,.13);
+      cursor:pointer;
+      display:flex; align-items:center; justify-content:center;
+      transition:background .3s ease, transform .3s var(--ease), opacity .6s ease;
+      opacity:0; transform:translateY(14px);
+    }
+    #audio-toggle.visible { opacity:1; transform:translateY(0); }
+    #audio-toggle:hover   { background:rgba(13,13,12,.97); }
+    #audio-toggle.visible:hover { transform:scale(1.08); }
+    #audio-toggle svg {
+      width:17px; height:17px; stroke:#fff; fill:none;
+      stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round;
+    }
+    #audio-toggle.sound-on::before {
+      content:''; position:absolute; inset:-6px; border-radius:50%;
+      border:1px solid rgba(255,255,255,.2);
+      animation:pulse-ring 2.4s ease infinite;
+    }
+    @keyframes pulse-ring {
+      0%  { transform:scale(1);    opacity:.8; }
+      70% { transform:scale(1.18); opacity:0; }
+      100%{ transform:scale(1.18); opacity:0; }
+    }
+    .audio-label {
+      position:fixed; bottom:44px; inset-inline-start:96px; z-index:799;
+      font-size:.57rem; font-weight:300; letter-spacing:.16em;
+      color:var(--ink-mid); white-space:nowrap;
+      opacity:0; transform:translateX(-5px);
+      transition:opacity .35s ease, transform .35s var(--ease);
+      pointer-events:none;
+    }
+    #audio-toggle:hover ~ .audio-label { opacity:1; transform:translateX(0); }
+
+    /* ══════════════════════════════════════
+       HERO
+    ══════════════════════════════════════ */
+    .hero {
+      height:100svh; min-height:560px;
+      position:relative; display:flex; flex-direction:column; justify-content:flex-end;
+      overflow:hidden;
+    }
+    .hero-img { position:absolute; inset:0; }
+    .hero-img img {
+      width:100%; height:100%; object-fit:cover;
+      transform:scale(1.06);
+      animation:heroReveal 16s cubic-bezier(.37,0,.63,1) forwards;
+    }
+    @keyframes heroReveal { to { transform:scale(1); } }
+    .hero-veil {
+      position:absolute; inset:0; z-index:1;
+      background:linear-gradient(180deg,
+        rgba(13,13,12,.0) 0%,
+        rgba(13,13,12,.18) 50%,
+        rgba(13,13,12,.75) 100%
+      );
+    }
+    .hero-body {
+      position:relative; z-index:2;
+      padding:0 var(--gutter) 72px;
+    }
+    .hero-eyebrow {
+      display:block; font-size:.6rem; font-weight:300;
+      letter-spacing:.28em; text-transform:uppercase;
+      color:rgba(255,255,255,.48); margin-bottom:20px;
+      opacity:0; transform:translateY(10px);
+      animation:rise 1s var(--ease) .3s forwards;
+    }
+    .hero-headline {
+      font-family:'Secular One', sans-serif;
+      font-size:clamp(2.4rem,6vw,6.5rem);
+      line-height:1.12; color:#fff;
+      letter-spacing:.01em;
+      text-shadow:0 2px 40px rgba(0,0,0,.3);
+      opacity:0; transform:translateY(18px);
+      animation:rise 1.1s var(--ease) .5s forwards;
+    }
+    .hero-sub {
+      display:block; margin-top:26px;
+      font-size:.7rem; font-weight:200;
+      letter-spacing:.2em; color:rgba(255,255,255,.38);
+      opacity:0; animation:fadeIn 1.4s ease 1s forwards;
+    }
+    .hero-scroll {
+      position:absolute; bottom:36px; inset-inline-end:var(--gutter); z-index:2;
+      display:flex; align-items:center; gap:14px;
+      color:rgba(255,255,255,.35); font-size:.57rem;
+      letter-spacing:.22em; text-transform:uppercase;
+      opacity:0; animation:fadeIn 1.8s ease 1.3s forwards;
+    }
+    .scroll-track {
+      width:42px; height:1px; background:rgba(255,255,255,.18);
+      position:relative; overflow:hidden;
+    }
+    .scroll-track::after {
+      content:''; position:absolute; inset:0;
+      background:rgba(255,255,255,.6); transform:translateX(100%);
+      animation:scanline 2.4s ease-in-out 2s infinite;
+    }
+    /* RTL: scan line moves in reverse */
+    @keyframes scanline { 0%{transform:translateX(100%);} 100%{transform:translateX(-100%);} }
+
+    /* ══════════════════════════════════════
+       STATEMENT
+    ══════════════════════════════════════ */
+    .statement {
+      padding:110px var(--gutter) 88px;
+      max-width:800px;
+    }
+    .eyebrow {
+      display:block; font-size:.6rem; font-weight:300;
+      letter-spacing:.26em; text-transform:uppercase;
+      color:var(--ink-muted); margin-bottom:26px;
+    }
+    .statement-text {
+      font-family:'Secular One', sans-serif;
+      font-size:clamp(1.4rem,2.4vw,2rem);
+      line-height:1.75; color:var(--ink);
+      font-weight:400;
+    }
+
+    /* ══════════════════════════════════════
+       GALLERY
+    ══════════════════════════════════════ */
+    #gallery { padding-bottom:90px; }
+    .gallery-header {
+      display:flex; align-items:baseline; justify-content:space-between;
+      padding:0 var(--gutter) 34px;
+    }
+    .section-label {
+      font-size:.6rem; font-weight:300;
+      letter-spacing:.26em; text-transform:uppercase; color:var(--ink-muted);
+    }
+    .gallery-tally {
+      font-family:'Secular One', sans-serif;
+      font-size:.9rem; color:var(--ink-muted); letter-spacing:.04em;
+    }
+
+    /* ── Grid ── */
+    .gallery-grid {
+      display:grid;
+      grid-template-columns: repeat(3,1fr);
+      grid-template-rows: auto auto;
+      gap:5px; padding:0 5px;
+    }
+
+    /* Tile base */
+    .tile {
+      position:relative; overflow:hidden; cursor:crosshair;
+      background:var(--rule); will-change:transform;
+    }
+    .tile::before { content:''; display:block; }
+
+    /* Layout assignments */
+    .tile-1 { grid-column:1; grid-row:1; }
+    .tile-1::before { padding-top:130%; }          /* tall portrait */
+
+    .tile-2 { grid-column:2 / span 2; grid-row:1; }
+    .tile-2::before { padding-top:62%; }           /* landscape */
+
+    .tile-3 { grid-column:1 / span 2; grid-row:2; }
+    .tile-3::before { padding-top:58%; }           /* wide */
+
+    .tile-4 { grid-column:3; grid-row:2; }
+    .tile-4::before { padding-top:130%; }          /* tall portrait */
+
+    .tile-5 { grid-column:1 / span 3; grid-row:3; }
+    .tile-5::before { padding-top:40%; }           /* cinematic banner */
+
+    /* Media */
+    .tile img, .tile video {
+      position:absolute; inset:0;
+      width:100%; height:100%; object-fit:cover; display:block;
+    }
+    .tile img   { z-index:1; transition:transform 1.1s var(--ease); }
+    .tile video { z-index:2; opacity:0; transition:opacity .85s ease; }
+    .tile video.playing { opacity:1; }
+    .tile:hover img { transform:scale(1.04); }
+
+    /* Caption */
+    .tile-caption {
+      position:absolute; bottom:0; left:0; right:0; z-index:3;
+      padding:60px 26px 26px;
+      background:linear-gradient(to top,rgba(0,0,0,.62) 0%,transparent 100%);
+      transform:translateY(100%);
+      transition:transform .65s var(--ease);
+    }
+    .tile:hover .tile-caption { transform:translateY(0); }
+    .tile-number {
+      display:block; font-size:.54rem; font-weight:300;
+      letter-spacing:.28em; text-transform:uppercase;
+      color:rgba(255,255,255,.36); margin-bottom:7px;
+    }
+    .tile-title {
+      font-family:'Secular One', sans-serif;
+      font-size:1.05rem; color:#fff; letter-spacing:.02em; margin-bottom:4px;
+    }
+    .tile-meta {
+      font-size:.57rem; font-weight:300;
+      letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,.48);
+    }
+
+    /* Shimmer */
+    .tile.loading::after {
+      content:''; position:absolute; inset:0; z-index:0;
+      background:linear-gradient(90deg,#e8e8e4 0%,#f2f2ee 50%,#e8e8e4 100%);
+      background-size:300% 100%;
+      animation:shimmer 1.9s linear infinite;
+    }
+    @keyframes shimmer { 0%{background-position:200% 0;} 100%{background-position:-200% 0;} }
+
+    /* ══════════════════════════════════════
+       ABOUT
+    ══════════════════════════════════════ */
+    #about {
+      background:var(--surface);
+      padding:130px var(--gutter);
+      display:grid; grid-template-columns:1fr 1fr;
+      gap:80px; align-items:center;
+    }
+    /* In RTL the photo is on the left = grid end */
+    .about-photo { position:relative; overflow:hidden; grid-column:2; display: flex; }
+  
+    .about-copy  { grid-column:1; }
+
+    .about-photo img {
+      width: 100%; height:560px; object-fit:cover; display:block;
+      object-position: right; /* This keeps the right side visible and crops the left */      
+    }
+
+
+    .about-heading {
+      font-family:'Secular One', sans-serif;
+      font-size:clamp(1.8rem,3vw,2.8rem); line-height:1.28;
+      margin:24px 0 28px;
+    }
+    .about-body {
+      font-size:1.2rem; font-weight:200; line-height:2;
+      color:var(--ink-mid); max-width:440px; margin-bottom:18px;
+    }
+    .text-link {
+      display:inline-flex; align-items:center; gap:14px; margin-top:32px;
+      font-size:.6rem; font-weight:300; letter-spacing:.2em; text-transform:uppercase;
+      color:var(--ink); text-decoration:none;
+      transition:gap .5s var(--ease);
+    }
+    .text-link:hover { gap:22px; }
+    .arrow-rule {
+      width:12px; height:1px; background:var(--ink);
+      position:relative; flex-shrink:0;
+    }
+    /* RTL arrow faces left */
+    .arrow-rule::before {
+      content:''; position:absolute;
+      inset-inline-start:-1px; top:-3px;
+      width:7px; height:7px;
+      border-top:1px solid var(--ink); border-inline-start:1px solid var(--ink);
+      transform:rotate(45deg);
+    }
+
+    /* ══════════════════════════════════════
+       CONTACT
+    ══════════════════════════════════════ */
+    #contact { padding:130px var(--gutter); text-align:center; }
+    .contact-heading {
+      font-family:'Secular One', sans-serif;
+      font-size:clamp(2.2rem,5vw,5rem); line-height:1.14;
+      margin:20px auto 20px; max-width:860px;
+    }
+    .contact-sub {
+      font-size:.82rem; font-weight:200; line-height:2;
+      color:var(--ink-mid); max-width:560px;
+      margin:0 auto 48px;
+    }
+    .contact-links {
+      display:flex; align-items:center; justify-content:center;
+      flex-wrap:wrap; gap:32px;
+    }
+    .contact-cta {
+      display:inline-flex; align-items:center; gap:12px;
+      font-size:.66rem; font-weight:300; letter-spacing:.2em; text-transform:uppercase;
+      color:var(--ink); text-decoration:none;
+      padding-bottom:5px; border-bottom:1px solid var(--rule);
+      transition:border-color .3s ease, gap .5s var(--ease);
+    }
+    .contact-cta:hover { border-color:var(--ink); gap:20px; }
+    .contact-divider {
+      width:1px; height:20px; background:var(--rule);
+    }
+
+    /* ══════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════ */
+    footer {
+      background:var(--ink);
+      display:flex; align-items:center; justify-content:space-between;
+      flex-wrap:wrap; gap:16px;
+      padding:34px var(--gutter);
+    }
+    .footer-brand {
+      font-family:'Secular One', sans-serif;
+      font-size:1rem; letter-spacing:.06em;
+      color:rgba(255,255,255,.80);
+    }
+    .footer-copy {
+      font-size:.56rem; font-weight:300; letter-spacing:.16em;
+      color:rgba(255,255,255,.28);
+    }
+    .footer-ig {
+      display:flex; align-items:center; gap:9px;
+      font-size:.56rem; font-weight:300; letter-spacing:.16em; text-transform:uppercase;
+      color:rgba(255,255,255,.28); text-decoration:none;
+      transition:color .3s ease;
+    }
+    .footer-ig:hover { color:rgba(255,255,255,.80); }
+    .ig-svg {
+      width:13px; height:13px; stroke:currentColor; fill:none;
+      stroke-width:1.4; stroke-linecap:round; stroke-linejoin:round;
+    }
+
+    /* ══════════════════════════════════════
+       REVEAL ANIMATIONS
+    ══════════════════════════════════════ */
+    @keyframes rise   { to { opacity:1; transform:translateY(0); } }
+    @keyframes fadeIn { to { opacity:1; } }
+
+    .reveal {
+      opacity:0; transform:translateY(26px);
+      transition:opacity .9s var(--ease), transform .9s var(--ease);
+    }
+    .reveal.visible { opacity:1; transform:none; }
+
+    /* ══════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════ */
+    @media (max-width:900px) {
+      :root { --gutter:32px; }
+      .gallery-grid { grid-template-columns:repeat(2,1fr); }
+      .tile-2 { grid-column:2; grid-row:1; }
+      .tile-2::before { padding-top:130%; }
+      .tile-3 { grid-column:1; grid-row:2; }
+      .tile-3::before { padding-top:130%; }
+      .tile-4 { grid-column:2; grid-row:2; }
+      .tile-4::before { padding-top:130%; }
+      .tile-5 { grid-column:1 / span 2; grid-row:3; }
+      .tile-5::before { padding-top:50%; }
+    }
+
+    @media (max-width:768px) {
+      :root { --gutter:20px; }
+      .nav-links { display:none; }
+      .nav-hamburger { display:flex; }
+      .hero-scroll { display:none; }
+
+      .gallery-grid { grid-template-columns:1fr; gap:4px; padding:0 4px; }
+      .tile-1,.tile-2,.tile-3,.tile-4 { grid-column:1; grid-row:auto; }
+      .tile-1::before,.tile-2::before,.tile-3::before,.tile-4::before { padding-top:70%; }
+      .tile-5 { grid-column:1; }
+      .tile-5::before { padding-top:70%; }
+
+      #about { grid-template-columns:1fr; gap:40px; padding:80px var(--gutter); }
+      .about-photo { grid-column:1; }
+      .about-copy  { grid-column:1; }
+      .about-photo img { height:320px; }
+
+      #contact { padding:80px var(--gutter); }
+      #audio-toggle { bottom:22px; inset-inline-start:22px; }
+      .audio-label  { bottom:28px; inset-inline-start:82px; }
+
+      footer { flex-direction:column; text-align:center; padding:28px var(--gutter); }
+    }
+  </style>
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BJ7VF7182E"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BJ7VF7182E');
+</script>
+
+<body>
+
+  <!-- ── NAV ── -->
+  <nav id="site-nav" role="navigation">
+    <a href="https://yair.aronshtam.net/" target="_blank"  class="nav-brand">
+      <span class="nav-brand-name">יאיר ארונשטם</span>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="#gallery">גלריה</a></li>
+      <li><a href="#about">אודות</a></li>
+      <li><a href="#contact">הזמנות</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="פתח תפריט" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </nav>
+  <nav class="mobile-drawer" id="mobile-drawer" aria-label="תפריט נייד">
+    <a href="#gallery">גלריה</a>
+    <a href="#about">אודות</a>
+    <a href="#contact">הזמנות</a>
+  </nav>
+
+  <!-- ── AUDIO TOGGLE ── -->
+  <button id="audio-toggle" aria-label="הפעל / השתק שמע">
+    <svg id="icon-muted" viewBox="0 0 24 24">
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+      <line x1="23" y1="9" x2="17" y2="15"/>
+      <line x1="17" y1="9" x2="23" y2="15"/>
+    </svg>
+    <svg id="icon-sound" viewBox="0 0 24 24" style="display:none">
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+      <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+      <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+    </svg>
+  </button>
+  <span class="audio-label" id="audio-label">ללא שמע</span>
+
+  <!-- ── HERO ── -->
+  <section class="hero" aria-label="כותרת ראשית">
+    <div class="hero-img">
+      <!-- src injected by JS from hero-img-1..5.jpg -->
+      <img id="hero-photo" src="" alt="נופי הגולן והצפון — יאיר ארונשטם" fetchpriority="high">
+    </div>
+    <div class="hero-veil"></div>
+    <div class="hero-body">
+      <span class="hero-eyebrow">צילום נוף — ישראל</span>
+      <h1 class="hero-headline">הנופים של הגולן<br>והצפון מתעוררים לחיים</h1>
+      <span class="hero-sub">— יאיר ארונשטם</span>
+    </div>
+    <div class="hero-scroll" aria-hidden="true">
+      <span>גלול</span>
+      <div class="scroll-track"></div>
+    </div>
+  </section>
+
+  <!-- ── STATEMENT ── -->
+  <section class="statement reveal">
+    <span class="eyebrow">על הפרוייקט</span>
+    <p class="statement-text">
+        העבירו את העכבר מעל הצילומים וצפו בנופים מתעוררים לחיים
+    </p>
+  </section>
+
+  <!-- ── GALLERY ── -->
+  <section id="gallery" aria-labelledby="gallery-heading">
+    <div class="gallery-header reveal">
+      <!--span class="section-label" id="gallery-heading">עבודות נבחרות</span-->
+    </div>
+
+    <div class="gallery-grid">
+
+      <article class="tile tile-1 loading" data-idx="0">
+        <img src="img/01.jpg" loading="lazy" decoding="async">
+        <video data-src="img/01.mp4" loop playsinline preload="none"></video>
+        <div class="tile-caption">
+          <div class="tile-title">ואדי נוב בשיא</div>
+          <div class="tile-meta">רמת הגולן</div>
+        </div>
+      </article>
+
+      <article class="tile tile-2 loading" data-idx="1">
+        <img src="img/02.jpg" loading="lazy" decoding="async">
+        <video data-src="img/02.mp4" loop playsinline preload="none"></video>
+        <div class="tile-caption">
+          <div class="tile-title">מפל האירוסים</div>
+          <div class="tile-meta">רמת הגולן</div>
+        </div>
+      </article>
+
+      <article class="tile tile-3 loading" data-idx="2">
+        <img src="img/03.jpg" loading="lazy" decoding="async">
+        <video data-src="img/03.mp4" loop playsinline preload="none"></video>
+        <div class="tile-caption">
+          <div class="tile-title">מפל עורבים</div>
+          <div class="tile-meta">רמת הגולן</div>
+        </div>
+      </article>
+
+      <article class="tile tile-4 loading" data-idx="3">
+        <img src="img/04.jpg" loading="lazy" decoding="async">
+        <video data-src="img/04.mp4" loop playsinline preload="none"></video>
+        <div class="tile-caption">
+          <div class="tile-title">הבניאס</div>
+          <div class="tile-meta">אצבע הגליל</div>
+        </div>
+      </article>
+
+      <article class="tile tile-5 loading" data-idx="4">
+        <img src="img/05.jpg" loading="lazy" decoding="async">
+        <video data-src="img/05.mp4" loop playsinline preload="none"></video>
+        <div class="tile-caption">
+          <div class="tile-title">טיילת מבוא חמה</div>
+          <div class="tile-meta">רמת הגולן</div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ── ABOUT ── -->
+  <section id="about" aria-labelledby="about-heading">
+    <div class="about-copy reveal">
+      <span class="eyebrow">אודות</span>
+      <!--h2 class="about-heading" id="about-heading">לחפש את הרגע<br>הבלתי חוזר</h2-->
+      <p class="about-body">
+בפרויקט הזה צילומי הנוף מקבלים ממד נוסף.
+כל התמונות באתר הן צילומים אמיתיים שצולמו בשטח בגולן ובצפון – רגעים של אור, עונות ונופים כפי שהם באמת.
+      </p>
+      <p class="about-body">
+בעידן שבו יותר ויותר תמונות נוצרות באמצעות בינה מלאכותית, חשוב לי להדגיש:
+כל הצילומים בפרויקט הם צילומים אמיתיים בלבד, ללא שימוש ב-AI.
+      </p>
+      <p class="about-body">
+זהו חיבור בין צילום טבע קלאסי לבין טכנולוגיה שמאפשרת לחוות את הנוף בצורה חיה ומלאה יותר.
+      </p>
+      <p class="about-body">
+        את כל התמונות הנמצאות באתר ניתן להזמין ולהדפיס על קנבס או זכוכית.
+      </p>
+      <a href="#contact" class="text-link">
+        לפרטים ולהזמנות
+        <span class="arrow-rule"></span>
+      </a>
+    </div>
+    <div class="about-photo reveal">
+      <img src="img/about-img.jpg" alt="פרט מנוף — יאיר ארונשטם" loading="lazy" decoding="async">
+    </div>
+  </section>
+
+  <!-- ── CONTACT ── -->
+  <section id="contact" aria-labelledby="contact-heading">
+    <span class="eyebrow reveal">צור קשר</span>
+    <h2 class="contact-heading reveal" id="contact-heading">הזמינו תמונה<br>לבית או למשרד</h2>
+    <p class="contact-sub reveal">
+      מעוניינים בשדרוג מראה הבית או המשרד שלכם? ניתן ליצור קשר להזמנות, שאלות ופרטים נוספים על הדפסות.
+    </p>
+    <div class="contact-links reveal">
+      <a href="mailto:yair@aronshtam.net" class="contact-cta">
+        yair@aronshtam.net
+      </a>
+      <div class="contact-divider" aria-hidden="true"></div>
+      <a href="https://www.instagram.com/harvona/" class="contact-cta" target="_blank" rel="noopener noreferrer">
+        <svg class="ig-svg" viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+        </svg>
+        harvona
+      </a>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer role="contentinfo">
+    <span class="footer-brand">צילום: יאיר ארונשטם</span>
+    <span class="footer-copy">© 2026 כל הזכויות שמורות ליאיר ארונשטם</span>
+    <a href="https://www.instagram.com/harvona/" class="footer-ig" target="_blank" rel="noopener noreferrer" aria-label="אינסטגרם: @harvona">
+      <svg class="ig-svg" viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+      </svg>
+      harvona
+    </a>
+  </footer>
+
+  <script>
+  (() => {
+    'use strict';
+
+    /* ── Random hero image (hero-img-1 … hero-img-5) ─────────── */
+    const n = Math.floor(Math.random() * 5) + 1;
+    document.getElementById('hero-photo').src = `img/hero-img-${n}.jpg`;
+
+    /* ── Audio state ─────────────────────────────────────────── */
+    let soundEnabled = false;
+    let activeVideo  = null;
+
+    const btn        = document.getElementById('audio-toggle');
+    const iconMuted  = document.getElementById('icon-muted');
+    const iconSound  = document.getElementById('icon-sound');
+    const audioLabel = document.getElementById('audio-label');
+
+    let shown = false;
+    const showBtn = () => {
+      if (shown) return; shown = true;
+      btn.classList.add('visible');
+    };
+    window.addEventListener('scroll',     showBtn, { once:true, passive:true });
+    document.addEventListener('mousemove', showBtn, { once:true, passive:true });
+    setTimeout(showBtn, 3000);
+
+    const applyAudio = () => {
+      iconMuted.style.display = soundEnabled ? 'none' : '';
+      iconSound.style.display = soundEnabled ? ''     : 'none';
+      audioLabel.textContent  = soundEnabled ? 'עם שמע' : 'ללא שמע';
+      btn.classList.toggle('sound-on', soundEnabled);
+      if (activeVideo) activeVideo.muted = !soundEnabled;
+    };
+
+    btn.addEventListener('click', () => {
+      soundEnabled = !soundEnabled;
+      applyAudio();
+    });
+
+    /* ── Photo → Video hover ─────────────────────────────────── */
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+    const isMobile = () => window.innerWidth <= 768;
+    const timers = new Map();
+
+    document.querySelectorAll('.tile').forEach(tile => {
+      const video = tile.querySelector('video');
+      if (!video || prefersReduced) return;
+
+      tile.addEventListener('mouseenter', () => {
+        if (isMobile()) return;
+
+        if (timers.has(video)) { clearTimeout(timers.get(video)); timers.delete(video); }
+
+        if (!video.src && video.dataset.src) {
+          video.src = video.dataset.src;
+          video.load();
+        }
+
+        video.muted = !soundEnabled;
+        activeVideo = video;
+
+        const p = video.play();
+        if (p) {
+          p.then(() => video.classList.add('playing'))
+           .catch(() => {
+             video.muted = true;
+             video.play()
+               .then(() => video.classList.add('playing'))
+               .catch(() => {});
+           });
+        }
+      });
+
+      tile.addEventListener('mouseleave', () => {
+        video.classList.remove('playing');
+        if (activeVideo === video) activeVideo = null;
+        const t = setTimeout(() => {
+          video.pause();
+          video.currentTime = 0;
+          timers.delete(video);
+        }, 900);
+        timers.set(video, t);
+      });
+    });
+
+    /* ── Remove shimmer ──────────────────────────────────────── */
+    document.querySelectorAll('.tile img').forEach(img => {
+      const tile = img.closest('.tile');
+      const done = () => tile.classList.remove('loading');
+      if (img.complete) done();
+      else { img.addEventListener('load', done); img.addEventListener('error', done); }
+    });
+
+    /* ── Nav shadow ──────────────────────────────────────────── */
+    const nav = document.getElementById('site-nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 16);
+    }, { passive:true });
+
+    /* ── Mobile hamburger ────────────────────────────────────── */
+    const hamburger = document.getElementById('nav-hamburger');
+    const drawer    = document.getElementById('mobile-drawer');
+    hamburger.addEventListener('click', () => {
+      const open = drawer.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', open);
+    });
+    drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      drawer.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', false);
+    }));
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) {
+        drawer.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', false);
+      }
+    });
+
+    /* ── Scroll reveal ───────────────────────────────────────── */
+    const revealObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }
+      });
+    }, { threshold:0.1, rootMargin:'0px 0px -36px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+    /* ── Tile stagger entrance ───────────────────────────────── */
+    const tileObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const tile  = e.target;
+        const delay = parseInt(tile.dataset.idx, 10) * 100;
+        tile.animate([
+          { opacity:0, transform:'translateY(22px)' },
+          { opacity:1, transform:'translateY(0)' }
+        ], { duration:1000, delay, easing:'cubic-bezier(0.16,1,0.3,1)', fill:'forwards' });
+        tileObs.unobserve(tile);
+      });
+    }, { threshold:0.05 });
+    document.querySelectorAll('.tile').forEach(t => { t.style.opacity='0'; tileObs.observe(t); });
+
+  })();
+  </script>
+</body>
+</html>
