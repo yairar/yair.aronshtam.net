@@ -21,6 +21,23 @@
 
   cursor: pointer;
 }
+#start-btn {
+  position: fixed;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+
+  font-size: 20px;
+  padding: 16px 24px;
+
+  background: rgba(0,0,0,0.8);
+  color: white;
+  border: none;
+  border-radius: 14px;
+
+  cursor: pointer;
+}
 </style>
 
 <body>
@@ -55,6 +72,8 @@
 
 <button id="audio-btn">🔇</button>
 
+<button id="start-btn" style="display:none;">Show</button>
+
 </body>
 </html>
 
@@ -62,20 +81,38 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   const video = document.querySelector("#video");
-  const button = document.querySelector("#audio-btn");
+  const audioBtn = document.querySelector("#audio-btn");
   const target = document.querySelector('[mindar-image-target]');
+  const startBtn = document.querySelector("#start-btn");
 
-  // Start muted (required for iPhone)
+  const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+  // Always required for iOS
   video.muted = true;
 
-  button.addEventListener("click", () => {
+  audioBtn.addEventListener("click", () => {
     video.muted = !video.muted;
 
     if (video.muted) {
-      button.textContent = "🔇";
+      audioBtn.textContent = "🔇";
     } else {
-      button.textContent = "🔊";
-      video.play(); // ensure playback resumes with sound
+      audioBtn.textContent = "🔊";
+    }
+  });
+  
+  if (isIOS) {
+    startBtn.style.display = "block";
+  }
+
+  startBtn.addEventListener("click", async () => {
+    try {
+		console.log("Start button click");
+      // unlock video for iOS
+      await video.play();
+      video.pause();
+      startBtn.style.display = "none";
+    } catch (e) {
+      console.log("Start failed:", e);
     }
   });
 
