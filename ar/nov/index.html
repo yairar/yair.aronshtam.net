@@ -4,6 +4,25 @@
 <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.2/dist/mindar-image-aframe.prod.js"></script>
 </head>
 
+<style>
+#audio-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 999;
+
+  font-size: 24px;
+  padding: 10px 14px;
+
+  background: rgba(0,0,0,0.6);
+  color: white;
+  border: none;
+  border-radius: 12px;
+
+  cursor: pointer;
+}
+</style>
+
 <body>
 
 <a-scene
@@ -16,10 +35,12 @@
 <a-assets>
   <video
     id="video"
-    src="../../alive/img/01.mp4"
+    src="https://yair.aronshtam.net/alive/img/01.mp4"
 	loop
+	muted
 	playsinline
 	webkit-playsinline
+	preload="auto"
 	crossorigin="anonymous"
   ></video>
 </a-assets>
@@ -32,6 +53,8 @@
 
 </a-scene>
 
+<button id="audio-btn">🔇</button>
+
 </body>
 </html>
 
@@ -39,15 +62,30 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   const video = document.querySelector("#video");
+  const button = document.querySelector("#audio-btn");
   const target = document.querySelector('[mindar-image-target]');
 
+  // Start muted (required for iPhone)
+  video.muted = true;
+
+  button.addEventListener("click", () => {
+    video.muted = !video.muted;
+
+    if (video.muted) {
+      button.textContent = "🔇";
+    } else {
+      button.textContent = "🔊";
+      video.play(); // ensure playback resumes with sound
+    }
+  });
+
   target.addEventListener("targetFound", () => {
-      video.currentTime = 0;
-      video.play();
+    video.currentTime = 0;
+    video.play();
   });
 
   target.addEventListener("targetLost", () => {
-      video.pause();
+    video.pause();
   });
 
 });
