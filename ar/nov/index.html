@@ -1,129 +1,162 @@
+<!doctype html>
 <html>
 <head>
-<script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.2/dist/mindar-image-aframe.prod.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.2/dist/mindar-image-aframe.prod.js"></script>
+  <style>
+    html, body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    a-scene {
+      width: 100%;
+      height: 100%;
+    }
+
+    #audio-btn {
+      position: fixed;
+      top: max(16px, env(safe-area-inset-top));
+      right: 16px;
+      z-index: 20000;
+      font-size: 18px;
+      padding: 10px 14px;
+      background: rgba(0, 0, 0, 0.65);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      touch-action: manipulation;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+
+    #start-btn {
+      position: fixed;
+      top: 70%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 20001;
+      font-size: 20px;
+      padding: 16px 24px;
+      background: rgba(0, 0, 0, 0.85);
+      color: #fff;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      touch-action: manipulation;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+  </style>
 </head>
-
-<style>
-#audio-btn {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 999;
-
-  font-size: 24px;
-  padding: 10px 14px;
-
-  background: rgba(0,0,0,0.6);
-  color: white;
-  border: none;
-  border-radius: 12px;
-
-  cursor: pointer;
-}
-#start-btn {
-  position: fixed;
-  top: 70%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1000;
-
-  font-size: 20px;
-  padding: 16px 24px;
-
-  background: rgba(0,0,0,0.8);
-  color: white;
-  border: none;
-  border-radius: 14px;
-
-  cursor: pointer;
-}
-</style>
-
 <body>
+  <a-scene
+    mindar-image="imageTargetSrc: targets01.mind;"
+    vr-mode-ui="enabled: false"
+    device-orientation-permission-ui="enabled: true"
+    embedded
+  >
+    <a-assets>
+      <video
+        id="video"
+        src="https://yair.aronshtam.net/alive/img/01.mp4"
+        loop
+        muted
+        playsinline
+        webkit-playsinline
+        preload="auto"
+        crossorigin="anonymous"
+      ></video>
+    </a-assets>
 
-<a-scene
-  mindar-image="imageTargetSrc: targets01.mind;"
-  vr-mode-ui="enabled: false"
-  device-orientation-permission-ui="enabled: true"
-  embedded
->
+    <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
-<a-assets>
-  <video
-    id="video"
-    src="https://yair.aronshtam.net/alive/img/01.mp4"
-	loop
-	muted
-	playsinline
-	webkit-playsinline
-	preload="auto"
-	crossorigin="anonymous"
-  ></video>
-</a-assets>
+    <a-entity mindar-image-target="targetIndex: 0">
+      <a-video src="#video" width="1" height="0.66" position="0 0 0"></a-video>
+    </a-entity>
+  </a-scene>
 
-<a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+  <button id="audio-btn" type="button">Muted</button>
+  <button id="start-btn" type="button" style="display:none;">Show</button>
 
-<a-entity mindar-image-target="targetIndex: 0">
-	<a-video src="#video" width="1" height="0.66" position="0 0 0"></a-video>
-</a-entity>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const video = document.querySelector("#video");
+      const audioBtn = document.querySelector("#audio-btn");
+      const target = document.querySelector("[mindar-image-target]");
+      const startBtn = document.querySelector("#start-btn");
 
-</a-scene>
+      const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent)
+        || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
 
-<button id="audio-btn">🔇</button>
+      let isVideoUnlocked = !isIOS;
 
-<button id="start-btn" style="display:none;">Show</button>
+      video.muted = true;
+      video.playsInline = true;
+      video.setAttribute("playsinline", "");
+      video.setAttribute("webkit-playsinline", "");
+      video.setAttribute("muted", "");
 
+      if (isIOS) {
+        startBtn.style.display = "block";
+      }
+
+      const unlockVideo = async () => {
+        try {
+          await video.play();
+          video.pause();
+          isVideoUnlocked = true;
+          startBtn.style.display = "none";
+        } catch (e) {
+          console.log("Start failed:", e);
+        }
+      };
+
+      const safeTap = (el, handler) => {
+        el.addEventListener("click", handler);
+        el.addEventListener("touchend", (e) => {
+          e.preventDefault();
+          handler();
+        }, { passive: false });
+      };
+
+      safeTap(startBtn, unlockVideo);
+
+      safeTap(audioBtn, () => {
+        if (!isVideoUnlocked) {
+          startBtn.style.display = "block";
+          return;
+        }
+
+        video.muted = !video.muted;
+        audioBtn.textContent = video.muted ? "Muted" : "Sound On";
+      });
+
+      target.addEventListener("targetFound", async () => {
+        if (!isVideoUnlocked) {
+          startBtn.style.display = "block";
+          return;
+        }
+
+        video.currentTime = 0;
+        try {
+          await video.play();
+        } catch (e) {
+          console.log("Play failed:", e);
+          startBtn.style.display = "block";
+        }
+      });
+
+      target.addEventListener("targetLost", () => {
+        video.pause();
+      });
+    });
+  </script>
 </body>
 </html>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-
-  const video = document.querySelector("#video");
-  const audioBtn = document.querySelector("#audio-btn");
-  const target = document.querySelector('[mindar-image-target]');
-  const startBtn = document.querySelector("#start-btn");
-
-  const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-
-  // Always required for iOS
-  video.muted = true;
-
-  audioBtn.addEventListener("click", () => {
-    video.muted = !video.muted;
-
-    if (video.muted) {
-      audioBtn.textContent = "🔇";
-    } else {
-      audioBtn.textContent = "🔊";
-    }
-  });
-  
-  if (isIOS) {
-    startBtn.style.display = "block";
-  }
-
-  startBtn.addEventListener("click", async () => {
-    try {
-		console.log("Start button click");
-      // unlock video for iOS
-      await video.play();
-      video.pause();
-      startBtn.style.display = "none";
-    } catch (e) {
-      console.log("Start failed:", e);
-    }
-  });
-
-  target.addEventListener("targetFound", () => {
-    video.currentTime = 0;
-    video.play();
-  });
-
-  target.addEventListener("targetLost", () => {
-    video.pause();
-  });
-
-});
-</script>
