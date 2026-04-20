@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Golan Photos Search</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f6f2e8;
+      --surface: rgba(255, 252, 246, 0.88);
+      --surface-strong: #fffdf8;
+      --text: #243129;
+      --muted: #667368;
+      --border: rgba(36, 49, 41, 0.12);
+      --accent: #2f6d4e;
+      --accent-soft: rgba(47, 109, 78, 0.12);
+      --shadow: 0 18px 40px rgba(54, 67, 58, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(192, 215, 173, 0.6), transparent 26rem),
+        radial-gradient(circle at top right, rgba(251, 208, 151, 0.58), transparent 24rem),
+        linear-gradient(180deg, #f9f5ea 0%, var(--bg) 48%, #efe8d8 100%);
+    }
+
+    .page {
+      width: min(1120px, calc(100% - 2rem));
+      margin: 0 auto;
+      padding: 2rem 0 3rem;
+    }
+
+    .hero {
+      padding: 1rem;
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      background: var(--surface);
+      backdrop-filter: blur(8px);
+      box-shadow: var(--shadow);
+    }
+
+    h2 {
+      margin: 0 0 1rem;
+      font-size: clamp(1rem, 1.5vw, 1.5rem);
+      line-height: 1;
+    }
+
+    .subtitle {
+      margin: 0 0 1.2rem;
+      max-width: 52rem;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .search-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.9rem;
+      align-items: center;
+    }
+
+    #searchInput {
+      width: 100%;
+      padding: 1rem 1.1rem;
+      border: 1px solid rgba(47, 109, 78, 0.25);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.82);
+      color: var(--text);
+      font: inherit;
+      font-size: 1.02rem;
+      outline: none;
+      transition: border-color 120ms ease, box-shadow 120ms ease, transform 120ms ease;
+    }
+
+    #searchInput:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 4px var(--accent-soft);
+      transform: translateY(-1px);
+    }
+
+    .status {
+      white-space: nowrap;
+      font-size: 0.96rem;
+      color: var(--muted);
+    }
+
+    .results {
+      margin-top: 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+      gap: 1rem;
+    }
+
+    .card {
+      display: block;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: var(--surface-strong);
+      box-shadow: 0 12px 25px rgba(66, 58, 43, 0.08);
+      color: inherit;
+      text-decoration: none;
+      transition: transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
+    }
+
+    .card:hover,
+    .card:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 30px rgba(66, 58, 43, 0.14);
+      border-color: rgba(47, 109, 78, 0.35);
+    }
+
+    .card:focus-visible {
+      outline: 0;
+      box-shadow:
+        0 0 0 4px var(--accent-soft),
+        0 18px 30px rgba(66, 58, 43, 0.14);
+    }
+
+    .thumb {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      background: linear-gradient(135deg, #d9d0ba, #efe8d8);
+    }
+
+    .meta {
+      padding: 0.8rem 0.85rem 0.95rem;
+    }
+
+    .title {
+      margin: 0;
+      font-size: 0.98rem;
+      line-height: 1.35;
+      word-break: break-word;
+    }
+
+    .title.he {
+      direction: rtl;
+      text-align: right;
+    }
+
+    .filename {
+      margin: 0.38rem 0 0;
+      color: var(--muted);
+      font-size: 0.8rem;
+      word-break: break-all;
+    }
+
+    .empty {
+      margin-top: 1.5rem;
+      padding: 2rem;
+      border: 1px dashed var(--border);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.4);
+      text-align: center;
+      color: var(--muted);
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        width: min(100% - 1rem, 1120px);
+        padding-top: 1rem;
+      }
+
+      .hero {
+        padding: 1rem;
+        border-radius: 22px;
+      }
+
+      .search-row {
+        grid-template-columns: 1fr;
+      }
+
+      .status {
+        white-space: normal;
+      }
+
+      .results {
+        grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
+        gap: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <h2>Golan photos search</h2>
+      <div class="search-row">
+        <input id="searchInput" type="search" placeholder="Search in English or Hebrew..." autocomplete="off" spellcheck="false">
+        <div id="status" class="status">Loading index...</div>
+      </div>
+    </section>
+    <section id="results" class="results" aria-live="polite"></section>
+    <div id="empty" class="empty" hidden>No matching images.</div>
+  </main>
+
+  <script>
+    const MAX_RESULTS = 200;
+    const resultsEl = document.getElementById("results");
+    const emptyEl = document.getElementById("empty");
+    const statusEl = document.getElementById("status");
+    const inputEl = document.getElementById("searchInput");
+
+    function maybeFixMojibake(text) {
+      if (!text || !/[\u00d7\u00d8]/.test(text)) {
+        return text || "";
+      }
+
+      try {
+        const bytes = Uint8Array.from(Array.from(text, (char) => char.charCodeAt(0) & 0xff));
+        return new TextDecoder("utf-8", { fatal: false }).decode(bytes);
+      } catch (_) {
+        return text;
+      }
+    }
+
+    function normalizeEnglish(text) {
+      return (text || "")
+        .toLowerCase()
+        .replace(/\.[^.]+$/, "")
+        .replace(/\d+/g, " ")
+        .replace(/[_-]+/g, " ")
+        .replace(/[^a-z\s]/g, " ")
+        .replace(/\s+/g, " ")
+        .trim();
+    }
+
+    function normalizeHebrew(text) {
+      return maybeFixMojibake(text || "")
+        .replace(/[^\u0590-\u05ff0-9a-zA-Z\s"'\u05f3\u05f4-]/g, " ")
+        .replace(/\s+/g, " ")
+        .trim();
+    }
+
+    function normalizeQuery(text) {
+      return (text || "").trim().toLowerCase().replace(/\s+/g, " ");
+    }
+
+    function scoreMatch(photo, query) {
+      if (!query) {
+        return 1;
+      }
+
+      const terms = query.split(" ").filter(Boolean);
+      if (!terms.length) {
+        return 1;
+      }
+
+      let score = 0;
+
+      for (const term of terms) {
+        const inEnglish = photo.englishIndex.includes(term);
+        const inHebrew = photo.hebrewIndex.toLowerCase().includes(term);
+
+        if (!inEnglish && !inHebrew) {
+          return 0;
+        }
+
+        if (photo.englishIndex.startsWith(term) || photo.hebrewIndex.startsWith(term)) {
+          score += 6;
+        } else if (inEnglish || inHebrew) {
+          score += 3;
+        }
+      }
+
+      if (photo.englishIndex === query || photo.hebrewIndex.toLowerCase() === query) {
+        score += 10;
+      }
+
+      return score;
+    }
+
+    function renderResults(photos, query) {
+      const ranked = photos
+        .map((photo) => ({ photo, score: scoreMatch(photo, query) }))
+        .filter((entry) => entry.score > 0)
+        .sort((a, b) => b.score - a.score || a.photo.filename.localeCompare(b.photo.filename))
+        .slice(0, MAX_RESULTS)
+        .map((entry) => entry.photo);
+
+      resultsEl.innerHTML = "";
+
+      if (!ranked.length) {
+        emptyEl.hidden = false;
+        statusEl.textContent = query ? "0 matches" : "0 images";
+        return;
+      }
+
+      emptyEl.hidden = true;
+      statusEl.textContent = query
+        ? `${ranked.length} match${ranked.length === 1 ? "" : "es"} shown`
+        : `${ranked.length} images shown`;
+
+      const fragment = document.createDocumentFragment();
+
+      for (const photo of ranked) {
+        const card = document.createElement("a");
+        card.className = "card";
+        card.href = encodeURI(photo.filename);
+        card.target = "_blank";
+        card.rel = "noopener noreferrer";
+
+        const image = document.createElement("img");
+        image.className = "thumb";
+        image.src = encodeURI(photo.filename);
+        image.alt = photo.title || photo.filename;
+        image.loading = "lazy";
+        image.decoding = "async";
+
+        const meta = document.createElement("div");
+        meta.className = "meta";
+
+        const title = document.createElement("p");
+        title.className = "title" + (photo.hasHebrew ? " he" : "");
+        title.textContent = photo.title || photo.filename;
+
+        const filename = document.createElement("p");
+        filename.className = "filename";
+        filename.textContent = photo.englishLabel;
+
+        meta.append(title, filename);
+        card.append(image, meta);
+        fragment.append(card);
+      }
+
+      resultsEl.append(fragment);
+    }
+
+    async function loadPhotos() {
+      const response = await fetch("all_images.json", { cache: "no-store" });
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
+
+      const data = await response.json();
+      return (data.photos || []).map((entry) => {
+        const title = normalizeHebrew(entry.t || "");
+        const englishIndex = normalizeEnglish(entry.f || "");
+
+        return {
+          filename: entry.f || "",
+          title,
+          englishIndex,
+          englishLabel: englishIndex || (entry.f || ""),
+          hebrewIndex: title,
+          hasHebrew: /[\u0590-\u05ff]/.test(title)
+        };
+      });
+    }
+
+    let photos = [];
+
+    function updateResults() {
+      renderResults(photos, normalizeQuery(inputEl.value));
+    }
+
+    inputEl.addEventListener("input", updateResults);
+
+    loadPhotos()
+      .then((loadedPhotos) => {
+        photos = loadedPhotos;
+        statusEl.textContent = `${photos.length} images indexed`;
+        updateResults();
+      })
+      .catch((error) => {
+        statusEl.textContent = "Failed to load all_images.json";
+        emptyEl.hidden = false;
+        emptyEl.textContent = `Cannot load the image index: ${error.message}`;
+      });
+  </script>
+</body>
+</html>
