@@ -6,6 +6,7 @@ const endInput = document.querySelector("#endPoint");
 const durationInput = document.querySelector("#duration");
 const zoomInput = document.querySelector("#zoomLevel");
 const mapTypeInput = document.querySelector("#mapType");
+const followRoadsInput = document.querySelector("#followRoads");
 const form = document.querySelector("#settings");
 const exportBtn = document.querySelector("#exportBtn");
 const previewBtn = document.querySelector("#previewBtn");
@@ -99,15 +100,15 @@ function worldToScreen(point, scene) {
   };
 }
 
-function chooseZoom(start, end) {
+function chooseZoom(points) {
   const marginX = WIDTH * 0.2;
   const marginY = HEIGHT * 0.25;
 
   for (let zoom = 17; zoom >= 2; zoom -= 1) {
-    const a = lonLatToWorld(start, zoom);
-    const b = lonLatToWorld(end, zoom);
-    const width = Math.abs(a.x - b.x);
-    const height = Math.abs(a.y - b.y);
+    const worlds = points.map((point) => lonLatToWorld(point, zoom));
+    const bounds = worldBounds(worlds);
+    const width = bounds.maxX - bounds.minX;
+    const height = bounds.maxY - bounds.minY;
 
     if (width <= WIDTH - marginX * 2 && height <= HEIGHT - marginY * 2) {
       return zoom;
@@ -117,10 +118,42 @@ function chooseZoom(start, end) {
   return 2;
 }
 
-function routeCenter(start, end) {
+function worldBounds(points) {
+  return points.reduce(
+    (bounds, point) => ({
+      minX: Math.min(bounds.minX, point.x),
+      maxX: Math.max(bounds.maxX, point.x),
+      minY: Math.min(bounds.minY, point.y),
+      maxY: Math.max(bounds.maxY, point.y)
+    }),
+    {
+      minX: Infinity,
+      maxX: -Infinity,
+      minY: Infinity,
+      maxY: -Infinity
+    }
+  );
+}
+
+function routeCenter(points) {
+  const bounds = points.reduce(
+    (result, point) => ({
+      minLat: Math.min(result.minLat, point.lat),
+      maxLat: Math.max(result.maxLat, point.lat),
+      minLng: Math.min(result.minLng, point.lng),
+      maxLng: Math.max(result.maxLng, point.lng)
+    }),
+    {
+      minLat: Infinity,
+      maxLat: -Infinity,
+      minLng: Infinity,
+      maxLng: -Infinity
+    }
+  );
+
   return {
-    lat: (start.lat + end.lat) / 2,
-    lng: (start.lng + end.lng) / 2
+    lat: (bounds.minLat + bounds.maxLat) / 2,
+    lng: (bounds.minLng + bounds.maxLng) / 2
   };
 }
 
@@ -208,20 +241,61 @@ async function renderMapBackground(scene) {
   return background;
 }
 
-function buildScene() {
+async function fetchRoadRoute(start, end) {
+  const coordinates = `${start.lng},${start.lat};${end.lng},${end.lat}`;
+  const url = `https://router.project-osrm.org/route/v1/driving/${coordinates}?overview=full&geometries=geojson&alternatives=false&steps=false`;
+  const response = await fetch(url);
+
+  if (!response.ok) {
+    throw new Error("Road routing is unavailable right now.");
+  }
+
+  const data = await response.json();
+  const route = data.routes?.[0]?.geometry?.coordinates;
+
+  if (data.code !== "Ok" || !Array.isArray(route) || route.length < 2) {
+    throw new Error("No road route was found for these coordinates.");
+  }
+
+  const points = route
+    .map(([lng, lat]) => ({ lat, lng }))
+    .filter((point) => Number.isFinite(point.lat) && Number.isFinite(point.lng));
+
+  if (points.length < 2) {
+    throw new Error("No road route was found for these coordinates.");
+  }
+
+  return points;
+}
+
+async function buildScene() {
   const start = parsePoint(startInput.value);
   const end = parsePoint(endInput.value);
   const duration = clamp(Number(durationInput.value || 8), 1, 60);
   const mapType = mapTypeInput.value;
+  const followRoads = followRoadsInput.checked;
+  let routePath = [start, end];
+
+  if (followRoads) {
+    setStatus("Finding road route", 0);
+    routePath = await fetchRoadRoute(start, end);
+  }
+
   const zoom = zoomInput.value === ""
-    ? chooseZoom(start, end)
+    ? chooseZoom(routePath)
     : Math.round(clamp(Number(zoomInput.value), 2, 17));
-  const center = routeCenter(start, end);
-  const centerWorld = lonLatToWorld(center, zoom);
+  const center = routeCenter(routePath);
+  const routeWorldBounds = worldBounds(routePath.map((point) => lonLatToWorld(point, zoom)));
+  const centerWorld = {
+    x: (routeWorldBounds.minX + routeWorldBounds.maxX) / 2,
+    y: (routeWorldBounds.minY + routeWorldBounds.maxY) / 2
+  };
 
   return {
     start,
     end,
+    routePath,
+    followRoads,
     duration,
     mapType,
     zoom,
@@ -242,6 +316,11 @@ function quadraticPoint(a, control, b, t) {
 }
 
 function routeScreenPoints(scene) {
+  if (scene.followRoads) {
+    const points = scene.routePath.map((point) => worldToScreen(point, scene));
+    return resamplePolyline(points, 420);
+  }
+
   const start = worldToScreen(scene.start, scene);
   const end = worldToScreen(scene.end, scene);
   const dx = end.x - start.x;
@@ -258,6 +337,52 @@ function routeScreenPoints(scene) {
     const t = index / 219;
     return quadraticPoint(start, control, end, t);
   });
+}
+
+function resamplePolyline(points, targetCount) {
+  if (points.length < 2) {
+    return points;
+  }
+
+  const lengths = [0];
+  let total = 0;
+
+  for (let index = 1; index < points.length; index += 1) {
+    total += Math.hypot(
+      points[index].x - points[index - 1].x,
+      points[index].y - points[index - 1].y
+    );
+    lengths.push(total);
+  }
+
+  if (total === 0) {
+    return [points[0], points[points.length - 1]];
+  }
+
+  const sampled = [];
+  let segment = 1;
+
+  for (let index = 0; index < targetCount; index += 1) {
+    const distance = (total * index) / (targetCount - 1);
+
+    while (segment < lengths.length - 1 && lengths[segment] < distance) {
+      segment += 1;
+    }
+
+    const before = points[segment - 1];
+    const after = points[segment];
+    const segmentLength = lengths[segment] - lengths[segment - 1];
+    const amount = segmentLength === 0
+      ? 0
+      : (distance - lengths[segment - 1]) / segmentLength;
+
+    sampled.push({
+      x: lerp(before.x, after.x, amount),
+      y: lerp(before.y, after.y, amount)
+    });
+  }
+
+  return sampled;
 }
 
 function drawRoute(points, progress, mapType) {
@@ -373,8 +498,9 @@ function setStatus(text, progress = null) {
 }
 
 async function prepareScene({ revealZoom = false } = {}) {
-  setStatus("Loading map", 0);
-  const scene = buildScene();
+  setStatus("Preparing route", 0);
+  const scene = await buildScene();
+  setStatus("Loading map", scene.followRoads ? 0.18 : 0);
   scene.background = await renderMapBackground(scene);
   scene.routePoints = routeScreenPoints(scene);
   currentScene = scene;
