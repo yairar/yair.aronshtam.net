@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Relive Map Studio</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app">
+      <section class="panel" aria-label="Animation settings">
+        <div class="brand">
+          <span class="brand-mark"></span>
+          <div>
+            <h1>Relive Map Studio</h1>
+            <p>9:16 trip trace video maker</p>
+          </div>
+        </div>
+
+        <form id="settings" class="controls">
+          <label>
+            <span>Start point</span>
+            <input id="startPoint" autocomplete="off" value="32.0853, 34.7818" placeholder="lat, lng">
+          </label>
+
+          <label>
+            <span>End point</span>
+            <input id="endPoint" autocomplete="off" value="31.7683, 35.2137" placeholder="lat, lng">
+          </label>
+
+          <div class="row">
+            <label>
+              <span>Duration</span>
+              <input id="duration" type="number" min="1" max="60" step="1" value="8">
+            </label>
+
+            <label>
+              <span>Zoom</span>
+              <input id="zoomLevel" type="number" min="2" max="17" step="1" placeholder="Auto">
+            </label>
+
+            <label>
+              <span>Map type</span>
+              <select id="mapType">
+                <option value="streets">Streets</option>
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
+                <option value="voyager">Voyager</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="actions">
+            <button class="primary" type="submit" id="previewBtn">Preview</button>
+            <button type="button" id="exportBtn">Export video</button>
+          </div>
+
+          <div class="status" aria-live="polite">
+            <div class="status-line">
+              <span id="statusText">Ready</span>
+              <span id="progressText">0%</span>
+            </div>
+            <div class="progress">
+              <span id="progressBar"></span>
+            </div>
+          </div>
+        </form>
+      </section>
+
+      <section class="stage" aria-label="Animation preview">
+        <div class="phone-frame">
+          <canvas id="mapCanvas" width="1080" height="1920"></canvas>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
