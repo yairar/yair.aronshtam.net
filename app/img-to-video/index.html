@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Image to Instagram Video</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <aside class="sidebar" aria-label="Video controls">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">IV</span>
+          <div>
+            <h1>Image Motion</h1>
+            <p>9:16 client-side video export</p>
+          </div>
+        </div>
+
+        <label class="drop-zone" id="dropZone">
+          <input id="fileInput" type="file" accept="image/*">
+          <span class="drop-icon" aria-hidden="true">+</span>
+          <span class="drop-title">Drop a landscape photo</span>
+          <span class="drop-copy">or choose an image file</span>
+        </label>
+
+        <section class="control-section" aria-label="Camera motion">
+          <div class="field">
+            <label for="motionPreset">Motion</label>
+            <select id="motionPreset">
+              <option value="pan-ltr">Pan Left-to-Right</option>
+              <option value="pan-rtl">Pan Right-to-Left</option>
+              <option value="zoom-in">Zoom In (Ken Burns)</option>
+              <option value="zoom-out">Zoom Out</option>
+              <option value="tilt-down">Tilt Down</option>
+              <option value="tilt-up">Tilt Up</option>
+              <option value="diag-dl-ur">Diagonal Down-Left to Up-Right</option>
+              <option value="diag-ur-dl">Diagonal Up-Right to Down-Left</option>
+              <option value="diag-dr-ul">Diagonal Down-Right to Up-Left</option>
+              <option value="diag-ul-dr">Diagonal Up-Left to Down-Right</option>
+            </select>
+          </div>
+
+          <div class="field" id="focusField">
+            <label for="zoomFocus">Zoom focus</label>
+            <select id="zoomFocus">
+              <option value="center">Center</option>
+              <option value="upper-left">Upper left</option>
+              <option value="upper-right">Upper right</option>
+              <option value="lower-left">Lower left</option>
+              <option value="lower-right">Lower right</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="durationInput">Duration</label>
+            <div class="number-row">
+              <input id="durationInput" type="number" min="1" step="0.5" value="4">
+              <span>sec</span>
+            </div>
+          </div>
+        </section>
+
+        <button id="exportButton" class="export-button" type="button" disabled>
+          Export MP4
+        </button>
+
+        <div class="status" id="status" role="status">Upload an image to begin.</div>
+      </aside>
+
+      <section class="preview-area" aria-label="Animated preview">
+        <div class="canvas-wrap">
+          <canvas id="previewCanvas" width="720" height="1280"></canvas>
+          <div class="empty-state" id="emptyState">
+            <span>9:16 Preview</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+Create a 100% client-side web tool. The tool converts a single uploaded landscape photo into a looping few seconds video (9:16, for Instagram).
+
+UI Requirements
+1. Layout: Split-screen layout. Left sidebar for tools/controls, right area for the interactive image preview canvas.
+2. Uploader: A drag-and-drop zone to upload an image.
+3. Control Panel:
+   - Duration (min 1 sec)
+   - Export Button: A button to export video as MP4
+
+Feature 1: Camera Motion
+When this mode is active, the user can select one of the following presets from a dropdown menu. The preview canvas should play a smooth animation:
+- Pan Left-to-Right: The image starts slightly zoomed in on the left and smoothly moves to the right
+- Pan Right-to-Left: similar, but vice versa
+- Zoom In (Ken Burns): The image starts at scale 1.0 and smoothly scales up to 1.15 focused on the center / left/right-upper/lower-corner
+- Tilt Down: The image starts slightly zoomed in at the top and smoothly pans downward.
+Note: Ensure the image is automatically upscaled/padded slightly during motion so no white backgrounds or black bars are visible at the edges of the canvas.
+
+maybe next:
+-----------
+Feature 2: Cinemagraph (Brush Map & Water Ripple Shader)
+When this mode is active, the tool allows the user to animate specific parts of the landscape (like water or clouds) while keeping the rest still.
+- Mask Brush: The user can paint directly on top of the image to define the "animated area." Provide a "Brush Size" slider and a "Clear Mask" button. Show the mask as a semi-transparent blue overlay while painting.
+- **Direction Selector:** A simple dropdown or slider to set the flow angle (e.g., Down, Left, Right, Diagonal) for the moving pixels.
+- **Implementation:** Use a canvas fragment shader, displacement map, or a localized pixel-shifting loop. Within the painted mask area, animate a subtle perlin noise or sinusoidal wave distortion over time to simulate moving water or drifting clouds. Pixels outside the mask must remain perfectly static.
+
+### Technical & Export Requirements
+- **Looping:** Animations must loop seamlessly every 3 seconds. Use `requestAnimationFrame` for a smooth 60fps refresh rate.
+- **Video Export:** When the user clicks "Export", programmatically play the animation from timestamp 0 to 3 seconds. Use `canvas.captureStream(30)` and the `MediaRecorder` API (using `video/webm` or `video/mp4`) to record the stream, package it into a Blob, and trigger an automatic browser download.
+- **Self-Contained:** All CSS must use Tailwind via CDN, and any necessary third-party libraries (like PixiJS for shaders or RecordRTC if needed for recording stability) must be pulled via standard unpkg/cdnjs script tags. No build steps, no Node.js, no external assets required.
