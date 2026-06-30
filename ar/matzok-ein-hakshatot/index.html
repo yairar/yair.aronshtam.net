@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+<script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.2/dist/mindar-image-aframe.prod.js"></script>
+
+<style>
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: #000;
+}
+
+body {
+  position: fixed;
+  inset: 0;
+}
+
+a-scene {
+  position: fixed !important;
+  inset: 0;
+  width: 100vw !important;
+  height: 100vh !important;
+}
+
+a-scene,
+a-scene canvas {
+  display: block;
+}
+
+/* START BUTTON (iPhone only) */
+#start-btn {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+
+  font-size: 20px;
+  padding: 16px 24px;
+
+  background: rgba(0,0,0,0.85);
+  color: white;
+  border: none;
+  border-radius: 14px;
+}
+
+/* AUDIO BUTTON */
+#audio-btn {
+  position: fixed;
+  right: 20px;
+  bottom: max(20px, env(safe-area-inset-bottom));
+  z-index: 999;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  padding: 0;
+
+  background: rgba(0,0,0,0.6);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+#audio-btn svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+
+/* FADE EFFECT */
+.fade-in {
+  animation: fadeIn 0.3s ease-in forwards;
+}
+.fade-out {
+  animation: fadeOut 0.3s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<button id="start-btn" style="display:none;">Tap to Start</button>
+<button id="audio-btn" type="button" aria-label="Unmute video"></button>
+
+<a-scene
+  mindar-image="imageTargetSrc: targets26.mind; maxTrack: 5;"
+  vr-mode-ui="enabled: false"
+  device-orientation-permission-ui="enabled: true"
+  embedded
+>
+
+<a-assets>
+  <video
+    id="video-0"
+    src="https://yair.aronshtam.net/alive/img/26.mp4"
+    loop
+    muted
+    playsinline
+    webkit-playsinline
+    preload="auto"
+    crossorigin="anonymous"
+  ></video>
+  <video
+    id="video-1"
+    src="https://yair.aronshtam.net/alive/img/26.mp4"
+    loop
+    muted
+    playsinline
+    webkit-playsinline
+    preload="auto"
+    crossorigin="anonymous"
+  ></video>
+  <video
+    id="video-2"
+    src="https://yair.aronshtam.net/alive/img/26.mp4"
+    loop
+    muted
+    playsinline
+    webkit-playsinline
+    preload="auto"
+    crossorigin="anonymous"
+  ></video>
+</a-assets>
+
+<a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+
+<a-entity mindar-image-target="targetIndex: 0">
+  <a-video
+    id="ar-video-0"
+    src="#video-0"
+    width="1"
+    height="0.5625"
+    position="0 0 0"
+    material="transparent: true; opacity: 0"
+  ></a-video>
+</a-entity>
+
+<a-entity mindar-image-target="targetIndex: 1">
+  <a-video
+    id="ar-video-1"
+    src="#video-1"
+    width="1"
+    height="0.5625"
+    position="0 0 0"
+    material="transparent: true; opacity: 0"
+  ></a-video>
+</a-entity>
+
+<a-entity mindar-image-target="targetIndex: 2">
+  <a-video
+    id="ar-video-2"
+    src="#video-2"
+    width="1"
+    height="0.5625"
+    position="0 0 0"
+    material="transparent: true; opacity: 0"
+  ></a-video>
+</a-entity>
+
+</a-scene>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const videos = [0, 1, 2, 3, 4].map((index) => document.querySelector(`#video-${index}`));
+  const targets = [...document.querySelectorAll("[mindar-image-target]")];
+  const startBtn = document.querySelector("#start-btn");
+  const audioBtn = document.querySelector("#audio-btn");
+  let activeVideo = null;
+  const icons = {
+    muted: `
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M4 10h4l5-4v12l-5-4H4z"></path>
+        <path d="M16 9l5 6"></path>
+        <path d="M21 9l-5 6"></path>
+      </svg>
+    `,
+    unmuted: `
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M4 10h4l5-4v12l-5-4H4z"></path>
+        <path d="M17 9a5 5 0 0 1 0 6"></path>
+        <path d="M19.5 6.5a8.5 8.5 0 0 1 0 11"></path>
+      </svg>
+    `
+  };
+
+  const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+  const updateAudioButton = () => {
+    const muted = (activeVideo || videos[0]).muted;
+    audioBtn.innerHTML = muted ? icons.muted : icons.unmuted;
+    audioBtn.setAttribute("aria-label", muted ? "Unmute video" : "Mute video");
+  };
+
+  // iOS requires muted start
+  videos.forEach((video) => {
+    video.muted = true;
+  });
+  updateAudioButton();
+
+  // Show start button only on iOS
+  if (isIOS) {
+    startBtn.style.display = "block";
+  }
+
+  // Unlock video on iOS
+  startBtn.addEventListener("click", async () => {
+    try {
+      for (const video of videos) {
+        await video.play();
+        video.pause();
+      }
+      startBtn.style.display = "none";
+    } catch (e) {
+      console.log("Start failed:", e);
+    }
+  });
+
+  // AUDIO TOGGLE
+  audioBtn.addEventListener("click", async () => {
+    const nextMuted = !(activeVideo || videos[0]).muted;
+
+    videos.forEach((video) => {
+      video.muted = nextMuted;
+    });
+
+    try {
+      if (activeVideo) {
+        await activeVideo.play(); // ensures audio works on iOS
+      }
+    } catch (e) {}
+
+    updateAudioButton();
+  });
+
+  const hideArVideo = (arVideo) => {
+    arVideo.classList.remove("fade-in");
+    arVideo.classList.add("fade-out");
+
+    setTimeout(() => {
+      arVideo.setAttribute("material", "opacity", 0);
+    }, 300);
+  };
+
+  targets.forEach((target, index) => {
+    const arVideo = document.querySelector(`#ar-video-${index}`);
+    const video = videos[index];
+
+    target.addEventListener("targetFound", () => {
+      videos.forEach((otherVideo, otherIndex) => {
+        if (otherIndex !== index) {
+          otherVideo.pause();
+          const otherArVideo = document.querySelector(`#ar-video-${otherIndex}`);
+          hideArVideo(otherArVideo);
+        }
+      });
+
+      activeVideo = video;
+      video.currentTime = 0;
+      video.play();
+
+      arVideo.setAttribute("material", "opacity", 1);
+      arVideo.classList.remove("fade-out");
+      arVideo.classList.add("fade-in");
+    });
+
+    target.addEventListener("targetLost", () => {
+      video.pause();
+      if (activeVideo === video) {
+        activeVideo = null;
+      }
+      hideArVideo(arVideo);
+    });
+  });
+
+});
+</script>
+
+</body>
+</html>
