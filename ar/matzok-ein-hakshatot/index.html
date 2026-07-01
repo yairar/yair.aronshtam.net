@@ -106,7 +106,7 @@ a-scene canvas {
 <button id="audio-btn" type="button" aria-label="Unmute video"></button>
 
 <a-scene
-  mindar-image="imageTargetSrc: targets26.mind; maxTrack: 5;"
+  mindar-image="imageTargetSrc: targets26.mind; maxTrack: 3;"
   vr-mode-ui="enabled: false"
   device-orientation-permission-ui="enabled: true"
   embedded
@@ -185,7 +185,7 @@ a-scene canvas {
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 
-  const videos = [0, 1, 2, 3, 4].map((index) => document.querySelector(`#video-${index}`));
+  const videos = [0, 1, 2].map((index) => document.querySelector(`#video-${index}`));
   const targets = [...document.querySelectorAll("[mindar-image-target]")];
   const startBtn = document.querySelector("#start-btn");
   const audioBtn = document.querySelector("#audio-btn");
