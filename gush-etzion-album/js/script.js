@@ -87,7 +87,7 @@ var items = [
 {src:'image/einelmeara3.jpg', w:1600, h:1200, title:'עין אל מערה', tags: 'maayan winter cave'},
 {src:'image/einelmeara4.jpg', w:1400, h:1050, title:'עין אל מערה', tags: 'maayan winter'},
 
-{src:'image/einhubela1.jpg', w:1400, h:1050, title:'עין חובלה', tags: 'maayan spring'},
+{src:'../images/map/big/einhubela1.jpg', w:1400, h:1050, title:'עין חובלה', tags: 'maayan spring'},
 {src:'image/einhubela2.jpg', w:1400, h:1050, title:'עין חובלה', tags: 'maayan spring'},
 
 {src:'image/einitzhak1.jpg', w:1600, h:1067, title:"עין יצחק (עין סג'מה)", tags: 'maayan bloom spring'},
@@ -330,7 +330,7 @@ var items = [
 {src:'image/ozvegaon6.jpg', w:1600, h:1066, title:'שמורת עוז וגאון', tags: 'ozvegaon forest spring'},		
 {src:'image/ozvegaon7.jpg', w:1400, h:1050, title:'שמורת עוז וגאון', tags: 'ozvegaon forest summer'},		
 
-{src:'image/rujmessabit1.jpg', w:1600, h:1050, title:"רוג'ום א-סבית - בריכת חורף", tags: 'rujmessabit maayan spring'},
+{src:'../images/map/big/rojumasabit2.jpg', w:1600, h:1050, title:"רוג'ום א-סבית - בריכת חורף", tags: 'rujmessabit maayan spring'},
 {src:'image/rujmessabit2.jpg', w:1600, h:1050, title:"רוג'ום א-סבית - בריכת חורף", tags: 'rujmessabit maayan spring'},
 
 {src:'image/sdeboaz1.jpg', w:1600, h:1201, title:'שקיעה מעל שדה בועז (נוף מאפרת)', tags: 'sdeboaz sunset summer'},		
