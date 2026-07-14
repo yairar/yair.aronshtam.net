@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GPX Trail Animator</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0d0d0f;
+  --surface: #18181c;
+  --surface2: #222228;
+  --border: #2e2e38;
+  --accent: #f97316;
+  --accent2: #ef4444;
+  --text: #f0f0f5;
+  --text2: #9090a0;
+  --radius: 12px;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── HEADER ── */
+header {
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+.logo {
+  width: 36px; height: 36px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+}
+header h1 { font-size: 17px; font-weight: 600; letter-spacing: -0.3px; }
+header p  { font-size: 12px; color: var(--text2); }
+
+/* ── UPLOAD ── */
+#upload-screen {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+.drop-zone {
+  border: 2px dashed var(--border);
+  border-radius: 20px;
+  padding: 60px 80px;
+  text-align: center;
+  cursor: pointer;
+  transition: all .2s;
+  max-width: 480px;
+  width: 100%;
+}
+.drop-zone:hover, .drop-zone.drag-over {
+  border-color: var(--accent);
+  background: rgba(249,115,22,.05);
+}
+.drop-zone .icon { font-size: 52px; margin-bottom: 16px; }
+.drop-zone h2 { font-size: 20px; font-weight: 600; margin-bottom: 8px; }
+.drop-zone p  { color: var(--text2); font-size: 14px; line-height: 1.5; margin-bottom: 24px; }
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 28px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity .15s, transform .15s;
+}
+.btn-primary:hover:not(:disabled) { opacity: .9; transform: translateY(-1px); }
+.btn-primary:disabled { opacity: .4; cursor: not-allowed; transform: none; }
+
+/* ── PLAYER ── */
+#player-screen { display: none; flex: 1; flex-direction: column; }
+
+.player-layout {
+  flex: 1;
+  display: flex;
+  gap: 0;
+  overflow: hidden;
+  height: calc(100vh - 57px);
+}
+
+/* Canvas area */
+.canvas-area {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+  position: relative;
+  overflow: hidden;
+}
+
+#preview-canvas {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  box-shadow: 0 8px 40px rgba(0,0,0,.6);
+}
+
+/* Sidebar */
+.sidebar {
+  width: 300px;
+  min-width: 300px;
+  background: var(--surface);
+  border-left: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.sidebar-section {
+  padding: 20px;
+  border-bottom: 1px solid var(--border);
+}
+.sidebar-section h3 {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--text2);
+  margin-bottom: 14px;
+}
+
+/* Playback controls */
+.play-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.btn-icon {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  transition: transform .15s;
+}
+.btn-icon:hover { transform: scale(1.08); }
+.btn-icon.secondary {
+  background: var(--surface2);
+  width: 34px; height: 34px;
+  font-size: 14px;
+}
+
+.progress-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.time-row { display: flex; justify-content: space-between; font-size: 11px; color: var(--text2); }
+
+input[type=range] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+  box-shadow: 0 0 6px rgba(249,115,22,.5);
+}
+
+/* Speed buttons */
+.speed-row {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.speed-btn {
+  padding: 5px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--surface2);
+  color: var(--text2);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .15s;
+}
+.speed-btn.active, .speed-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Stats */
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.stat-card {
+  background: var(--surface2);
+  border-radius: 8px;
+  padding: 12px;
+}
+.stat-label { font-size: 10px; color: var(--text2); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 4px; }
+.stat-value { font-size: 18px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.stat-unit  { font-size: 11px; color: var(--text2); margin-left: 2px; }
+
+/* Export */
+.export-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.ratio-row {
+  display: flex;
+  gap: 8px;
+}
+.ratio-btn {
+  flex: 1;
+  padding: 10px 6px;
+  border-radius: 8px;
+  border: 1.5px solid var(--border);
+  background: var(--surface2);
+  color: var(--text2);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  transition: all .15s;
+}
+.ratio-btn .ratio-icon {
+  display: block;
+  margin: 0 auto 4px;
+  border: 2px solid currentColor;
+  border-radius: 2px;
+}
+.ratio-btn.active, .ratio-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+select, .select-like {
+  width: 100%;
+  padding: 9px 12px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 13px;
+  outline: none;
+  cursor: pointer;
+}
+select:focus { border-color: var(--accent); }
+
+.export-btn {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity .15s, transform .15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.export-btn:hover:not(:disabled) { opacity: .9; transform: translateY(-1px); }
+.export-btn:disabled { opacity: .4; cursor: not-allowed; transform: none; }
+
+/* Export progress overlay */
+#export-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.85);
+  backdrop-filter: blur(6px);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+}
+#export-overlay.show { display: flex; }
+.export-modal {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 36px;
+  text-align: center;
+  width: 320px;
+}
+.export-modal h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+.export-modal p  { color: var(--text2); font-size: 13px; margin-bottom: 24px; }
+.progress-bar-wrap {
+  background: var(--surface2);
+  border-radius: 4px;
+  height: 6px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  border-radius: 4px;
+  transition: width .3s;
+  width: 0%;
+}
+#export-pct { font-size: 13px; color: var(--text2); }
+
+/* View mode buttons */
+.view-row { display: flex; gap: 6px; }
+.view-btn {
+  flex: 1;
+  padding: 7px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--surface2);
+  color: var(--text2);
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  transition: all .15s;
+}
+.view-btn.active, .view-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Trail color picker */
+.color-row { display: flex; gap: 8px; flex-wrap: wrap; }
+.color-swatch {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: transform .15s, border-color .15s;
+}
+.color-swatch:hover { transform: scale(1.15); }
+.color-swatch.active { border-color: #fff; }
+
+/* Map style toggle */
+.map-style-row { display: flex; gap: 6px; }
+.map-style-btn {
+  flex: 1; padding: 7px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--surface2);
+  color: var(--text2);
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  transition: all .15s;
+}
+.map-style-btn.active, .map-style-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+.new-file-btn {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface2);
+  color: var(--text2);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .15s;
+  margin-top: 4px;
+}
+.new-file-btn:hover { border-color: var(--text2); color: var(--text); }
+
+/* Elevation chart */
+#elev-canvas { width: 100%; height: 60px; display: block; border-radius: 6px; }
+
+/* Hidden canvas for export */
+#export-canvas { display: none; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">🏃</div>
+  <div>
+    <h1>GPX Trail Animator</h1>
+    <p>Animate your trail like Relive</p>
+  </div>
+</header>
+
+<!-- UPLOAD SCREEN -->
+<div id="upload-screen">
+  <div class="drop-zone" id="drop-zone">
+    <div class="icon">🗺️</div>
+    <h2>Drop your GPX file</h2>
+    <p>Upload a GPX track from any GPS device, Strava, Garmin, or hiking app to create a cinematic animation.</p>
+    <button class="btn-primary" id="pick-file-btn">Choose GPX File</button>
+    <input type="file" id="file-input" accept=".gpx,application/gpx+xml" style="display:none">
+  </div>
+</div>
+
+<!-- PLAYER SCREEN -->
+<div id="player-screen">
+  <div class="player-layout">
+    <!-- Canvas area -->
+    <div class="canvas-area">
+      <canvas id="preview-canvas"></canvas>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+
+      <!-- Playback -->
+      <div class="sidebar-section">
+        <h3>Playback</h3>
+        <div class="play-row">
+          <button class="btn-icon" id="play-btn" title="Play / Pause">▶</button>
+          <button class="btn-icon secondary" id="restart-btn" title="Restart">⟳</button>
+          <div class="progress-wrap">
+            <input type="range" id="seek-bar" min="0" max="1000" value="0">
+            <div class="time-row">
+              <span id="time-current">0:00</span>
+              <span id="time-total">0:00</span>
+            </div>
+          </div>
+        </div>
+        <div style="font-size:11px;color:var(--text2);margin-bottom:8px;">Speed</div>
+        <div class="speed-row">
+          <button class="speed-btn" data-speed="0.5">0.5×</button>
+          <button class="speed-btn active" data-speed="1">1×</button>
+          <button class="speed-btn" data-speed="2">2×</button>
+          <button class="speed-btn" data-speed="4">4×</button>
+        </div>
+      </div>
+
+      <!-- Camera mode -->
+      <div class="sidebar-section">
+        <h3>Camera</h3>
+        <div class="view-row">
+          <button class="view-btn active" data-view="follow">Follow</button>
+          <button class="view-btn" data-view="overview">Overview</button>
+        </div>
+      </div>
+
+      <!-- Style -->
+      <div class="sidebar-section">
+        <h3>Map Style</h3>
+        <div class="map-style-row" style="margin-bottom:12px;">
+          <button class="map-style-btn active" data-style="dark">Dark</button>
+          <button class="map-style-btn" data-style="light">Light</button>
+          <button class="map-style-btn" data-style="satellite">Topo</button>
+        </div>
+        <div style="font-size:11px;color:var(--text2);margin-bottom:8px;">Trail Color</div>
+        <div class="color-row" id="color-row">
+          <div class="color-swatch active" data-color="orange" style="background:linear-gradient(135deg,#f97316,#ef4444)"></div>
+          <div class="color-swatch" data-color="blue" style="background:linear-gradient(135deg,#3b82f6,#8b5cf6)"></div>
+          <div class="color-swatch" data-color="green" style="background:linear-gradient(135deg,#22c55e,#10b981)"></div>
+          <div class="color-swatch" data-color="pink" style="background:linear-gradient(135deg,#ec4899,#f43f5e)"></div>
+          <div class="color-swatch" data-color="yellow" style="background:linear-gradient(135deg,#eab308,#f97316)"></div>
+          <div class="color-swatch" data-color="cyan" style="background:linear-gradient(135deg,#06b6d4,#3b82f6)"></div>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="sidebar-section">
+        <h3>Stats</h3>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-label">Distance</div>
+            <div class="stat-value"><span id="stat-dist">0.0</span><span class="stat-unit">km</span></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Total</div>
+            <div class="stat-value"><span id="stat-total">0.0</span><span class="stat-unit">km</span></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Elevation</div>
+            <div class="stat-value"><span id="stat-ele">0</span><span class="stat-unit">m</span></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Gain</div>
+            <div class="stat-value"><span id="stat-gain">0</span><span class="stat-unit">m</span></div>
+          </div>
+        </div>
+        <div style="margin-top:10px;">
+          <canvas id="elev-canvas"></canvas>
+        </div>
+      </div>
+
+      <!-- Export -->
+      <div class="sidebar-section">
+        <h3>Export Video</h3>
+        <div class="export-options">
+          <div>
+            <div style="font-size:11px;color:var(--text2);margin-bottom:8px;">Aspect Ratio</div>
+            <div class="ratio-row">
+              <button class="ratio-btn" data-ratio="16:9">
+                <svg class="ratio-icon" width="32" height="18" style="display:block;margin:0 auto 4px"><rect width="30" height="16" x="1" y="1" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+                16:9
+              </button>
+              <button class="ratio-btn active" data-ratio="9:16">
+                <svg class="ratio-icon" width="18" height="32" style="display:block;margin:0 auto 4px"><rect width="16" height="30" x="1" y="1" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+                9:16
+              </button>
+              <button class="ratio-btn" data-ratio="3:4">
+                <svg class="ratio-icon" width="22" height="29" style="display:block;margin:0 auto 4px"><rect width="20" height="27" x="1" y="1" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+                3:4
+              </button>
+            </div>
+          </div>
+          <select id="export-duration">
+            <option value="30">30 seconds</option>
+            <option value="45">45 seconds</option>
+            <option value="60" selected>60 seconds</option>
+            <option value="90">90 seconds</option>
+            <option value="120">2 minutes</option>
+          </select>
+          <button class="export-btn" id="export-btn">
+            <span>⬇</span> Export HD Video
+          </button>
+        </div>
+      </div>
+
+      <!-- New file -->
+      <div class="sidebar-section">
+        <button class="new-file-btn" id="new-file-btn">↩ Load Different File</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Export overlay -->
+<div id="export-overlay">
+  <div class="export-modal">
+    <h3>Rendering Video</h3>
+    <p id="export-status-text">Fetching map tiles…</p>
+    <div class="progress-bar-wrap">
+      <div class="progress-bar-fill" id="export-bar"></div>
+    </div>
+    <div id="export-pct">0%</div>
+  </div>
+</div>
+
+<!-- Hidden export canvas -->
+<canvas id="export-canvas"></canvas>
+
+<script>
+'use strict';
+
+// ─── CONFIG ──────────────────────────────────────────────────────────────────
+const TILE_SIZE = 256;
+const FPS = 30;
+const TRAIL_COLORS = {
+  orange: { a: [249,115,22], b: [239,68,68] },
+  blue:   { a: [59,130,246], b: [139,92,246] },
+  green:  { a: [34,197,94],  b: [16,185,129] },
+  pink:   { a: [236,72,153], b: [244,63,94] },
+  yellow: { a: [234,179,8],  b: [249,115,22] },
+  cyan:   { a: [6,182,212],  b: [59,130,246] },
+};
+const MAP_STYLES = {
+  dark:      'https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png',
+  light:     'https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png',
+  satellite: 'https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',
+};
+const MAP_SUBS = ['a','b','c'];
+
+// ─── STATE ───────────────────────────────────────────────────────────────────
+let gpxPoints = [];
+let totalKm   = 0;
+let gainM     = 0;
+
+let animProgress  = 0;   // 0..1
+let animSpeed     = 1;   // multiplier
+let animPlaying   = false;
+let animDuration  = 60;  // seconds in preview
+let lastTimestamp = null;
+
+let cameraMode  = 'follow';  // 'follow' | 'overview'
+let trailColor  = 'orange';
+let mapStyle    = 'dark';
+let exportRatio = '9:16';
+
+// Camera (world-pixel space)
+let camX = 0, camY = 0, camZoom = 14;
+let targetCamX = 0, targetCamY = 0;
+let overviewCamX = 0, overviewCamY = 0, overviewZoom = 14;
+
+// Tile cache: key -> HTMLImageElement (or null while loading)
+const tileCache = new Map();
+const tileLoading = new Map();
+
+// ─── DOM ─────────────────────────────────────────────────────────────────────
+const uploadScreen  = document.getElementById('upload-screen');
+const playerScreen  = document.getElementById('player-screen');
+const dropZone      = document.getElementById('drop-zone');
+const fileInput     = document.getElementById('file-input');
+const pickBtn       = document.getElementById('pick-file-btn');
+const previewCanvas = document.getElementById('preview-canvas');
+const exportCanvas  = document.getElementById('export-canvas');
+const ctx           = previewCanvas.getContext('2d');
+const exportCtx     = exportCanvas.getContext('2d');
+
+const playBtn       = document.getElementById('play-btn');
+const restartBtn    = document.getElementById('restart-btn');
+const seekBar       = document.getElementById('seek-bar');
+const timeCurrent   = document.getElementById('time-current');
+const timeTotal     = document.getElementById('time-total');
+
+const statDist  = document.getElementById('stat-dist');
+const statTotal = document.getElementById('stat-total');
+const statEle   = document.getElementById('stat-ele');
+const statGain  = document.getElementById('stat-gain');
+const elevCanvas= document.getElementById('elev-canvas');
+const elevCtx   = elevCanvas.getContext('2d');
+
+const exportBtn     = document.getElementById('export-btn');
+const exportOverlay = document.getElementById('export-overlay');
+const exportBar     = document.getElementById('export-bar');
+const exportPct     = document.getElementById('export-pct');
+const exportStatus  = document.getElementById('export-status-text');
+
+// ─── TILE MATH ───────────────────────────────────────────────────────────────
+function lon2world(lon, zoom) {
+  return ((lon + 180) / 360) * Math.pow(2, zoom) * TILE_SIZE;
+}
+function lat2world(lat, zoom) {
+  const sinLat = Math.sin(lat * Math.PI / 180);
+  const y = (0.5 - Math.log((1 + sinLat) / (1 - sinLat)) / (4 * Math.PI));
+  return y * Math.pow(2, zoom) * TILE_SIZE;
+}
+function world2lon(wx, zoom) {
+  return wx / (Math.pow(2, zoom) * TILE_SIZE) * 360 - 180;
+}
+function world2lat(wy, zoom) {
+  const n = Math.PI - (2 * Math.PI * wy) / (Math.pow(2, zoom) * TILE_SIZE);
+  return (180 / Math.PI) * Math.atan(0.5 * (Math.exp(n) - Math.exp(-n)));
+}
+
+function latLngToScreen(lat, lng, cx, cy, canvasW, canvasH, zoom) {
+  const wx = lon2world(lng, zoom);
+  const wy = lat2world(lat, zoom);
+  return { x: canvasW / 2 + (wx - cx), y: canvasH / 2 + (wy - cy) };
+}
+
+function calcZoomToFit(points, canvasW, canvasH, padding) {
+  let minLat = Infinity, maxLat = -Infinity, minLng = Infinity, maxLng = -Infinity;
+  for (const p of points) {
+    minLat = Math.min(minLat, p.lat); maxLat = Math.max(maxLat, p.lat);
+    minLng = Math.min(minLng, p.lng); maxLng = Math.max(maxLng, p.lng);
+  }
+  const centerLat = (minLat + maxLat) / 2;
+  const centerLng = (minLng + maxLng) / 2;
+
+  let zoom = 18;
+  for (; zoom >= 1; zoom--) {
+    const x1 = lon2world(minLng, zoom), x2 = lon2world(maxLng, zoom);
+    const y1 = lat2world(maxLat, zoom), y2 = lat2world(minLat, zoom);
+    if ((x2 - x1) < canvasW - padding * 2 && (y2 - y1) < canvasH - padding * 2) break;
+  }
+  return { zoom, centerLat, centerLng };
+}
+
+// ─── TILE LOADING ─────────────────────────────────────────────────────────────
+function getTileUrl(tx, ty, z) {
+  const n = Math.pow(2, z);
+  const xt = ((tx % n) + n) % n;
+  const sub = MAP_SUBS[Math.abs(tx + ty) % MAP_SUBS.length];
+  return MAP_STYLES[mapStyle]
+    .replace('{s}', sub)
+    .replace('{z}', z)
+    .replace('{x}', xt)
+    .replace('{y}', ty);
+}
+
+function loadTile(tx, ty, z) {
+  const key = `${z}/${tx}/${ty}/${mapStyle}`;
+  if (tileCache.has(key)) return tileCache.get(key);
+  if (tileLoading.has(key)) return null;
+
+  tileLoading.set(key, true);
+  const img = new Image();
+  img.crossOrigin = 'anonymous';
+  img.onload = () => {
+    tileCache.set(key, img);
+    tileLoading.delete(key);
+  };
+  img.onerror = () => {
+    tileLoading.delete(key);
+    tileCache.set(key, null); // mark as failed to avoid retry spam
+  };
+  img.src = getTileUrl(tx, ty, z);
+  return null;
+}
+
+// ─── GPX PARSING ─────────────────────────────────────────────────────────────
+function haversineKm(a, b) {
+  const R = 6371;
+  const dLat = (b.lat - a.lat) * Math.PI / 180;
+  const dLng = (b.lng - a.lng) * Math.PI / 180;
+  const s = Math.sin(dLat/2)**2 + Math.cos(a.lat*Math.PI/180) * Math.cos(b.lat*Math.PI/180) * Math.sin(dLng/2)**2;
+  return 2 * R * Math.asin(Math.sqrt(s));
+}
+
+function parseGPX(xml) {
+  const doc = new DOMParser().parseFromString(xml, 'text/xml');
+  const pts = [];
+
+  const addPoint = (el) => {
+    const lat = parseFloat(el.getAttribute('lat'));
+    const lng = parseFloat(el.getAttribute('lon'));
+    const ele = parseFloat(el.querySelector('ele')?.textContent ?? '0') || 0;
+    const t   = el.querySelector('time')?.textContent;
+    if (isNaN(lat) || isNaN(lng)) return;
+    pts.push({ lat, lng, ele, time: t ? new Date(t).getTime() : null });
+  };
+
+  doc.querySelectorAll('trkpt').forEach(addPoint);
+  if (pts.length === 0) doc.querySelectorAll('rtept').forEach(addPoint);
+  if (pts.length === 0) doc.querySelectorAll('wpt').forEach(addPoint);
+  if (pts.length < 2) throw new Error('Not enough track points found in GPX file.');
+
+  // Downsample if too many points (keep max 4000 for smooth animation)
+  let sampled = pts;
+  if (pts.length > 4000) {
+    const step = pts.length / 4000;
+    sampled = [];
+    for (let i = 0; i < pts.length; i += step) sampled.push(pts[Math.round(i)]);
+    if (sampled[sampled.length-1] !== pts[pts.length-1]) sampled.push(pts[pts.length-1]);
+  }
+
+  let dist = 0, gain = 0;
+  for (let i = 0; i < sampled.length; i++) {
+    if (i > 0) {
+      dist += haversineKm(sampled[i-1], sampled[i]);
+      const dEle = sampled[i].ele - sampled[i-1].ele;
+      if (dEle > 0) gain += dEle;
+    }
+    sampled[i].cumDist = dist;
+  }
+
+  return { points: sampled, totalKm: dist, gainM: Math.round(gain) };
+}
+
+// ─── ELEVATION CHART ──────────────────────────────────────────────────────────
+function drawElevationChart(progress) {
+  const W = elevCanvas.offsetWidth * devicePixelRatio || 240;
+  const H = 60 * devicePixelRatio;
+  elevCanvas.width  = W;
+  elevCanvas.height = H;
+  const ec = elevCtx;
+  ec.clearRect(0,0,W,H);
+  if (gpxPoints.length < 2) return;
+
+  const eles = gpxPoints.map(p => p.ele);
+  const minE = Math.min(...eles), maxE = Math.max(...eles);
+  const rangeE = maxE - minE || 1;
+
+  const eToY = e => H - 2 - ((e - minE) / rangeE) * (H - 4);
+
+  ec.beginPath();
+  gpxPoints.forEach((p, i) => {
+    const x = (i / (gpxPoints.length-1)) * W;
+    const y = eToY(p.ele);
+    i === 0 ? ec.moveTo(x, y) : ec.lineTo(x, y);
+  });
+  ec.lineTo(W, H); ec.lineTo(0, H); ec.closePath();
+
+  const grad = ec.createLinearGradient(0,0,W,0);
+  const [ca, cb] = getTrailColors();
+  grad.addColorStop(0,   `rgba(${ca},0.6)`);
+  grad.addColorStop(1,   `rgba(${cb},0.3)`);
+  ec.fillStyle = grad;
+  ec.fill();
+
+  // Progress marker
+  const px = progress * W;
+  ec.beginPath(); ec.moveTo(px,0); ec.lineTo(px,H);
+  ec.strokeStyle = '#fff';
+  ec.lineWidth = 1.5 * devicePixelRatio;
+  ec.stroke();
+}
+
+// ─── RENDER FRAME ────────────────────────────────────────────────────────────
+function getTrailColors() {
+  const tc = TRAIL_COLORS[trailColor] || TRAIL_COLORS.orange;
+  return [tc.a.join(','), tc.b.join(',')];
+}
+
+function renderFrame(canvas, context, progress, cx, cy, zoom) {
+  const W = canvas.width, H = canvas.height;
+
+  // Draw tiles
+  const tileZ = Math.round(zoom);
+  const scale = Math.pow(2, zoom - tileZ);
+  const effectiveTileSize = TILE_SIZE * scale;
+
+  const minTX = Math.floor((cx - W/2) / effectiveTileSize);
+  const maxTX = Math.ceil( (cx + W/2) / effectiveTileSize);
+  const minTY = Math.floor((cy - H/2) / effectiveTileSize);
+  const maxTY = Math.ceil( (cy + H/2) / effectiveTileSize);
+
+  // Background fill
+  context.fillStyle = mapStyle === 'dark' ? '#0d1117' : '#e8e8e8';
+  context.fillRect(0, 0, W, H);
+
+  for (let tx = minTX; tx <= maxTX; tx++) {
+    for (let ty = minTY; ty <= maxTY; ty++) {
+      const img = loadTile(tx, ty, tileZ);
+      if (img) {
+        const px = W/2 + (tx * effectiveTileSize - cx);
+        const py = H/2 + (ty * effectiveTileSize - cy);
+        context.drawImage(img, Math.round(px), Math.round(py),
+          Math.ceil(effectiveTileSize), Math.ceil(effectiveTileSize));
+      }
+    }
+  }
+
+  if (gpxPoints.length < 2) return;
+
+  const currentIdx = Math.min(Math.floor(progress * (gpxPoints.length - 1)), gpxPoints.length - 1);
+  const [ca, cb] = getTrailColors();
+
+  // ── Draw full trail (faint, as preview) ──────────────────────────
+  context.save();
+  context.globalAlpha = 0.25;
+  context.beginPath();
+  for (let i = 0; i < gpxPoints.length; i++) {
+    const s = latLngToScreen(gpxPoints[i].lat, gpxPoints[i].lng, cx, cy, W, H, zoom);
+    i === 0 ? context.moveTo(s.x, s.y) : context.lineTo(s.x, s.y);
+  }
+  context.strokeStyle = `rgb(${ca})`;
+  context.lineWidth = (W / 400) * 2;
+  context.lineJoin = 'round';
+  context.lineCap  = 'round';
+  context.stroke();
+  context.restore();
+
+  // ── Draw trail up to current progress ───────────────────────────
+  if (currentIdx > 0) {
+    const lw = (W / 400) * 3.5;
+    // Draw in segments with gradient coloring
+    const CHUNK = 80;
+    for (let start = 0; start <= currentIdx; start += CHUNK) {
+      const end = Math.min(start + CHUNK, currentIdx);
+      if (end <= start) break;
+      const t = start / Math.max(currentIdx, 1);
+      const r = Math.round(parseInt(ca.split(',')[0]) * (1-t) + parseInt(cb.split(',')[0]) * t);
+      const g = Math.round(parseInt(ca.split(',')[1]) * (1-t) + parseInt(cb.split(',')[1]) * t);
+      const b = Math.round(parseInt(ca.split(',')[2]) * (1-t) + parseInt(cb.split(',')[2]) * t);
+
+      context.save();
+      context.beginPath();
+      for (let i = start; i <= end; i++) {
+        const s = latLngToScreen(gpxPoints[i].lat, gpxPoints[i].lng, cx, cy, W, H, zoom);
+        i === start ? context.moveTo(s.x, s.y) : context.lineTo(s.x, s.y);
+      }
+      context.strokeStyle = `rgb(${r},${g},${b})`;
+      context.lineWidth = lw;
+      context.lineJoin = 'round';
+      context.lineCap  = 'round';
+      // Glow
+      context.shadowColor = `rgb(${r},${g},${b})`;
+      context.shadowBlur  = lw * 3;
+      context.stroke();
+      context.restore();
+    }
+
+    // ── Interpolate exact position at progress ───────────────────────
+    const fracIdx = progress * (gpxPoints.length - 1);
+    const iA = Math.floor(fracIdx), iB = Math.min(iA + 1, gpxPoints.length - 1);
+    const frac = fracIdx - iA;
+    const exactLat = gpxPoints[iA].lat + (gpxPoints[iB].lat - gpxPoints[iA].lat) * frac;
+    const exactLng = gpxPoints[iA].lng + (gpxPoints[iB].lng - gpxPoints[iA].lng) * frac;
+    const markerPx = latLngToScreen(exactLat, exactLng, cx, cy, W, H, zoom);
+    const mr = lw * 2.5;
+
+    // Pulsing ring
+    const pulse = (Math.sin(Date.now() / 350) * 0.5 + 0.5);
+    context.save();
+    context.beginPath();
+    context.arc(markerPx.x, markerPx.y, mr + 4 + pulse * 5, 0, Math.PI * 2);
+    context.strokeStyle = `rgba(${cb}, ${0.4 + pulse * 0.3})`;
+    context.lineWidth = 2;
+    context.stroke();
+    context.restore();
+
+    // White dot
+    context.save();
+    context.beginPath();
+    context.arc(markerPx.x, markerPx.y, mr, 0, Math.PI * 2);
+    context.fillStyle = '#ffffff';
+    context.shadowColor = '#fff';
+    context.shadowBlur = mr * 4;
+    context.fill();
+    context.restore();
+
+    // Inner colored dot
+    context.save();
+    context.beginPath();
+    context.arc(markerPx.x, markerPx.y, mr * 0.5, 0, Math.PI * 2);
+    context.fillStyle = `rgb(${cb})`;
+    context.fill();
+    context.restore();
+  }
+
+  // ── Stats overlay ────────────────────────────────────────────────
+  drawStatsOverlay(context, progress, W, H, ca, cb);
+}
+
+function drawStatsOverlay(context, progress, W, H, ca, cb) {
+  const fracIdx = progress * (gpxPoints.length - 1);
+  const iA = Math.floor(fracIdx);
+  const currentPt = gpxPoints[Math.min(iA, gpxPoints.length-1)];
+
+  const coveredKm = currentPt?.cumDist?.toFixed(2) ?? '0.00';
+  const eleM = Math.round(currentPt?.ele ?? 0);
+  const pct  = Math.round(progress * 100);
+
+  const pad  = W * 0.04;
+  const fBase = Math.max(10, W * 0.03);
+  const panelW = W * 0.42;
+  const panelH = fBase * 4.5;
+
+  // Semi-transparent panel
+  context.save();
+  context.globalAlpha = 0.85;
+  context.fillStyle = mapStyle === 'dark' ? '#0d0d0f' : '#ffffff';
+  roundRect(context, pad, pad, panelW, panelH, 8);
+  context.fill();
+  context.restore();
+
+  context.save();
+  context.font = `700 ${fBase * 0.7}px Inter,system-ui,sans-serif`;
+  context.fillStyle = `rgb(${ca})`;
+  context.fillText('DISTANCE', pad + fBase * 0.5, pad + fBase * 1.1);
+  context.font = `700 ${fBase * 1.4}px Inter,system-ui,sans-serif`;
+  context.fillStyle = mapStyle === 'dark' ? '#fff' : '#111';
+  context.fillText(`${coveredKm} km`, pad + fBase * 0.5, pad + fBase * 2.6);
+
+  context.font = `600 ${fBase * 0.65}px Inter,system-ui,sans-serif`;
+  context.fillStyle = mapStyle === 'dark' ? '#9090a0' : '#666';
+  context.fillText(`↑ ${eleM}m  ▸ ${pct}%`, pad + fBase * 0.5, pad + fBase * 3.7);
+  context.restore();
+}
+
+function roundRect(ctx, x, y, w, h, r) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.lineTo(x + w - r, y);
+  ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+  ctx.lineTo(x + w, y + h - r);
+  ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+  ctx.lineTo(x + r, y + h);
+  ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+  ctx.lineTo(x, y + r);
+  ctx.quadraticCurveTo(x, y, x + r, y);
+  ctx.closePath();
+}
+
+// ─── CAMERA MANAGEMENT ───────────────────────────────────────────────────────
+function initCamera() {
+  if (gpxPoints.length === 0) return;
+
+  const W = previewCanvas.width, H = previewCanvas.height;
+  const { zoom, centerLat, centerLng } = calcZoomToFit(gpxPoints, W, H, 60);
+  overviewZoom  = zoom;
+  overviewCamX  = lon2world(centerLng, zoom);
+  overviewCamY  = lat2world(centerLat, zoom);
+
+  camZoom = Math.min(zoom + 2, 17);
+  const first = gpxPoints[0];
+  camX = lon2world(first.lng, camZoom);
+  camY = lat2world(first.lat, camZoom);
+  targetCamX = camX; targetCamY = camY;
+}
+
+function updateCamera(progress) {
+  if (cameraMode === 'overview') {
+    camX = overviewCamX; camY = overviewCamY;
+    camZoom = overviewZoom;
+    return;
+  }
+
+  // Follow mode: smooth lerp towards trail head
+  const fracIdx = progress * (gpxPoints.length - 1);
+  const iA = Math.floor(fracIdx), iB = Math.min(iA + 1, gpxPoints.length - 1);
+  const frac = fracIdx - iA;
+
+  // Look-ahead: 2% of remaining trail
+  const lookAheadPct = 0.02;
+  const aheadIdx = Math.min(iA + Math.round(lookAheadPct * gpxPoints.length), gpxPoints.length - 1);
+
+  const targetLat = gpxPoints[iA].lat + (gpxPoints[iB].lat - gpxPoints[iA].lat) * frac;
+  const targetLng = gpxPoints[iA].lng + (gpxPoints[iB].lng - gpxPoints[iA].lng) * frac;
+
+  targetCamX = lon2world(targetLng, camZoom);
+  targetCamY = lat2world(targetLat, camZoom);
+
+  // Lerp for smooth camera
+  const lerpSpeed = 0.08;
+  camX += (targetCamX - camX) * lerpSpeed;
+  camY += (targetCamY - camY) * lerpSpeed;
+}
+
+// ─── ANIMATION LOOP ───────────────────────────────────────────────────────────
+function tick(ts) {
+  if (!animPlaying) { lastTimestamp = null; return; }
+
+  if (lastTimestamp !== null) {
+    const dt = (ts - lastTimestamp) / 1000; // seconds
+    animProgress += (dt * animSpeed) / animDuration;
+  }
+  lastTimestamp = ts;
+
+  if (animProgress >= 1) {
+    animProgress = 1;
+    animPlaying = false;
+    playBtn.textContent = '▶';
+    lastTimestamp = null;
+  }
+
+  updateCamera(animProgress);
+  renderFrame(previewCanvas, ctx, animProgress, camX, camY, camZoom);
+  updateUI();
+
+  if (animPlaying) requestAnimationFrame(tick);
+}
+
+function updateUI() {
+  seekBar.value = Math.round(animProgress * 1000);
+
+  const elapsed   = animProgress * animDuration;
+  const remaining = animDuration;
+  timeCurrent.textContent = fmtTime(elapsed);
+  timeTotal.textContent   = fmtTime(remaining);
+
+  const fracIdx = animProgress * (gpxPoints.length - 1);
+  const iA = Math.min(Math.floor(fracIdx), gpxPoints.length - 1);
+  const pt = gpxPoints[iA];
+  statDist.textContent  = (pt?.cumDist ?? 0).toFixed(2);
+  statTotal.textContent = totalKm.toFixed(2);
+  statEle.textContent   = Math.round(pt?.ele ?? 0);
+  statGain.textContent  = gainM;
+
+  drawElevationChart(animProgress);
+}
+
+function fmtTime(sec) {
+  const m = Math.floor(sec / 60), s = Math.floor(sec % 60);
+  return `${m}:${s.toString().padStart(2,'0')}`;
+}
+
+// Also render one static frame when paused (for tiles loading in)
+let idleRaf = null;
+function startIdleRender() {
+  if (idleRaf) return;
+  const loop = () => {
+    if (animPlaying) { idleRaf = null; return; }
+    updateCamera(animProgress);
+    renderFrame(previewCanvas, ctx, animProgress, camX, camY, camZoom);
+    updateUI();
+    idleRaf = requestAnimationFrame(loop);
+  };
+  idleRaf = requestAnimationFrame(loop);
+}
+
+// ─── CANVAS SIZING ───────────────────────────────────────────────────────────
+function ratioToWH(ratio, maxW, maxH) {
+  const [rw, rh] = ratio.split(':').map(Number);
+  let w = maxW, h = Math.round(maxW * rh / rw);
+  if (h > maxH) { h = maxH; w = Math.round(maxH * rw / rh); }
+  return { w, h };
+}
+
+function resizePreviewCanvas() {
+  const area  = document.querySelector('.canvas-area');
+  const maxW  = area.clientWidth  - 20;
+  const maxH  = area.clientHeight - 20;
+  const { w, h } = ratioToWH(exportRatio, maxW, maxH);
+  previewCanvas.style.width  = w + 'px';
+  previewCanvas.style.height = h + 'px';
+  previewCanvas.width  = w * devicePixelRatio;
+  previewCanvas.height = h * devicePixelRatio;
+  initCamera();
+}
+
+// ─── FILE LOADING ────────────────────────────────────────────────────────────
+function loadFile(file) {
+  if (!file || !file.name.toLowerCase().endsWith('.gpx')) {
+    alert('Please select a .gpx file.');
+    return;
+  }
+  const reader = new FileReader();
+  reader.onload = e => {
+    try {
+      const result = parseGPX(e.target.result);
+      gpxPoints = result.points;
+      totalKm   = result.totalKm;
+      gainM     = result.gainM;
+      animProgress = 0;
+      tileCache.clear();
+
+      uploadScreen.style.display = 'none';
+      playerScreen.style.display = 'flex';
+
+      requestAnimationFrame(() => {
+        resizePreviewCanvas();
+        initCamera();
+        startIdleRender();
+        updateUI();
+      });
+    } catch (err) {
+      alert('Error parsing GPX: ' + err.message);
+    }
+  };
+  reader.readAsText(file);
+}
+
+// ─── EXPORT ──────────────────────────────────────────────────────────────────
+async function exportVideo() {
+  const dur = parseInt(document.getElementById('export-duration').value, 10);
+  const [rw, rh] = exportRatio.split(':').map(Number);
+
+  let expW, expH;
+  if (exportRatio === '16:9') { expW = 1920; expH = 1080; }
+  else if (exportRatio === '9:16') { expW = 1080; expH = 1920; }
+  else { expW = 1080; expH = 1440; }  // 3:4
+
+  exportCanvas.width  = expW;
+  exportCanvas.height = expH;
+
+  // Prefetch tiles
+  exportOverlay.classList.add('show');
+  exportStatus.textContent = 'Prefetching map tiles…';
+  exportBar.style.width = '0%';
+  exportPct.textContent = '0%';
+  exportBtn.disabled = true;
+
+  // Figure out which tiles will be needed
+  const { zoom: expZoom } = calcZoomToFit(gpxPoints, expW, expH, 100);
+  const followZoom = Math.min(expZoom + 2, 17);
+
+  // Sample camera positions across the animation
+  const sampleCount = 20;
+  const tilesToFetch = new Set();
+  for (let i = 0; i <= sampleCount; i++) {
+    const prog = i / sampleCount;
+    const fracIdx = prog * (gpxPoints.length - 1);
+    const iA = Math.floor(fracIdx);
+    const pt = gpxPoints[iA];
+    const cx = lon2world(pt.lng, followZoom);
+    const cy = lat2world(pt.lat, followZoom);
+    const tileZ = Math.round(followZoom);
+    const scale = Math.pow(2, followZoom - tileZ);
+    const etSize = TILE_SIZE * scale;
+    for (let tx = Math.floor((cx-expW/2)/etSize); tx <= Math.ceil((cx+expW/2)/etSize); tx++) {
+      for (let ty = Math.floor((cy-expH/2)/etSize); ty <= Math.ceil((cy+expH/2)/etSize); ty++) {
+        tilesToFetch.add(`${tileZ}/${tx}/${ty}`);
+      }
+    }
+    // Also overview tiles
+    const { zoom: ovZ } = calcZoomToFit(gpxPoints, expW, expH, 100);
+    const ovCx = lon2world(gpxPoints[Math.floor(gpxPoints.length/2)].lng, ovZ);
+    const ovCy = lat2world(gpxPoints[Math.floor(gpxPoints.length/2)].lat, ovZ);
+    const etSizeOv = TILE_SIZE;
+    for (let tx = Math.floor((ovCx-expW/2)/etSizeOv); tx <= Math.ceil((ovCx+expW/2)/etSizeOv); tx++) {
+      for (let ty = Math.floor((ovCy-expH/2)/etSizeOv); ty <= Math.ceil((ovCy+expH/2)/etSizeOv); ty++) {
+        tilesToFetch.add(`${ovZ}/${tx}/${ty}`);
+      }
+    }
+  }
+
+  // Fetch all tiles
+  const tileArr = [...tilesToFetch];
+  const fetchPromises = tileArr.map(key => new Promise(resolve => {
+    const [z,tx,ty] = key.split('/').map(Number);
+    const cacheKey = `${z}/${tx}/${ty}/${mapStyle}`;
+    if (tileCache.has(cacheKey)) { resolve(); return; }
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.onload  = () => { tileCache.set(cacheKey, img); resolve(); };
+    img.onerror = () => { tileCache.set(cacheKey, null); resolve(); };
+    img.src = getTileUrl(tx, ty, z);
+  }));
+
+  let done = 0;
+  for (const p of fetchPromises) {
+    await p;
+    done++;
+    const pct = Math.round((done / tileArr.length) * 30);
+    exportBar.style.width = pct + '%';
+    exportPct.textContent = pct + '%';
+    exportStatus.textContent = `Fetching tiles… ${done}/${tileArr.length}`;
+  }
+
+  // Set up camera for export (independent state)
+  const { zoom: expOvZoom, centerLat: ovLat, centerLng: ovLng } = calcZoomToFit(gpxPoints, expW, expH, 100);
+  let expCamX = lon2world(gpxPoints[0].lng, followZoom);
+  let expCamY = lat2world(gpxPoints[0].lat, followZoom);
+  let expTargX = expCamX, expTargY = expCamY;
+
+  // MediaRecorder setup
+  const supported = ['video/webm;codecs=vp9','video/webm;codecs=vp8','video/webm','video/mp4']
+    .find(t => MediaRecorder.isTypeSupported(t)) || 'video/webm';
+
+  const stream = exportCanvas.captureStream(FPS);
+  const recorder = new MediaRecorder(stream, {
+    mimeType: supported,
+    videoBitsPerSecond: 8_000_000,
+  });
+  const chunks = [];
+  recorder.ondataavailable = e => { if (e.data.size) chunks.push(e.data); };
+
+  exportStatus.textContent = 'Rendering frames…';
+  recorder.start();
+
+  // Render each frame at real FPS
+  const totalFrames = dur * FPS;
+
+  await new Promise(resolve => {
+    let frame = 0;
+    const renderNext = () => {
+      if (frame > totalFrames) { resolve(); return; }
+      const prog = frame / totalFrames;
+
+      // Update export camera
+      if (cameraMode === 'follow') {
+        const fi = prog * (gpxPoints.length - 1);
+        const iA = Math.floor(fi), iB = Math.min(iA+1, gpxPoints.length-1);
+        const fr = fi - iA;
+        const lat = gpxPoints[iA].lat + (gpxPoints[iB].lat - gpxPoints[iA].lat) * fr;
+        const lng = gpxPoints[iA].lng + (gpxPoints[iB].lng - gpxPoints[iA].lng) * fr;
+        expTargX = lon2world(lng, followZoom);
+        expTargY = lat2world(lat, followZoom);
+        expCamX += (expTargX - expCamX) * 0.08;
+        expCamY += (expTargY - expCamY) * 0.08;
+        renderFrame(exportCanvas, exportCtx, prog, expCamX, expCamY, followZoom);
+      } else {
+        const ovCamX = lon2world(ovLng, expOvZoom);
+        const ovCamY = lat2world(ovLat, expOvZoom);
+        renderFrame(exportCanvas, exportCtx, prog, ovCamX, ovCamY, expOvZoom);
+      }
+
+      frame++;
+      const pct = 30 + Math.round((frame / totalFrames) * 65);
+      exportBar.style.width = pct + '%';
+      exportPct.textContent = pct + '%';
+
+      setTimeout(renderNext, 1000 / FPS);
+    };
+    renderNext();
+  });
+
+  exportStatus.textContent = 'Encoding video…';
+  exportBar.style.width = '98%';
+  exportPct.textContent = '98%';
+  recorder.stop();
+
+  await new Promise(resolve => { recorder.onstop = resolve; });
+
+  const ext = supported.includes('mp4') ? 'mp4' : 'webm';
+  const blob = new Blob(chunks, { type: supported });
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  a.href = url;
+  a.download = `trail-animation-${exportRatio.replace(':','x')}.${ext}`;
+  a.click();
+  URL.revokeObjectURL(url);
+
+  exportBar.style.width = '100%';
+  exportPct.textContent = '100%';
+  exportStatus.textContent = 'Done! Downloading…';
+  await new Promise(r => setTimeout(r, 1200));
+
+  exportOverlay.classList.remove('show');
+  exportBtn.disabled = false;
+}
+
+// ─── EVENT LISTENERS ─────────────────────────────────────────────────────────
+pickBtn.addEventListener('click', () => fileInput.click());
+fileInput.addEventListener('change', e => loadFile(e.target.files[0]));
+
+dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('drag-over'); });
+dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag-over'));
+dropZone.addEventListener('drop', e => {
+  e.preventDefault();
+  dropZone.classList.remove('drag-over');
+  loadFile(e.dataTransfer.files[0]);
+});
+
+playBtn.addEventListener('click', () => {
+  if (gpxPoints.length < 2) return;
+  if (animProgress >= 1) animProgress = 0;
+  animPlaying = !animPlaying;
+  playBtn.textContent = animPlaying ? '⏸' : '▶';
+  if (animPlaying) {
+    idleRaf = null;
+    lastTimestamp = null;
+    requestAnimationFrame(tick);
+  } else {
+    startIdleRender();
+  }
+});
+
+restartBtn.addEventListener('click', () => {
+  animProgress = 0;
+  animPlaying = false;
+  playBtn.textContent = '▶';
+  initCamera();
+  startIdleRender();
+  updateUI();
+});
+
+seekBar.addEventListener('input', () => {
+  animProgress = seekBar.value / 1000;
+  if (!animPlaying) { updateCamera(animProgress); startIdleRender(); }
+  updateUI();
+});
+
+document.querySelectorAll('.speed-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    animSpeed = parseFloat(btn.dataset.speed);
+    document.querySelectorAll('.speed-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
+
+document.querySelectorAll('.view-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    cameraMode = btn.dataset.view;
+    document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    if (!animPlaying) startIdleRender();
+  });
+});
+
+document.querySelectorAll('.map-style-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    mapStyle = btn.dataset.style;
+    tileCache.clear();
+    document.querySelectorAll('.map-style-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    if (!animPlaying) startIdleRender();
+  });
+});
+
+document.querySelectorAll('.color-swatch').forEach(sw => {
+  sw.addEventListener('click', () => {
+    trailColor = sw.dataset.color;
+    document.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('active'));
+    sw.classList.add('active');
+    if (!animPlaying) startIdleRender();
+  });
+});
+
+document.querySelectorAll('.ratio-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    exportRatio = btn.dataset.ratio;
+    document.querySelectorAll('.ratio-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    resizePreviewCanvas();
+    if (!animPlaying) startIdleRender();
+  });
+});
+
+exportBtn.addEventListener('click', exportVideo);
+
+document.getElementById('new-file-btn').addEventListener('click', () => {
+  animPlaying = false;
+  animProgress = 0;
+  gpxPoints = [];
+  tileCache.clear();
+  playerScreen.style.display = 'none';
+  uploadScreen.style.display = '';
+  fileInput.value = '';
+});
+
+window.addEventListener('resize', () => {
+  if (playerScreen.style.display !== 'none') {
+    resizePreviewCanvas();
+    if (!animPlaying) startIdleRender();
+  }
+});
+
+// Keyboard shortcuts
+window.addEventListener('keydown', e => {
+  if (playerScreen.style.display === 'none') return;
+  if (e.code === 'Space') { e.preventDefault(); playBtn.click(); }
+  if (e.code === 'KeyR')  { restartBtn.click(); }
+  if (e.code === 'ArrowLeft')  { animProgress = Math.max(0, animProgress - 0.01); if (!animPlaying) { updateCamera(animProgress); startIdleRender(); } updateUI(); }
+  if (e.code === 'ArrowRight') { animProgress = Math.min(1, animProgress + 0.01); if (!animPlaying) { updateCamera(animProgress); startIdleRender(); } updateUI(); }
+});
+</script>
+</body>
+</html>
