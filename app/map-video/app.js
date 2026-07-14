@@ -7,17 +7,60 @@ const durationInput = document.querySelector("#duration");
 const zoomInput = document.querySelector("#zoomLevel");
 const mapTypeInput = document.querySelector("#mapType");
 const followRoadsInput = document.querySelector("#followRoads");
+const exportModeInput = document.querySelector("#exportMode");
 const form = document.querySelector("#settings");
 const exportBtn = document.querySelector("#exportBtn");
 const previewBtn = document.querySelector("#previewBtn");
 const statusText = document.querySelector("#statusText");
 const progressText = document.querySelector("#progressText");
 const progressBar = document.querySelector("#progressBar");
+const outputFormatText = document.querySelector("#outputFormatText");
+const codecSupportText = document.querySelector("#codecSupportText");
 
 const WIDTH = canvas.width;
 const HEIGHT = canvas.height;
 const TILE_SIZE = 256;
 const FPS = 30;
+const VIDEO_BITS_PER_SECOND = 10_000_000;
+
+const recorderProfiles = [
+  {
+    family: "mp4",
+    label: "MP4 (H.264 Baseline)",
+    extension: "mp4",
+    mime: "video/mp4;codecs=avc1.42E01E"
+  },
+  {
+    family: "mp4",
+    label: "MP4 (H.264 High)",
+    extension: "mp4",
+    mime: "video/mp4;codecs=avc1.640028"
+  },
+  {
+    family: "mp4",
+    label: "MP4 (browser default)",
+    extension: "mp4",
+    mime: "video/mp4"
+  },
+  {
+    family: "webm",
+    label: "WebM (VP9)",
+    extension: "webm",
+    mime: "video/webm;codecs=vp9"
+  },
+  {
+    family: "webm",
+    label: "WebM (VP8)",
+    extension: "webm",
+    mime: "video/webm;codecs=vp8"
+  },
+  {
+    family: "webm",
+    label: "WebM (browser default)",
+    extension: "webm",
+    mime: "video/webm"
+  }
+];
 
 const tileProviders = {
   streets: {
@@ -47,6 +90,7 @@ const tileProviders = {
 };
 
 const imageCache = new Map();
+const failedRecorderFamilies = new Map();
 let previewFrame = 0;
 let currentScene = null;
 let isExporting = false;
@@ -532,70 +576,199 @@ async function preview() {
   previewFrame = requestAnimationFrame(tick);
 }
 
-function supportedMime() {
-  const options = [
-    "video/mp4;codecs=avc1.42E01E",
-    "video/webm;codecs=vp9",
-    "video/webm;codecs=vp8",
-    "video/webm"
-  ];
-
-  return options.find((mime) => MediaRecorder.isTypeSupported(mime)) || "";
+function canRecordVideo() {
+  return Boolean(canvas.captureStream && window.MediaRecorder);
 }
 
-function downloadBlob(blob, mime) {
-  const extension = mime.includes("mp4") ? "mp4" : "webm";
+function canExportFrames() {
+  return Boolean(canvas.toBlob && window.Blob && window.URL);
+}
+
+function isRecorderMimeSupported(mime) {
+  if (!window.MediaRecorder || !MediaRecorder.isTypeSupported) {
+    return false;
+  }
+
+  try {
+    return MediaRecorder.isTypeSupported(mime);
+  } catch (error) {
+    return false;
+  }
+}
+
+function supportedRecorderProfiles({ includeFailures = false } = {}) {
+  if (!canRecordVideo()) {
+    return [];
+  }
+
+  return recorderProfiles
+    .filter((profile) => isRecorderMimeSupported(profile.mime))
+    .filter((profile) => includeFailures || !failedRecorderFamilies.has(profile.family));
+}
+
+function familySupportLabel(supportedProfiles, family, label) {
+  if (failedRecorderFamilies.has(family)) {
+    return `${label} failed last export`;
+  }
+
+  return supportedProfiles.some((profile) => profile.family === family)
+    ? `${label} reported`
+    : `${label} unavailable`;
+}
+
+function codecSupportSummary() {
+  const supportedProfiles = supportedRecorderProfiles({ includeFailures: true });
+  const parts = [
+    familySupportLabel(supportedProfiles, "mp4", "MP4"),
+    familySupportLabel(supportedProfiles, "webm", "WebM")
+  ];
+
+  if (!canRecordVideo()) {
+    parts.push("MediaRecorder unavailable");
+  }
+
+  if (canExportFrames()) {
+    parts.push("PNG frames available");
+  } else {
+    parts.push("PNG frames unavailable");
+  }
+
+  return parts.join(" / ");
+}
+
+function buildExportPlan() {
+  const mode = exportModeInput.value;
+  const supportedProfiles = supportedRecorderProfiles();
+  const mp4Profiles = supportedProfiles.filter((profile) => profile.family === "mp4");
+  const webmProfiles = supportedProfiles.filter((profile) => profile.family === "webm");
+
+  if (mode === "frames") {
+    return canExportFrames()
+      ? { kind: "frames", label: "PNG frame ZIP", extension: "zip" }
+      : { kind: "unsupported", label: "PNG frame export is unavailable" };
+  }
+
+  if (mode === "mp4") {
+    return mp4Profiles.length > 0
+      ? { kind: "video", label: mp4Profiles[0].label, profiles: mp4Profiles }
+      : frameFallbackPlan("MP4 is not supported by this browser");
+  }
+
+  if (mode === "webm") {
+    return webmProfiles.length > 0
+      ? { kind: "video", label: webmProfiles[0].label, profiles: webmProfiles }
+      : frameFallbackPlan("WebM is not supported by this browser");
+  }
+
+  if (mp4Profiles.length > 0) {
+    return { kind: "video", label: mp4Profiles[0].label, profiles: mp4Profiles };
+  }
+
+  if (webmProfiles.length > 0) {
+    return { kind: "video", label: webmProfiles[0].label, profiles: webmProfiles };
+  }
+
+  return frameFallbackPlan("No supported video codec was found");
+}
+
+function frameFallbackPlan(reason) {
+  return canExportFrames()
+    ? { kind: "frames", label: "PNG frame ZIP", extension: "zip", reason }
+    : { kind: "unsupported", label: `${reason}; PNG frame export is also unavailable` };
+}
+
+function markRecorderFailure(profiles, error) {
+  const reason = error.message || error.name || "recorder failed";
+  for (const family of new Set(profiles.map((profile) => profile.family))) {
+    failedRecorderFamilies.set(family, reason);
+  }
+}
+
+function updateExportSupportInfo({ preserveOutput = false } = {}) {
+  const plan = buildExportPlan();
+  const suffix = plan.reason ? ` (${plan.reason})` : "";
+  if (!preserveOutput) {
+    outputFormatText.textContent = `${plan.label}${suffix}`;
+  }
+  codecSupportText.textContent = codecSupportSummary();
+  exportBtn.textContent = plan.kind === "frames" ? "Export frames" : "Export video";
+  exportBtn.disabled = isExporting || plan.kind === "unsupported";
+}
+
+function downloadBlob(blob, { extension, suffix, mime }) {
   const anchor = document.createElement("a");
   const url = URL.createObjectURL(blob);
   const stamp = new Date().toISOString().replace(/[:.]/g, "-");
+  const nameSuffix = suffix ? `-${suffix}` : "";
   anchor.href = url;
-  anchor.download = `relive-map-${stamp}.${extension}`;
+  anchor.download = `relive-map${nameSuffix}-${stamp}.${extension}`;
   document.body.append(anchor);
   anchor.click();
   anchor.remove();
   window.setTimeout(() => URL.revokeObjectURL(url), 3000);
+  return {
+    extension,
+    mime: mime || blob.type || "application/octet-stream"
+  };
 }
 
-async function exportVideo() {
-  if (isExporting) {
-    return;
+function chooseRecorder(stream, profiles) {
+  const failures = [];
+
+  for (const profile of profiles) {
+    try {
+      const recorder = new MediaRecorder(stream, {
+        mimeType: profile.mime,
+        videoBitsPerSecond: VIDEO_BITS_PER_SECOND
+      });
+      return { recorder, profile, failures };
+    } catch (error) {
+      failures.push(`${profile.label}: ${error.message || error.name || "not accepted"}`);
+    }
   }
 
-  if (!canvas.captureStream || !window.MediaRecorder) {
-    setStatus("Video export is not supported in this browser", 0);
-    return;
-  }
+  throw new Error(`The browser reported codec support but rejected every recorder profile. ${failures.join("; ")}`);
+}
 
-  isExporting = true;
-  previewBtn.disabled = true;
-  exportBtn.disabled = true;
-  cancelAnimationFrame(previewFrame);
+async function recordVideo(scene, profiles) {
+  const stream = canvas.captureStream(FPS);
+  const chunks = [];
+  let recorderError = null;
+  let recorder;
+  let profile;
 
   try {
-    const scene = await prepareScene({ revealZoom: true });
-    const mime = supportedMime();
-    const stream = canvas.captureStream(FPS);
-    const recorder = new MediaRecorder(stream, mime ? { mimeType: mime, videoBitsPerSecond: 8_000_000 } : undefined);
-    const chunks = [];
+    const chosen = chooseRecorder(stream, profiles);
+    recorder = chosen.recorder;
+    profile = chosen.profile;
+    outputFormatText.textContent = `${profile.label} (${profile.mime})`;
+
+    const stopped = new Promise((resolve) => {
+      recorder.onstop = resolve;
+      recorder.onerror = (event) => {
+        recorderError = event.error || new Error("The browser recorder failed while writing video data.");
+      };
+    });
 
     recorder.ondataavailable = (event) => {
-      if (event.data.size > 0) {
+      if (event.data && event.data.size > 0) {
         chunks.push(event.data);
       }
     };
 
-    const stopped = new Promise((resolve) => {
-      recorder.onstop = resolve;
-    });
-
     recorder.start(250);
     const startedAt = performance.now();
 
-    await new Promise((resolve) => {
+    await new Promise((resolve, reject) => {
       function tick(now) {
+        if (recorderError) {
+          reject(recorderError);
+          return;
+        }
+
         const progress = clamp((now - startedAt) / (scene.duration * 1000), 0, 1);
         drawFrame(scene, progress);
-        setStatus("Exporting", progress);
+        setStatus(`Recording ${profile.extension.toUpperCase()} video`, progress);
 
         if (progress < 1) {
           requestAnimationFrame(tick);
@@ -608,20 +781,269 @@ async function exportVideo() {
       requestAnimationFrame(tick);
     });
 
-    recorder.stop();
+    if (recorder.state !== "inactive") {
+      recorder.stop();
+    }
     await stopped;
-    stream.getTracks().forEach((track) => track.stop());
 
-    const blob = new Blob(chunks, { type: mime || "video/webm" });
-    downloadBlob(blob, mime || "video/webm");
-    setStatus("Video exported", 1);
+    if (recorderError) {
+      throw recorderError;
+    }
+
+    if (chunks.length === 0) {
+      throw new Error("The browser recorder finished without producing any video data.");
+    }
+
+    const actualMime = recorder.mimeType || chunks[0].type || profile.mime;
+    const blob = new Blob(chunks, { type: actualMime });
+    return {
+      blob,
+      extension: profile.extension,
+      label: profile.label,
+      mime: actualMime
+    };
+  } finally {
+    if (recorder && recorder.state !== "inactive") {
+      try {
+        recorder.stop();
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    stream.getTracks().forEach((track) => track.stop());
+  }
+}
+
+function canvasToBlob(type) {
+  return new Promise((resolve, reject) => {
+    try {
+      canvas.toBlob((blob) => {
+        if (blob) {
+          resolve(blob);
+        } else {
+          reject(new Error("The browser could not encode the canvas frame."));
+        }
+      }, type);
+    } catch (error) {
+      reject(new Error("Frame export failed because the canvas is blocked by cross-origin map tiles."));
+    }
+  });
+}
+
+async function exportFrameZip(scene) {
+  const frameCount = Math.max(2, Math.ceil(scene.duration * FPS) + 1);
+  const padWidth = String(frameCount).length;
+  const files = [];
+
+  for (let index = 0; index < frameCount; index += 1) {
+    const progress = index / (frameCount - 1);
+    drawFrame(scene, progress);
+    const blob = await canvasToBlob("image/png");
+    const number = String(index + 1).padStart(padWidth, "0");
+    files.push({
+      name: `relive-map-frames/frame-${number}.png`,
+      blob
+    });
+    setStatus(`Rendering PNG frame ${index + 1} of ${frameCount}`, ((index + 1) / frameCount) * 0.86);
+  }
+
+  const manifest = {
+    format: "png-sequence",
+    width: WIDTH,
+    height: HEIGHT,
+    fps: FPS,
+    durationSeconds: scene.duration,
+    frameCount
+  };
+  files.push({
+    name: "relive-map-frames/manifest.json",
+    content: `${JSON.stringify(manifest, null, 2)}\n`
+  });
+
+  return {
+    blob: await createZip(files, (progress) => {
+      setStatus("Packaging PNG frame ZIP", 0.86 + progress * 0.14);
+    }),
+    extension: "zip",
+    label: `PNG frame ZIP (${frameCount} frames)`,
+    mime: "application/zip"
+  };
+}
+
+function createCrcTable() {
+  const table = new Uint32Array(256);
+
+  for (let index = 0; index < table.length; index += 1) {
+    let value = index;
+
+    for (let bit = 0; bit < 8; bit += 1) {
+      value = value & 1 ? 0xedb88320 ^ (value >>> 1) : value >>> 1;
+    }
+
+    table[index] = value >>> 0;
+  }
+
+  return table;
+}
+
+const crcTable = createCrcTable();
+
+function crc32(bytes) {
+  let crc = 0xffffffff;
+
+  for (const byte of bytes) {
+    crc = crcTable[(crc ^ byte) & 0xff] ^ (crc >>> 8);
+  }
+
+  return (crc ^ 0xffffffff) >>> 0;
+}
+
+function dosDateTime(date) {
+  const time = (date.getHours() << 11) | (date.getMinutes() << 5) | Math.floor(date.getSeconds() / 2);
+  const dosDate = ((date.getFullYear() - 1980) << 9) | ((date.getMonth() + 1) << 5) | date.getDate();
+  return { time, date: dosDate };
+}
+
+function writeUint16(view, offset, value) {
+  view.setUint16(offset, value, true);
+}
+
+function writeUint32(view, offset, value) {
+  view.setUint32(offset, value >>> 0, true);
+}
+
+async function zipEntryBytes(file) {
+  if (file.blob) {
+    return new Uint8Array(await file.blob.arrayBuffer());
+  }
+
+  return new TextEncoder().encode(file.content || "");
+}
+
+async function createZip(files, onProgress) {
+  const encoder = new TextEncoder();
+  const now = dosDateTime(new Date());
+  const localParts = [];
+  const centralParts = [];
+  let offset = 0;
+
+  for (let index = 0; index < files.length; index += 1) {
+    const file = files[index];
+    const nameBytes = encoder.encode(file.name);
+    const data = await zipEntryBytes(file);
+    const crc = crc32(data);
+    const localHeader = new Uint8Array(30 + nameBytes.length);
+    const localView = new DataView(localHeader.buffer);
+
+    writeUint32(localView, 0, 0x04034b50);
+    writeUint16(localView, 4, 20);
+    writeUint16(localView, 6, 0);
+    writeUint16(localView, 8, 0);
+    writeUint16(localView, 10, now.time);
+    writeUint16(localView, 12, now.date);
+    writeUint32(localView, 14, crc);
+    writeUint32(localView, 18, data.length);
+    writeUint32(localView, 22, data.length);
+    writeUint16(localView, 26, nameBytes.length);
+    writeUint16(localView, 28, 0);
+    localHeader.set(nameBytes, 30);
+
+    const centralHeader = new Uint8Array(46 + nameBytes.length);
+    const centralView = new DataView(centralHeader.buffer);
+    writeUint32(centralView, 0, 0x02014b50);
+    writeUint16(centralView, 4, 20);
+    writeUint16(centralView, 6, 20);
+    writeUint16(centralView, 8, 0);
+    writeUint16(centralView, 10, 0);
+    writeUint16(centralView, 12, now.time);
+    writeUint16(centralView, 14, now.date);
+    writeUint32(centralView, 16, crc);
+    writeUint32(centralView, 20, data.length);
+    writeUint32(centralView, 24, data.length);
+    writeUint16(centralView, 28, nameBytes.length);
+    writeUint16(centralView, 30, 0);
+    writeUint16(centralView, 32, 0);
+    writeUint16(centralView, 34, 0);
+    writeUint16(centralView, 36, 0);
+    writeUint32(centralView, 38, 0);
+    writeUint32(centralView, 42, offset);
+    centralHeader.set(nameBytes, 46);
+
+    localParts.push(localHeader, data);
+    centralParts.push(centralHeader);
+    offset += localHeader.length + data.length;
+    onProgress((index + 1) / files.length);
+  }
+
+  const centralOffset = offset;
+  const centralSize = centralParts.reduce((size, part) => size + part.length, 0);
+  const endHeader = new Uint8Array(22);
+  const endView = new DataView(endHeader.buffer);
+  writeUint32(endView, 0, 0x06054b50);
+  writeUint16(endView, 4, 0);
+  writeUint16(endView, 6, 0);
+  writeUint16(endView, 8, files.length);
+  writeUint16(endView, 10, files.length);
+  writeUint32(endView, 12, centralSize);
+  writeUint32(endView, 16, centralOffset);
+  writeUint16(endView, 20, 0);
+
+  return new Blob([...localParts, ...centralParts, endHeader], { type: "application/zip" });
+}
+
+async function exportVideo() {
+  if (isExporting) {
+    return;
+  }
+
+  const plan = buildExportPlan();
+  if (plan.kind === "unsupported") {
+    setStatus(plan.label, 0);
+    return;
+  }
+
+  isExporting = true;
+  previewBtn.disabled = true;
+  exportBtn.disabled = true;
+  cancelAnimationFrame(previewFrame);
+
+  try {
+    const scene = await prepareScene({ revealZoom: true });
+    let output;
+
+    if (plan.kind === "video") {
+      try {
+        output = await recordVideo(scene, plan.profiles);
+      } catch (error) {
+        if (!canExportFrames()) {
+          throw error;
+        }
+
+        markRecorderFailure(plan.profiles, error);
+        console.warn(error);
+        setStatus(`${plan.label} failed; exporting PNG frames instead`, 0);
+        output = await exportFrameZip(scene);
+      }
+    } else {
+      output = await exportFrameZip(scene);
+    }
+
+    downloadBlob(output.blob, {
+      extension: output.extension,
+      mime: output.mime,
+      suffix: output.extension === "zip" ? "frames" : "video"
+    });
+    outputFormatText.textContent = output.mime
+      ? `${output.label} (${output.mime})`
+      : output.label;
+    setStatus(`Exported ${output.label}`, 1);
   } catch (error) {
     console.error(error);
-    setStatus(error.message || "Export failed", 0);
+    setStatus(`Export failed: ${error.message || "Unknown error"}`, 0);
   } finally {
     isExporting = false;
     previewBtn.disabled = false;
-    exportBtn.disabled = false;
+    updateExportSupportInfo({ preserveOutput: true });
   }
 }
 
@@ -634,6 +1056,12 @@ form.addEventListener("submit", (event) => {
 });
 
 exportBtn.addEventListener("click", exportVideo);
+exportModeInput.addEventListener("change", () => {
+  updateExportSupportInfo();
+  setStatus("Export format updated", 0);
+});
+
+updateExportSupportInfo();
 
 prepareScene().catch((error) => {
   console.error(error);

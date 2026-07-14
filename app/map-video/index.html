@@ -55,6 +55,16 @@
             <span>Follow main roads</span>
           </label>
 
+          <label>
+            <span>Export format</span>
+            <select id="exportMode">
+              <option value="auto">Auto: MP4, then WebM, then frames</option>
+              <option value="mp4">MP4 video if supported</option>
+              <option value="webm">WebM video if supported</option>
+              <option value="frames">PNG frame ZIP</option>
+            </select>
+          </label>
+
           <div class="actions">
             <button class="primary" type="submit" id="previewBtn">Preview</button>
             <button type="button" id="exportBtn">Export video</button>
@@ -67,6 +77,16 @@
             </div>
             <div class="progress">
               <span id="progressBar"></span>
+            </div>
+            <div class="format-status">
+              <div>
+                <span>Output</span>
+                <strong id="outputFormatText">Detecting support</strong>
+              </div>
+              <div>
+                <span>Browser codecs</span>
+                <strong id="codecSupportText">Checking</strong>
+              </div>
             </div>
           </div>
         </form>
