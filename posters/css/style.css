@@ -966,6 +966,7 @@ section.cd-section {
 			overflow: hidden;
 			text-align: center;
 			width: 100%;
+			height: 280px;
 		}
 
 		.gallery-grids figure.effect-bubba:hover {
@@ -976,6 +977,8 @@ section.cd-section {
 			position: relative;
 			display: block;
 			width: 100%;
+			height: 100%;
+			object-fit: cover;
 			border: 3px solid #C7C7C7;
 		}
 
