@@ -426,9 +426,56 @@ function openPhotoSwipe(subsetTag) {
         
     };
 
-	resolveDimensions(itemsSubset).then(function(resolvedItems) {
-		var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, resolvedItems, options);
+	// Give all items except the first fallback dims so PhotoSwipe has something to work with.
+	// dimsReady[] tracks which items have had their REAL dimensions loaded.
+	var dimsReady = itemsSubset.map(function() { return false; });
+
+	itemsSubset.forEach(function(item, i) {
+		if (i > 0 && (!item.w || !item.h)) {
+			item.w = DIMENSION_FALLBACK.w;
+			item.h = DIMENSION_FALLBACK.h;
+		}
+		// If already in cache, mark as ready immediately
+		if (dimensionsCache[item.src]) {
+			item.w = dimensionsCache[item.src].w;
+			item.h = dimensionsCache[item.src].h;
+			dimsReady[i] = true;
+		}
+	});
+
+	// Load item[0] for real before opening; all others get loaded in the background.
+	getDimensionsForItem(itemsSubset[0]).then(function() {
+		dimsReady[0] = true;
+		var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, itemsSubset, options);
 		gallery.init();
+
+		// Load real dimensions for all remaining items in parallel.
+		// We bypass getDimensionsForItem here because it short-circuits when item.w/h
+		// are already set (even to fallback), so we drive the Image load ourselves.
+		for (var i = 1; i < itemsSubset.length; i++) {
+			(function(idx) {
+				if (dimsReady[idx]) return; // already loaded from cache
+				var item = itemsSubset[idx];
+				var img = new Image();
+				img.onload = function() {
+					var w = img.naturalWidth  || DIMENSION_FALLBACK.w;
+					var h = img.naturalHeight || DIMENSION_FALLBACK.h;
+					dimensionsCache[item.src] = { w: w, h: h };
+					item.w = w;
+					item.h = h;
+					dimsReady[idx] = true;
+					// Only refresh if the user is currently on this exact slide
+					if (gallery.getCurrentIndex() === idx) {
+						gallery.invalidateCurrItems();
+						gallery.updateSize(true);
+					}
+				};
+				img.onerror = function() {
+					dimsReady[idx] = true; // keep fallback dims
+				};
+				img.src = item.src;
+			})(i);
+		}
 	});
 };
 
