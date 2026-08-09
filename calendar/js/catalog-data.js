@@ -96,5 +96,28 @@ var CALENDARS = [
 	  { src: '../images/map/big/anavim3.jpg', w: 1600, h: 1200, caption: 'ענבים ביקב גוש עציון' },
 	  { src: '../images/map/big/shluhathamasuot12.jpg', w: 1400, h: 785, caption: 'שלוחת המשואות' },
     ]
+  },
+  {
+    id: 'flowers',
+    title: 'פריחה',
+    subtitle: 'פרחים של ישראל',
+    thumb: 'images/priha1.jpg',
+    demo: 'israel/',
+    cover: { src: '../chrome_extension/golanphotos/priha43.jpg', w: 960, h: 1200, caption: '' },
+    photos: [
+      { src: '../catalog/image/bloom26.jpg', w: 1600, h: 1067, caption: '' },
+	  { src: '../catalog/image/bloom21.jpg', w: 1600, h: 1200, caption: '' },
+	  { src: '../catalog/image/helmoniyot3.jpg', w: 1600, h: 1067, caption: '' },
+      { src: '../catalog/image/bloom20.jpg', w: 1600, h: 1198, caption: '' },
+	  { src: '../images/map/big/nahaltkoa75.jpg', w: 1400, h: 1049, caption: '' },
+      { src: '../catalog/image/bloom3.jpg', w: 1600, h: 1067, caption: '' },
+	  { src: '../catalog/image/bloom31.jpg', w: 1600, h: 1068, caption: '' },
+	  { src: '../chrome_extension/golanphotos/priha57.jpg', w: 1600, h: 1200, caption: '' },
+      { src: '../chrome_extension/golanphotos/priha84.jpg', w: 1496, h: 1200, caption: '' },
+      { src: '../catalog/image/bloom10.jpg', w: 1600, h: 1068, caption: '' },
+      { src: '../catalog/image/bloom43.jpg', w: 1600, h: 1067, caption: '' },
+      { src: '../chrome_extension/golanphotos/priha135.jpg', w: 1600, h: 1200, caption: '' },
+      { src: '../chrome_extension/golanphotos/priha89.jpg', w: 1600, h: 1066, caption: '' },
+    ]
   }
 ];
