@@ -1,52 +1,319 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="he" dir="rtl">
 <head>
-<title></title>
-<meta property="og:title" content="2027 Israel Nature Calendars" />
-<meta property="og:image:secure_url" itemprop="image" content="https://yair.aronshtam.net/calendar/site_preview.jpg" />
-<meta property="og:image" content="http://yair.aronshtam.net/calendar/site_preview.jpg" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0d1117">
+<title>קטלוג לוחות שנה — נופי ישראל</title>
+<meta name="description" content="קטלוג לוחות שנה מצולמים של נופי ישראל, רמת הגולן וגוש עציון — 13 תמונות בכל לוח, עם בחירת חודש פתיחה.">
+<meta name="keywords" content="לוח שנה, ישראל, גוש עציון, רמת הגולן, צילומי טבע, יאיר ארונשטם">
+<link rel="shortcut icon" href="../favicon.ico">
+
+<meta property="og:title" content="קטלוג לוחות שנה — נופי ישראל" />
+<meta property="og:description" content="13 תמונות בכל לוח. נופי ישראל, רמת הגולן וגוש עציון." />
+<meta property="og:image" content="https://yair.aronshtam.net/calendar/site_preview.jpg" />
 <meta property="og:type" content="website" />
-<meta property="og:description" content="2027 Israel Nature Calendars" />
-<meta property="og:url" content="https://yair.aronshtam.net/calendar/" />
-<meta property="og:site_name" content="2027 Israel Nature Calendars" />
+<meta property="og:url" content="https://yair.aronshtam.net/calendar/catalog.html" />
+<meta property="og:site_name" content="yair.aronshtam.net" />
 
-<meta charset="UTF-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-<meta name="viewport" content="width=device-width, initial-scale=1"> 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="css/normalize.css" />
-<link rel="stylesheet" type="text/css" href="css/main.css" />
-<link rel="stylesheet" type="text/css" href="css/component.css" />
+<style>
+:root{
+  --bg:#0d1117;
+  --bg-soft:#161b22;
+  --card:#1b222c;
+  --line:rgba(255,255,255,.09);
+  --txt:#e9eef5;
+  --muted:#93a1b1;
+  --accent:#4fb286;
+  --accent-2:#7cc9a6;
+  --radius:18px;
+  --safe-b:env(safe-area-inset-bottom, 0px);
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  background:var(--bg);
+  color:var(--txt);
+  font-family:'Heebo',-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
+  font-weight:400;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+body.viewer-open{overflow:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}
 
-<!-- jQuery for nanogallery -->
-<!--script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" type="text/javascript"></script-->
-<!-- Default-JavaScript -->
-<script type="text/javascript" src="js/jquery.min.js"></script>
+/* ---------- header ---------- */
+.topbar{
+  position:sticky;top:0;z-index:40;
+  display:flex;align-items:center;gap:12px;
+  padding:12px 16px;
+  background:rgba(13,17,23,.82);
+  backdrop-filter:saturate(160%) blur(14px);
+  -webkit-backdrop-filter:saturate(160%) blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.topbar .back{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:14px;color:var(--muted);
+  padding:7px 12px;border:1px solid var(--line);border-radius:999px;
+  transition:.2s;
+}
+.topbar .back:hover{color:var(--txt);border-color:var(--accent)}
+.topbar .brand{font-size:15px;font-weight:500;margin-inline-start:auto;color:var(--muted)}
 
-<!-- Swipebox -->
-<link rel="stylesheet" href="css/swipebox.min.css" type="text/css" media="all">
+.hero{
+  position:relative;
+  padding:44px 20px 30px;
+  text-align:center;
+  overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(70% 120% at 50% 0%, rgba(79,178,134,.20), transparent 60%),
+    url('images/parallax1.jpg') center/cover no-repeat;
+  opacity:.5;
+  filter:saturate(115%);
+}
+.hero::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to bottom, rgba(13,17,23,.55), var(--bg) 92%);
+}
+.hero > *{position:relative;z-index:1}
+.hero h1{
+  margin:0 0 10px;
+  font-size:clamp(26px,7vw,44px);
+  font-weight:700;letter-spacing:-.4px;
+}
+.hero p{
+  margin:0 auto;max-width:56ch;
+  color:#cdd8e4;font-size:clamp(14px,3.6vw,17px);font-weight:300;
+}
 
-<!-- nanogallery2 -->
-<link  href="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/css/nanogallery2.min.css" rel="stylesheet" type="text/css">
-<script  type="text/javascript" src="https://cdn.jsdelivr.net/npm/nanogallery2@3/dist/jquery.nanogallery2.min.js"></script>
+.hero .range{
+  display:inline-block;margin-top:14px;
+  font-size:14px;color:var(--accent-2);font-weight:500;
+  background:rgba(79,178,134,.12);border:1px solid rgba(79,178,134,.32);
+  padding:7px 16px;border-radius:999px;
+}
 
-<!--[if IE]>
-<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
+/* ---------- cards ---------- */
+.grid{
+  max-width:1180px;margin:0 auto;padding:16px 16px 60px;
+  display:grid;gap:22px;
+  grid-template-columns:1fr;
+}
+@media (min-width:640px){ .grid{grid-template-columns:repeat(2,1fr);gap:24px} }
+@media (min-width:1000px){ .grid{grid-template-columns:repeat(3,1fr)} }
 
-<!--Photoswipe-->
-<link rel='stylesheet' href='css/photoswipe.css'>
-<link rel='stylesheet' href='css/default-skin.css'>
-<!--/Photoswipe-->
+.card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  overflow:hidden;
+  display:flex;flex-direction:column;
+  transition:transform .25s ease, box-shadow .25s ease, border-color .25s;
+}
+@media (hover:hover){
+  .card:hover{transform:translateY(-4px);box-shadow:0 18px 40px -18px rgba(0,0,0,.8);border-color:rgba(79,178,134,.4)}
+}
+.card-cover{
+  position:relative;display:block;width:100%;
+  aspect-ratio:4/3;background:#0b0f14;
+}
+.card-cover img{width:100%;height:100%;object-fit:cover}
+.card-cover::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to top, rgba(9,12,17,.88) 0%, rgba(9,12,17,.15) 45%, transparent 70%);
+}
+.card-cover .cover-txt{position:absolute;inset-inline:0;bottom:0;padding:16px;z-index:2}
+.card-cover h2{margin:0;font-size:22px;font-weight:700}
+.card-cover .sub{margin:2px 0 0;font-size:13.5px;color:#c6d2df;font-weight:300}
+.badge{
+  position:absolute;top:12px;inset-inline-end:12px;z-index:2;
+  font-size:12.5px;font-weight:500;
+  background:rgba(13,17,23,.7);border:1px solid var(--line);
+  padding:5px 10px;border-radius:999px;
+  backdrop-filter:blur(6px);
+}
+.play{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  z-index:2;width:56px;height:56px;border-radius:50%;
+  background:rgba(13,17,23,.55);border:1px solid rgba(255,255,255,.35);
+  display:grid;place-items:center;
+  opacity:0;transition:opacity .25s, transform .25s;
+  backdrop-filter:blur(4px);
+}
+@media (hover:hover){ .card:hover .play{opacity:1;transform:translate(-50%,-50%) scale(1.06)} }
 
-<!-- Font Awesome -->
+.strip-wrap{padding:12px 0 4px}
+/* strips stay RTL: the cover sits on the right and the strip opens scrolled there */
+.strip{
+  direction:rtl;
+  display:flex;gap:8px;overflow-x:auto;
+  padding:0 14px 8px;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.2) transparent;
+}
+.strip::-webkit-scrollbar{height:5px}
+.strip::-webkit-scrollbar-thumb{background:rgba(255,255,255,.18);border-radius:99px}
+.strip button{
+  flex:none;scroll-snap-align:start;
+  width:74px;border-radius:11px;overflow:hidden;
+  border:1px solid var(--line);background:#0b0f14;
+  position:relative;transition:border-color .2s, transform .2s;
+}
+.strip button:hover,.strip button:focus-visible{border-color:var(--accent);transform:translateY(-2px);outline:none}
+.strip img{width:100%;height:56px;object-fit:cover}
+.strip .lbl{
+  display:block;font-size:10.5px;line-height:1.9;
+  color:var(--muted);background:#131922;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:0 4px;
+}
+.strip button[data-cover] .lbl{color:var(--accent-2)}
 
-<!-- Menu -->
+.card-foot{
+  margin-top:auto;display:flex;gap:10px;align-items:center;
+  padding:12px 14px 14px;border-top:1px solid var(--line);
+}
+.btn{
+  flex:1;text-align:center;
+  padding:11px 14px;border-radius:12px;font-size:14.5px;font-weight:500;
+  border:1px solid var(--line);transition:.2s;min-height:44px;
+  display:inline-flex;align-items:center;justify-content:center;gap:7px;
+}
+.btn-main{background:var(--accent);color:#06231a;border-color:transparent;font-weight:700}
+.btn-main:hover{background:var(--accent-2)}
+.btn-ghost{color:var(--muted)}
+.btn-ghost:hover{color:var(--txt);border-color:var(--accent)}
 
-<!-- Google Analytics -->
-<meta name="google-site-verification" content="bLJiyBn0up8b891nj4clJbfl3-WutlD643F5rlKY0wg" />
+footer.page-foot{
+  border-top:1px solid var(--line);
+  padding:26px 16px calc(30px + var(--safe-b));
+  text-align:center;color:var(--muted);font-size:13.5px;
+}
+footer.page-foot a{color:var(--accent-2)}
 
+/* ---------- viewer ---------- */
+.viewer{
+  position:fixed;inset:0;z-index:100;
+  background:#05080c;
+  display:none;
+  flex-direction:column;
+  touch-action:none;
+}
+.viewer.open{display:flex}
+.v-top{
+  position:absolute;top:0;inset-inline:0;z-index:6;
+  display:flex;align-items:center;gap:10px;
+  padding:calc(10px + env(safe-area-inset-top,0px)) 14px 26px;
+  background:linear-gradient(to bottom,rgba(5,8,12,.85),transparent);
+  transition:opacity .25s;
+}
+.v-title{font-size:15px;font-weight:500;min-width:0}
+.v-title small{display:block;font-size:12px;color:var(--muted);font-weight:300;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.v-count{
+  margin-inline-start:auto;font-size:13px;color:var(--muted);
+  font-variant-numeric:tabular-nums;letter-spacing:.5px;
+}
+.v-close{
+  width:40px;height:40px;border-radius:50%;
+  border:1px solid var(--line);background:rgba(20,26,34,.7);
+  display:grid;place-items:center;flex:none;
+}
+.v-close:hover{border-color:var(--accent)}
+
+.v-stage{position:relative;flex:1;overflow:hidden}
+.v-track{
+  /* RTL track: slide 0 sits in the viewport, later slides overflow to the LEFT.
+     Showing slide i => translateX(+i * width), so going forward slides the
+     photo from left to right, matching the RTL thumbnail strip. */
+  position:absolute;inset:0;direction:rtl;
+  display:flex;
+  will-change:transform;
+}
+.v-track.anim{transition:transform .3s cubic-bezier(.22,.61,.36,1)}
+.v-slide{
+  flex:0 0 100%;width:100%;height:100%;min-width:0;min-height:0;
+  display:flex;align-items:center;justify-content:center;
+  padding:64px 12px 84px;
+}
+@media (min-width:820px){ .v-slide{padding:70px 74px 92px} }
+/* width+height 100% of the padding box, object-fit keeps the real ratio.
+   (max-height:100% alone is unreliable when the row height is auto.) */
+.v-slide img{
+  width:100%;height:100%;
+  object-fit:contain;object-position:center;
+  border-radius:6px;
+  filter:drop-shadow(0 18px 40px rgba(0,0,0,.75));
+}
+.v-month{
+  position:absolute;z-index:5;
+  inset-inline-start:16px;bottom:14px;
+  inset-inline-end:16px;
+  pointer-events:none;
+}
+.v-month .m{
+  display:inline-block;
+  font-size:clamp(22px,6.4vw,32px);font-weight:700;line-height:1.15;
+  text-shadow:0 2px 14px rgba(0,0,0,.85);
+}
+.v-month .c{
+  display:block;font-size:13.5px;font-weight:300;color:#cfdae6;
+  text-shadow:0 1px 10px rgba(0,0,0,.9);
+}
+.v-arrow{
+  position:absolute;top:50%;transform:translateY(-50%);z-index:6;
+  width:46px;height:46px;border-radius:50%;
+  background:rgba(20,26,34,.6);border:1px solid var(--line);
+  display:none;place-items:center;
+}
+@media (min-width:820px){ .v-arrow{display:grid} }
+.v-arrow:hover{background:rgba(79,178,134,.35);border-color:var(--accent)}
+/* RTL reading order: previous sits on the right, next on the left */
+.v-prev{right:14px}
+.v-next{left:14px}
+.v-arrow[disabled]{opacity:.25;pointer-events:none}
+
+.v-strip{
+  position:relative;z-index:6;direction:rtl;
+  display:flex;gap:6px;overflow-x:auto;
+  padding:10px 12px calc(10px + var(--safe-b));
+  background:linear-gradient(to top,rgba(5,8,12,.96),rgba(5,8,12,.6));
+  border-top:1px solid var(--line);
+  -webkit-overflow-scrolling:touch;
+  touch-action:pan-x;
+  scrollbar-width:none;
+}
+.v-strip::-webkit-scrollbar{display:none}
+.v-strip button{
+  flex:none;min-width:60px;
+  padding:7px 10px;border-radius:10px;
+  border:1px solid var(--line);background:#111823;
+  font-size:12.5px;color:var(--muted);white-space:nowrap;
+  transition:.18s;
+}
+.v-strip button.active{
+  background:var(--accent);color:#06231a;border-color:transparent;font-weight:700;
+}
+.v-hint{
+  position:absolute;bottom:84px;inset-inline:0;z-index:5;
+  text-align:center;font-size:12.5px;color:rgba(233,238,245,.65);
+  pointer-events:none;transition:opacity .5s;
+}
+.v-hint.hide{opacity:0}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none !important;animation:none !important}
+}
+</style>
 </head>
 
 <!-- Google tag (gtag.js) -->
@@ -61,236 +328,327 @@
 
 <body>
 
-<!-- Root element of PhotoSwipe. Must have class pswp. -->
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-    <!-- Background of PhotoSwipe. 
-         It's a separate element, as animating opacity is faster than rgba(). -->
-    <div class="pswp__bg"></div>
-    <!-- Slides wrapper with overflow:hidden. -->
-    <div class="pswp__scroll-wrap">
-        <!-- Container that holds slides. PhotoSwipe keeps only 3 slides in DOM to save memory. -->
-        <div class="pswp__container">
-            <!-- don't modify these 3 pswp__item elements, data is added later on -->
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
-        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
-        <div class="pswp__ui pswp__ui--hidden">
-            <div class="pswp__top-bar">
-                <!--  Controls are self-explanatory. Order can be changed. -->
-                <div class="pswp__counter"></div>
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-                <button class="pswp__button pswp__button--share" title="Share"></button>
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
-                <!-- element will get class pswp__preloader--active when preloader is running -->
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                      <div class="pswp__preloader__cut">
-                        <div class="pswp__preloader__donut"></div>
-                      </div>
-                    </div>
-                </div>
-            </div>
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div> 
-            </div>
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
-          </div>
-        </div>
+<div class="topbar">
+  <a class="back" href="../">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+    חזרה לאתר
+  </a>
+  <span class="brand">yair.aronshtam.net</span>
 </div>
-<!-- Photoswipe -->
 
+<header class="hero">
+  <h1>קטלוג לוחות שנה תשפ"ז</h1>
+  <p>תמונת שער ו‑13 תמונות חודשיות בכל לוח</p>
+  <span class="range" id="rangeNote"></span>
+</header>
 
-<div class="container">
-	<!-- Parallax 1 -->
-	<div class="parallax1">
-		<!-- Top Navigation -->
-		<div class="top-nav-back">
-			<a class="codrops-icon codrops-icon-prev" href="https://yair.aronshtam.net/"><span>חזרה</span></a>
-		</div>
-		<div class="parallax_inner">
-			<h1>2027 Israel Nature Calendars</h1>
-		</div>
-	</div>
-	<!-- //Parallax 1 -->
-	
+<main class="grid" id="grid"></main>
 
-	<div class="maintext">
-		<h3>Experience Israel’s beauty all year long. Each calendar showcases stunning landscapes from across the country — 
-			from the wild Golan Heights to the rolling hills of Gush Etzion and beyond. 
-			Every photo brings you authentic views and moments that reveal Israel’s natural soul</h2>
-	</div>
+<footer class="page-foot">
+  צילום ועיצוב: יאיר ארונשטם ·
+  <a href="../catalog/">קטלוג התמונות</a> ·
+  <a href="../">דף הבית</a>
+</footer>
 
-	<!-- Phoro grid  -->
-	<div class="grid">
-		<figure class="effect-roxy" onclick="openPhotoSwipe('israel1');">
-			<img src="images/grid2_1.jpg"/>
-			<figcaption>
-				<h2><span>Israel Landscapes</span></h2>
-			</figcaption>			
-		</figure>
-		<figure class="effect-roxy" onclick="openPhotoSwipe('golan1');">
-			<img src="images/grid2_2.jpg"/>
-			<figcaption>
-				<h2> <span>Golan Heights</span></h2>
-				<p></p>
-			</figcaption>			
-		</figure>
-		<figure class="effect-roxy" onclick="openPhotoSwipe('gush1');">
-			<img src="images/grid2_3.jpg"/>
-			<figcaption>
-				<h2> <span>Gush Etzion</span></h2>
-			</figcaption>			
-		</figure>
+<!-- ---------- full screen viewer ---------- -->
+<div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="צפייה בלוח השנה">
+  <div class="v-top">
+    <button class="v-close" id="vClose" aria-label="סגירה">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <span class="v-title" id="vTitle"></span>
+    <span class="v-count" id="vCount"></span>
+  </div>
 
-						
-	</div>
-	<!-- //Photo grid -->
+  <div class="v-stage" id="vStage">
+    <div class="v-track" id="vTrack"></div>
+    <div class="v-month" id="vMonth"></div>
+    <button class="v-arrow v-prev" id="vPrev" aria-label="הקודם">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+    <button class="v-arrow v-next" id="vNext" aria-label="הבא">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <!--div class="v-hint" id="vHint">החליקו לדפדוף · או בחרו חודש למטה</div-->
+  </div>
 
-	<br><br>
+  <div class="v-strip" id="vStrip"></div>
+</div>
 
-	<div class="maintext">
-		Click on the images to view a demo<br><br>
-		<div class="img-links">
-			<a href="israel/"><img src="images/israel1.jpg" /></a>
-			<a href="gush-etzion/"><img src="images/gush1.jpg" /></a>
-		</div>
-	</div>
-
-	<br><br><br><br><br><br>
-
-
-	<!-- Nanogallery -->
-	<div id="nanogallery2">gallery_made_with_nanogallery2</div>
-	<!-- //Nanogallery -->
-
-</div><!-- //container -->
-
-
+<script src="js/catalog-data.js"></script>
 <script>
-	// For Demo purposes only
-	[].slice.call( document.querySelectorAll('a[href="#"') ).forEach( function(el) {
-		el.addEventListener( 'click', function(ev) { ev.preventDefault(); } );
-	} );
-</script>
+(function(){
+  'use strict';
 
-<script src='js/photoswipe.min.js'></script>
-<script src='js/photoswipe-ui-default.min.js'></script><script  src="js/photos.js"></script>
+  var MONTHS = ['ינואר','פברואר','מרץ','אפריל','מאי','יוני','יולי','אוגוסט','ספטמבר','אוקטובר','נובמבר','דצמבר'];
+  var MONTHS_SHORT = ['ינו','פבר','מרץ','אפר','מאי','יונ','יול','אוג','ספט','אוק','נוב','דצמ'];
 
-<!-- Swipebox -->
-<script src="js/jquery.swipebox.min.js"></script> 
-	<script type="text/javascript">
-		jQuery(function($) {
-			$(".swipebox").swipebox();
-		});
-</script>
-<!-- //Swipebox -->
+  /* ---------- fixed calendar span ----------
+     ספטמבר 2026 עד ספטמבר 2027 = 13 חודשים.
+     To move the whole catalog to another year, change START only. */
+  var START  = { m: 8, y: 2026 };   /* m: 0 = ינואר, 8 = ספטמבר */
+  var MONTHS_COUNT = 13;
 
-<!-- Nanogallery -->
-<script>
- jQuery(document).ready(function () {
+  var V = { open:false, cal:null, ci:0, i:0, items:[], w:0, dragging:false, x0:0, y0:0, dx:0, locked:null };
 
-	jQuery("#nanogallery2").nanogallery2( {
-		// ### gallery settings ### 
-		thumbnailHeight:  150,
-		thumbnailWidth:   150,
-		itemsBaseURL:     '',
-		
-		// ### gallery content ### 
-		items: photo_items,
-				  
-		// GALLERY AND THUMBNAIL LAYOUT
-		galleryMosaic : [                       // default layout
-			{ w: 2, h: 2, c: 1, r: 1 },
-			{ w: 1, h: 1, c: 3, r: 1 },
-			{ w: 1, h: 1, c: 3, r: 2 },
-			{ w: 1, h: 2, c: 4, r: 1 },
-			{ w: 2, h: 1, c: 5, r: 1 },
-			{ w: 2, h: 2, c: 5, r: 2 },
-			{ w: 1, h: 1, c: 4, r: 3 },
-			{ w: 2, h: 1, c: 2, r: 3 },
-			{ w: 1, h: 2, c: 1, r: 3 },
-			{ w: 1, h: 1, c: 2, r: 4 },
-			{ w: 2, h: 1, c: 3, r: 4 },
-			{ w: 1, h: 1, c: 5, r: 4 },
-			{ w: 1, h: 1, c: 6, r: 4 }
-		  ],
-		galleryMosaicXS : [                     // layout for XS width
-			{ w: 2, h: 2, c: 1, r: 1 },
-			{ w: 1, h: 1, c: 3, r: 1 },
-			{ w: 1, h: 1, c: 3, r: 2 },
-			{ w: 1, h: 2, c: 1, r: 3 },
-			{ w: 2, h: 1, c: 2, r: 3 },
-			{ w: 1, h: 1, c: 2, r: 4 },
-			{ w: 1, h: 1, c: 3, r: 4 }
-		  ],
-		galleryMosaicSM : [                     // layout for SM width
-			{ w: 2, h: 2, c: 1, r: 1 },
-			{ w: 1, h: 1, c: 3, r: 1 },
-			{ w: 1, h: 1, c: 3, r: 2 },
-			{ w: 1, h: 2, c: 1, r: 3 },
-			{ w: 2, h: 1, c: 2, r: 3 },
-			{ w: 1, h: 1, c: 2, r: 4 },
-			{ w: 1, h: 1, c: 3, r: 4 }
-		  ],
-		galleryMaxRows: 1,
-		galleryDisplayMode: 'rows',
-		gallerySorting: 'random',
-		thumbnailDisplayOrder: 'random',
+  /* month label for photo index k (0..MONTHS_COUNT-1) */
+  function monthOf(k, short){
+    var i = START.m + k;
+    var name = (short ? MONTHS_SHORT : MONTHS)[i % 12];
+    var year = START.y + Math.floor(i / 12);
+    /* the span covers two calendar years, so a short year keeps ספט 26 / ספט 27 apart */
+    return { name: name, year: year, short: name + ' ' + String(year).slice(2), full: name + ' ' + year };
+  }
+  function rangeText(){
+    var a = monthOf(0), b = monthOf(MONTHS_COUNT - 1);
+    return a.name + ' ' + a.year + ' – ' + b.name + ' ' + b.year;
+  }
 
-		thumbnailHeight: '180', thumbnailWidth: '220',
-		thumbnailAlignment: 'scaled',
-		thumbnailGutterWidth: 0, thumbnailGutterHeight: 0,
-		thumbnailBorderHorizontal: 0, thumbnailBorderVertical: 0,
+  document.getElementById('rangeNote').textContent = rangeText();
 
-		thumbnailToolbarImage: null,
-		thumbnailToolbarAlbum: null,
-		thumbnailLabel: { display: false },
+  /* ---------- build cards ---------- */
+  var grid = document.getElementById('grid');
 
-		// DISPLAY ANIMATION
-		// for gallery
-		galleryDisplayTransitionDuration: 1500,
-		// for thumbnails
-		thumbnailDisplayTransition: 'imageSlideUp',
-		thumbnailDisplayTransitionDuration: 1200,
-		thumbnailDisplayTransitionEasing: 'easeInOutQuint',
-		thumbnailDisplayInterval: 60,
+  CALENDARS.forEach(function(cal, ci){
+    var card = document.createElement('article');
+    card.className = 'card';
 
-		// THUMBNAIL HOVER ANIMATION
-		thumbnailBuildInit2: 'image_scale_1.15',
-		thumbnailHoverEffect2: 'thumbnail_scale_1.00_1.05_300|image_scale_1.15_1.00',
-		touchAnimation: true,
-		touchAutoOpenDelay: 500,
+    var cover = document.createElement('a');
+    cover.className = 'card-cover';
+    cover.href = '#';
+    cover.setAttribute('role', 'button');
+    cover.setAttribute('aria-label', 'פתיחת לוח ' + cal.title);
+    cover.innerHTML =
+      '<img src="' + (cal.thumb || cal.cover.src) + '" alt="' + cal.title + '" loading="lazy" decoding="async">' +
+      '<span class="badge">שער + 13 חודשים</span>' +
+      '<span class="play"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 8l5 4-5 4z" fill="#fff" stroke="none"/></svg></span>' +
+      '<span class="cover-txt"><h2>' + cal.title + '</h2><p class="sub">' + cal.subtitle + '</p></span>';
+    cover.addEventListener('click', function(e){ e.preventDefault(); openViewer(ci, 0); });
+    card.appendChild(cover);
 
-		// LIGHTBOX
-		viewerToolbar: { display: false },
-		viewerTools:    {
-			topLeft:   'label',
-			topRight:  'shareButton, rotateLeft, rotateRight, fullscreenButton, closeButton'
-		  },
+    /* thumbnail strip: cover + 13 months */
+    var wrap = document.createElement('div');
+    wrap.className = 'strip-wrap';
+    var strip = document.createElement('div');
+    strip.className = 'strip';
+    strip.setAttribute('aria-label', 'תמונות הלוח');
 
-		// GALLERY THEME
-		galleryTheme : { 
-			thumbnail: { background: '#fff' },
-		  },
-					
-		// DEEP LINKING
-		locationHash: true
+    allItems(cal).forEach(function(item, idx){
+      var b = document.createElement('button');
+      b.type = 'button';
+      if (idx === 0) b.setAttribute('data-cover', '1');
+      b.innerHTML = '<img src="' + item.src + '" alt="' + item.caption + '" loading="lazy" decoding="async">' +
+                    '<span class="lbl" data-idx="' + idx + '"></span>';
+      b.addEventListener('click', function(){ openViewer(ci, idx); });
+      strip.appendChild(b);
+    });
+    wrap.appendChild(strip);
+    card.appendChild(wrap);
 
-	  });
+    var foot = document.createElement('div');
+    foot.className = 'card-foot';
+    var open = document.createElement('button');
+    open.type = 'button';
+    open.className = 'btn btn-main';
+    open.innerHTML = 'צפייה בלוח';
+    open.addEventListener('click', function(){ openViewer(ci, 0); });
+    foot.appendChild(open);
+    if (cal.demo){
+      var demo = document.createElement('a');
+      demo.className = 'btn btn-ghost';
+      demo.href = cal.demo;
+      demo.textContent = 'הדגמה';
+      foot.appendChild(demo);
+    }
+    card.appendChild(foot);
+
+    card._strip = strip;
+    grid.appendChild(card);
   });
+
+  /* item list = [cover, month1..month13] */
+  function allItems(cal){ return [cal.cover].concat(cal.photos); }
+
+  function labelCards(){
+    Array.prototype.forEach.call(grid.children, function(card){
+      Array.prototype.forEach.call(card._strip.querySelectorAll('.lbl'), function(el){
+        var i = +el.getAttribute('data-idx');
+        el.textContent = i === 0 ? 'שער' : monthOf(i - 1, true).short;
+      });
+    });
+  }
+
+  /* ---------- viewer ---------- */
+  var viewer  = document.getElementById('viewer');
+  var vTrack  = document.getElementById('vTrack');
+  var vStage  = document.getElementById('vStage');
+  var vTitle  = document.getElementById('vTitle');
+  var vCount  = document.getElementById('vCount');
+  var vMonth  = document.getElementById('vMonth');
+  var vStrip  = document.getElementById('vStrip');
+  var vPrev   = document.getElementById('vPrev');
+  var vNext   = document.getElementById('vNext');
+  var vHint   = document.getElementById('vHint');
+
+  function openViewer(ci, idx){
+    V.ci = ci; V.cal = CALENDARS[ci];
+    V.items = allItems(V.cal);
+    V.i = Math.max(0, Math.min(V.items.length - 1, idx));
+    V.open = true;
+
+    vTrack.innerHTML = '';
+    V.items.forEach(function(item, k){
+      var s = document.createElement('div');
+      s.className = 'v-slide';
+      var img = document.createElement('img');
+      /* only near slides load immediately */
+      if (Math.abs(k - V.i) <= 1) img.src = item.src; else img.dataset.src = item.src;
+      img.alt = item.caption;
+      img.decoding = 'async';
+      img.draggable = false;
+      s.appendChild(img);
+      vTrack.appendChild(s);
+    });
+
+    vTitle.innerHTML = V.cal.title + '<small>' + rangeText() + '</small>';
+    buildVStrip();
+    viewer.classList.add('open');
+    document.body.classList.add('viewer-open');
+    measure();
+    goTo(V.i, false);
+    //vHint.classList.remove('hide');
+    //setTimeout(function(){ vHint.classList.add('hide'); }, 2600);
+    document.getElementById('vClose').focus();
+  }
+
+  function closeViewer(){
+    V.open = false;
+    viewer.classList.remove('open');
+    document.body.classList.remove('viewer-open');
+    vTrack.innerHTML = '';
+  }
+
+  function measure(){ V.w = vStage.clientWidth || window.innerWidth; }
+
+  function buildVStrip(){
+    vStrip.innerHTML = '';
+    V.items.forEach(function(item, k){
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.textContent = k === 0 ? 'שער' : monthOf(k - 1, true).short;
+      b.addEventListener('click', function(){ goTo(k, true); });
+      vStrip.appendChild(b);
+    });
+    markStrip();
+  }
+
+  function markStrip(){
+    var kids = vStrip.children;
+    for (var k = 0; k < kids.length; k++) kids[k].classList.toggle('active', k === V.i);
+    /* on the cover, park the strip at its RTL start (the right edge) instead
+       of centring, so the first chip you see is שער */
+    if (V.i === 0) { vStrip.scrollLeft = 0; return; }
+    var act = kids[V.i];
+    if (act && act.scrollIntoView) act.scrollIntoView({ inline:'center', block:'nearest', behavior:'smooth' });
+  }
+
+  function renderMonth(){
+    var item = V.items[V.i];
+    var label = V.i === 0 ? 'שער' : monthOf(V.i - 1).full;
+    vMonth.innerHTML = '<span class="m">' + label + '</span><span class="c">' + item.caption + '</span>';
+    vCount.textContent = (V.i + 1) + ' / ' + V.items.length;
+    vTitle.innerHTML = V.cal.title + '<small>' + rangeText() + '</small>';
+  }
+
+  function lazyNear(){
+    for (var k = V.i - 1; k <= V.i + 1; k++){
+      var s = vTrack.children[k];
+      if (!s) continue;
+      var img = s.firstChild;
+      if (img && !img.src && img.dataset.src){ img.src = img.dataset.src; delete img.dataset.src; }
+    }
+  }
+
+  function setX(px, animate){
+    vTrack.classList.toggle('anim', !!animate);
+    vTrack.style.transform = 'translate3d(' + px + 'px,0,0)';
+  }
+
+  function goTo(i, animate){
+    V.i = Math.max(0, Math.min(V.items.length - 1, i));
+    measure();
+    setX(V.i * V.w, animate);
+    renderMonth();
+    markStrip();
+    lazyNear();
+    vPrev.disabled = V.i === 0;
+    vNext.disabled = V.i === V.items.length - 1;
+  }
+
+  vPrev.addEventListener('click', function(){ goTo(V.i - 1, true); });
+  vNext.addEventListener('click', function(){ goTo(V.i + 1, true); });
+  document.getElementById('vClose').addEventListener('click', closeViewer);
+
+  /* touch / pointer swipe (RTL track: drag right => next) */
+  function onDown(x, y){
+    V.dragging = true; V.locked = null; V.x0 = x; V.y0 = y; V.dx = 0;
+    vTrack.classList.remove('anim');
+    vHint.classList.add('hide');
+  }
+  function onMove(x, y, ev){
+    if (!V.dragging) return;
+    var dx = x - V.x0, dy = y - V.y0;
+    if (V.locked === null){
+      if (Math.abs(dx) < 6 && Math.abs(dy) < 6) return;
+      V.locked = Math.abs(dx) > Math.abs(dy) ? 'x' : 'y';
+    }
+    if (V.locked !== 'x') return;
+    if (ev && ev.cancelable) ev.preventDefault();
+    /* rubber band at the edges */
+    if ((V.i === 0 && dx < 0) || (V.i === V.items.length - 1 && dx > 0)) dx *= 0.35;
+    V.dx = dx;
+    setX(V.i * V.w + dx, false);
+  }
+  function onUp(){
+    if (!V.dragging) return;
+    V.dragging = false;
+    var threshold = Math.min(90, V.w * 0.18);
+    if (V.locked === 'x' && Math.abs(V.dx) > threshold) goTo(V.i + (V.dx > 0 ? 1 : -1), true);
+    else goTo(V.i, true);
+    V.dx = 0; V.locked = null;
+  }
+
+  vStage.addEventListener('touchstart', function(e){
+    if (e.touches.length !== 1) return;
+    onDown(e.touches[0].clientX, e.touches[0].clientY);
+  }, { passive:true });
+  vStage.addEventListener('touchmove', function(e){
+    if (e.touches.length !== 1) return;
+    onMove(e.touches[0].clientX, e.touches[0].clientY, e);
+  }, { passive:false });
+  vStage.addEventListener('touchend', onUp, { passive:true });
+  vStage.addEventListener('touchcancel', onUp, { passive:true });
+
+  vStage.addEventListener('mousedown', function(e){ e.preventDefault(); onDown(e.clientX, e.clientY); });
+  window.addEventListener('mousemove', function(e){ onMove(e.clientX, e.clientY, null); });
+  window.addEventListener('mouseup', onUp);
+
+  window.addEventListener('resize', function(){ if (V.open) goTo(V.i, false); });
+  window.addEventListener('orientationchange', function(){ if (V.open) setTimeout(function(){ goTo(V.i, false); }, 250); });
+
+  document.addEventListener('keydown', function(e){
+    if (!V.open) return;
+    if (e.key === 'Escape') closeViewer();
+    /* RTL: ArrowLeft advances (photo slides in from the left), ArrowRight goes back */
+    else if (e.key === 'ArrowLeft')  goTo(V.i + 1, true);
+    else if (e.key === 'ArrowRight') goTo(V.i - 1, true);
+    else if (e.key === 'Home') goTo(0, true);
+    else if (e.key === 'End')  goTo(V.items.length - 1, true);
+  });
+
+  /* ---------- go ---------- */
+  labelCards();
+})();
 </script>
-<!-- //Nanogallery -->
-
-
 </body>
 </html>
