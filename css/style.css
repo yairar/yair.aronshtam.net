@@ -1151,6 +1151,29 @@ section.cd-section {
 	padding: 300px 0;
 }
 
+.paralax3 {
+	background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url("../calendar/images/parallax1.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	color: #FFF;
+	padding: 220px 0;
+}
+
+.paralax3 h4 {
+	margin-top: 15px;
+	color: #FFF;
+	text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.paralax3 h1 {
+	text-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+}
+
 /*-- Footer --*/
 
 .footer {
@@ -1411,7 +1434,7 @@ a.to-top {
 	.camera_caption h3 {
 		font-size: 40px;
 	}
-	.agileaboutaitsabout, .w3threespecialityw3ls, .progressive-effects, .portfolio, .w3layoutsbooking, .paralax2 {
+	.agileaboutaitsabout, .w3threespecialityw3ls, .progressive-effects, .portfolio, .w3layoutsbooking, .paralax2, .paralax3 {
 		padding: 75px 0;
 	}
 	.agileaboutaits h1 {
@@ -1581,7 +1604,7 @@ a.to-top {
 	.camera_caption h3 {
 		font-size: 35px;
 	}
-	.agileaboutaitsabout, .w3threespecialityw3ls, .progressive-effects, .portfolio, .w3layoutsbooking. .paralax2 {
+	.agileaboutaitsabout, .w3threespecialityw3ls, .progressive-effects, .portfolio, .w3layoutsbooking. .paralax2, .paralax3 {
 		padding: 50px 0;
 	}
 	.agileaboutaits h1, .w3threespecialityw3ls h2, #skills h3, .portfolio h3, .w3layoutsbooking h3 {
@@ -1760,7 +1783,7 @@ a.to-top {
 	.agileheaderw3ls {
 		padding-bottom: 276px;
 	}
-	.agileaboutaitsabout, .w3threespecialityw3ls, .progressive-effects, .portfolio, .w3layoutsbooking, .paralax2 {
+	.agileaboutaitsabout, .w3threespecialityw3ls, .progressive-effects, .portfolio, .w3layoutsbooking, .paralax2, .paralax3 {
 		padding: 35px 0;
 	}
 	.agileaboutaits h1, .w3threespecialityw3ls h2, #skills h3, .portfolio h3, .w3layoutsbooking h3, .footer h3 {

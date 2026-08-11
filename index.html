@@ -71,8 +71,11 @@
 					<li><a class="scroll" href="#portfolio">תמונות שלי</a></li>
 					<li><a class="scroll" href="#gush-etzion">גוש עציון</a></li>
 					<li><a class="scroll" href="#album">אלבום גוש עציון</a></li>
+					<li><a class="scroll" href="#alive">נופים מתעוררים לחיים</a></li>
+					<li><a class="scroll" href="#calendar">לוחות שנה</a></li>
 					<li><a class="scroll" href="#contact">הזמנות</a></li>
-					<li><a class="scroll" href="calendar/">לוח שנה</a></li>
+					<li><a href="calendar/">קטלוג לוחות שנה</a></li>
+					<li><a href="alive/">הגולן והצפון בתנועה</a></li>
 					<!--li><a class="scroll" href=""></a></li-->
 				</ul>
 			</nav>
@@ -853,7 +856,7 @@
 					<figure>
 						<a href="./golan-moments/">
 							<div class="w3threespecialityw3ls-info">
-								<img src="images/golan-1.jpg">
+								<img src="images/golan-2.jpg">
 							</div>
 							<figcaption>
 								<h3>בא לי לראות עוד</h3>
@@ -865,7 +868,7 @@
 					<figure>
 						<a href="./golan-moments/">
 							<div class="w3threespecialityw3ls-info">
-								<img src="images/golan-2.jpg">
+								<img src="images/golan-4.jpg">
 							</div>
 							<figcaption>
 								<h3>אני ממשיך למסע</h3>
@@ -886,42 +889,6 @@
 					</figure>
 				</div>
 
-				<div class="col-md-4 col-sm-4 w3threespecialityw3ls-grid grid5">
-					<figure>
-						<a href="./golan-moments/">
-							<div class="w3threespecialityw3ls-info">
-								<img src="images/golan-4.jpg">
-							</div>
-							<figcaption>
-								<h3>תן לי עוד מהיופי הזה</h3>
-							</figcaption>
-						</a>
-					</figure>
-				</div>
-				<div class="col-md-4 col-sm-4 w3threespecialityw3ls-grid grid6">
-					<figure>
-						<a href="./golan-moments/">
-							<div class="w3threespecialityw3ls-info">
-								<img src="images/golan-5.jpg">
-							</div>
-							<figcaption>
-								<h3>תראה לי עוד מהגולן</h3>
-							</figcaption>
-						</a>
-					</figure>
-				</div>
-				<div class="col-md-4 col-sm-4 w3threespecialityw3ls-grid grid6">
-					<figure>
-						<a href="./golan-moments/">
-							<div class="w3threespecialityw3ls-info">
-								<img src="images/golan-6.jpg">
-							</div>
-							<figcaption>
-								<h3>פתח לי עוד נופים</h3>
-							</figcaption>
-						</a>
-					</figure>
-				</div>				
 				<div class="clearfix"></div>
 			</div>
 			<div class="clearfix"></div>
@@ -929,6 +896,70 @@
 		</div>
 	</div>
 	<!-- //Golan -->
+
+
+	<!-- Alive -->
+	<div class="w3threespecialityw3ls" id="alive">
+		<div class="container">
+
+			<h2>הנופים מתעוררים לחיים</h2>
+			<h4 style="text-align:center; margin-bottom:30px;">תמונות שהופכות לתנועה - הגולן והצפון כפי שראיתי אותם ברגע עצמו</h4>
+			<div class="grid cs-style-3">
+				<div class="col-md-4 col-sm-4 w3threespecialityw3ls-grid grid1">
+					<figure>
+						<a href="./alive/">
+							<div class="w3threespecialityw3ls-info">
+								<img src="alive/img/hero-img-2.jpg" alt="זריחה בגולן">
+							</div>
+							<figcaption>
+								<h3>זריחה שמתעוררת</h3>
+							</figcaption>
+						</a>
+					</figure>
+				</div>
+				<div class="col-md-4 col-sm-4 w3threespecialityw3ls-grid grid2">
+					<figure>
+						<a href="./alive/">
+							<div class="w3threespecialityw3ls-info">
+								<img src="alive/img/hero-img-1.jpg" alt="הכנרת מהגולן">
+							</div>
+							<figcaption>
+								<h3>הכנרת מלמעלה</h3>
+							</figcaption>
+						</a>
+					</figure>
+				</div>
+				<div class="col-md-4 col-sm-4 w3threespecialityw3ls-grid grid3">
+					<figure>
+						<a href="./alive/">
+							<div class="w3threespecialityw3ls-info">
+								<img src="alive/img/hero-img-4.jpg" alt="חוף הכנרת">
+							</div>
+							<figcaption>
+								<h3>מים, אור וצל</h3>
+							</figcaption>
+						</a>
+					</figure>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+			<div class="clearfix"></div>
+
+		</div>
+	</div>
+	<!-- //Alive -->
+
+
+	<!-- Paralax3 - Calendar -->
+	<a href="calendar/">
+	<div class="paralax3" id="calendar">
+		<div class="container">
+			<h1>לוחות שנה תשפ"ז</h1>
+			<h4 dir="rtl">13 תמונות בכל לוח - נופי ישראל, רמת הגולן וגוש עציון</h4>
+		</div>
+	</div>
+	</a>
+	<!-- //Paralax3 -->
 
 
 	<!-- Footer -->
@@ -1067,7 +1098,9 @@
 			<script type="text/javascript">
 					jQuery(document).ready(function($) {
 						$(".scroll, .navbar li a, .footer li a").click(function(event){
-							$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+							var target = this.hash ? $(this.hash) : $();
+							if (!target.length) { return; }
+							$('html,body').animate({scrollTop:target.offset().top},1000);
 						});
 					});
 			</script>
