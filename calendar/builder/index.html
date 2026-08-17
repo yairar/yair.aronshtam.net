@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calendar Builder - Create Your Personalized Calendar</title>
+<meta name="description" content="Build a custom 13-month calendar with your favorite photos. Select from 200+ images and create a personalized calendar starting from any month.">
+<meta name="author" content="Calendar Builder">
+<meta property="og:title" content="Calendar Builder - Create Your Personalized Calendar">
+<meta property="og:description" content="Build a custom 13-month calendar with your favorite photos">
+<meta property="og:type" content="website">
+<link rel="icon" href="../../favicon.ico">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="brand">
+      <div class="brand-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+      </div>
+      <div>
+        <h1 data-i18n="appTitle">Calendar Builder</h1>
+        <p class="muted small" data-i18n="appSubtitle">Create your personalized calendar</p>
+      </div>
+    </div>
+
+    <div class="header-actions">
+      <div class="field">
+        <label for="startMonth" data-i18n="startMonth">Start Month:</label>
+        <select id="startMonth" class="select"></select>
+      </div>
+      <div class="btn-row">
+        <button id="exportBtn" class="btn btn-outline">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+          <span data-i18n="export">Export</span>
+        </button>
+        <button id="importBtn" class="btn btn-outline">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M17 8l-5-5-5 5"/><path d="M12 3v12"/></svg>
+          <span data-i18n="import">Import</span>
+        </button>
+        <input type="file" id="importFile" accept=".json" hidden>
+        <button id="langBtn" class="btn btn-ghost">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 6 6M4 14l6-6 2-3M2 5h12M7 2h1M22 22l-5-10-5 10M14 18h6"/></svg>
+          <span id="langLabel">עב</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="container main">
+  <div class="page-head">
+    <h2 data-i18n="yourCalendar">Your Calendar</h2>
+    <p class="muted" data-i18n="clickMonth">Click on any month to select a photo</p>
+  </div>
+  <div id="status" class="status" hidden></div>
+  <div id="monthGrid" class="month-grid"></div>
+</main>
+
+<div id="pickerOverlay" class="overlay" hidden>
+  <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="pickerTitle">
+    <div class="dialog-head">
+      <h3 id="pickerTitle" data-i18n="selectPhoto">Select Photo</h3>
+      <button id="pickerClose" class="icon-btn" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="dialog-search">
+      <span class="search-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      </span>
+      <input id="pickerSearch" type="text" placeholder="Search photos..." data-i18n-ph="searchPhotos">
+    </div>
+    <div class="dialog-body">
+      <div id="photoGrid" class="photo-grid"></div>
+      <p id="noResults" class="muted center" hidden data-i18n="noResults">No photos found</p>
+    </div>
+  </div>
+</div>
+
+<div id="lightbox" class="lightbox" hidden>
+  <button id="lightboxClose" class="icon-btn lightbox-close" aria-label="Close">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+  </button>
+  <figure>
+    <img id="lightboxImg" alt="">
+    <figcaption id="lightboxCaption"></figcaption>
+  </figure>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
