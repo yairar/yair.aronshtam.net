@@ -35,6 +35,8 @@ var items = [
 {src:'../chrome_extension/golanphotos/banias26.jpg', title:'מפל בניאס', tags: 'banias summer israel'},
 {src:'../chrome_extension/golanphotos/banias27.jpg', title:'מפל בניאס', tags: 'banias summer israel'},
 {src:'../chrome_extension/golanphotos/banias28.jpg', title:'מפל בניאס', tags: 'banias summer israel'},
+{src:'../chrome_extension/golanphotos/baram1.jpg', title:'ברעם', tags: 'baram archeology summer israel'},
+{src:'../chrome_extension/golanphotos/beitshean1.jpg', title:'ברעם', tags: 'baram archeology summer israel'},
 
 {src:'image/batayin1.jpg', title:'נוף על בת עין', tags: 'batayin winter landscape gush'},
 {src:'../images/map/big/tzukeibatain9.jpg', title:'צוקי בת עין', tags: 'batayin winter bloom gush'},
@@ -119,7 +121,8 @@ var items = [
 {src:'image/einlivne5.jpg', title:"עין ליבנה", tags: 'maayan summer gush'},
 
 {src:'image/einmaim1.jpg', title:'עין מי"ם', tags: 'maayan einmaim spring gush'},
-{src:'image/einmigdal.jpg', title:'עין מגדל', tags: 'maayan einmigdal spring north best'},
+{src:'image/einshokek1.jpg', title:'עין שוקק', tags: 'maayan einshokek summer israel'},
+{src:'../chrome_extension/golanphotos/parkhamaayanot10.jpg', title:'עין מגדל', tags: 'maayan einmigdal spring north israel best'},
 
 {src:'image/einprat1.jpg', title:"עין פרת", tags: 'maayan winter israel'},
 {src:'image/einprat2.jpg', title:"עין פרת", tags: 'maayan winter israel best'},
@@ -129,7 +132,7 @@ var items = [
 {src:'../images/map/big/yaareretzayalim1.jpg', title:"יער ארץ האיילים", tags: 'forest spring landscape gush'},
 {src:'../images/map/big/yaareretzayalim7.jpg', title:"יער ארץ האיילים", tags: 'forest bloom autumn gush'},
 
-{src:'image/gesherkantra1.jpg', title:"גשר הקנטרה", tags: 'gesherkantra summer landscape israel'},
+{src:'../chrome_extension/golanphotos/gesherhakantra4.jpg', title:"גשר הקנטרה", tags: 'gesherkantra waterfall summer landscape israel'},
 
 {src:'../chrome_extension/golanphotos/ahunov1.jpg', title:"זריחה בנוב", tags: 'golan winter landscape israel sunrise'},
 {src:'../chrome_extension/golanphotos/ahunov2.jpg', title:"זריחה בואדי נוב", tags: 'golan winter sunrise landscape israel'},
@@ -337,7 +340,7 @@ var items = [
 
 {src:'../chrome_extension/golanphotos/einayub1.jpg', title:"עין איוב בכנרת", tags: 'golan kineret waterfall winter israel'},
 
-{src:'image/maayanharod1.jpg', title:"מעיין חרוד", tags: 'maayanharod summer landscape israel'},
+{src:'../chrome_extension/golanphotos/maayanharod1.jpg', title:"מעיין חרוד", tags: 'maayanharod summer landscape israel'},
 
 {src:'image/marsaba1.jpg', title:"מנזר מר סבא", tags: 'marsaba winter landscape desert israel'},
 
@@ -379,8 +382,8 @@ var items = [
 
 {src:'image/ramatsirin1.jpg', title:'פריחה ברמת סירין', tags: 'bloom winter israel'},		
 
-{src:'image/sahne1.jpg', title:'סחנה - גן השלושה', tags: 'sahne summer israel'},		
-{src:'image/sahne2.jpg', title:'סחנה - גן השלושה', tags: 'sahne summer israel best'},		
+{src:'../chrome_extension/golanphotos/sahne1.jpg', title:'סחנה - גן השלושה', tags: 'sahne summer israel best'},		
+{src:'../chrome_extension/golanphotos/sahne2.jpg', title:'סחנה - גן השלושה', tags: 'sahne summer israel best'},		
 
 {src:'image/sdeboaz1.jpg', title:'שקיעה מעל שדה בועז (נוף מאפרת)', tags: 'sdeboaz sunset summer gush'},		
 {src:'image/sdeboaz2.jpg', title:'שקיעה מעל שדה בועז (נוף מאפרת)', tags: 'sdeboaz sunset summer gush'},
