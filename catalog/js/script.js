@@ -36,7 +36,7 @@ var items = [
 {src:'../chrome_extension/golanphotos/banias27.jpg', title:'מפל בניאס', tags: 'banias summer israel'},
 {src:'../chrome_extension/golanphotos/banias28.jpg', title:'מפל בניאס', tags: 'banias summer israel'},
 {src:'../chrome_extension/golanphotos/baram1.jpg', title:'ברעם', tags: 'baram archeology summer israel'},
-{src:'../chrome_extension/golanphotos/beitshean1.jpg', title:'ברעם', tags: 'baram archeology summer israel'},
+{src:'../chrome_extension/golanphotos/beitshean1.jpg', title:'בית שאן', tags: 'beitshean archeology summer israel'},
 
 {src:'image/batayin1.jpg', title:'נוף על בת עין', tags: 'batayin winter landscape gush'},
 {src:'../images/map/big/tzukeibatain9.jpg', title:'צוקי בת עין', tags: 'batayin winter bloom gush'},
