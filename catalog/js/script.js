@@ -143,6 +143,10 @@ var items = [
 {src:'../chrome_extension/golanphotos/ahunov13.jpg', title:"פריחה באחו נוב", tags: 'golan winter bloom israel'},
 
 {src:'../chrome_extension/golanphotos/bajoriya4.jpg', title:"שלולית חורף בג'וריה", tags: 'golan winter landscape israel'},
+{src:'../chrome_extension/golanphotos/butamiya11.jpg', title:"מאגר בוטמיה", tags: 'golan maagar summer sunrise landscape israel'},
+{src:'../chrome_extension/golanphotos/butamiya12.jpg', title:"מאגר בוטמיה", tags: 'golan maagar summer sunrise landscape israel'},
+
+{src:'../chrome_extension/golanphotos/daliyot1.jpg', title:"יער דליות", tags: 'golan winter sunset landscape israel'},
 
 {src:'../chrome_extension/golanphotos/einhakshatot4.jpg', title:"בית כנסת בעין הקשתות", tags: 'golan winter archeology israel'},
 {src:'../chrome_extension/golanphotos/einhakshatot6.jpg', title:'בית כנסת בעין הקשתות', tags: 'golan winter archeology israel'},
