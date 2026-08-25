@@ -15,14 +15,14 @@ var CALENDARS = [
     photos: [
 	  { src: '../catalog/image/sea1.jpg', w: 1600, h: 1067, caption: 'שקיעה בים התיכון' },
       { src: '../catalog/image/jerusalem1.jpg', w: 1600, h: 1065, caption: 'העיר העתיקה, ירושלים' },
-      { src: '../catalog/image/sahne1.jpg', w: 1600, h: 1200, caption: 'הסחנה, גן השלושה' },
+      { src: '../chrome_extension/golanphotos/sahne1.jpg', w: 1600, h: 1200, caption: 'הסחנה, גן השלושה' },
       { src: '../catalog/image/marsaba1.jpg', w: 1600, h: 1067, caption: 'מנזר מר סבא' },
       { src: '../chrome_extension/golanphotos/zavitan2.jpg', w: 1600, h: 1200, caption: 'נחל זוויתן' },
       { src: '../catalog/image/bloom32.jpg', w: 1600, h: 1067, caption: 'כלניות ביער שוקדה, דרום אדום' },
       { src: '../chrome_extension/golanphotos/gamla3.jpg', w: 1600, h: 902, caption: 'גמלא, רמת הגולן' },
       { src: '../chrome_extension/golanphotos/hermon23.jpg', w: 1600, h: 1200, caption: 'נוף לחרמון' },
       { src: '../catalog/image/deadsea1.jpg', w: 1600, h: 1066, caption: 'בריכות ים המלח' },
-      { src: '../catalog/image/einmigdal.jpg', w: 1600, h: 1144, caption: 'עין מגדל, עמק המעיינות' },
+      { src: '../chrome_extension/golanphotos/parkhamaayanot10.jpg', w: 1600, h: 1144, caption: 'עין מגדל, עמק המעיינות' },
       { src: '../catalog/image/arugot3.jpg', w: 1400, h: 933, caption: 'נחל ערוגות' },
       { src: '../chrome_extension/golanphotos/banias27.jpg', w: 1600, h: 1200, caption: 'מפל הבניאס' },
       { src: '../catalog/image/bloom1.jpg', w: 1600, h: 1065, caption: 'פרדס רימונים' },
@@ -166,5 +166,27 @@ var CALENDARS = [
 	  { src: '../chrome_extension/golanphotos/kziv2.jpg', w: 1600, h: 1200, caption: 'נחל כזיב' },
     ]
   },  
-  
+  {
+    id: 'alive',
+    title: 'תמונות מתעוררות לחיים',
+    subtitle: 'נופי ישראל',
+    thumb: 'images/alive1.jpg',
+    demo: 'israel/',
+    cover: { src: '../chrome_extension/golanphotos/orvim2.jpg', w: 1600, h: 1200, caption: 'מפל עורבים' },
+    photos: [
+	  { src: '../chrome_extension/golanphotos/banias1.jpg', w: 1600, h: 1066, caption: 'נחל בניאס' },
+	  { src: '../chrome_extension/golanphotos/bajoriya4.jpg', w: 1600, h: 1200, caption: "שלולית חורף בג'וריה, רמת הגולן" },
+	  { src: '../chrome_extension/golanphotos/tayeletmavohama39.jpg', w: 1600, h: 1200, caption: 'חלמוניות בטיילת מבוא חמה' },	  
+	  { src: '../chrome_extension/golanphotos/zrimot60.jpg', w: 1600, h: 1200, caption: 'זרימות בגולן' },
+	  { src: '../chrome_extension/golanphotos/irusim1.jpg', w: 1600, h: 1200, caption: 'מפל האירוסים' },
+	  { src: '../chrome_extension/golanphotos/mapaleliad3.jpg', w: 1600, h: 1200, caption: 'מפל אליעד' },
+	  { src: '../chrome_extension/golanphotos/mapalayit1.jpg', w: 1600, h: 1199, caption: 'מפל עיט' },
+	  { src: '../chrome_extension/golanphotos/yehudiya16.jpg', w: 1600, h: 1200, caption: 'נחל יהודיה' },
+	  { src: '../chrome_extension/golanphotos/zavitan30.jpg', w: 1600, h: 1200, caption: 'נחל זוויתן' },	  
+	  { src: '../chrome_extension/golanphotos/katzr8.jpg', w: 1600, h: 1200, caption: 'מצוק ליד עין הקשתות' },
+	  { src: '../chrome_extension/golanphotos/mifgashhanahalim25.jpg', w: 1600, h: 1200, caption: 'מפגש הנחלים, סמך ואל על' },
+	  { src: '../chrome_extension/golanphotos/kziv1.jpg', w: 1600, h: 1200, caption: 'נחל כזיב' },
+	  { src: '../chrome_extension/golanphotos/parkhamaayanot3.jpg', w: 1600, h: 1200, caption: 'פארק המעיינות' },
+    ]
+  },
 ];
