@@ -40,7 +40,6 @@ var CALENDARS = [
 	  { src: '../chrome_extension/golanphotos/eintut7.jpg', w: 1600, h: 1200, caption: 'עין תות' },
       { src: '../chrome_extension/golanphotos/kineret3.jpg', w: 1600, h: 1200, caption: 'נוף לכנרת' },
       { src: '../chrome_extension/golanphotos/zavitan3.jpg', w: 1600, h: 1200, caption: 'נחל זוויתן' },
-      { src: '../chrome_extension/golanphotos/mapaleliad3.jpg', w: 1600, h: 1200, caption: 'מפל אליעד' },
       { src: '../chrome_extension/golanphotos/irusim1.jpg', w: 1600, h: 1200, caption: 'מפל האירוסים' },
       { src: '../chrome_extension/golanphotos/wadinov4.jpg', w: 1600, h: 1200, caption: 'ואדי נוב' },
       { src: '../chrome_extension/golanphotos/priha34.jpg', w: 1600, h: 1200, caption: 'פריחה בגולן' },
@@ -49,6 +48,7 @@ var CALENDARS = [
       { src: '../chrome_extension/golanphotos/zrimot45.jpg', w: 1600, h: 1200, caption: 'זרימות בגולן' },
       { src: '../chrome_extension/golanphotos/einpik1.jpg', w: 1600, h: 1200, caption: 'עין פיק' },
       { src: '../chrome_extension/golanphotos/einoteden1.jpg', w: 1600, h: 1200, caption: 'עיינות עדן' },
+      { src: '../chrome_extension/golanphotos/hatzavim1.jpg', w: 1600, h: 1200, caption: 'פריחת החצבים בגולן' },
     ]
   },
   {
